@@ -12,6 +12,7 @@ func enter() -> void:
 
 func process_physics(delta: float) -> State:
 	super.process_physics(delta)
+	determine_sprite_flip()
 	
 	var dir = get_movement_direction()
 	player.velocity.x = dir * air_move_speed

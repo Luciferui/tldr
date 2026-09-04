@@ -1,17 +1,18 @@
-class_name PlayerWalkState
+class_name PlayerIdleState
 extends PlayerState
 
-@export var animation_name: String = "walk"
-@export var move_speed: float = 200.0
-@export var idle_state: State
+@export var animation_name: String = "idle"
+@export var walk_state: State
 @export var jump_state: State
-@export var fall_state: State
 @export var punch_state: State
 @export var kick_state: State
 
 func enter() -> void:
 	player.sprite.play(animation_name)
 	player.sprite.flip_h = sprite_flip
+	
+#func exit(state : State = null) -> void:
+#	print("exit idle")
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed("jump") and player.is_on_floor():
@@ -23,16 +24,10 @@ func process_input(event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
-	print("here")
 	super.process_physics(delta)
+	player.velocity.x = 0
 	determine_sprite_flip()
 	
-	var dir = get_movement_direction()
-	player.velocity.x = dir * move_speed
-	print("here", dir)
-	
-	if dir == 0:
-		return idle_state
-	if not player.is_on_floor():
-		return fall_state
+	if get_movement_direction() != 0:
+		return walk_state
 	return null
