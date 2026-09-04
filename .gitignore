@@ -1,2 +1,3 @@
-.godot\editor\
-.godot/editor/
+\.godot\editor\
+/.godot/editor/
+.godot/editor/editor_layout.cfg
