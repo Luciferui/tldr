@@ -1,6 +1,5 @@
-res://Scripts/player_walk_state.gd
-res://Scripts/state_machine.gd
+res://Tilemap/level.tscn
+res://Scripts/Player/PlayerStates/playerstate.gd
 res://Animations/player_1.tscn
-res://Scripts/player_fall_state.gd
-res://Scripts/player_jump_state.gd
-res://Scripts/player_idle_state.gd
+res://Scripts/Player/PlayerStates/player_punch_state.gd
+res://Scripts/Player/PlayerStates/player_walk_state.gd
