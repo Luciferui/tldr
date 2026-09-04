@@ -7,6 +7,7 @@ extends PlayerState
 @export var hitbox: Hitbox
 
 var has_attacked: bool = false
+# gère l'arrêt du personnage jusqu'a la fin de l'animation
 
 func enter() -> void:
 	has_attacked = false
