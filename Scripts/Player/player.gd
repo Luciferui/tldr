@@ -1,5 +1,6 @@
 class_name Player
 extends CharacterBody2D
+##Joueur controllable [br]
 
 @onready var state_machine: StateMachine = $StateMachine
 @onready var sprite: AnimatedSprite2D = $Sprite

@@ -1,5 +1,7 @@
 class_name State
 extends Node
+##Classe abstraite state [br]
+##enter, exit(new_state), process_input(event), process_frame(delta), process_physics(delta)
 
 func enter() -> void:
 	pass

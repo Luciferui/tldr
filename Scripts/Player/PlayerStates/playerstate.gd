@@ -8,7 +8,7 @@ var sprite_flip: bool = false
 @export var move_right_action: String = "right"
 
 func _ready() -> void:
-	player = owner as Player
+	player = owner as Player #owner = premier parent qui est une scène
 
 func exit(new_state: State = null) -> void:
 	if new_state is PlayerState:
