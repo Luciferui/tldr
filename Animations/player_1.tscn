@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://d1u1t3fbs2da4" path="res://Assets/Sprites/Brawler-Girl/Walk/walk10.png" id="14_1b40w"]
 [ext_resource type="Script" uid="uid://cx6iomacw7umd" path="res://Scripts/state_machine.gd" id="16_bxgnc"]
 [ext_resource type="Script" uid="uid://bvbwrwksp8hjt" path="res://Scripts/player_idle_state.gd" id="17_2ri8u"]
+[ext_resource type="Script" uid="uid://bvyy2x5hx0gaj" path="res://Scripts/player_walk_state.gd" id="18_2230n"]
+[ext_resource type="Script" uid="uid://cdwm33efq4l8f" path="res://Scripts/player_jump_state.gd" id="19_d3d1g"]
+[ext_resource type="Script" uid="uid://d1vxorwm5xta4" path="res://Scripts/player_fall_state.gd" id="20_ratjp"]
 
 [sub_resource type="Animation" id="Animation_841sn"]
 resource_name = "Idle"
@@ -96,7 +99,7 @@ animations = [{
 "texture": ExtResource("4_2ri8u")
 }],
 "loop": 1,
-"name": &"Idle",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -131,7 +134,7 @@ animations = [{
 "texture": ExtResource("14_1b40w")
 }],
 "loop": 1,
-"name": &"Walk",
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -156,5 +159,22 @@ shape = SubResource("RectangleShape2D_ssidi")
 script = ExtResource("16_bxgnc")
 starting_state = NodePath("Idle")
 
-[node name="Idle" type="Node2D" parent="StateMachine" unique_id=849906485]
+[node name="Idle" type="Node2D" parent="StateMachine" unique_id=849906485 node_paths=PackedStringArray("walk_state", "jump_state")]
 script = ExtResource("17_2ri8u")
+walk_state = NodePath("../Walk")
+jump_state = NodePath("../Jump")
+
+[node name="Walk" type="Node2D" parent="StateMachine" unique_id=1181021020 node_paths=PackedStringArray("idle_state", "jump_state", "fall_state")]
+script = ExtResource("18_2230n")
+idle_state = NodePath("../Idle")
+jump_state = NodePath("../Jump")
+fall_state = NodePath("../Fall")
+
+[node name="Jump" type="Node2D" parent="StateMachine" unique_id=262411182 node_paths=PackedStringArray("fall_state")]
+script = ExtResource("19_d3d1g")
+fall_state = NodePath("../Fall")
+
+[node name="Fall" type="Node2D" parent="StateMachine" unique_id=1746493180 node_paths=PackedStringArray("idle_state", "walk_state")]
+script = ExtResource("20_ratjp")
+idle_state = NodePath("../Idle")
+walk_state = NodePath("../Walk")

@@ -10,6 +10,9 @@ extends PlayerState
 func enter() -> void:
 	player.sprite.play(animation_name)
 	player.sprite.flip_h = sprite_flip
+	
+#func exit(state : State = null) -> void:
+#	print("exit idle")
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed("jump") and player.is_on_floor():
@@ -26,5 +29,6 @@ func process_physics(delta: float) -> State:
 	determine_sprite_flip()
 	
 	if get_movement_direction() != 0:
+		print("i am going out of idle")
 		return walk_state
 	return null

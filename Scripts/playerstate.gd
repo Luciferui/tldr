@@ -4,11 +4,10 @@ extends State
 var player: Player
 var sprite_flip: bool = false
 
-@export var move_left_action: String = "move_left"
-@export var move_right_action: String = "move_right"
+@export var move_left_action: String = "left"
+@export var move_right_action: String = "right"
 
 func _ready() -> void:
-	await owner.ready
 	player = owner as Player
 
 func exit(new_state: State = null) -> void:
@@ -28,5 +27,4 @@ func determine_sprite_flip() -> void:
 		sprite_flip = true
 	elif Input.is_action_pressed(move_right_action):
 		sprite_flip = false
-	
 	player.sprite.flip_h = sprite_flip

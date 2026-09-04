@@ -23,11 +23,13 @@ func process_input(event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
+	print("here")
 	super.process_physics(delta)
 	determine_sprite_flip()
 	
 	var dir = get_movement_direction()
 	player.velocity.x = dir * move_speed
+	print("here", dir)
 	
 	if dir == 0:
 		return idle_state
