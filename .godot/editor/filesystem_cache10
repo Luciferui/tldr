@@ -1,10 +1,10 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1788532363
+::res://::1788533272
 icon.svg::CompressedTexture2D::1035716569561438821::1788529959::1788530022::1::::<><><>0<>0<>6ba1599bbe4da8fe247ccc87237941db<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1788515138::0::1::::<><><>0<>0<><>::
 ::res://2D-Platformer-Starter-Kit-main/::1788529959
-::res://Animations/::1788532159
-player_1.tscn::PackedScene::2074199177433274489::1788532159::0::1::::<><><>0<>0<><>::uid://yjyk6jav6o1k::::res://Scripts/player.gd<>uid://cwufqh807xaqw::::res://Assets/Sprites/Brawler-Girl/Idle/idle1.png<>uid://bknft8h8j7x1y::::res://Assets/Sprites/Brawler-Girl/Idle/idle2.png<>uid://dqb45f1umr46v::::res://Assets/Sprites/Brawler-Girl/Idle/idle3.png<>uid://bfp7epfh8yygc::::res://Assets/Sprites/Brawler-Girl/Idle/idle4.png<>uid://db8twyxrp8ur1::::res://Assets/Sprites/Brawler-Girl/Walk/walk1.png<>uid://duhibxneq8bwc::::res://Assets/Sprites/Brawler-Girl/Walk/walk2.png<>uid://djfwkr3ud05mt::::res://Assets/Sprites/Brawler-Girl/Walk/walk3.png<>uid://ci8crls230eij::::res://Assets/Sprites/Brawler-Girl/Walk/walk4.png<>uid://dii1rsfgjhi6k::::res://Assets/Sprites/Brawler-Girl/Walk/walk5.png<>uid://dyntjoj7wy45g::::res://Assets/Sprites/Brawler-Girl/Walk/walk6.png<>uid://bwcs17lua1ht6::::res://Assets/Sprites/Brawler-Girl/Walk/walk7.png<>uid://d0x3pkmu7a1of::::res://Assets/Sprites/Brawler-Girl/Walk/walk8.png<>uid://ccbl4ru58cla6::::res://Assets/Sprites/Brawler-Girl/Walk/walk9.png<>uid://d1u1t3fbs2da4::::res://Assets/Sprites/Brawler-Girl/Walk/walk10.png<>uid://cx6iomacw7umd::::res://Scripts/state_machine.gd<>uid://bvbwrwksp8hjt::::res://Scripts/player_idle_state.gd<>uid://bvyy2x5hx0gaj::::res://Scripts/player_walk_state.gd<>uid://cdwm33efq4l8f::::res://Scripts/player_jump_state.gd<>uid://d1vxorwm5xta4::::res://Scripts/player_fall_state.gd
+::res://Animations/::1788533272
+player_1.tscn::PackedScene::2074199177433274489::1788533272::0::1::::<><><>0<>0<><>::uid://yjyk6jav6o1k::::res://Scripts/Player/player.gd<>uid://cwufqh807xaqw::::res://Assets/Sprites/Brawler-Girl/Idle/idle1.png<>uid://bknft8h8j7x1y::::res://Assets/Sprites/Brawler-Girl/Idle/idle2.png<>uid://dqb45f1umr46v::::res://Assets/Sprites/Brawler-Girl/Idle/idle3.png<>uid://bfp7epfh8yygc::::res://Assets/Sprites/Brawler-Girl/Idle/idle4.png<>uid://db8twyxrp8ur1::::res://Assets/Sprites/Brawler-Girl/Walk/walk1.png<>uid://duhibxneq8bwc::::res://Assets/Sprites/Brawler-Girl/Walk/walk2.png<>uid://djfwkr3ud05mt::::res://Assets/Sprites/Brawler-Girl/Walk/walk3.png<>uid://ci8crls230eij::::res://Assets/Sprites/Brawler-Girl/Walk/walk4.png<>uid://dii1rsfgjhi6k::::res://Assets/Sprites/Brawler-Girl/Walk/walk5.png<>uid://dyntjoj7wy45g::::res://Assets/Sprites/Brawler-Girl/Walk/walk6.png<>uid://bwcs17lua1ht6::::res://Assets/Sprites/Brawler-Girl/Walk/walk7.png<>uid://d0x3pkmu7a1of::::res://Assets/Sprites/Brawler-Girl/Walk/walk8.png<>uid://ccbl4ru58cla6::::res://Assets/Sprites/Brawler-Girl/Walk/walk9.png<>uid://d1u1t3fbs2da4::::res://Assets/Sprites/Brawler-Girl/Walk/walk10.png<>uid://cx6iomacw7umd::::res://Scripts/Abstract/state_machine.gd<>uid://bvbwrwksp8hjt::::res://Scripts/Player/PlayerStates/player_idle_state.gd<>uid://bvyy2x5hx0gaj::::res://Scripts/Player/PlayerStates/player_walk_state.gd<>uid://cdwm33efq4l8f::::res://Scripts/Player/PlayerStates/player_jump_state.gd<>uid://d1vxorwm5xta4::::res://Scripts/Player/PlayerStates/player_fall_state.gd
 ::res://Assets/::1788529959
 ::res://Assets/Aseprite/::1788529959
 ::res://Assets/Previews/::1788529959
@@ -116,19 +116,22 @@ ethereum-2.png::CompressedTexture2D::9174223797333824058::1788529959::1788530022
 ::res://Assets/Stage Layers/props/Sushi/::1788530022
 sushi-1.png::CompressedTexture2D::6994510081169605634::1788529959::1788530022::1::::<><><>0<>0<>c974dd05ab75db4dc6f57d3a7c7c5b05<>res://.godot/imported/sushi-1.png-b51754ac8faea65c48bea61a5b399711.ctex::
 sushi-2.png::CompressedTexture2D::6538627194264887176::1788529959::1788530022::1::::<><><>0<>0<>6c1fa6b34de8fc7bcff65dfc34c7abd4<>res://.godot/imported/sushi-2.png-3b143a5db5442cd9ad76a767147e39a4.ctex::
-::res://Scripts/::1788532074
+::res://Scripts/::1788533272
 camera_2d.gd::GDScript::1176361606242417945::1788529959::0::1::::GameCamera<>Camera2D<><>0<>0<><>::
 hitbox.gd::GDScript::596470796041582072::1788529959::0::1::::Hitbox<>Area2D<><>0<>0<><>::
+::res://Scripts/Abstract/::1788533272
+state.gd::GDScript::3034302706482477598::1788529959::0::1::::State<>Node<><>0<>0<><>::
+state_machine.gd::GDScript::6451691848895353483::1788532560::0::1::::StateMachine<>Node<><>0<>0<><>::
+::res://Scripts/Player/::1788533256
 player.gd::GDScript::1704588355021152062::1788530631::0::1::::Player<>CharacterBody2D<><>0<>0<><>::
-playerstate.gd::GDScript::8764603935900069313::1788531937::0::1::::PlayerState<>State<><>0<>0<><>::
-player_fall_state.gd::GDScript::9028946337920588417::1788529959::0::1::::PlayerFallState<>PlayerState<><>0<>0<><>::
+::res://Scripts/Player/PlayerStates/::1788533236
+player_fall_state.gd::GDScript::9028946337920588417::1788532661::0::1::::PlayerFallState<>PlayerState<><>0<>0<><>::
 player_hurtbox.gd::GDScript::7843823133354512247::1788529959::0::1::::PlayerHurtbox<>Area2D<><>0<>0<><>::
-player_idle_state.gd::GDScript::3863818081984021785::1788532044::0::1::::PlayerIdleState<>PlayerState<><>0<>0<><>::
-player_jump_state.gd::GDScript::5029604292114882843::1788531841::0::1::::PlayerJumpState<>PlayerState<><>0<>0<><>::
+player_idle_state.gd::GDScript::3863818081984021785::1788533093::0::1::::PlayerIdleState<>PlayerState<><>0<>0<><>::
+player_jump_state.gd::GDScript::5029604292114882843::1788532671::0::1::::PlayerJumpState<>PlayerState<><>0<>0<><>::
 player_pain_state.gd::GDScript::1103678076161608722::1788529959::0::1::::PlayerPainState<>PlayerState<><>0<>0<><>::
 player_punch_state.gd::GDScript::436730451713615051::1788529959::0::1::::PlayerPunchState<>PlayerState<><>0<>0<><>::
-player_walk_state.gd::GDScript::3911438145182002105::1788531956::0::1::::PlayerWalkState<>PlayerState<><>0<>0<><>::
-state.gd::GDScript::3034302706482477598::1788529959::0::1::::State<>Node<><>0<>0<><>::
-state_machine.gd::GDScript::6451691848895353483::1788532074::0::1::::StateMachine<>Node<><>0<>0<><>::
-::res://Tilemap/::1788530042
-level.tscn::PackedScene::5458882924404468679::1788530042::0::1::::<><><>0<>0<><>::uid://ck04d4s0je47f::::res://Assets/Stage Layers/tileset.png<>uid://4s000tfvfba4::::res://Animations/player_1.tscn
+player_walk_state.gd::GDScript::3911438145182002105::1788532559::0::1::::PlayerWalkState<>PlayerState<><>0<>0<><>::
+playerstate.gd::GDScript::8764603935900069313::1788531937::0::1::::PlayerState<>State<><>0<>0<><>::
+::res://Tilemap/::1788533077
+level.tscn::PackedScene::5458882924404468679::1788533077::0::1::::<><><>0<>0<><>::uid://ck04d4s0je47f::::res://Assets/Stage Layers/tileset.png<>uid://4s000tfvfba4::::res://Animations/player_1.tscn

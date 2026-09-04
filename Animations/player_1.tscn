@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4s000tfvfba4"]
 
-[ext_resource type="Script" uid="uid://yjyk6jav6o1k" path="res://Scripts/player.gd" id="1_3kxg5"]
+[ext_resource type="Script" uid="uid://yjyk6jav6o1k" path="res://Scripts/Player/player.gd" id="1_3kxg5"]
 [ext_resource type="Texture2D" uid="uid://cwufqh807xaqw" path="res://Assets/Sprites/Brawler-Girl/Idle/idle1.png" id="1_3ncc6"]
 [ext_resource type="Texture2D" uid="uid://bknft8h8j7x1y" path="res://Assets/Sprites/Brawler-Girl/Idle/idle2.png" id="2_3kxg5"]
 [ext_resource type="Texture2D" uid="uid://dqb45f1umr46v" path="res://Assets/Sprites/Brawler-Girl/Idle/idle3.png" id="3_bxgnc"]
@@ -15,11 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://d0x3pkmu7a1of" path="res://Assets/Sprites/Brawler-Girl/Walk/walk8.png" id="12_yep1o"]
 [ext_resource type="Texture2D" uid="uid://ccbl4ru58cla6" path="res://Assets/Sprites/Brawler-Girl/Walk/walk9.png" id="13_5363y"]
 [ext_resource type="Texture2D" uid="uid://d1u1t3fbs2da4" path="res://Assets/Sprites/Brawler-Girl/Walk/walk10.png" id="14_1b40w"]
-[ext_resource type="Script" uid="uid://cx6iomacw7umd" path="res://Scripts/state_machine.gd" id="16_bxgnc"]
-[ext_resource type="Script" uid="uid://bvbwrwksp8hjt" path="res://Scripts/player_idle_state.gd" id="17_2ri8u"]
-[ext_resource type="Script" uid="uid://bvyy2x5hx0gaj" path="res://Scripts/player_walk_state.gd" id="18_2230n"]
-[ext_resource type="Script" uid="uid://cdwm33efq4l8f" path="res://Scripts/player_jump_state.gd" id="19_d3d1g"]
-[ext_resource type="Script" uid="uid://d1vxorwm5xta4" path="res://Scripts/player_fall_state.gd" id="20_ratjp"]
+[ext_resource type="Script" uid="uid://cx6iomacw7umd" path="res://Scripts/Abstract/state_machine.gd" id="16_bxgnc"]
+[ext_resource type="Script" uid="uid://bvbwrwksp8hjt" path="res://Scripts/Player/PlayerStates/player_idle_state.gd" id="17_2ri8u"]
+[ext_resource type="Script" uid="uid://bvyy2x5hx0gaj" path="res://Scripts/Player/PlayerStates/player_walk_state.gd" id="18_2230n"]
+[ext_resource type="Script" uid="uid://cdwm33efq4l8f" path="res://Scripts/Player/PlayerStates/player_jump_state.gd" id="19_d3d1g"]
+[ext_resource type="Script" uid="uid://d1vxorwm5xta4" path="res://Scripts/Player/PlayerStates/player_fall_state.gd" id="20_ratjp"]
 
 [sub_resource type="Animation" id="Animation_841sn"]
 resource_name = "Idle"
