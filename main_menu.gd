@@ -13,3 +13,7 @@ func _process(delta: float) -> void:
 
 func _on_start_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://level.tscn")
+
+
+func _on_spell_select_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://spell_select_menu.tscn")

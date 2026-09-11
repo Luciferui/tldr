@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://diawerx1qmn7q" path="res://main_menu.gd" id="1_06t4h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="MainMenu" type="Control" unique_id=693637596]
 layout_mode = 3
@@ -28,22 +29,35 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="StartButton" type="Button" parent="." unique_id=330241739]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=145409374]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -266.5
-offset_top = -117.0
-offset_right = 266.5
-offset_bottom = 117.0
+offset_left = -405.5
+offset_top = -130.0
+offset_right = 424.0
+offset_bottom = 278.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=1308076142]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 90
 theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
 text = "Start"
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[node name="SpellSelectButton" type="Button" parent="VBoxContainer" unique_id=207530855]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+text = "Select Spell"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SpellSelectButton" to="." method="_on_spell_select_button_pressed"]
