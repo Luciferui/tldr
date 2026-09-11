@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://chqmbkmm5xyqt"]
+
+[ext_resource type="PackedScene" uid="uid://cj1lae4s4rbop" path="res://level.tscn" id="1_30ppg"]
+
+[node name="GameState" type="Node2D" unique_id=19786103]
+
+[node name="Level" parent="." unique_id=552634920 instance=ExtResource("1_30ppg")]
+
+[node name="Menu" type="Node2D" parent="." unique_id=1423142926]
+
+[node name="CharacterSelect" type="Node2D" parent="Menu" unique_id=389339266]
+
+[node name="MainMenu" type="Node2D" parent="Menu" unique_id=188972991]
