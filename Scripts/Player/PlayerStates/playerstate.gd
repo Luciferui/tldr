@@ -27,6 +27,8 @@ func process_physics(delta: float) -> State:
 	return null
 
 func get_movement_direction() -> float:
+	##Renvoie la direction pressée de mouvement [br]
+	## -1 if left + 1 if right
 	return Input.get_axis(move_left_action, move_right_action)
 
 func determine_sprite_flip() -> void:
