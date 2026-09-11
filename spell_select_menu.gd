@@ -95,3 +95,7 @@ func _on_start_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://level.tscn")
 	print("P1 spells: ", p1_selected.keys())
 	print("P2 spells: ", p2_selected.keys())
+
+
+func _on_start_button_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://level.tscn")
