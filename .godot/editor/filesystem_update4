@@ -1,2 +1,6 @@
 res://player_1.tscn
 res://game_state.tscn
+res://menu.tscn
+res://main_menu.gd
+res://level.tscn
+res://main_menu.tscn

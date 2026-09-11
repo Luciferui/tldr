@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://chqmbkmm5xyqt"]
 
 [ext_resource type="PackedScene" uid="uid://cj1lae4s4rbop" path="res://level.tscn" id="1_30ppg"]
-[ext_resource type="PackedScene" uid="uid://ckryk712e4e6x" path="res://menu.tscn" id="2_018ao"]
+[ext_resource type="Script" uid="uid://cqr0rv8jktlda" path="res://game_state.gd" id="1_ukbay"]
+[ext_resource type="PackedScene" uid="uid://ccmalcse4to0q" path="res://main_menu.tscn" id="3_ukbay"]
 
-[node name="GameState" type="Node2D" unique_id=19786103]
+[node name="GameState" type="Node" unique_id=1975561972]
+script = ExtResource("1_ukbay")
 
 [node name="Level" parent="." unique_id=552634920 instance=ExtResource("1_30ppg")]
 
-[node name="Menu" parent="." unique_id=868904580 instance=ExtResource("2_018ao")]
+[node name="MainMenu" parent="." unique_id=693637596 instance=ExtResource("3_ukbay")]
