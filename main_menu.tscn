@@ -49,8 +49,9 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 90
 theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
-text = "Start"
+text = "Start ← → ↑"
 script = ExtResource("2_7vrkn")
+fixedInputList = Array[String](["left", "right", "jump"])
 metadata/_edit_use_anchors_ = true
 
 [node name="SpellSelectButton" type="Button" parent="VBoxContainer" unique_id=207530855]
@@ -58,7 +59,9 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 90
 theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
-text = "Select Spell"
+text = "Select Spell ↑↑↓↓"
+script = ExtResource("2_7vrkn")
+fixedInputList = Array[String](["jump", "jump", "down", "down"])
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

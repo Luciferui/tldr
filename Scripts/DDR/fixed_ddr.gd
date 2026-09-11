@@ -3,8 +3,10 @@ extends SuperDDR
 var position : int = 0
 var playerFinishedCombo : bool = false
 
+@export var fixedInputList : Array[String]
+
 func _ready() -> void:
-	InputList = ["left", "right"] #la séquence qu'on veut pour ce bouton 
+	InputList = fixedInputList
 	currentInput = InputList[0]
 
 
@@ -24,5 +26,10 @@ func validateCombo():
 		emit_signal("pressed")
 		# Appeler l'action correspondante
 	position = 0
+	
+func failCombo():
+	position = 0
+	currentInput = InputList[position]
+	print("failed")
 	
 	
