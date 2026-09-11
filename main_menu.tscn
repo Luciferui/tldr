@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ccmalcse4to0q"]
 
 [ext_resource type="Script" uid="uid://diawerx1qmn7q" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://c505cd136phyy" path="res://Scripts/DDR/fixed_ddr.gd" id="2_7vrkn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
 bg_color = Color(1, 1, 1, 1)
@@ -49,6 +50,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 90
 theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
 text = "Start"
+script = ExtResource("2_7vrkn")
 metadata/_edit_use_anchors_ = true
 
 [node name="SpellSelectButton" type="Button" parent="VBoxContainer" unique_id=207530855]

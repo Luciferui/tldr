@@ -1,29 +1,29 @@
 extends Node
+class_name SuperDDR
 
-@export var inputRange : int = 5
+var finishInput : String = "endcombo"
+var currentInput : String
 
-var ddrInputList : Array[String] = ["up", "down", "right", "left", "lightatk", "heavyatk"]
+var usedInput : Array[String] = ["up", "down", "right", "left", "lightatk", "heavyatk"]
 var playerInputs : Array[String] = []
-var randomInputList : Array[String] = []
-var currentInput : String = ""
+var InputList : Array[String] = []
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	generateRandomInputs()
+	pass
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed(currentInput):
 		validateInput()
+	if Input.is_action_just_pressed(finishInput):
+		validateCombo()
 
 
-func generateRandomInputs():
-	for a in range(inputRange):
-		randomInputList.append(randomInputList[randi_range(0, ddrInputList.size()-1)])
-	
 func validateInput():
-	
-	randomInputList = randomInputList.slice(1)
-	randomInputList.append(randomInputList[randi_range(0, ddrInputList.size()-1)])
-	
-	
+	# change currentInput, playerInputs
+	pass
+
+func validateCombo():
+	# reset quoi qu'il arrive et traite si ça a marché
+	pass
