@@ -13,6 +13,9 @@ var attack_finished: bool = false
 # arrêt du personnage jusqu'a la fin de l'animation
 
 func enter() -> void:
+	
+	selectAttack()
+	
 	frameCount = 0
 	attack_finished = false
 	player.sprite.play(animation_name)
@@ -35,16 +38,18 @@ func enter() -> void:
 	###Met le bool attack_finished à true quand l'animation de l'attaque est finie
 	#if player.sprite.animation == animation_name:
 		#attack_finished = true
+		
+func selectAttack() -> void :
+	if Input.is_action_just_pressed("attack"):
+		animation_name = "fall"
+		totalFrameCount = 200
 
 func process_physics(delta: float) -> State:
-	print("here")
 	if attack_finished:
-		print("finished")
 		#attaque finie de manière standard
 		if get_movement_direction() != 0:
 			return walk_state
 		return idle_state
-	print(frameCount)
 	frameCount += 1
 	if frameCount >= totalFrameCount:
 		attack_finished = true
