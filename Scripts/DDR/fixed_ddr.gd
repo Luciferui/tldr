@@ -11,7 +11,6 @@ func _ready() -> void:
 
 
 func validateInput():
-	print(position)
 	if position != InputList.size():
 		position  += 1
 		if position != InputList.size():
@@ -21,7 +20,6 @@ func validateInput():
 	
 	
 func validateCombo():
-	print("validate")
 	if position == InputList.size():
 		emit_signal("pressed")
 		# Appeler l'action correspondante
@@ -30,6 +28,5 @@ func validateCombo():
 func failCombo():
 	position = 0
 	currentInput = InputList[position]
-	print("failed")
 	
 	

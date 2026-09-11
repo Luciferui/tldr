@@ -16,7 +16,6 @@ func validateInput():
 	InputList = InputList.slice(1)
 	currentInput = InputList[0]
 	InputList.append(usedInput[randi_range(0, usedInput.size()-1)])
-	print(InputList)
 	$HBoxContainer.display_combo_queue(InputList)
 
 func validateCombo():
