@@ -142,7 +142,7 @@ sprite_frames = SubResource("SpriteFrames_ssidi")
 animation = &"kick"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1216312141]
-position = Vector2(0, 8)
+position = Vector2(-3, 8)
 shape = SubResource("RectangleShape2D_ssidi")
 
 [node name="StateMachine" type="Node2D" parent="." unique_id=2031508697 node_paths=PackedStringArray("starting_state")]
