@@ -30,6 +30,7 @@
 [ext_resource type="Script" uid="uid://cdwm33efq4l8f" path="res://Scripts/Player/PlayerStates/player_jump_state.gd" id="19_d3d1g"]
 [ext_resource type="Script" uid="uid://d1vxorwm5xta4" path="res://Scripts/Player/PlayerStates/player_fall_state.gd" id="20_ratjp"]
 [ext_resource type="Script" uid="uid://cha207lvv53uk" path="res://Scripts/Player/PlayerStates/AttackStates/player_attack_state.gd" id="25_fvdx0"]
+[ext_resource type="Script" uid="uid://uh400finn2sw" path="res://Scripts/Abstract/hitbox.gd" id="25_yef3s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ssidi"]
 animations = [{
@@ -131,6 +132,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6x7ra"]
+size = Vector2(38, 12)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ssidi"]
 size = Vector2(20, 46)
 
@@ -140,6 +144,14 @@ script = ExtResource("1_3kxg5")
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=164475980]
 sprite_frames = SubResource("SpriteFrames_ssidi")
 animation = &"kick"
+
+[node name="Hitbox" type="Area2D" parent="Sprite" unique_id=1925971996]
+script = ExtResource("25_yef3s")
+
+[node name="Kick" type="CollisionShape2D" parent="Sprite/Hitbox" unique_id=1870241887]
+position = Vector2(9, 4)
+shape = SubResource("RectangleShape2D_6x7ra")
+disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1216312141]
 position = Vector2(-3, 8)
@@ -171,8 +183,9 @@ script = ExtResource("20_ratjp")
 idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
 
-[node name="Attack" type="Node2D" parent="StateMachine" unique_id=2112761695 node_paths=PackedStringArray("idle_state", "walk_state")]
+[node name="Attack" type="Node2D" parent="StateMachine" unique_id=2112761695 node_paths=PackedStringArray("idle_state", "walk_state", "hitbox")]
 script = ExtResource("25_fvdx0")
 idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
+hitbox = NodePath("../../Sprite/Hitbox")
 totalFrameCount = 300

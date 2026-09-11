@@ -1,3 +1,5 @@
+Hitbox
+Hitbox_c
 CollisionShape2D
 StaticBody2D
 Node2D
