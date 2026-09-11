@@ -1,11 +1,5 @@
 res://player_1.tscn
-res://game_state.tscn
-res://menu.tscn
-res://main_menu.gd
-res://level.tscn
+res://Scripts/Player/PlayerStates/AttackStates/player_attack_state.gd
+res://Scripts/Player/PlayerStates/player_punch_state.gd
 res://main_menu.tscn
 res://spell_select_menu.tscn
-res://Scripts/Player/PlayerStates/player_idle_state.gd
-res://Scripts/Player/PlayerStates/player_walk_state.gd
-res://Scripts/Player/PlayerStates/AttackStates/player_attack_state.gd
-res://spell_select_menu.gd
