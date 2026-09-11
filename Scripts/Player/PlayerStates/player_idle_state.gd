@@ -4,8 +4,7 @@ extends PlayerState
 @export var animation_name: String = "idle"
 @export var walk_state: State
 @export var jump_state: State
-@export var punch_state: State
-@export var kick_state: State
+@export var attack_state: State
 
 func enter() -> void:
 	player.sprite.play(animation_name)
@@ -17,10 +16,8 @@ func enter() -> void:
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed("jump") and player.is_on_floor():
 		return jump_state
-	if Input.is_action_just_pressed("punch"):
-		return punch_state
-	if Input.is_action_just_pressed("kick"):
-		return kick_state
+	if Input.is_action_just_pressed("attack"):
+		return attack_state
 	return null
 
 func process_physics(delta: float) -> State:

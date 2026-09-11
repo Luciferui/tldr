@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://bvyy2x5hx0gaj" path="res://Scripts/Player/PlayerStates/player_walk_state.gd" id="18_2230n"]
 [ext_resource type="Script" uid="uid://cdwm33efq4l8f" path="res://Scripts/Player/PlayerStates/player_jump_state.gd" id="19_d3d1g"]
 [ext_resource type="Script" uid="uid://d1vxorwm5xta4" path="res://Scripts/Player/PlayerStates/player_fall_state.gd" id="20_ratjp"]
+[ext_resource type="Script" uid="uid://cha207lvv53uk" path="res://Scripts/Player/PlayerStates/AttackStates/player_attack_state.gd" id="25_fvdx0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ssidi"]
 animations = [{
@@ -123,16 +124,18 @@ shape = SubResource("RectangleShape2D_ssidi")
 script = ExtResource("16_bxgnc")
 starting_state = NodePath("Idle")
 
-[node name="Idle" type="Node2D" parent="StateMachine" unique_id=849906485 node_paths=PackedStringArray("walk_state", "jump_state")]
+[node name="Idle" type="Node2D" parent="StateMachine" unique_id=849906485 node_paths=PackedStringArray("walk_state", "jump_state", "attack_state")]
 script = ExtResource("17_2ri8u")
 walk_state = NodePath("../Walk")
 jump_state = NodePath("../Jump")
+attack_state = NodePath("../Attack")
 
-[node name="Walk" type="Node2D" parent="StateMachine" unique_id=1181021020 node_paths=PackedStringArray("idle_state", "jump_state", "fall_state")]
+[node name="Walk" type="Node2D" parent="StateMachine" unique_id=1181021020 node_paths=PackedStringArray("idle_state", "jump_state", "fall_state", "attack_state")]
 script = ExtResource("18_2230n")
 idle_state = NodePath("../Idle")
 jump_state = NodePath("../Jump")
 fall_state = NodePath("../Fall")
+attack_state = NodePath("../Attack")
 
 [node name="Jump" type="Node2D" parent="StateMachine" unique_id=262411182 node_paths=PackedStringArray("fall_state")]
 script = ExtResource("19_d3d1g")
@@ -142,3 +145,9 @@ fall_state = NodePath("../Fall")
 script = ExtResource("20_ratjp")
 idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
+
+[node name="Attack" type="Node2D" parent="StateMachine" unique_id=2112761695 node_paths=PackedStringArray("idle_state", "walk_state")]
+script = ExtResource("25_fvdx0")
+idle_state = NodePath("../Idle")
+walk_state = NodePath("../Walk")
+totalFrameCount = 300
