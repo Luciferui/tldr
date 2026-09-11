@@ -1,4 +1,2 @@
-res://main_menu.gd
-res://player_1.tscn
-res://spell_select_menu.gd
 res://spell_select_menu.tscn
+res://spell_select_menu.gd
