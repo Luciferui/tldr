@@ -546,6 +546,9 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_pnn78")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2v8g7"]
+size = Vector2(86, 315)
+
 [node name="Level" type="Node2D" unique_id=552634920]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1812077284]
@@ -567,3 +570,15 @@ zoom = Vector2(3, 3)
 [node name="Player" parent="." unique_id=2123069804 instance=ExtResource("2_pnn78")]
 position = Vector2(-12, -13)
 scale = Vector2(2, 2)
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=991804508]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=290896773]
+position = Vector2(-255, -38.5)
+shape = SubResource("RectangleShape2D_2v8g7")
+
+[node name="RightWall" type="StaticBody2D" parent="." unique_id=912091570]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=507741712]
+position = Vector2(257, -37)
+shape = SubResource("RectangleShape2D_2v8g7")
