@@ -9,7 +9,7 @@ extends Control
 var p1_index := 0
 var p2_index := 0
 
-var p1_selected := {}  # ex: {0: true, 2: true}
+var p1_selected := {} 
 var p2_selected := {}
 
 const REQUIRED_SPELLS := 3
@@ -68,7 +68,7 @@ func _toggle_selection(player: int, index: int) -> void:
 	elif dict.size() < REQUIRED_SPELLS:
 		dict[index] = true
 
-	# petit feedback visuel de sélection (coché)
+	#feedback de selection
 	buttons[index].add_theme_color_override(
 		"font_color",
 		Color.GREEN if dict.has(index) else Color.WHITE
@@ -82,7 +82,7 @@ func _check_ready_to_start() -> void:
 
 func _show_info(button: Button) -> void:
 	spell_info_panel.visible = true
-	spell_info_label.text = button.text  # remplace par tes vraies infos du spell
+	spell_info_label.text = button.text  # remplacer par les infos du spell
 	spell_info_panel.global_position = button.global_position + Vector2(button.size.x, 0)
 
 func _hide_info() -> void:
@@ -95,3 +95,7 @@ func _on_start_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://level.tscn")
 	print("P1 spells: ", p1_selected.keys())
 	print("P2 spells: ", p2_selected.keys())
+
+
+func _on_start_button_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://level.tscn")
