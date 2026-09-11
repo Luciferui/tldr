@@ -1,5 +1,10 @@
 [gd_scene format=3 uid="uid://4rmex6ue4y3j"]
 
+[ext_resource type="Script" uid="uid://cd5wp2cer48ib" path="res://spell_select_menu.gd" id="1_sodsc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sodsc"]
+bg_color = Color(1, 1, 1, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6hf7k"]
 bg_color = Color(1, 1, 1, 1)
 
@@ -10,11 +15,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_sodsc")
 
 [node name="Panel" type="Panel" parent="." unique_id=403686534]
 layout_mode = 0
 offset_right = 1291.0
 offset_bottom = 727.0
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=1311359581]
+layout_mode = 0
+offset_right = 490.0
+offset_bottom = 124.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxFlat_sodsc")
+text = "Return to Menu"
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=497915246]
 layout_mode = 0
@@ -77,3 +93,5 @@ theme_override_font_sizes/font_size = 90
 theme_override_styles/normal = SubResource("StyleBoxFlat_6hf7k")
 text = "Spell 3"
 metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
