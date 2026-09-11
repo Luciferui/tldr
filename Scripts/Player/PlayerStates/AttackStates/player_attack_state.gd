@@ -41,8 +41,8 @@ func enter() -> void:
 		
 func selectAttack() -> void :
 	if Input.is_action_just_pressed("attack"):
-		animation_name = "fall"
-		totalFrameCount = 200
+		animation_name = "kick"
+		totalFrameCount = 60
 
 func process_physics(delta: float) -> State:
 	if attack_finished:
