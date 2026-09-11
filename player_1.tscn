@@ -15,10 +15,15 @@
 [ext_resource type="Texture2D" uid="uid://b45n3gsbho1gl" path="res://Assets/Sprites/Brawler-Girl/Jump/jump4.png" id="9_1b40w"]
 [ext_resource type="Texture2D" uid="uid://dii1rsfgjhi6k" path="res://Assets/Sprites/Brawler-Girl/Walk/walk5.png" id="9_ratjp"]
 [ext_resource type="Texture2D" uid="uid://dyntjoj7wy45g" path="res://Assets/Sprites/Brawler-Girl/Walk/walk6.png" id="10_6ihev"]
+[ext_resource type="Texture2D" uid="uid://bis3sl6xqh2p" path="res://Assets/Sprites/Brawler-Girl/Kick/kick1.png" id="10_k0xj2"]
 [ext_resource type="Texture2D" uid="uid://bwcs17lua1ht6" path="res://Assets/Sprites/Brawler-Girl/Walk/walk7.png" id="11_xpk3i"]
+[ext_resource type="Texture2D" uid="uid://djtxv8wsj4sby" path="res://Assets/Sprites/Brawler-Girl/Kick/kick2.png" id="11_yef3s"]
+[ext_resource type="Texture2D" uid="uid://nu7xelp58rte" path="res://Assets/Sprites/Brawler-Girl/Kick/kick3.png" id="12_mviyr"]
 [ext_resource type="Texture2D" uid="uid://d0x3pkmu7a1of" path="res://Assets/Sprites/Brawler-Girl/Walk/walk8.png" id="12_yep1o"]
 [ext_resource type="Texture2D" uid="uid://ccbl4ru58cla6" path="res://Assets/Sprites/Brawler-Girl/Walk/walk9.png" id="13_5363y"]
+[ext_resource type="Texture2D" uid="uid://dmswae67uma7o" path="res://Assets/Sprites/Brawler-Girl/Kick/kick4.png" id="13_d614h"]
 [ext_resource type="Texture2D" uid="uid://d1u1t3fbs2da4" path="res://Assets/Sprites/Brawler-Girl/Walk/walk10.png" id="14_1b40w"]
+[ext_resource type="Texture2D" uid="uid://csk41ytygamv0" path="res://Assets/Sprites/Brawler-Girl/Kick/kick5.png" id="14_dnvjy"]
 [ext_resource type="Script" uid="uid://cx6iomacw7umd" path="res://Scripts/Abstract/state_machine.gd" id="16_bxgnc"]
 [ext_resource type="Script" uid="uid://bvbwrwksp8hjt" path="res://Scripts/Player/PlayerStates/player_idle_state.gd" id="17_2ri8u"]
 [ext_resource type="Script" uid="uid://bvyy2x5hx0gaj" path="res://Scripts/Player/PlayerStates/player_walk_state.gd" id="18_2230n"]
@@ -72,6 +77,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("10_k0xj2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_yef3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_mviyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_d614h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_dnvjy")
+}],
+"loop": 1,
+"name": &"kick",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("5_841sn")
 }, {
 "duration": 1.0,
@@ -114,7 +139,7 @@ script = ExtResource("1_3kxg5")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=164475980]
 sprite_frames = SubResource("SpriteFrames_ssidi")
-animation = &"idle"
+animation = &"kick"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1216312141]
 position = Vector2(0, 8)
