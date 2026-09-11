@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ckryk712e4e6x"]
+
+[node name="Menu" type="Node2D" unique_id=868904580]
+
+[node name="CharacterSelect" type="Node2D" parent="." unique_id=2145446661]
+
+[node name="MainMenu" type="Node2D" parent="." unique_id=1719585557]
