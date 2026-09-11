@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cge2mur86lklw"]
+
+[ext_resource type="Texture2D" uid="uid://crk3iyihyfof2" path="res://Assets/ddr_textures/greek-key-rectangle-frame-greek-border-vector_231786-4614.png" id="1_1p0ew"]
+[ext_resource type="Script" uid="uid://dgdeyrlm0eoen" path="res://Scripts/DDR/random_ddr.gd" id="1_rm6g3"]
+[ext_resource type="Script" uid="uid://dp52ex5alaklm" path="res://Scripts/DDR/Display_inputs.gd" id="2_2q5ku"]
+
+[node name="Ddr" type="Node2D" unique_id=1646128952]
+script = ExtResource("1_rm6g3")
+
+[node name="GreekKeyRectangleFrameGreekBorderVector2317864614" type="Sprite2D" parent="." unique_id=1041930583]
+position = Vector2(0, -2)
+texture = ExtResource("1_1p0ew")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=514848211]
+offset_left = -708.0
+offset_top = -143.0
+offset_right = 712.0
+offset_bottom = 137.0
+alignment = 1
+script = ExtResource("2_2q5ku")

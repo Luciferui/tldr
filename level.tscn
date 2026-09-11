@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ck04d4s0je47f" path="res://Assets/Stage Layers/tileset.png" id="1_debtt"]
 [ext_resource type="PackedScene" uid="uid://4s000tfvfba4" path="res://player_1.tscn" id="2_pnn78"]
+[ext_resource type="PackedScene" uid="uid://cge2mur86lklw" path="res://ddr.tscn" id="3_oi3di"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pnn78"]
 texture = ExtResource("1_debtt")
@@ -592,3 +593,7 @@ one_way_collision = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=507741712]
 position = Vector2(257, -37)
 shape = SubResource("RectangleShape2D_2v8g7")
+
+[node name="Ddr" parent="." unique_id=1646128952 instance=ExtResource("3_oi3di")]
+position = Vector2(110, 83)
+scale = Vector2(0.15, 0.15)
