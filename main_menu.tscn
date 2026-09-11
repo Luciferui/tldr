@@ -30,22 +30,17 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=145409374]
+[node name="StartButton" type="Button" parent="." unique_id=1308076142]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -405.5
-offset_top = -130.0
-offset_right = 424.0
-offset_bottom = 278.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=1308076142]
-layout_mode = 2
+anchors_preset = -1
+anchor_left = -0.014453125
+anchor_top = 0.07638889
+anchor_right = -0.014453125
+anchor_bottom = 0.07638889
+offset_left = 234.5
+offset_top = 230.0
+offset_right = 1063.5
+offset_bottom = 355.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 90
 theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
@@ -54,15 +49,4 @@ script = ExtResource("2_7vrkn")
 fixedInputList = Array[String](["left", "right", "jump"])
 metadata/_edit_use_anchors_ = true
 
-[node name="SpellSelectButton" type="Button" parent="VBoxContainer" unique_id=207530855]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 90
-theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
-text = "Select Spell ↑↑↓↓"
-script = ExtResource("2_7vrkn")
-fixedInputList = Array[String](["jump", "jump", "down", "down"])
-metadata/_edit_use_anchors_ = true
-
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/SpellSelectButton" to="." method="_on_spell_select_button_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

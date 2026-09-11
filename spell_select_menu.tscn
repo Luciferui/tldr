@@ -63,6 +63,20 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6hf7k")
 text = "Spell 3"
 metadata/_edit_use_anchors_ = true
 
+[node name="Spell4" type="Button" parent="VBoxContainer" unique_id=571699647]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxFlat_6hf7k")
+text = "Spell 4"
+
+[node name="Spell5" type="Button" parent="VBoxContainer" unique_id=586600152]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxFlat_6hf7k")
+text = "Spell 5"
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=245069000]
 layout_mode = 0
 offset_left = 843.0
@@ -94,4 +108,62 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6hf7k")
 text = "Spell 3"
 metadata/_edit_use_anchors_ = true
 
+[node name="Spell4" type="Button" parent="VBoxContainer2" unique_id=500913571]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxFlat_6hf7k")
+text = "Spell 4"
+
+[node name="Spell5" type="Button" parent="VBoxContainer2" unique_id=960046777]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxFlat_6hf7k")
+text = "Spell 5"
+
+[node name="Player1Spells" type="TextEdit" parent="." unique_id=1302061127]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 616.0
+offset_right = 461.0
+offset_bottom = 691.0
+theme_override_font_sizes/font_size = 50
+text = "Player 1"
+
+[node name="Player2Spells" type="TextEdit" parent="." unique_id=1667195322]
+layout_mode = 0
+offset_left = 879.0
+offset_top = 619.0
+offset_right = 1086.0
+offset_bottom = 694.0
+theme_override_font_sizes/font_size = 50
+text = "Player 2"
+
+[node name="StartButton" type="Button" parent="." unique_id=1176489162]
+visible = false
+layout_mode = 0
+offset_left = 520.0
+offset_top = 630.0
+offset_right = 780.0
+offset_bottom = 700.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_sodsc")
+text = "Start Game"
+
+[node name="SpellInfoPanel" type="PanelContainer" parent="." unique_id=1624722813]
+visible = false
+layout_mode = 0
+offset_left = 400.0
+offset_top = 100.0
+offset_right = 900.0
+offset_bottom = 160.0
+
+[node name="Label" type="Label" parent="SpellInfoPanel" unique_id=226215370]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Spell info"
+
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
