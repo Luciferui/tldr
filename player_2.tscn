@@ -106,6 +106,10 @@ size = Vector2(33.823524, 18.235294)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2orkt"]
 size = Vector2(22.983782, 38.19021)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bdvc"]
+radius = 18.177294
+height = 68.302345
+
 [node name="Player2" type="CharacterBody2D" unique_id=1446604150]
 script = ExtResource("1_ryqyf")
 left_action = &"p2_left"
