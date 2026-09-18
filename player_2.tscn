@@ -112,6 +112,7 @@ script = ExtResource("1_ryqyf")
 left_action = &"p2_left"
 right_action = &"p2_right"
 jump_action = &"p2_jump"
+heavy_attack_action = &"p2_heavy"
 light_attack_action = &"p2_light"
 sprite_faces_left = true
 metadata/_custom_type_script = "uid://yjyk6jav6o1k"
