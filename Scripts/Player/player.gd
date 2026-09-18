@@ -8,7 +8,8 @@ extends CharacterBody2D
 @export var left_action: StringName = &"p1_left"
 @export var right_action: StringName = &"p1_right"
 @export var jump_action: StringName = &"p1_jump"
-@export var attack_action: StringName = &"p1_attack"
+@export var heavy_attack_action: StringName = &"p1_heavy"
+@export var light_attack_action: StringName = &"p1_light"
 
 @export var sprite_faces_left: bool = false
 

@@ -31,12 +31,12 @@ func enter() -> void:
 			hitbox.scale.x = 1.0
 		
 func selectAttack() -> void :
-	if Input.is_action_just_pressed(player.attack_action):
+	if Input.is_action_just_pressed(player.heavy_attack_action):
 		currentAttackName = "kick"
 		animation_name = currentAttackName
 		totalFrameCount = 60
 		hitbox.activateCollisionShape(currentAttackName)
-	elif Input.is_action_just_pressed("punch"):
+	elif Input.is_action_just_pressed(player.light_attack_action):
 		currentAttackName = "punch"
 		animation_name = currentAttackName
 		totalFrameCount = 36

@@ -221,10 +221,10 @@ offset_bottom = 205.0
 [node name="Label" type="Label" parent="SpellInfoPanel1" unique_id=226215370]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-autowrap_mode = 2
 text = "Spell info"
+autowrap_mode = 2
 
-[node name="SpellInfoPanel2" type="PanelContainer" parent="."]
+[node name="SpellInfoPanel2" type="PanelContainer" parent="." unique_id=376150804]
 visible = false
 layout_mode = 0
 offset_left = 843.0
@@ -232,11 +232,11 @@ offset_top = 125.0
 offset_right = 1146.0
 offset_bottom = 205.0
 
-[node name="Label" type="Label" parent="SpellInfoPanel2"]
+[node name="Label" type="Label" parent="SpellInfoPanel2" unique_id=1103113514]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-autowrap_mode = 2
 text = "Spell info"
+autowrap_mode = 2
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

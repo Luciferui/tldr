@@ -83,9 +83,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _handle_player_input(player: int, event: InputEvent) -> void:
-	var up_action := "p%d_up" % player
+	var up_action := "p%d_jump" % player
 	var down_action := "p%d_down" % player
-	var kick_action := "p%d_kick" % player
+	var kick_action := "p1_heavy" if player == 1 else "p2_light"
 
 	if event.is_action_pressed(up_action):
 		_move(player, -1)

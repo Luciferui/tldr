@@ -47,6 +47,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("5_6imt3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y762y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_14lsy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hbeff")
+}],
+"loop": 0,
+"name": &"pain",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_at6ig")
 }, {
 "duration": 1.0,
@@ -62,24 +79,7 @@ animations = [{
 "texture": ExtResource("2_at6ig")
 }],
 "loop": 0,
-"name": &"kick",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_6imt3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_y762y")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_14lsy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_hbeff")
-}],
-"loop": 0,
-"name": &"pain",
+"name": &"punch",
 "speed": 8.0
 }, {
 "frames": [{
@@ -112,7 +112,7 @@ script = ExtResource("1_ryqyf")
 left_action = &"p2_left"
 right_action = &"p2_right"
 jump_action = &"p2_jump"
-attack_action = &"p2_attack"
+light_attack_action = &"p2_light"
 sprite_faces_left = true
 metadata/_custom_type_script = "uid://yjyk6jav6o1k"
 
@@ -120,12 +120,18 @@ metadata/_custom_type_script = "uid://yjyk6jav6o1k"
 position = Vector2(-6, 3.624999)
 scale = Vector2(1.375, 1.3849206)
 sprite_frames = SubResource("SpriteFrames_vkybu")
-animation = &"pain"
+animation = &"punch"
 
 [node name="Hitbox" type="Area2D" parent="Sprite" unique_id=1859740570]
 script = ExtResource("17_y762y")
 
-[node name="kick" type="CollisionShape2D" parent="Sprite/Hitbox" unique_id=606120138]
+[node name="punch" type="CollisionShape2D" parent="Sprite/Hitbox" unique_id=606120138]
+position = Vector2(-30.147064, 4.117648)
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_vkybu")
+disabled = true
+
+[node name="kick" type="CollisionShape2D" parent="Sprite/Hitbox" unique_id=1278370157]
 position = Vector2(-30.14706, 4.117648)
 scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_vkybu")
