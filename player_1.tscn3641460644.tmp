@@ -23,9 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://ccbl4ru58cla6" path="res://Assets/Sprites/Brawler-Girl/Walk/walk9.png" id="13_5363y"]
 [ext_resource type="Texture2D" uid="uid://dmswae67uma7o" path="res://Assets/Sprites/Brawler-Girl/Kick/kick4.png" id="13_d614h"]
 [ext_resource type="Texture2D" uid="uid://d1u1t3fbs2da4" path="res://Assets/Sprites/Brawler-Girl/Walk/walk10.png" id="14_1b40w"]
-[ext_resource type="Texture2D" uid="uid://tlak1t32iab7" path="res://Assets/Sprites/Brawler-Girl/Hurt/hurt1.png" id="14_43kbg"]
+[ext_resource type="Texture2D" uid="uid://csk41ytygamv0" path="res://Assets/Sprites/Brawler-Girl/Kick/kick5.png" id="14_dnvjy"]
 [ext_resource type="Texture2D" uid="uid://ckwlhnbv228pp" path="res://Assets/Sprites/Brawler-Girl/Punch/punch1.png" id="15_dnvjy"]
-[ext_resource type="Texture2D" uid="uid://b2h0b571mbvws" path="res://Assets/Sprites/Brawler-Girl/Hurt/hurt2.png" id="15_p5xb0"]
 [ext_resource type="Script" uid="uid://cx6iomacw7umd" path="res://Scripts/Abstract/state_machine.gd" id="16_bxgnc"]
 [ext_resource type="Texture2D" uid="uid://bqio2lby3p0yn" path="res://Assets/Sprites/Brawler-Girl/Punch/punch2.png" id="16_cu0p0"]
 [ext_resource type="Script" uid="uid://bvbwrwksp8hjt" path="res://Scripts/Player/PlayerStates/player_idle_state.gd" id="17_2ri8u"]
@@ -35,8 +34,6 @@
 [ext_resource type="Script" uid="uid://d1vxorwm5xta4" path="res://Scripts/Player/PlayerStates/player_fall_state.gd" id="20_ratjp"]
 [ext_resource type="Script" uid="uid://cha207lvv53uk" path="res://Scripts/Player/PlayerStates/AttackStates/player_attack_state.gd" id="25_fvdx0"]
 [ext_resource type="Script" path="res://Scripts/Abstract/hitbox.gd" id="25_yef3s"]
-[ext_resource type="Script" uid="uid://dj0uvd5fjr6b8" path="res://Scripts/Player/PlayerStates/player_hurtbox.gd" id="28_cu0p0"]
-[ext_resource type="Script" uid="uid://pyvofwuo17c5" path="res://Scripts/Player/PlayerStates/player_pain_state.gd" id="35_oexav"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ssidi"]
 animations = [{
@@ -96,31 +93,11 @@ animations = [{
 "texture": ExtResource("13_d614h")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_d614h")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_mviyr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_yef3s")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_k0xj2")
+"texture": ExtResource("14_dnvjy")
 }],
-"loop": 0,
+"loop": 1,
 "name": &"kick",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("14_43kbg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_p5xb0")
-}],
-"loop": 0,
-"name": &"pain",
-"speed": 8.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -134,7 +111,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"punch",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -186,7 +163,7 @@ script = ExtResource("1_3kxg5")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=164475980]
 sprite_frames = SubResource("SpriteFrames_ssidi")
-animation = &"pain"
+animation = &"kick"
 
 [node name="GroundCollisionShape" type="CollisionShape2D" parent="." unique_id=1216312141]
 position = Vector2(-2, 9)
@@ -205,22 +182,6 @@ position = Vector2(18.5, -1.5)
 shape = SubResource("RectangleShape2D_6x7ra")
 disabled = true
 
-<<<<<<< Updated upstream
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1216312141]
-position = Vector2(-2, 9)
-shape = SubResource("RectangleShape2D_ssidi")
-
-[node name="Hurtbox" type="Area2D" parent="." unique_id=565552736 node_paths=PackedStringArray("state_machine", "pain_state")]
-script = ExtResource("28_cu0p0")
-state_machine = NodePath("../StateMachine")
-pain_state = NodePath("../StateMachine/Pain")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1379306764]
-position = Vector2(-2, 9)
-shape = SubResource("RectangleShape2D_ssidi")
-
-=======
->>>>>>> Stashed changes
 [node name="StateMachine" type="Node2D" parent="." unique_id=2031508697 node_paths=PackedStringArray("starting_state")]
 script = ExtResource("16_bxgnc")
 starting_state = NodePath("Idle")
@@ -253,8 +214,3 @@ idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
 hitbox = NodePath("../../Hitbox")
 totalFrameCount = 300
-
-[node name="Pain" type="Node2D" parent="StateMachine" unique_id=470252384 node_paths=PackedStringArray("hurtbox", "idle_state")]
-script = ExtResource("35_oexav")
-hurtbox = NodePath("../../Hurtbox")
-idle_state = NodePath("../Idle")

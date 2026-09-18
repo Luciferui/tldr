@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://c8471kli7i48y"]
+
+[ext_resource type="Script" uid="uid://drx73h07qa6ou" path="res://Scripts/Abstract/attack_data.gd" id="1_yvybr"]
+
+[resource]
+script = ExtResource("1_yvybr")
+attack_name = &"kick"
+hitbox_name = &"kick"
+animation_name = &"kick"
+metadata/_custom_type_script = "uid://drx73h07qa6ou"

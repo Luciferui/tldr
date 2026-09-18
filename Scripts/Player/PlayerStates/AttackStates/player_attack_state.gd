@@ -10,8 +10,17 @@ extends PlayerState
 var frameCount : int ##nb frames depuis le début de l'attaque
 var attack_finished: bool = false
 # arrêt du personnage jusqu'a la fin de l'animation
-var currentAttackName: String
 var animation_name: String
+
+var currentAttack: AttackData
+var kick_attack : AttackData
+var punch_attack : AttackData
+
+func _ready() -> void:
+	##load les attaques
+	super._ready()
+	kick_attack = load("res://Attacks/kick.tres")
+	punch_attack = load("res://Attacks/punch.tres")
 
 func enter() -> void:
 	
@@ -19,7 +28,8 @@ func enter() -> void:
 	
 	frameCount = 0
 	attack_finished = false
-	player.sprite.play(animation_name)
+	print(currentAttack.animation_name)
+	player.getSprite().play(currentAttack.animation_name)
 	player.sprite.flip_h = sprite_flip
 	player.velocity.x = 0
 	
@@ -31,6 +41,7 @@ func enter() -> void:
 			hitbox.scale.x = 1.0
 		
 func selectAttack() -> void :
+<<<<<<< Updated upstream
 	if Input.is_action_just_pressed(player.heavy_attack_action):
 		currentAttackName = "kick"
 		animation_name = currentAttackName
@@ -39,12 +50,22 @@ func selectAttack() -> void :
 	elif Input.is_action_just_pressed(player.light_attack_action):
 		currentAttackName = "punch"
 		animation_name = currentAttackName
+=======
+	if Input.is_action_just_pressed("kick"):
+		currentAttack = kick_attack
+		animation_name = currentAttack.animation_name
+		totalFrameCount = 60
+		hitbox.activateAttack(currentAttack)
+	elif Input.is_action_just_pressed("punch"):
+		currentAttack = punch_attack
+		animation_name = currentAttack.animation_name
+>>>>>>> Stashed changes
 		totalFrameCount = 36
-		hitbox.activateCollisionShape(currentAttackName)
+		hitbox.activateAttack(currentAttack)
 
 func process_physics(delta: float) -> State:
 	if attack_finished:
-		hitbox.disableCollisionShape(currentAttackName)
+		hitbox.deactivateAttack()
 		#attaque finie de manière standard
 		if get_movement_direction() != 0:
 			return walk_state
