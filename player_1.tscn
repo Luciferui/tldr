@@ -148,9 +148,10 @@ animation = &"kick"
 [node name="Hitbox" type="Area2D" parent="Sprite" unique_id=1219363051]
 script = ExtResource("25_yef3s")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox" unique_id=972660298]
+[node name="kick" type="CollisionShape2D" parent="Sprite/Hitbox" unique_id=972660298]
 position = Vector2(15.25, 7.5)
 shape = SubResource("RectangleShape2D_4wrae")
+disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1216312141]
 position = Vector2(-2, 9)

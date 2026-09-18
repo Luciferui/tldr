@@ -26,19 +26,9 @@ func enter() -> void:
 	if hitbox:
 		if sprite_flip:
 			hitbox.scale.x = -1.0
-			#flip l'axe x de la hitbox (le 0 du hitbox doit correspondre au milieu du Player)
+			#flip l'axe x de la hitbox pour faire l'attaque dans l'autre sens
 		else:
 			hitbox.scale.x = 1.0
-	
-	#if not player.sprite.animation_finished.is_connected(_on_animation_finished):
-		#player.sprite.animation_finished.connect(_on_animation_finished)
-		##on connecte la fin de l'animation à la fin de l'attaque. À changer !!! Il faut que les 
-		##framerate physics et animation soient les mêmes
-#
-#func _on_animation_finished() -> void:
-	###Met le bool attack_finished à true quand l'animation de l'attaque est finie
-	#if player.sprite.animation == animation_name:
-		#attack_finished = true
 		
 func selectAttack() -> void :
 	if Input.is_action_just_pressed("attack"):

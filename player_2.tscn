@@ -111,7 +111,7 @@ animation = &"die"
 [node name="Hitbox" type="Area2D" parent="Sprite" unique_id=1859740570]
 script = ExtResource("17_y762y")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox" unique_id=606120138]
+[node name="kick" type="CollisionShape2D" parent="Sprite/Hitbox" unique_id=606120138]
 position = Vector2(-30.14706, 4.117648)
 scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_vkybu")
