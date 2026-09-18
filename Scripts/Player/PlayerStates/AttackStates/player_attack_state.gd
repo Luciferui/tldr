@@ -41,7 +41,7 @@ func enter() -> void:
 		#attack_finished = true
 		
 func selectAttack() -> void :
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed(player.attack_action):
 		currentAttackName = "kick"
 		animation_name = currentAttackName
 		totalFrameCount = 60

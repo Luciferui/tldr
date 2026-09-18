@@ -69,10 +69,16 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_ayiqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y7egp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_at6ig")
 }],
-"loop": 2,
+"loop": 0,
 "name": &"kick",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -101,6 +107,10 @@ height = 68.302345
 
 [node name="Player2" type="CharacterBody2D" unique_id=1446604150]
 script = ExtResource("1_ryqyf")
+left_action = &"p2_left"
+right_action = &"p2_right"
+jump_action = &"p2_jump"
+attack_action = &"p2_attack"
 metadata/_custom_type_script = "uid://yjyk6jav6o1k"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=497334249]
