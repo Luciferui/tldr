@@ -1,14 +1,14 @@
 extends Control
 
-# --- Sorts disponibles (les 5 boutons existants, utilisés comme "pool") ---
+#Sorts disponibles
 @onready var p1_spell_buttons: Array = [$VBoxContainer/Spell1, $VBoxContainer/Spell2, $VBoxContainer/Spell3, $VBoxContainer/Spell4, $VBoxContainer/Spell5]
 @onready var p2_spell_buttons: Array = [$VBoxContainer2/Spell1, $VBoxContainer2/Spell2, $VBoxContainer2/Spell3, $VBoxContainer2/Spell4, $VBoxContainer2/Spell5]
 
-# --- Slots (3 par joueur) : nouveaux boutons à créer dans l'éditeur ---
+#Slots (3 par joueur)
 @onready var p1_slot_buttons: Array = [$VBoxContainerSlots/Slot1, $VBoxContainerSlots/Slot2, $VBoxContainerSlots/Slot3]
 @onready var p2_slot_buttons: Array = [$VBoxContainerSlots2/Slot1, $VBoxContainerSlots2/Slot2, $VBoxContainerSlots2/Slot3]
 
-# --- Conteneurs pour basculer entre vue "slots" et vue "liste des sorts" ---
+#Conteneurs pour basculer entre vue "slots" et vue "liste des sorts"
 @onready var p1_spelllist_container: Control = $VBoxContainer
 @onready var p2_spelllist_container: Control = $VBoxContainer2
 @onready var p1_slotlist_container: Control = $VBoxContainerSlots
@@ -27,7 +27,7 @@ enum Mode { SLOTS, PICKING, START, MENU }
 var p1_mode: int = Mode.SLOTS
 var p2_mode: int = Mode.SLOTS
 
-var p1_slot_index := 0   # slot en surbrillance (0..2) en mode SLOTS
+var p1_slot_index := 0   # slot en surbrillance en mode SLOTS
 var p2_slot_index := 0
 
 var p1_pick_index := 0   # index dans la liste des sorts DISPONIBLES en mode PICKING
@@ -36,7 +36,7 @@ var p2_pick_index := 0
 var p1_editing_slot := -1  # quel slot est en train d'être rempli
 var p2_editing_slot := -1
 
-var p1_slots := [-1, -1, -1]  # index de sort (0..4) assigné à chaque slot, -1 = vide
+var p1_slots := [-1, -1, -1]  # index de sort (0 à 4) assigné à chaque slot, -1 = vide
 var p2_slots := [-1, -1, -1]
 
 var p1_spell_names: Array = []
@@ -54,10 +54,8 @@ func _ready() -> void:
 
 	for b in p1_spell_buttons + p2_spell_buttons + p1_slot_buttons + p2_slot_buttons + [start_button, main_menu_button]:
 		b.focus_mode = Control.FOCUS_NONE
-		b.mouse_entered.connect(_show_info.bind(b))
-		b.mouse_exited.connect(_hide_info)
 
-	# Au départ : on voit les slots (vides), pas la liste des sorts
+	# Au départ on voit les slots (vides), pas la liste des sorts
 	p1_spelllist_container.visible = false
 	p2_spelllist_container.visible = false
 
@@ -260,7 +258,7 @@ func _highlight_player(player: int) -> void:
 
 func _set_highlight(button: Button, on: bool) -> void:
 	if on:
-		button.add_theme_color_override("font_color", Color.YELLOW)
+		button.add_theme_color_override("font_color", Color.DARK_RED)
 	else:
 		button.remove_theme_color_override("font_color")
 
@@ -286,6 +284,7 @@ func _on_main_menu_button_pressed() -> void:
 
 
 func _on_start_button_pressed() -> void:
-	print("P1 spells: ", p1_slots)
-	print("P2 spells: ", p2_slots)
+	DataDistributor.distribute_spells(p1_slots, p2_slots)
+	print(DataDistributor.p1_spells)
+	print(DataDistributor.p2_spells)
 	get_tree().change_scene_to_file("res://level.tscn")

@@ -86,21 +86,21 @@ offset_top = 209.0
 offset_right = 516.0
 offset_bottom = 845.0
 
-[node name="Slot1" type="Button" parent="VBoxContainerSlots"]
+[node name="Slot1" type="Button" parent="VBoxContainerSlots" unique_id=356202784]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_6hf7k")
 text = "Slot 1 - Vide"
 
-[node name="Slot2" type="Button" parent="VBoxContainerSlots"]
+[node name="Slot2" type="Button" parent="VBoxContainerSlots" unique_id=1731658189]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_6hf7k")
 text = "Slot 2 - Vide"
 
-[node name="Slot3" type="Button" parent="VBoxContainerSlots"]
+[node name="Slot3" type="Button" parent="VBoxContainerSlots" unique_id=1321738984]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
@@ -159,21 +159,21 @@ offset_top = 232.0
 offset_right = 1126.0
 offset_bottom = 612.0
 
-[node name="Slot1" type="Button" parent="VBoxContainerSlots2"]
+[node name="Slot1" type="Button" parent="VBoxContainerSlots2" unique_id=1006321318]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_6hf7k")
 text = "Slot 1 - Vide"
 
-[node name="Slot2" type="Button" parent="VBoxContainerSlots2"]
+[node name="Slot2" type="Button" parent="VBoxContainerSlots2" unique_id=193982375]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_6hf7k")
 text = "Slot 2 - Vide"
 
-[node name="Slot3" type="Button" parent="VBoxContainerSlots2"]
+[node name="Slot3" type="Button" parent="VBoxContainerSlots2" unique_id=586372609]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
