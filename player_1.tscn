@@ -33,6 +33,8 @@
 [ext_resource type="Script" uid="uid://d1vxorwm5xta4" path="res://Scripts/Player/PlayerStates/player_fall_state.gd" id="20_ratjp"]
 [ext_resource type="Script" uid="uid://cha207lvv53uk" path="res://Scripts/Player/PlayerStates/AttackStates/player_attack_state.gd" id="25_fvdx0"]
 [ext_resource type="Script" path="res://Scripts/Abstract/hitbox.gd" id="25_yef3s"]
+[ext_resource type="Script" uid="uid://dj0uvd5fjr6b8" path="res://Scripts/Player/PlayerStates/player_hurtbox.gd" id="28_cu0p0"]
+[ext_resource type="Script" uid="uid://pyvofwuo17c5" path="res://Scripts/Player/PlayerStates/player_pain_state.gd" id="35_oexav"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ssidi"]
 animations = [{
@@ -190,6 +192,13 @@ disabled = true
 position = Vector2(-2, 9)
 shape = SubResource("RectangleShape2D_ssidi")
 
+[node name="Hurtbox" type="Area2D" parent="." unique_id=565552736]
+script = ExtResource("28_cu0p0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1379306764]
+position = Vector2(-2, 9)
+shape = SubResource("RectangleShape2D_ssidi")
+
 [node name="StateMachine" type="Node2D" parent="." unique_id=2031508697 node_paths=PackedStringArray("starting_state")]
 script = ExtResource("16_bxgnc")
 starting_state = NodePath("Idle")
@@ -222,3 +231,6 @@ idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
 hitbox = NodePath("../../Sprite/Hitbox")
 totalFrameCount = 300
+
+[node name="Pain" type="Node2D" parent="StateMachine" unique_id=470252384]
+script = ExtResource("35_oexav")

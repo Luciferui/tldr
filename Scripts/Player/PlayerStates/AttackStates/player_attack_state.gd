@@ -54,3 +54,8 @@ func process_physics(delta: float) -> State:
 		attack_finished = true
 	
 	return null
+
+func exit(new_state: State = null) -> void:
+	if hitbox and currentAttackName != "":
+		hitbox.disableCollisionShape(currentAttackName)
+	super.exit(new_state)
