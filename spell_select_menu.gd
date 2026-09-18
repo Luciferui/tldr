@@ -16,8 +16,20 @@ extends Control
 
 @onready var start_button: Button = $StartButton
 @onready var main_menu_button: Button = $MainMenuButton
-@onready var spell_info_panel: PanelContainer = $SpellInfoPanel
-@onready var spell_info_label: Label = $SpellInfoPanel/Label
+@onready var p1_spell_info_panel: PanelContainer = $SpellInfoPanel1
+@onready var p1_spell_info_label: Label = $SpellInfoPanel1/Label
+@onready var p2_spell_info_panel: PanelContainer = $SpellInfoPanel2
+@onready var p2_spell_info_label: Label = $SpellInfoPanel2/Label
+
+# Descriptions des sorts, dans le même ordre que les boutons Spell1..Spell5
+# (indices 0 à 4, partagés par les deux joueurs)
+const SPELL_DESCRIPTIONS := [
+	"Description du sort 1 à compléter.",
+	"Description du sort 2 à compléter.",
+	"Description du sort 3 à compléter.",
+	"Description du sort 4 à compléter.",
+	"Description du sort 5 à compléter.",
+]
 
 const REQUIRED_SPELLS := 3
 const NUM_SPELLS := 5
@@ -45,7 +57,8 @@ var p2_spell_names: Array = []
 
 func _ready() -> void:
 	start_button.visible = false
-	spell_info_panel.visible = false
+	p1_spell_info_panel.visible = false
+	p2_spell_info_panel.visible = false
 
 	for b in p1_spell_buttons:
 		p1_spell_names.append(b.text)
@@ -226,6 +239,9 @@ func _refresh_highlights() -> void:
 	start_button.remove_theme_color_override("font_color")
 	main_menu_button.remove_theme_color_override("font_color")
 
+	p1_spell_info_panel.visible = false
+	p2_spell_info_panel.visible = false
+
 	_highlight_player(1)
 	_highlight_player(2)
 
@@ -238,7 +254,6 @@ func _highlight_player(player: int) -> void:
 			var slot_buttons: Array = p1_slot_buttons if player == 1 else p2_slot_buttons
 			var slot_index: int = p1_slot_index if player == 1 else p2_slot_index
 			_set_highlight(slot_buttons[slot_index], true)
-			_show_info(slot_buttons[slot_index])
 
 		Mode.PICKING:
 			var buttons: Array = p1_spell_buttons if player == 1 else p2_spell_buttons
@@ -247,7 +262,7 @@ func _highlight_player(player: int) -> void:
 			if pick_index < available.size():
 				var real_index: int = available[pick_index]
 				_set_highlight(buttons[real_index], true)
-				_show_info(buttons[real_index])
+				_show_spell_info(player, real_index)
 
 		Mode.START:
 			_set_highlight(start_button, true)
@@ -269,14 +284,13 @@ func _check_ready_to_start() -> void:
 	start_button.visible = p1_done and p2_done
 
 
-func _show_info(button: Button) -> void:
-	spell_info_panel.visible = true
-	spell_info_label.text = button.text  # remplacer par les vraies infos du sort
-	spell_info_panel.global_position = button.global_position + Vector2(button.size.x, 0)
+func _show_spell_info(player: int, spell_index: int) -> void:
+	var panel: PanelContainer = p1_spell_info_panel if player == 1 else p2_spell_info_panel
+	var label: Label = p1_spell_info_label if player == 1 else p2_spell_info_label
+	var names: Array = p1_spell_names if player == 1 else p2_spell_names
 
-
-func _hide_info() -> void:
-	spell_info_panel.visible = false
+	panel.visible = true
+	label.text = "%s\n%s" % [names[spell_index], SPELL_DESCRIPTIONS[spell_index]]
 
 
 func _on_main_menu_button_pressed() -> void:
@@ -285,6 +299,4 @@ func _on_main_menu_button_pressed() -> void:
 
 func _on_start_button_pressed() -> void:
 	DataDistributor.distribute_spells(p1_slots, p2_slots)
-	print(DataDistributor.p1_spells)
-	print(DataDistributor.p2_spells)
 	get_tree().change_scene_to_file("res://level.tscn")

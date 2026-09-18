@@ -210,17 +210,32 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_sodsc")
 text = "Start Game"
 
-[node name="SpellInfoPanel" type="PanelContainer" parent="." unique_id=1624722813]
+[node name="SpellInfoPanel1" type="PanelContainer" parent="." unique_id=1624722813]
 visible = false
 layout_mode = 0
-offset_left = 400.0
-offset_top = 100.0
-offset_right = 900.0
-offset_bottom = 160.0
+offset_left = 213.0
+offset_top = 125.0
+offset_right = 516.0
+offset_bottom = 205.0
 
-[node name="Label" type="Label" parent="SpellInfoPanel" unique_id=226215370]
+[node name="Label" type="Label" parent="SpellInfoPanel1" unique_id=226215370]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 2
+text = "Spell info"
+
+[node name="SpellInfoPanel2" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 843.0
+offset_top = 125.0
+offset_right = 1146.0
+offset_bottom = 205.0
+
+[node name="Label" type="Label" parent="SpellInfoPanel2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 2
 text = "Spell info"
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
