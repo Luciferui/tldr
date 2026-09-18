@@ -22,7 +22,7 @@
 [ext_resource type="Script" uid="uid://cha207lvv53uk" path="res://Scripts/Player/PlayerStates/AttackStates/player_attack_state.gd" id="11_8yx1g"]
 [ext_resource type="Texture2D" uid="uid://b5rqo11ksmpf5" path="res://Assets/Sprites/Enemy-Punk/Walk/walk3.png" id="11_y762y"]
 [ext_resource type="Texture2D" uid="uid://dk6fhbgjtnqkn" path="res://Assets/Sprites/Enemy-Punk/Walk/walk4.png" id="12_14lsy"]
-[ext_resource type="Script" uid="uid://uh400finn2sw" path="res://Scripts/Abstract/hitbox.gd" id="17_y762y"]
+[ext_resource type="Script" path="res://Scripts/Abstract/hitbox.gd" id="17_y762y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vkybu"]
 animations = [{
@@ -104,15 +104,14 @@ script = ExtResource("1_ryqyf")
 metadata/_custom_type_script = "uid://yjyk6jav6o1k"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=497334249]
-scale = Vector2(1.7, 1.7)
+scale = Vector2(-1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_vkybu")
-animation = &"kick"
+animation = &"die"
 
 [node name="Hitbox" type="Area2D" parent="Sprite" unique_id=1859740570]
 script = ExtResource("17_y762y")
-metadata/_custom_type_script = "uid://uh400finn2sw"
 
-[node name="Kick" type="CollisionShape2D" parent="Sprite/Hitbox" unique_id=606120138]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox" unique_id=606120138]
 position = Vector2(-30.14706, 4.117648)
 scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_vkybu")

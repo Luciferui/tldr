@@ -1,25 +1,16 @@
-<<<<<<< Updated upstream
 class_name Hitbox
 extends Area2D
 
 @export var damage := 10
-@onready var collisionShape: CollisionShape2D = $Kick
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
-func _init() -> void:
+
+func _ready() -> void:
 	collision_layer = 2
 	collision_mask = 0
 
 func activateCollisionShape(name : String) -> void :
-	collisionShape.disabled = false
+	collision_shape_2d.set_deferred("disabled",false)
 	
 func disableCollisionShape(name : String) -> void :
-	collisionShape.disabled = true
-=======
-class_name Hitbox_c
-extends Area2D
-
-@export var damage := 10
-
-func _init()->void:
-	pass
->>>>>>> Stashed changes
+	collision_shape_2d.set_deferred("disabled",true)

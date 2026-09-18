@@ -1,6 +1,4 @@
-res://player_2.tscn
 res://Scripts/Player/PlayerStates/AttackStates/player_attack_state.gd
+res://player_1.tscn
 res://Scripts/Abstract/hitbox.gd
-res://Scripts/DDR/fixed_ddr.gd
-res://Scripts/DDR/super_ddr.gd
-res://Scripts/DDR/random_ddr.gd
+res://player_2.tscn
