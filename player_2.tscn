@@ -103,9 +103,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkybu"]
 size = Vector2(33.823524, 18.235294)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bdvc"]
-radius = 16.446123
-height = 51.43988
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbeff"]
+size = Vector2(27.311707, 52.087173)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tw1wg"]
+size = Vector2(27.311708, 52.998657)
 
 [node name="Player2" type="CharacterBody2D" unique_id=1446604150]
 script = ExtResource("1_ryqyf")
@@ -139,9 +141,10 @@ shape = SubResource("RectangleShape2D_vkybu")
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1004675928]
-position = Vector2(-12, 13)
-scale = Vector2(-1.1552875, 1.2830513)
-shape = SubResource("CapsuleShape2D_1bdvc")
+position = Vector2(-9.776439, 14.4152565)
+rotation = -3.1415925
+scale = Vector2(1.1552875, -1.2830513)
+shape = SubResource("RectangleShape2D_hbeff")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=2070999907 node_paths=PackedStringArray("state_machine", "pain_state")]
 script = ExtResource("18_hbeff")
@@ -149,9 +152,10 @@ state_machine = NodePath("../StateMachine")
 pain_state = NodePath("../StateMachine/Pain")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1774412082]
-position = Vector2(-12, 13)
-scale = Vector2(-1.1552875, 1.2830513)
-shape = SubResource("CapsuleShape2D_1bdvc")
+position = Vector2(-9, 14.999998)
+rotation = -3.1415925
+scale = Vector2(1.1552875, -1.2830513)
+shape = SubResource("RectangleShape2D_tw1wg")
 
 [node name="StateMachine" type="Node2D" parent="." unique_id=552219972 node_paths=PackedStringArray("starting_state")]
 script = ExtResource("6_up5o4")
