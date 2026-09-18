@@ -31,10 +31,15 @@ func enter() -> void:
 			hitbox.scale.x = 1.0
 		
 func selectAttack() -> void :
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("kick"):
 		currentAttackName = "kick"
 		animation_name = currentAttackName
 		totalFrameCount = 60
+		hitbox.activateCollisionShape(currentAttackName)
+	elif Input.is_action_just_pressed("punch"):
+		currentAttackName = "punch"
+		animation_name = currentAttackName
+		totalFrameCount = 36
 		hitbox.activateCollisionShape(currentAttackName)
 
 func process_physics(delta: float) -> State:

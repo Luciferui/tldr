@@ -24,8 +24,11 @@
 [ext_resource type="Texture2D" uid="uid://dmswae67uma7o" path="res://Assets/Sprites/Brawler-Girl/Kick/kick4.png" id="13_d614h"]
 [ext_resource type="Texture2D" uid="uid://d1u1t3fbs2da4" path="res://Assets/Sprites/Brawler-Girl/Walk/walk10.png" id="14_1b40w"]
 [ext_resource type="Texture2D" uid="uid://csk41ytygamv0" path="res://Assets/Sprites/Brawler-Girl/Kick/kick5.png" id="14_dnvjy"]
+[ext_resource type="Texture2D" uid="uid://ckwlhnbv228pp" path="res://Assets/Sprites/Brawler-Girl/Punch/punch1.png" id="15_dnvjy"]
 [ext_resource type="Script" uid="uid://cx6iomacw7umd" path="res://Scripts/Abstract/state_machine.gd" id="16_bxgnc"]
+[ext_resource type="Texture2D" uid="uid://bqio2lby3p0yn" path="res://Assets/Sprites/Brawler-Girl/Punch/punch2.png" id="16_cu0p0"]
 [ext_resource type="Script" uid="uid://bvbwrwksp8hjt" path="res://Scripts/Player/PlayerStates/player_idle_state.gd" id="17_2ri8u"]
+[ext_resource type="Texture2D" uid="uid://bhoi8fs3defcb" path="res://Assets/Sprites/Brawler-Girl/Punch/punch3.png" id="17_oexav"]
 [ext_resource type="Script" uid="uid://bvyy2x5hx0gaj" path="res://Scripts/Player/PlayerStates/player_walk_state.gd" id="18_2230n"]
 [ext_resource type="Script" uid="uid://cdwm33efq4l8f" path="res://Scripts/Player/PlayerStates/player_jump_state.gd" id="19_d3d1g"]
 [ext_resource type="Script" uid="uid://d1vxorwm5xta4" path="res://Scripts/Player/PlayerStates/player_fall_state.gd" id="20_ratjp"]
@@ -98,6 +101,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("15_dnvjy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_cu0p0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_oexav")
+}],
+"loop": 1,
+"name": &"punch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("5_841sn")
 }, {
 "duration": 1.0,
@@ -135,6 +152,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4wrae"]
 size = Vector2(35.5, 13)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6x7ra"]
+size = Vector2(35, 7)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ssidi"]
 size = Vector2(20, 46)
 
@@ -151,6 +171,11 @@ script = ExtResource("25_yef3s")
 [node name="kick" type="CollisionShape2D" parent="Sprite/Hitbox" unique_id=972660298]
 position = Vector2(15.25, 7.5)
 shape = SubResource("RectangleShape2D_4wrae")
+disabled = true
+
+[node name="punch" type="CollisionShape2D" parent="Sprite/Hitbox" unique_id=973449335]
+position = Vector2(18.5, -1.5)
+shape = SubResource("RectangleShape2D_6x7ra")
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1216312141]
