@@ -13,7 +13,7 @@ var sprite_flip: bool = false
 @export var move_right_action: String = "right"
 
 func _ready() -> void:
-	player = owner as Player 
+	player = owner as Player
 	# Owner : premier parent étant une scène (ici le node Player)
 
 func exit(new_state: State = null) -> void:
