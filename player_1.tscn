@@ -23,7 +23,6 @@
 [ext_resource type="Texture2D" uid="uid://ccbl4ru58cla6" path="res://Assets/Sprites/Brawler-Girl/Walk/walk9.png" id="13_5363y"]
 [ext_resource type="Texture2D" uid="uid://dmswae67uma7o" path="res://Assets/Sprites/Brawler-Girl/Kick/kick4.png" id="13_d614h"]
 [ext_resource type="Texture2D" uid="uid://d1u1t3fbs2da4" path="res://Assets/Sprites/Brawler-Girl/Walk/walk10.png" id="14_1b40w"]
-[ext_resource type="Texture2D" uid="uid://csk41ytygamv0" path="res://Assets/Sprites/Brawler-Girl/Kick/kick5.png" id="14_dnvjy"]
 [ext_resource type="Script" uid="uid://cx6iomacw7umd" path="res://Scripts/Abstract/state_machine.gd" id="16_bxgnc"]
 [ext_resource type="Script" uid="uid://bvbwrwksp8hjt" path="res://Scripts/Player/PlayerStates/player_idle_state.gd" id="17_2ri8u"]
 [ext_resource type="Script" uid="uid://bvyy2x5hx0gaj" path="res://Scripts/Player/PlayerStates/player_walk_state.gd" id="18_2230n"]
@@ -90,11 +89,20 @@ animations = [{
 "texture": ExtResource("13_d614h")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_dnvjy")
+"texture": ExtResource("13_d614h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_mviyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_yef3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_k0xj2")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"kick",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,

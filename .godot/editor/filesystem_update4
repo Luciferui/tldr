@@ -4,3 +4,4 @@ res://Scripts/Player/player.gd
 res://Scripts/Player/PlayerStates/playerstate.gd
 res://Scripts/Player/PlayerStates/AttackStates/player_attack_state.gd
 res://Scripts/Player/PlayerStates/player_idle_state.gd
+res://Scripts/Player/PlayerStates/player_walk_state.gd

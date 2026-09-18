@@ -111,6 +111,7 @@ left_action = &"p2_left"
 right_action = &"p2_right"
 jump_action = &"p2_jump"
 attack_action = &"p2_attack"
+sprite_faces_left = true
 metadata/_custom_type_script = "uid://yjyk6jav6o1k"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=497334249]

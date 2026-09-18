@@ -33,7 +33,7 @@ func get_movement_direction() -> float:
 
 func determine_sprite_flip() -> void:
 	if Input.is_action_pressed(player.left_action):
-		sprite_flip = true
+		sprite_flip = not player.sprite_faces_left
 	elif Input.is_action_pressed(player.right_action):
-		sprite_flip = false
+		sprite_flip = player.sprite_faces_left
 	player.sprite.flip_h = sprite_flip
