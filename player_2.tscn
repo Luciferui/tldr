@@ -179,5 +179,7 @@ walk_state = NodePath("../Walk")
 hitbox = NodePath("../../Sprite/Hitbox")
 totalFrameCount = 300
 
-[node name="Pain" type="Node2D" parent="StateMachine" unique_id=408542017]
+[node name="Pain" type="Node2D" parent="StateMachine" unique_id=408542017 node_paths=PackedStringArray("hurtbox", "idle_state")]
 script = ExtResource("25_tw1wg")
+hurtbox = NodePath("../../Hurtbox")
+idle_state = NodePath("../Idle")
