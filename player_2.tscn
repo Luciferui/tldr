@@ -104,8 +104,8 @@ animations = [{
 size = Vector2(33.823524, 18.235294)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bdvc"]
-radius = 18.177294
-height = 68.302345
+radius = 16.446123
+height = 51.43988
 
 [node name="Player2" type="CharacterBody2D" unique_id=1446604150]
 script = ExtResource("1_ryqyf")
@@ -117,7 +117,8 @@ sprite_faces_left = true
 metadata/_custom_type_script = "uid://yjyk6jav6o1k"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=497334249]
-scale = Vector2(-1, 1)
+position = Vector2(-6, 3.624999)
+scale = Vector2(1.375, 1.3849206)
 sprite_frames = SubResource("SpriteFrames_vkybu")
 animation = &"pain"
 
@@ -131,7 +132,7 @@ shape = SubResource("RectangleShape2D_vkybu")
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1004675928]
-position = Vector2(8, 14.000001)
+position = Vector2(-12, 13)
 scale = Vector2(-1.1552875, 1.2830513)
 shape = SubResource("CapsuleShape2D_1bdvc")
 
@@ -141,7 +142,7 @@ state_machine = NodePath("../StateMachine")
 pain_state = NodePath("../StateMachine/Pain")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1774412082]
-position = Vector2(8, 14.000001)
+position = Vector2(-12, 13)
 scale = Vector2(-1.1552875, 1.2830513)
 shape = SubResource("CapsuleShape2D_1bdvc")
 
