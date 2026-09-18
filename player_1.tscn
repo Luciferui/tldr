@@ -205,7 +205,6 @@ position = Vector2(18.5, -1.5)
 shape = SubResource("RectangleShape2D_6x7ra")
 disabled = true
 
-<<<<<<< Updated upstream
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1216312141]
 position = Vector2(-2, 9)
 shape = SubResource("RectangleShape2D_ssidi")
@@ -219,8 +218,6 @@ pain_state = NodePath("../StateMachine/Pain")
 position = Vector2(-2, 9)
 shape = SubResource("RectangleShape2D_ssidi")
 
-=======
->>>>>>> Stashed changes
 [node name="StateMachine" type="Node2D" parent="." unique_id=2031508697 node_paths=PackedStringArray("starting_state")]
 script = ExtResource("16_bxgnc")
 starting_state = NodePath("Idle")

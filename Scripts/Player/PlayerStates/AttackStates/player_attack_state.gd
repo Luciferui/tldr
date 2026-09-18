@@ -41,25 +41,14 @@ func enter() -> void:
 			hitbox.scale.x = 1.0
 		
 func selectAttack() -> void :
-<<<<<<< Updated upstream
 	if Input.is_action_just_pressed(player.heavy_attack_action):
-		currentAttackName = "kick"
-		animation_name = currentAttackName
-		totalFrameCount = 60
-		hitbox.activateCollisionShape(currentAttackName)
-	elif Input.is_action_just_pressed(player.light_attack_action):
-		currentAttackName = "punch"
-		animation_name = currentAttackName
-=======
-	if Input.is_action_just_pressed("kick"):
 		currentAttack = kick_attack
 		animation_name = currentAttack.animation_name
 		totalFrameCount = 60
 		hitbox.activateAttack(currentAttack)
-	elif Input.is_action_just_pressed("punch"):
+	elif Input.is_action_just_pressed(player.light_attack_action):
 		currentAttack = punch_attack
 		animation_name = currentAttack.animation_name
->>>>>>> Stashed changes
 		totalFrameCount = 36
 		hitbox.activateAttack(currentAttack)
 
@@ -77,6 +66,4 @@ func process_physics(delta: float) -> State:
 	return null
 
 func exit(new_state: State = null) -> void:
-	if hitbox and currentAttackName != "":
-		hitbox.disableCollisionShape(currentAttackName)
 	super.exit(new_state)
