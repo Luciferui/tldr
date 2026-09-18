@@ -132,8 +132,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wrae"]
-size = Vector2(35.5, 13)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6x7ra"]
+size = Vector2(38, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ssidi"]
 size = Vector2(20, 46)
@@ -147,10 +147,11 @@ animation = &"kick"
 
 [node name="Hitbox" type="Area2D" parent="Sprite" unique_id=1219363051]
 script = ExtResource("25_yef3s")
+damage = null
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox" unique_id=972660298]
-position = Vector2(15.25, 7.5)
-shape = SubResource("RectangleShape2D_4wrae")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox" unique_id=437249422]
+position = Vector2(13.875, 1.4375)
+shape = SubResource("RectangleShape2D_6x7ra")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1216312141]
 position = Vector2(-2, 9)
