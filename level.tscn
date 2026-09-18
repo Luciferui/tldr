@@ -58,8 +58,6 @@ zoom = Vector2(3, 3)
 
 [node name="Plateform0_5" type="StaticBody2D" parent="." unique_id=1605015684]
 
-<<<<<<< Updated upstream
-=======
 [node name="Sprite2D" type="Sprite2D" parent="Plateform0_5" unique_id=2052033808]
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("5_aicyk")
@@ -157,7 +155,6 @@ shape = SubResource("RectangleShape2D_8cye3")
 position = Vector2(313.5, 94)
 shape = SubResource("RectangleShape2D_1ainy")
 
->>>>>>> Stashed changes
 [node name="LeftWall" type="StaticBody2D" parent="." unique_id=991804508]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=290896773]
@@ -173,9 +170,6 @@ shape = SubResource("RectangleShape2D_2v8g7")
 [node name="Player" parent="." unique_id=2123069804 instance=ExtResource("2_pnn78")]
 position = Vector2(-60, -2)
 scale = Vector2(1.5, 1.5)
-
-[node name="Player2" parent="." unique_id=1446604150 instance=ExtResource("3_0b4ue")]
-scale = Vector2(1.2, 1.2)
 
 [node name="Ddr" parent="." unique_id=1646128952 instance=ExtResource("3_oi3di")]
 position = Vector2(153, 126)
