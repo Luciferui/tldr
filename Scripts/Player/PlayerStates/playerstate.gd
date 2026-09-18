@@ -29,11 +29,11 @@ func process_physics(delta: float) -> State:
 func get_movement_direction() -> float:
 	##Renvoie la direction pressée de mouvement [br]
 	## -1 if left + 1 if right
-	return Input.get_axis(move_left_action, move_right_action)
+	return Input.get_axis(player.left_action, player.right_action)
 
 func determine_sprite_flip() -> void:
-	if Input.is_action_pressed(move_left_action):
-		sprite_flip = true
-	elif Input.is_action_pressed(move_right_action):
-		sprite_flip = false
+	if Input.is_action_pressed(player.left_action):
+		sprite_flip = not player.sprite_faces_left
+	elif Input.is_action_pressed(player.right_action):
+		sprite_flip = player.sprite_faces_left
 	player.sprite.flip_h = sprite_flip

@@ -23,26 +23,11 @@
 [ext_resource type="Texture2D" uid="uid://b5rqo11ksmpf5" path="res://Assets/Sprites/Enemy-Punk/Walk/walk3.png" id="11_y762y"]
 [ext_resource type="Texture2D" uid="uid://dk6fhbgjtnqkn" path="res://Assets/Sprites/Enemy-Punk/Walk/walk4.png" id="12_14lsy"]
 [ext_resource type="Script" path="res://Scripts/Abstract/hitbox.gd" id="17_y762y"]
+[ext_resource type="Script" uid="uid://dj0uvd5fjr6b8" path="res://Scripts/Player/PlayerStates/player_hurtbox.gd" id="18_hbeff"]
+[ext_resource type="Script" uid="uid://pyvofwuo17c5" path="res://Scripts/Player/PlayerStates/player_pain_state.gd" id="25_tw1wg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vkybu"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_6imt3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_y762y")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_14lsy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_hbeff")
-}],
-"loop": 0,
-"name": &"die",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_1hlws")
@@ -69,10 +54,33 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_ayiqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y7egp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_at6ig")
 }],
-"loop": 2,
+"loop": 0,
 "name": &"kick",
-"speed": 5.0
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6imt3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y762y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_14lsy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hbeff")
+}],
+"loop": 0,
+"name": &"pain",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -95,17 +103,24 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkybu"]
 size = Vector2(33.823524, 18.235294)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2orkt"]
-size = Vector2(22.983782, 38.19021)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bdvc"]
+radius = 16.446123
+height = 51.43988
 
 [node name="Player2" type="CharacterBody2D" unique_id=1446604150]
 script = ExtResource("1_ryqyf")
+left_action = &"p2_left"
+right_action = &"p2_right"
+jump_action = &"p2_jump"
+attack_action = &"p2_attack"
+sprite_faces_left = true
 metadata/_custom_type_script = "uid://yjyk6jav6o1k"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=497334249]
-scale = Vector2(-1, 1)
+position = Vector2(-6, 3.624999)
+scale = Vector2(1.375, 1.3849206)
 sprite_frames = SubResource("SpriteFrames_vkybu")
-animation = &"die"
+animation = &"pain"
 
 [node name="Hitbox" type="Area2D" parent="Sprite" unique_id=1859740570]
 script = ExtResource("17_y762y")
@@ -117,10 +132,19 @@ shape = SubResource("RectangleShape2D_vkybu")
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1004675928]
-position = Vector2(2.276437, 6.4999995)
-rotation = -3.1415925
-scale = Vector2(1.1552875, -1.2830513)
-shape = SubResource("RectangleShape2D_2orkt")
+position = Vector2(-12, 13)
+scale = Vector2(-1.1552875, 1.2830513)
+shape = SubResource("CapsuleShape2D_1bdvc")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=2070999907 node_paths=PackedStringArray("state_machine", "pain_state")]
+script = ExtResource("18_hbeff")
+state_machine = NodePath("../StateMachine")
+pain_state = NodePath("../StateMachine/Pain")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1774412082]
+position = Vector2(-12, 13)
+scale = Vector2(-1.1552875, 1.2830513)
+shape = SubResource("CapsuleShape2D_1bdvc")
 
 [node name="StateMachine" type="Node2D" parent="." unique_id=552219972 node_paths=PackedStringArray("starting_state")]
 script = ExtResource("6_up5o4")
@@ -154,3 +178,8 @@ idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
 hitbox = NodePath("../../Sprite/Hitbox")
 totalFrameCount = 300
+
+[node name="Pain" type="Node2D" parent="StateMachine" unique_id=408542017 node_paths=PackedStringArray("hurtbox", "idle_state")]
+script = ExtResource("25_tw1wg")
+hurtbox = NodePath("../../Hurtbox")
+idle_state = NodePath("../Idle")

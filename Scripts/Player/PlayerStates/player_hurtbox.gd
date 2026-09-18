@@ -12,6 +12,11 @@ func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 
 func _on_area_entered(area: Area2D) -> void:
+	if not area is Hitbox:
+		return
+	if get_parent().is_ancestor_of(area):
+		return
+	
 	if area is Hitbox:
 		hitting_area = area
 		engine_slow(0.1, 0.15) # Ralentissement du temps au moment de l'impact

@@ -31,7 +31,7 @@ func enter() -> void:
 			hitbox.scale.x = 1.0
 		
 func selectAttack() -> void :
-	if Input.is_action_just_pressed("kick"):
+	if Input.is_action_just_pressed(player.attack_action):
 		currentAttackName = "kick"
 		animation_name = currentAttackName
 		totalFrameCount = 60
@@ -54,3 +54,8 @@ func process_physics(delta: float) -> State:
 		attack_finished = true
 	
 	return null
+
+func exit(new_state: State = null) -> void:
+	if hitbox and currentAttackName != "":
+		hitbox.disableCollisionShape(currentAttackName)
+	super.exit(new_state)
