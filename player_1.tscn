@@ -172,14 +172,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssidi"]
-size = Vector2(20, 46)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4wrae"]
 size = Vector2(35.5, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6x7ra"]
 size = Vector2(35, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssidi"]
+size = Vector2(20, 46)
 
 [node name="Player" type="CharacterBody2D" unique_id=2123069804 groups=["Player"]]
 script = ExtResource("1_3kxg5")
@@ -188,24 +188,19 @@ script = ExtResource("1_3kxg5")
 sprite_frames = SubResource("SpriteFrames_ssidi")
 animation = &"pain"
 
-[node name="GroundCollisionShape" type="CollisionShape2D" parent="." unique_id=1216312141]
-position = Vector2(-2, 9)
-shape = SubResource("RectangleShape2D_ssidi")
-
-[node name="Hitbox" type="Area2D" parent="." unique_id=1219363051]
+[node name="Hitbox" type="Area2D" parent="Sprite" unique_id=1219363051]
 script = ExtResource("25_yef3s")
 
-[node name="kick" type="CollisionShape2D" parent="Hitbox" unique_id=972660298]
+[node name="kick" type="CollisionShape2D" parent="Sprite/Hitbox" unique_id=972660298]
 position = Vector2(15.25, 7.5)
 shape = SubResource("RectangleShape2D_4wrae")
 disabled = true
 
-[node name="punch" type="CollisionShape2D" parent="Hitbox" unique_id=973449335]
+[node name="punch" type="CollisionShape2D" parent="Sprite/Hitbox" unique_id=973449335]
 position = Vector2(18.5, -1.5)
 shape = SubResource("RectangleShape2D_6x7ra")
 disabled = true
 
-<<<<<<< Updated upstream
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1216312141]
 position = Vector2(-2, 9)
 shape = SubResource("RectangleShape2D_ssidi")
@@ -219,8 +214,6 @@ pain_state = NodePath("../StateMachine/Pain")
 position = Vector2(-2, 9)
 shape = SubResource("RectangleShape2D_ssidi")
 
-=======
->>>>>>> Stashed changes
 [node name="StateMachine" type="Node2D" parent="." unique_id=2031508697 node_paths=PackedStringArray("starting_state")]
 script = ExtResource("16_bxgnc")
 starting_state = NodePath("Idle")
@@ -251,7 +244,7 @@ walk_state = NodePath("../Walk")
 script = ExtResource("25_fvdx0")
 idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
-hitbox = NodePath("../../Hitbox")
+hitbox = NodePath("../../Sprite/Hitbox")
 totalFrameCount = 300
 
 [node name="Pain" type="Node2D" parent="StateMachine" unique_id=470252384 node_paths=PackedStringArray("hurtbox", "idle_state")]
