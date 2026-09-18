@@ -79,6 +79,34 @@ theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_6hf7k")
 text = "Spell 5"
 
+[node name="VBoxContainerSlots" type="VBoxContainer" parent="." unique_id=497915247]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 209.0
+offset_right = 516.0
+offset_bottom = 845.0
+
+[node name="Slot1" type="Button" parent="VBoxContainerSlots"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_6hf7k")
+text = "Slot 1 - Vide"
+
+[node name="Slot2" type="Button" parent="VBoxContainerSlots"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_6hf7k")
+text = "Slot 2 - Vide"
+
+[node name="Slot3" type="Button" parent="VBoxContainerSlots"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_6hf7k")
+text = "Slot 3 - Vide"
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=245069000]
 layout_mode = 0
 offset_left = 843.0
@@ -124,6 +152,34 @@ theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_6hf7k")
 text = "Spell 5"
 
+[node name="VBoxContainerSlots2" type="VBoxContainer" parent="." unique_id=245069001]
+layout_mode = 0
+offset_left = 843.0
+offset_top = 232.0
+offset_right = 1126.0
+offset_bottom = 612.0
+
+[node name="Slot1" type="Button" parent="VBoxContainerSlots2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_6hf7k")
+text = "Slot 1 - Vide"
+
+[node name="Slot2" type="Button" parent="VBoxContainerSlots2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_6hf7k")
+text = "Slot 2 - Vide"
+
+[node name="Slot3" type="Button" parent="VBoxContainerSlots2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_6hf7k")
+text = "Slot 3 - Vide"
+
 [node name="Player1Spells" type="TextEdit" parent="." unique_id=1302061127]
 layout_mode = 0
 offset_left = 254.0
@@ -154,17 +210,6 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_sodsc")
 text = "Start Game"
 
-[node name="StartButton2" type="Button" parent="." unique_id=1200580403]
-layout_mode = 0
-offset_left = 972.0
-offset_top = 25.0
-offset_right = 1245.0
-offset_bottom = 95.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_sodsc")
-text = "Start Game"
-
 [node name="SpellInfoPanel" type="PanelContainer" parent="." unique_id=1624722813]
 visible = false
 layout_mode = 0
@@ -180,4 +225,3 @@ text = "Spell info"
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="StartButton2" to="." method="_on_start_button_2_pressed"]
