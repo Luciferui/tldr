@@ -107,7 +107,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"kick",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -192,8 +192,10 @@ disabled = true
 position = Vector2(-2, 9)
 shape = SubResource("RectangleShape2D_ssidi")
 
-[node name="Hurtbox" type="Area2D" parent="." unique_id=565552736]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=565552736 node_paths=PackedStringArray("state_machine", "pain_state")]
 script = ExtResource("28_cu0p0")
+state_machine = NodePath("../StateMachine")
+pain_state = NodePath("../StateMachine/Pain")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1379306764]
 position = Vector2(-2, 9)
