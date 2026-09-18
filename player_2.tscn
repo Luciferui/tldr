@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://nan34hhlq4wx"]
+
+[ext_resource type="Script" uid="uid://yjyk6jav6o1k" path="res://Scripts/Player/player.gd" id="1_ryqyf"]
+[ext_resource type="Texture2D" uid="uid://cis2uxoaw5nrk" path="res://Assets/Sprites/Enemy-Punk/Idle/idle1.png" id="2_1hlws"]
+[ext_resource type="Texture2D" uid="uid://0cvs6uctrnqx" path="res://Assets/Sprites/Enemy-Punk/Punch/punch1.png" id="2_at6ig"]
+[ext_resource type="Texture2D" uid="uid://brukyw5mmhtrd" path="res://Assets/Sprites/Enemy-Punk/Idle/idle2.png" id="3_0jhxp"]
+[ext_resource type="Texture2D" uid="uid://bekui6ouod2ai" path="res://Assets/Sprites/Enemy-Punk/Punch/punch2.png" id="3_y7egp"]
+[ext_resource type="Texture2D" uid="uid://dqmyap48j2xyw" path="res://Assets/Sprites/Enemy-Punk/Idle/idle3.png" id="4_6iqoo"]
+[ext_resource type="Texture2D" uid="uid://c5gtcut6jbxut" path="res://Assets/Sprites/Enemy-Punk/Punch/punch3.png" id="4_ayiqd"]
+[ext_resource type="Texture2D" uid="uid://bkib1h6p047g0" path="res://Assets/Sprites/Enemy-Punk/Hurt/hurt1.png" id="5_6imt3"]
+[ext_resource type="Texture2D" uid="uid://d34hay628xy47" path="res://Assets/Sprites/Enemy-Punk/Idle/idle4.png" id="5_jaoer"]
+[ext_resource type="Script" uid="uid://cx6iomacw7umd" path="res://Scripts/Abstract/state_machine.gd" id="6_up5o4"]
+[ext_resource type="Texture2D" uid="uid://cualawaj01h68" path="res://Assets/Sprites/Enemy-Punk/Hurt/hurt2.png" id="6_y762y"]
+[ext_resource type="Texture2D" uid="uid://cricsew7lj0v6" path="res://Assets/Sprites/Enemy-Punk/Hurt/hurt3.png" id="7_14lsy"]
+[ext_resource type="Script" uid="uid://bvbwrwksp8hjt" path="res://Scripts/Player/PlayerStates/player_idle_state.gd" id="7_wh5uk"]
+[ext_resource type="Script" uid="uid://bvyy2x5hx0gaj" path="res://Scripts/Player/PlayerStates/player_walk_state.gd" id="8_ehhk3"]
+[ext_resource type="Texture2D" uid="uid://capmai38rcruf" path="res://Assets/Sprites/Enemy-Punk/Hurt/hurt4.png" id="8_hbeff"]
+[ext_resource type="Script" uid="uid://cdwm33efq4l8f" path="res://Scripts/Player/PlayerStates/player_jump_state.gd" id="9_mt4e1"]
+[ext_resource type="Texture2D" uid="uid://df6y5bdkck4h8" path="res://Assets/Sprites/Enemy-Punk/Walk/walk1.png" id="9_vl7il"]
+[ext_resource type="Texture2D" uid="uid://dtn1p4jwjk5ck" path="res://Assets/Sprites/Enemy-Punk/Walk/walk2.png" id="10_6imt3"]
+[ext_resource type="Script" uid="uid://d1vxorwm5xta4" path="res://Scripts/Player/PlayerStates/player_fall_state.gd" id="10_7d0q2"]
+[ext_resource type="Script" uid="uid://cha207lvv53uk" path="res://Scripts/Player/PlayerStates/AttackStates/player_attack_state.gd" id="11_8yx1g"]
+[ext_resource type="Texture2D" uid="uid://b5rqo11ksmpf5" path="res://Assets/Sprites/Enemy-Punk/Walk/walk3.png" id="11_y762y"]
+[ext_resource type="Texture2D" uid="uid://dk6fhbgjtnqkn" path="res://Assets/Sprites/Enemy-Punk/Walk/walk4.png" id="12_14lsy"]
+[ext_resource type="Script" uid="uid://uh400finn2sw" path="res://Scripts/Abstract/hitbox.gd" id="17_y762y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vkybu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6imt3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y762y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_14lsy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hbeff")
+}],
+"loop": 0,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1hlws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0jhxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6iqoo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jaoer")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_at6ig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y7egp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ayiqd")
+}],
+"loop": 2,
+"name": &"kick",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_vl7il")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_6imt3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_y762y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_14lsy")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkybu"]
+size = Vector2(33.823524, 18.235294)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bdvc"]
+radius = 18.177294
+height = 68.302345
+
+[node name="Player2" type="CharacterBody2D" unique_id=1446604150]
+script = ExtResource("1_ryqyf")
+metadata/_custom_type_script = "uid://yjyk6jav6o1k"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=497334249]
+scale = Vector2(1.7, 1.7)
+sprite_frames = SubResource("SpriteFrames_vkybu")
+animation = &"kick"
+
+[node name="Hitbox" type="Area2D" parent="Sprite" unique_id=1859740570]
+script = ExtResource("17_y762y")
+metadata/_custom_type_script = "uid://uh400finn2sw"
+
+[node name="Kick" type="CollisionShape2D" parent="Sprite/Hitbox" unique_id=606120138]
+position = Vector2(-30.14706, 4.117648)
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_vkybu")
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1004675928]
+position = Vector2(-7, 11.999999)
+scale = Vector2(-1.1552875, 1.2830513)
+shape = SubResource("CapsuleShape2D_1bdvc")
+
+[node name="StateMachine" type="Node2D" parent="." unique_id=552219972 node_paths=PackedStringArray("starting_state")]
+script = ExtResource("6_up5o4")
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node2D" parent="StateMachine" unique_id=1719109785 node_paths=PackedStringArray("walk_state", "jump_state", "attack_state")]
+script = ExtResource("7_wh5uk")
+walk_state = NodePath("../Walk")
+jump_state = NodePath("../Jump")
+attack_state = NodePath("../Attack")
+
+[node name="Walk" type="Node2D" parent="StateMachine" unique_id=877532791 node_paths=PackedStringArray("idle_state", "jump_state", "fall_state", "attack_state")]
+script = ExtResource("8_ehhk3")
+idle_state = NodePath("../Idle")
+jump_state = NodePath("../Jump")
+fall_state = NodePath("../Fall")
+attack_state = NodePath("../Attack")
+
+[node name="Jump" type="Node2D" parent="StateMachine" unique_id=1853059576 node_paths=PackedStringArray("fall_state")]
+script = ExtResource("9_mt4e1")
+fall_state = NodePath("../Fall")
+
+[node name="Fall" type="Node2D" parent="StateMachine" unique_id=219871884 node_paths=PackedStringArray("idle_state", "walk_state")]
+script = ExtResource("10_7d0q2")
+idle_state = NodePath("../Idle")
+walk_state = NodePath("../Walk")
+
+[node name="Attack" type="Node2D" parent="StateMachine" unique_id=631781944 node_paths=PackedStringArray("idle_state", "walk_state", "hitbox")]
+script = ExtResource("11_8yx1g")
+idle_state = NodePath("../Idle")
+walk_state = NodePath("../Walk")
+hitbox = NodePath("../../Sprite/Hitbox")
+totalFrameCount = 300
