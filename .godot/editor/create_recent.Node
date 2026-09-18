@@ -1,7 +1,10 @@
 CollisionShape2D
 Hitbox
+<<<<<<< Updated upstream
 AnimatedSprite2D
 Player
+=======
+>>>>>>> Stashed changes
 StaticBody2D
 Node2D
 Node

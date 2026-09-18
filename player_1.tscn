@@ -30,7 +30,11 @@
 [ext_resource type="Script" uid="uid://cdwm33efq4l8f" path="res://Scripts/Player/PlayerStates/player_jump_state.gd" id="19_d3d1g"]
 [ext_resource type="Script" uid="uid://d1vxorwm5xta4" path="res://Scripts/Player/PlayerStates/player_fall_state.gd" id="20_ratjp"]
 [ext_resource type="Script" uid="uid://cha207lvv53uk" path="res://Scripts/Player/PlayerStates/AttackStates/player_attack_state.gd" id="25_fvdx0"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://uh400finn2sw" path="res://Scripts/Abstract/hitbox.gd" id="25_yef3s"]
+=======
+[ext_resource type="Script" uid="uid://iq610u7p7atc" path="res://Scripts/hitbox.gd" id="25_yef3s"]
+>>>>>>> Stashed changes
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ssidi"]
 animations = [{
@@ -133,7 +137,11 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6x7ra"]
+<<<<<<< Updated upstream
 size = Vector2(38, 12)
+=======
+size = Vector2(43.75, 14.875)
+>>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ssidi"]
 size = Vector2(20, 46)
@@ -145,6 +153,7 @@ script = ExtResource("1_3kxg5")
 sprite_frames = SubResource("SpriteFrames_ssidi")
 animation = &"kick"
 
+<<<<<<< Updated upstream
 [node name="Hitbox" type="Area2D" parent="Sprite" unique_id=1925971996]
 script = ExtResource("25_yef3s")
 
@@ -152,9 +161,18 @@ script = ExtResource("25_yef3s")
 position = Vector2(9, 4)
 shape = SubResource("RectangleShape2D_6x7ra")
 disabled = true
+=======
+[node name="Hitbox" type="Area2D" parent="Sprite" unique_id=1219363051]
+script = ExtResource("25_yef3s")
+metadata/_custom_type_script = "uid://iq610u7p7atc"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox" unique_id=437249422]
+position = Vector2(13.875, 1.4375)
+shape = SubResource("RectangleShape2D_6x7ra")
+>>>>>>> Stashed changes
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1216312141]
-position = Vector2(-3, 8)
+position = Vector2(-2, 9)
 shape = SubResource("RectangleShape2D_ssidi")
 
 [node name="StateMachine" type="Node2D" parent="." unique_id=2031508697 node_paths=PackedStringArray("starting_state")]

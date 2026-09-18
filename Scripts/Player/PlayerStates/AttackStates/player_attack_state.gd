@@ -45,7 +45,11 @@ func selectAttack() -> void :
 		currentAttackName = "kick"
 		animation_name = currentAttackName
 		totalFrameCount = 60
+<<<<<<< Updated upstream
 		hitbox.activateCollisionShape(currentAttackName)
+=======
+		hitbox.collision_shape.disabled = false
+>>>>>>> Stashed changes
 
 func process_physics(delta: float) -> State:
 	if attack_finished:

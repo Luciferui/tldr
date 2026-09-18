@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 class_name Hitbox
 extends Area2D
 
@@ -13,3 +14,12 @@ func activateCollisionShape(name : String) -> void :
 	
 func disableCollisionShape(name : String) -> void :
 	collisionShape.disabled = true
+=======
+class_name Hitbox_c
+extends Area2D
+
+@export var damage := 10
+
+func _init()->void:
+	pass
+>>>>>>> Stashed changes
