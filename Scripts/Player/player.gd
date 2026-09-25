@@ -21,9 +21,9 @@ var ddhealth : int = 0
 
 var holdSpell : int = -1
 func get_hold(): 
-	print("hold ",holdSpell)
 	return holdSpell
-func set_hold(hold: int): holdSpell = hold
+func set_hold(hold: int): 
+	holdSpell = hold
 
 func _ready() -> void:
 	statemachine.init()

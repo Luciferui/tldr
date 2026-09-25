@@ -4,5 +4,7 @@
 
 [resource]
 script = ExtResource("1_72yr5")
+id = 1
+display_name = "marcel sartor"
 required_combo = 3
 metadata/_custom_type_script = "uid://cfdnl1032oipy"

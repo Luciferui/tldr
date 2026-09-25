@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="SpellData" format=3 uid="uid://bkbnjvbg6yrwj"]
 
-[ext_resource type="Script" uid="uid://cfdnl1032oipy" path="res://Scripts/Spells/spell_data.gd" id="1_lpadu"]
+[ext_resource type="Script" uid="uid://cfdnl1032oipy" path="res://Scripts/Spells/spell_data.gd" id="1_ubfca"]
 
 [resource]
-script = ExtResource("1_lpadu")
-id = &"spell1"
+script = ExtResource("1_ubfca")
+id = 1
 display_name = "spell1"
+required_combo = 3
 metadata/_custom_type_script = "uid://cfdnl1032oipy"

@@ -5,10 +5,11 @@
 [ext_resource type="Script" uid="uid://cfdnl1032oipy" path="res://Scripts/Spells/spell_data.gd" id="3_4caw1"]
 [ext_resource type="Theme" uid="uid://c8dq55fba1oen" path="res://Assets/menu_theme.tres" id="3_l6vtl"]
 [ext_resource type="Texture2D" uid="uid://brmoyhfvondt2" path="res://Assets/select_background.png" id="4_560oh"]
-[ext_resource type="Resource" uid="uid://bkbnjvbg6yrwj" path="res://Scripts/Spells/spell1.tres" id="4_w60tb"]
-[ext_resource type="Resource" uid="uid://v5ldxrkbvlhv" path="res://Scripts/Spells/spell2.tres" id="5_g8y0d"]
-[ext_resource type="Resource" uid="uid://5ivw1g3c6ocf" path="res://Scripts/Spells/spell3.tres" id="6_pq234"]
-[ext_resource type="Resource" uid="uid://bwuskw4a2mb8t" path="res://Scripts/Spells/spell4.tres" id="7_4qyee"]
+[ext_resource type="Resource" uid="uid://dun1da8b3282v" path="res://Spells/small_heal.tres" id="4_g8y0d"]
+[ext_resource type="Resource" uid="uid://bkbnjvbg6yrwj" path="res://Spells/spell1.tres" id="4_w60tb"]
+[ext_resource type="Resource" uid="uid://v5ldxrkbvlhv" path="res://Spells/spell2.tres" id="5_g8y0d"]
+[ext_resource type="Resource" uid="uid://5ivw1g3c6ocf" path="res://Spells/spell3.tres" id="6_pq234"]
+[ext_resource type="Resource" uid="uid://bwuskw4a2mb8t" path="res://Spells/spell4.tres" id="7_4qyee"]
 [ext_resource type="Resource" uid="uid://c4rklg1wcgfau" path="res://Spells/heavy_kick.tres" id="8_byhix"]
 
 [node name="SpellSelectMenu" type="Control" unique_id=648442748]
@@ -21,7 +22,7 @@ grow_vertical = 2
 mouse_filter = 1
 theme = ExtResource("3_l6vtl")
 script = ExtResource("1_sodsc")
-p1_spell_data = Array[ExtResource("3_4caw1")]([ExtResource("4_w60tb"), ExtResource("5_g8y0d"), ExtResource("6_pq234"), ExtResource("7_4qyee"), ExtResource("8_byhix")])
+p1_spell_data = Array[ExtResource("3_4caw1")]([ExtResource("4_g8y0d"), ExtResource("5_g8y0d"), ExtResource("6_pq234"), ExtResource("7_4qyee"), ExtResource("8_byhix")])
 p2_spell_data = Array[ExtResource("3_4caw1")]([ExtResource("8_byhix"), ExtResource("4_w60tb"), ExtResource("5_g8y0d"), ExtResource("6_pq234"), ExtResource("7_4qyee")])
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1093828120]
