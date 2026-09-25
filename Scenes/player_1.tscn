@@ -278,3 +278,11 @@ offset_bottom = 137.0
 alignment = 1
 script = ExtResource("40_ewrxp")
 metadata/_edit_use_anchors_ = true
+
+[node name="Counter" type="Label" parent="Ddr" unique_id=33738571]
+offset_left = 760.0
+offset_top = -380.0
+offset_right = 800.0
+offset_bottom = -256.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 90

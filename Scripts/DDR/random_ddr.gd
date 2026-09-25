@@ -13,12 +13,14 @@ func _ready() -> void:
 	generateRandomInputs()
 	$HBoxContainer.display_combo_queue(InputList)
 	currentInput = InputList[0]
+	$Counter.text = "0"
 
 func generateRandomInputs():
 	for a in range(inputRange):
 		InputList.append(usedInput[randi_range(0, usedInput.size()-1)])
 func validateInput():
 	playerInputs.append(InputList[0])
+	$Counter.text = str(playerInputs.size())
 	InputList = InputList.slice(1)
 	currentInput = InputList[0]
 	InputList.append(usedInput[randi_range(0, usedInput.size()-1)])
@@ -30,4 +32,8 @@ func validateCombo():
 	playerInputs = []
 	if comboLength > 3:
 		pass # Appeler les spells par le joueur
+		$Counter.text = "0"
 	
+func failCombo():
+	playerInputs = []
+	$Counter.text = str(playerInputs.size())
