@@ -13,8 +13,11 @@ extends CharacterBody2D
 @export var light_attack_action: StringName = &"p1_light"
 
 @export var sprite_faces_left: bool = false
-
 var ddhealth : int = 0
+
+var holdSpell : int = -1
+func get_hold(): return holdSpell
+func set_hold(hold: int): holdSpell = hold
 
 func _ready() -> void:
 	statemachine.init()
