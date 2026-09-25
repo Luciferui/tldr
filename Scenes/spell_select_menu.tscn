@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://5ivw1g3c6ocf" path="res://Spells/spell3.tres" id="6_pq234"]
 [ext_resource type="Resource" uid="uid://bwuskw4a2mb8t" path="res://Spells/spell4.tres" id="7_4qyee"]
 [ext_resource type="Resource" uid="uid://c4rklg1wcgfau" path="res://Spells/heavy_kick.tres" id="8_byhix"]
+[ext_resource type="Texture2D" uid="uid://b7ndosblnj8y6" path="res://Assets/description_background.png" id="11_w60tb"]
 
 [node name="SpellSelectMenu" type="Control" unique_id=648442748]
 layout_mode = 3
@@ -25,7 +26,7 @@ script = ExtResource("1_sodsc")
 p1_spell_data = Array[ExtResource("3_4caw1")]([ExtResource("4_g8y0d"), ExtResource("5_g8y0d"), ExtResource("6_pq234"), ExtResource("7_4qyee"), ExtResource("8_byhix")])
 p2_spell_data = Array[ExtResource("3_4caw1")]([ExtResource("8_byhix"), ExtResource("4_w60tb"), ExtResource("5_g8y0d"), ExtResource("6_pq234"), ExtResource("7_4qyee")])
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1093828120]
+[node name="BackGround" type="TextureRect" parent="." unique_id=1093828120]
 modulate = Color(0.381961, 0.381961, 0.381961, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -45,9 +46,9 @@ text = "Return to Menu"
 
 [node name="Cadre J1" type="TextureRect" parent="." unique_id=612475297]
 layout_mode = 0
-offset_left = 540.0
+offset_left = 473.0
 offset_top = 246.0
-offset_right = 1040.0
+offset_right = 973.0
 offset_bottom = 902.0
 texture = ExtResource("4_560oh")
 
@@ -120,9 +121,9 @@ text = "Spell 5"
 
 [node name="Cadre J2" type="TextureRect" parent="." unique_id=1081745547]
 layout_mode = 0
-offset_left = 1080.0
+offset_left = 993.0
 offset_top = 246.0
-offset_right = 1580.0
+offset_right = 1493.0
 offset_bottom = 902.0
 texture = ExtResource("4_560oh")
 
@@ -197,7 +198,7 @@ offset_left = 573.0
 offset_top = 155.0
 offset_right = 780.0
 offset_bottom = 230.0
-theme_override_font_sizes/font_size = 50
+theme = ExtResource("3_l6vtl")
 text = "Player 1"
 
 [node name="Player2Spells" type="TextEdit" parent="." unique_id=1667195322]
@@ -206,43 +207,71 @@ offset_left = 1271.0
 offset_top = 151.0
 offset_right = 1478.0
 offset_bottom = 226.0
+theme = ExtResource("3_l6vtl")
 theme_override_font_sizes/font_size = 50
 text = "Player 2"
 
 [node name="StartButton" type="Button" parent="." unique_id=1176489162]
 layout_mode = 0
-offset_left = 855.0
-offset_top = 922.0
-offset_right = 1246.0
-offset_bottom = 1046.0
+offset_left = 784.0
+offset_top = 932.0
+offset_right = 1175.0
+offset_bottom = 1056.0
 text = "Start Game"
 
-[node name="SpellInfoPanel1" type="PanelContainer" parent="." unique_id=1624722813]
+[node name="Texture SpellInfo J1" type="TextureRect" parent="." unique_id=2050618199]
+visible = false
+modulate = Color(0.33511627, 0.33511627, 0.33511627, 1)
+layout_mode = 0
+offset_left = 38.0
+offset_top = 246.0
+offset_right = 438.0
+offset_bottom = 902.0
+texture = ExtResource("11_w60tb")
+expand_mode = 5
+
+[node name="SpellInfo J1" type="PanelContainer" parent="." unique_id=408448892]
 visible = false
 layout_mode = 0
-offset_left = 213.0
-offset_top = 125.0
-offset_right = 516.0
-offset_bottom = 205.0
+offset_left = 104.0
+offset_top = 428.0
+offset_right = 381.0
+offset_bottom = 802.0
 
-[node name="Label" type="Label" parent="SpellInfoPanel1" unique_id=226215370]
+[node name="J1 SpellDesc" type="Label" parent="SpellInfo J1" unique_id=226215370]
 layout_mode = 2
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 24
 text = "Spell info"
+horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="Texture SpellInfo J2" type="TextureRect" parent="." unique_id=2090399919]
+visible = false
+modulate = Color(0.33511627, 0.33511627, 0.33511627, 1)
+layout_mode = 0
+offset_left = 1505.0
+offset_top = 246.0
+offset_right = 1905.0
+offset_bottom = 902.0
+texture = ExtResource("11_w60tb")
+expand_mode = 5
 
 [node name="SpellInfoPanel2" type="PanelContainer" parent="." unique_id=376150804]
 visible = false
-layout_mode = 0
-offset_left = 843.0
-offset_top = 125.0
-offset_right = 1146.0
-offset_bottom = 205.0
+layout_mode = 1
+offset_left = 1569.0
+offset_top = 426.0
+offset_right = 1846.0
+offset_bottom = 800.0
+theme = ExtResource("3_l6vtl")
 
-[node name="Label" type="Label" parent="SpellInfoPanel2" unique_id=1103113514]
+[node name="J2 SpellDesc" type="Label" parent="SpellInfoPanel2" unique_id=81421936]
 layout_mode = 2
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 24
 text = "Spell info"
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
