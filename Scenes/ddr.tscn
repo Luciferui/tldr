@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cge2mur86lklw"]
+[gd_scene format=3 uid="uid://b48pxoy862ru7"]
 
 [ext_resource type="Texture2D" uid="uid://crk3iyihyfof2" path="res://Assets/ddr_textures/greek-key-rectangle-frame-greek-border-vector_231786-4614.png" id="1_1p0ew"]
 [ext_resource type="Script" uid="uid://dgdeyrlm0eoen" path="res://Scripts/DDR/random_ddr.gd" id="1_rm6g3"]
@@ -18,3 +18,4 @@ offset_right = 712.0
 offset_bottom = 137.0
 alignment = 1
 script = ExtResource("2_2q5ku")
+metadata/_edit_use_anchors_ = true
