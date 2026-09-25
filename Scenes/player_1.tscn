@@ -37,6 +37,9 @@
 [ext_resource type="Script" path="res://Scripts/Abstract/hitbox.gd" id="25_yef3s"]
 [ext_resource type="Script" uid="uid://dj0uvd5fjr6b8" path="res://Scripts/Player/PlayerStates/player_hurtbox.gd" id="28_cu0p0"]
 [ext_resource type="Script" uid="uid://pyvofwuo17c5" path="res://Scripts/Player/PlayerStates/player_pain_state.gd" id="35_oexav"]
+[ext_resource type="Script" uid="uid://dgdeyrlm0eoen" path="res://Scripts/DDR/random_ddr.gd" id="38_h8d83"]
+[ext_resource type="Texture2D" uid="uid://crk3iyihyfof2" path="res://Assets/ddr_textures/greek-key-rectangle-frame-greek-border-vector_231786-4614.png" id="39_5xydj"]
+[ext_resource type="Script" uid="uid://dp52ex5alaklm" path="res://Scripts/DDR/Display_inputs.gd" id="40_ewrxp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ssidi"]
 animations = [{
@@ -256,3 +259,22 @@ totalFrameCount = 300
 script = ExtResource("35_oexav")
 hurtbox = NodePath("../../Hurtbox")
 idle_state = NodePath("../Idle")
+
+[node name="Ddr" type="Node2D" parent="." unique_id=1646128952 node_paths=PackedStringArray("RelatedPlayer")]
+top_level = true
+scale = Vector2(0.1, 0.1)
+script = ExtResource("38_h8d83")
+RelatedPlayer = NodePath("..")
+
+[node name="GreekKeyRectangleFrameGreekBorderVector2317864614" type="Sprite2D" parent="Ddr" unique_id=1041930583]
+position = Vector2(0, -2)
+texture = ExtResource("39_5xydj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Ddr" unique_id=514848211]
+offset_left = -708.0
+offset_top = -143.0
+offset_right = 712.0
+offset_bottom = 137.0
+alignment = 1
+script = ExtResource("40_ewrxp")
+metadata/_edit_use_anchors_ = true

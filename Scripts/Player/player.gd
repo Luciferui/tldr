@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var statemachine: StateMachine = $StateMachine
 @onready var sprite: AnimatedSprite2D = $Sprite
 
+@export var player_id: int = 0
 @export var left_action: StringName = &"p1_left"
 @export var right_action: StringName = &"p1_right"
 @export var jump_action: StringName = &"p1_jump"

@@ -168,9 +168,10 @@ shape = SubResource("RectangleShape2D_2v8g7")
 
 [node name="Player" parent="." unique_id=2123069804 instance=ExtResource("2_pnn78")]
 position = Vector2(-60, -2)
+scale = Vector2(1.5, 1.5)
 
 [node name="Player2" parent="." unique_id=466770512 instance=ExtResource("2_pnn78")]
-player_id = 1
+scale = Vector2(1.5, 1.5)
 left_action = &"p2_left"
 right_action = &"p2_right"
 jump_action = &"p2_jump"
