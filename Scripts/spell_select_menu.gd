@@ -16,10 +16,14 @@ extends Control
  
 @onready var start_button: Button = $StartButton
 @onready var main_menu_button: Button = $MainMenuButton
-@onready var p1_spell_info_panel: PanelContainer = $SpellInfoPanel1
-@onready var p1_spell_info_label: Label = $SpellInfoPanel1/Label
+@onready var p1_spell_info_panel: PanelContainer = $"SpellInfo J1"
+@onready var p1_spell_info_label: Label = $"SpellInfo J1/J1 SpellDesc"
 @onready var p2_spell_info_panel: PanelContainer = $SpellInfoPanel2
-@onready var p2_spell_info_label: Label = $SpellInfoPanel2/Label
+@onready var p2_spell_info_label: Label = $"SpellInfoPanel2/J2 SpellDesc"
+
+# TextureRect associés (fond visuel des panneaux d'info)
+@onready var p1_spell_info_texture: TextureRect = $"Texture SpellInfo J1"
+@onready var p2_spell_info_texture: TextureRect = $"Texture SpellInfo J2"
  
 # À assigner dans l'Inspecteur : les 5 SpellData dans le même ordre
 # que p1_spell_buttons / p2_spell_buttons (donc que p1_spell_names)
@@ -64,6 +68,8 @@ func _ready() -> void:
 	start_button.visible = false
 	p1_spell_info_panel.visible = false
 	p2_spell_info_panel.visible = false
+	p1_spell_info_texture.visible = false
+	p2_spell_info_texture.visible = false
 
 	for b in p1_spell_buttons:
 		p1_spell_names.append(b.text)
@@ -249,6 +255,8 @@ func _refresh_highlights() -> void:
 
 	p1_spell_info_panel.visible = false
 	p2_spell_info_panel.visible = false
+	p1_spell_info_texture.visible = false
+	p2_spell_info_texture.visible = false
 
 	_highlight_player(1)
 	_highlight_player(2)
@@ -298,12 +306,13 @@ func _check_ready_to_start() -> void:
 
 func _show_spell_info(player: int, spell_index: int) -> void:
 	var panel: PanelContainer = p1_spell_info_panel if player == 1 else p2_spell_info_panel
+	var texture: TextureRect = p1_spell_info_texture if player == 1 else p2_spell_info_texture
 	var label: Label = p1_spell_info_label if player == 1 else p2_spell_info_label
 	var names: Array = p1_spell_names if player == 1 else p2_spell_names
 
 	panel.visible = true
+	texture.visible = true
 	label.text = "%s\n%s" % [names[spell_index], SPELL_DESCRIPTIONS[spell_index]]
-
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
