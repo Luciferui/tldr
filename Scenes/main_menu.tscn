@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://ccmalcse4to0q"]
+
+[ext_resource type="Script" uid="uid://diawerx1qmn7q" path="res://Scripts/main_menu.gd" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://c505cd136phyy" path="res://Scripts/DDR/fixed_ddr.gd" id="2_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://cau38gwi818vq" path="res://Assets/Level assets/Total map.png" id="2_fu7sn"]
+[ext_resource type="Theme" uid="uid://c8dq55fba1oen" path="res://Assets/menu_theme.tres" id="3_jix8l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
+bg_color = Color(0, 0.13725491, 0.40784314, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.9111438, 0.8036894, 0, 1)
+
+[node name="MainMenu" type="Control" unique_id=693637596]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1283014642]
+modulate = Color(0.381961, 0.381961, 0.381961, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fu7sn")
+
+[node name="StartButton" type="Button" parent="." unique_id=1308076142]
+layout_mode = 1
+offset_left = 712.0
+offset_top = 518.0
+offset_right = 1213.0
+offset_bottom = 686.0
+theme = ExtResource("3_jix8l")
+theme_override_colors/font_hover_color = Color(0.9098039, 0.8039216, 0, 1)
+theme_override_font_sizes/font_size = 90
+theme_override_styles/hover = SubResource("StyleBoxFlat_jix8l")
+text = "Start"
+script = ExtResource("2_7vrkn")
+fixedInputList = Array[String](["left", "right", "jump"])
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

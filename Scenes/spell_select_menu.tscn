@@ -1,0 +1,192 @@
+[gd_scene format=3 uid="uid://4rmex6ue4y3j"]
+
+[ext_resource type="Script" uid="uid://cd5wp2cer48ib" path="res://Scripts/spell_select_menu.gd" id="1_sodsc"]
+[ext_resource type="Texture2D" uid="uid://cau38gwi818vq" path="res://Assets/Level assets/Total map.png" id="2_yoeu3"]
+[ext_resource type="Theme" uid="uid://c8dq55fba1oen" path="res://Assets/menu_theme.tres" id="3_l6vtl"]
+
+[node name="SpellSelectMenu" type="Control" unique_id=648442748]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("3_l6vtl")
+script = ExtResource("1_sodsc")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1093828120]
+modulate = Color(0.381961, 0.381961, 0.381961, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yoeu3")
+expand_mode = 1
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=1311359581]
+layout_mode = 1
+offset_right = 685.0
+offset_bottom = 124.0
+theme = ExtResource("3_l6vtl")
+text = "Return to Menu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=497915246]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 273.0
+offset_right = 825.0
+offset_bottom = 909.0
+
+[node name="Spell1" type="Button" parent="VBoxContainer" unique_id=723704336]
+layout_mode = 2
+theme = ExtResource("3_l6vtl")
+text = "Spell 1"
+metadata/_edit_use_anchors_ = true
+
+[node name="Spell2" type="Button" parent="VBoxContainer" unique_id=361601372]
+layout_mode = 2
+theme = ExtResource("3_l6vtl")
+text = "Spell 2"
+metadata/_edit_use_anchors_ = true
+
+[node name="Spell3" type="Button" parent="VBoxContainer" unique_id=1363101694]
+layout_mode = 2
+text = "Spell 3"
+metadata/_edit_use_anchors_ = true
+
+[node name="Spell4" type="Button" parent="VBoxContainer" unique_id=571699647]
+layout_mode = 2
+text = "Spell 4"
+
+[node name="Spell5" type="Button" parent="VBoxContainer" unique_id=586600152]
+layout_mode = 2
+text = "Spell 5"
+
+[node name="VBoxContainerSlots" type="VBoxContainer" parent="." unique_id=497915247]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 276.0
+offset_right = 857.0
+offset_bottom = 912.0
+
+[node name="Slot1" type="Button" parent="VBoxContainerSlots" unique_id=356202784]
+layout_mode = 2
+text = "Slot 1 - Vide"
+
+[node name="Slot2" type="Button" parent="VBoxContainerSlots" unique_id=1731658189]
+layout_mode = 2
+text = "Slot 2 - Vide"
+
+[node name="Slot3" type="Button" parent="VBoxContainerSlots" unique_id=1321738984]
+layout_mode = 2
+text = "Slot 3 - Vide"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=245069000]
+layout_mode = 0
+offset_left = 1191.0
+offset_top = 282.0
+offset_right = 1474.0
+offset_bottom = 713.0
+
+[node name="Spell1" type="Button" parent="VBoxContainer2" unique_id=449267814]
+layout_mode = 2
+text = "Spell 1"
+metadata/_edit_use_anchors_ = true
+
+[node name="Spell2" type="Button" parent="VBoxContainer2" unique_id=365627421]
+layout_mode = 2
+text = "Spell 2"
+metadata/_edit_use_anchors_ = true
+
+[node name="Spell3" type="Button" parent="VBoxContainer2" unique_id=1565935004]
+layout_mode = 2
+text = "Spell 3"
+metadata/_edit_use_anchors_ = true
+
+[node name="Spell4" type="Button" parent="VBoxContainer2" unique_id=500913571]
+layout_mode = 2
+text = "Spell 4"
+
+[node name="Spell5" type="Button" parent="VBoxContainer2" unique_id=960046777]
+layout_mode = 2
+text = "Spell 5"
+
+[node name="VBoxContainerSlots2" type="VBoxContainer" parent="." unique_id=245069001]
+layout_mode = 0
+offset_left = 1194.0
+offset_top = 286.0
+offset_right = 1640.0
+offset_bottom = 666.0
+
+[node name="Slot1" type="Button" parent="VBoxContainerSlots2" unique_id=1006321318]
+layout_mode = 2
+text = "Slot 1 - Vide"
+
+[node name="Slot2" type="Button" parent="VBoxContainerSlots2" unique_id=193982375]
+layout_mode = 2
+text = "Slot 2 - Vide"
+
+[node name="Slot3" type="Button" parent="VBoxContainerSlots2" unique_id=586372609]
+layout_mode = 2
+text = "Slot 3 - Vide"
+
+[node name="Player1Spells" type="TextEdit" parent="." unique_id=1302061127]
+layout_mode = 0
+offset_left = 573.0
+offset_top = 155.0
+offset_right = 780.0
+offset_bottom = 230.0
+theme_override_font_sizes/font_size = 50
+text = "Player 1"
+
+[node name="Player2Spells" type="TextEdit" parent="." unique_id=1667195322]
+layout_mode = 0
+offset_left = 1271.0
+offset_top = 151.0
+offset_right = 1478.0
+offset_bottom = 226.0
+theme_override_font_sizes/font_size = 50
+text = "Player 2"
+
+[node name="StartButton" type="Button" parent="." unique_id=1176489162]
+visible = false
+layout_mode = 0
+offset_left = 810.0
+offset_top = 823.0
+offset_right = 1199.0
+offset_bottom = 987.0
+text = "Start Game"
+
+[node name="SpellInfoPanel1" type="PanelContainer" parent="." unique_id=1624722813]
+visible = false
+layout_mode = 0
+offset_left = 213.0
+offset_top = 125.0
+offset_right = 516.0
+offset_bottom = 205.0
+
+[node name="Label" type="Label" parent="SpellInfoPanel1" unique_id=226215370]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Spell info"
+autowrap_mode = 2
+
+[node name="SpellInfoPanel2" type="PanelContainer" parent="." unique_id=376150804]
+visible = false
+layout_mode = 0
+offset_left = 843.0
+offset_top = 125.0
+offset_right = 1146.0
+offset_bottom = 205.0
+
+[node name="Label" type="Label" parent="SpellInfoPanel2" unique_id=1103113514]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Spell info"
+autowrap_mode = 2
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
