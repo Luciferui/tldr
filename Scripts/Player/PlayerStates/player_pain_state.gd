@@ -8,7 +8,7 @@ extends PlayerState
 
 var stun_finished: bool = false
 var frame_count : int
-var total_frame_count : int = 100
+var total_frame_count : int = 0
 
 func enter() -> void:
 	stun_finished = false
@@ -23,6 +23,7 @@ func enter() -> void:
 
 func exit(new_state: State = null) -> void:
 	super.exit(new_state)
+	total_frame_count = 0
 	player.velocity.x = 0
 
 func _on_animation_finished() -> void:

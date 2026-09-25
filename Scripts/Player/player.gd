@@ -11,6 +11,9 @@ extends CharacterBody2D
 @export var jump_action: StringName = &"p1_jump"
 @export var heavy_attack_action: StringName = &"p1_heavy"
 @export var light_attack_action: StringName = &"p1_light"
+@export var spell_action: StringName = &"p1_spell1"
+
+
 
 @export var sprite_faces_left: bool = false
 var ddhealth : int = 0
@@ -36,3 +39,7 @@ func takeAttack(data:AttackData) -> void:
 	##Le joueur s'est prit l'attaque data.
 	ddhealth += data.damage
 	statemachine.take_stun(data.hitstun)
+	
+func heal(x : int) ->void:
+	print("heal",x)
+	ddhealth = max(0, ddhealth - x)

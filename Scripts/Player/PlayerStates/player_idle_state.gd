@@ -6,7 +6,11 @@ extends PlayerState
 @export var jump_state: State
 @export var attack_state: State
 
+var attackActions: Array[StringName]
+
 func enter() -> void:
+	super.enter()
+	attackActions = [player.heavy_attack_action,player.light_attack_action]
 	player.sprite.play(animation_name)
 	player.sprite.flip_h = sprite_flip
 	
@@ -16,7 +20,8 @@ func enter() -> void:
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed(player.jump_action) and player.is_on_floor():
 		return jump_state
-	if Input.is_action_just_pressed(player.heavy_attack_action) or Input.is_action_just_pressed(player.light_attack_action):
+	if attackActions.any(func(action): return Input.is_action_just_pressed(action)):
+		#si l'une des actions de attackActions est pressed
 		return attack_state
 	return null
 

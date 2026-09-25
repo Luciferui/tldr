@@ -6,6 +6,7 @@ extends PlayerState
 @export var pain_state: PlayerState
 @export var hitbox: Hitbox
 @export var totalFrameCount : int ##durée en nb frames de l'attaque
+var spellLauncher : Node2D
 
 var frameCount : int ##nb frames depuis le début de l'attaque
 var attack_finished: bool = false
@@ -52,7 +53,7 @@ func selectAttack() -> void :
 		animation_name = currentAttack.animation_name
 		totalFrameCount = 36
 		attack_timing = currentAttack.attack_timing
-		hitbox.setCurrentAttack(currentAttack)
+		hitbox.setCurrentAttack(currentAttack)		
 
 func process_physics(delta: float) -> State:
 	if attack_finished:

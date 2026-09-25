@@ -19,8 +19,12 @@ func change_state(new_state: State) -> void:
 	
 func take_stun(framecount : int) -> void:
 	pain_state.apply_stun_time(framecount)
-	if not current_state==pain_state :
+	if not current_state==pain_state and framecount >0:
 		change_state(pain_state)
+		
+func override_state(state : PlayerState) ->void:
+	##change d'état sans poser de questions. idée de Marcel
+	change_state(state)
 
 func process_input(event: InputEvent) -> void:
 	var new_state = current_state.process_input(event)
