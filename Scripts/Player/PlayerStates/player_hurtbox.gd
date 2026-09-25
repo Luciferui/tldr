@@ -1,28 +1,21 @@
 class_name PlayerHurtbox
-extends Area2D
+extends Hurtbox
 
 @export var state_machine: StateMachine
-@export var pain_state: State
-
-var hitting_area: Area2D
+var player: Player
 
 func _ready() -> void:
-	collision_layer = 0
-	collision_mask = 2
-	area_entered.connect(_on_area_entered)
+	super._ready()
+	player = owner as Player
 
 func _on_area_entered(area: Area2D) -> void:
-	if not area is Hitbox:
+	var hitbox = area as Hitbox
+	if hitbox.current_attack == null:
 		return
-	if get_parent().is_ancestor_of(area):
-		return
-	
-	if area is Hitbox:
-		hitting_area = area
-		engine_slow(0.1, 0.15) # Ralentissement du temps au moment de l'impact
-		state_machine.change_state(pain_state)
+	if not hitbox.get_owner()==owner:
+		player.takeAttack(hitbox.current_attack)
 
-func engine_slow(scale: float, duration: float) -> void:
-	Engine.time_scale = scale
-	await get_tree().create_timer(duration * scale).timeout
-	Engine.time_scale = 1.0
+#func engine_slow(scale: float, duration: float) -> void:
+#	Engine.time_scale = scale
+#	await get_tree().create_timer(duration * scale).timeout
+#	Engine.time_scale = 1.0

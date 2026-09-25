@@ -123,7 +123,9 @@ metadata/_custom_type_script = "uid://yjyk6jav6o1k"
 position = Vector2(-6, 3.624999)
 scale = Vector2(1.375, 1.3849206)
 sprite_frames = SubResource("SpriteFrames_vkybu")
-animation = &"punch"
+animation = &"pain"
+frame = 3
+frame_progress = 1.0
 
 [node name="Hitbox" type="Area2D" parent="Sprite" unique_id=1859740570]
 script = ExtResource("17_y762y")
@@ -146,10 +148,9 @@ rotation = -3.1415925
 scale = Vector2(1.1552875, -1.2830513)
 shape = SubResource("RectangleShape2D_hbeff")
 
-[node name="Hurtbox" type="Area2D" parent="." unique_id=2070999907 node_paths=PackedStringArray("state_machine", "pain_state")]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=2070999907 node_paths=PackedStringArray("state_machine")]
 script = ExtResource("18_hbeff")
 state_machine = NodePath("../StateMachine")
-pain_state = NodePath("../StateMachine/Pain")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1774412082]
 position = Vector2(-9, 14.999998)
@@ -157,9 +158,10 @@ rotation = -3.1415925
 scale = Vector2(1.1552875, -1.2830513)
 shape = SubResource("RectangleShape2D_tw1wg")
 
-[node name="StateMachine" type="Node2D" parent="." unique_id=552219972 node_paths=PackedStringArray("starting_state")]
+[node name="StateMachine" type="Node2D" parent="." unique_id=552219972 node_paths=PackedStringArray("starting_state", "pain_state")]
 script = ExtResource("6_up5o4")
 starting_state = NodePath("Idle")
+pain_state = NodePath("Pain")
 
 [node name="Idle" type="Node2D" parent="StateMachine" unique_id=1719109785 node_paths=PackedStringArray("walk_state", "jump_state", "attack_state")]
 script = ExtResource("7_wh5uk")
@@ -183,10 +185,11 @@ script = ExtResource("10_7d0q2")
 idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
 
-[node name="Attack" type="Node2D" parent="StateMachine" unique_id=631781944 node_paths=PackedStringArray("idle_state", "walk_state", "hitbox")]
+[node name="Attack" type="Node2D" parent="StateMachine" unique_id=631781944 node_paths=PackedStringArray("idle_state", "walk_state", "pain_state", "hitbox")]
 script = ExtResource("11_8yx1g")
 idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
+pain_state = NodePath("../Pain")
 hitbox = NodePath("../../Sprite/Hitbox")
 totalFrameCount = 300
 

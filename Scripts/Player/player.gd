@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 ##Joueur controllable [br]
 
-@onready var state_machine: StateMachine = $StateMachine
+@onready var statemachine: StateMachine = $StateMachine
 @onready var sprite: AnimatedSprite2D = $Sprite
 
 @export var left_action: StringName = &"p1_left"
@@ -13,18 +13,22 @@ extends CharacterBody2D
 
 @export var sprite_faces_left: bool = false
 
+var ddhealth : int = 0
+
 func _ready() -> void:
-	state_machine.init()
+	statemachine.init()
 
 func _unhandled_input(event: InputEvent) -> void:
-	state_machine.process_input(event)
+	statemachine.process_input(event)
 
 func _process(delta: float) -> void:
-	state_machine.process_frame(delta)
+	statemachine.process_frame(delta)
 
 func _physics_process(delta: float) -> void:
-	state_machine.process_physics(delta)
+	statemachine.process_physics(delta)
 	move_and_slide()
 
-func getSprite() -> AnimatedSprite2D:
-	return sprite
+func takeAttack(data:AttackData) -> void:
+	##Le joueur s'est prit l'attaque data.
+	ddhealth += data.damage
+	statemachine.take_stun(data.hitstun)
