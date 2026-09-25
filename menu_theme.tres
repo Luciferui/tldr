@@ -1,0 +1,28 @@
+[gd_resource type="Theme" format=3 uid="uid://c8dq55fba1oen"]
+
+[ext_resource type="FontFile" uid="uid://bel44q2fvwb6n" path="res://ITC Eras Bold.otf" id="1_2krdf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bfgyt"]
+bg_color = Color(0, 0.13725491, 0.40784314, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.9098039, 0.8039216, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3d7xv"]
+bg_color = Color(0, 0.13725491, 0.40784314, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[resource]
+Button/colors/font_color = Color(16.637999, 16.637999, 16.637999, 1)
+Button/colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 67
+Button/fonts/font = ExtResource("1_2krdf")
+Button/styles/focus = SubResource("StyleBoxFlat_bfgyt")
+Button/styles/hover = SubResource("StyleBoxFlat_3d7xv")
+Button/styles/normal = SubResource("StyleBoxFlat_3d7xv")

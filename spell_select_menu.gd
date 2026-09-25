@@ -273,7 +273,7 @@ func _highlight_player(player: int) -> void:
 
 func _set_highlight(button: Button, on: bool) -> void:
 	if on:
-		button.add_theme_color_override("font_color", Color.DARK_RED)
+		button.add_theme_color_override("font_color", "f2f200")
 	else:
 		button.remove_theme_color_override("font_color")
 
