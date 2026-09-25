@@ -298,5 +298,5 @@ func _on_main_menu_button_pressed() -> void:
 
 
 func _on_start_button_pressed() -> void:
-	DataDistributor.distribute_spells(p1_slots, p2_slots)
+	DataManager.distribute_spells(p1_slots, p2_slots)
 	get_tree().change_scene_to_file("res://Scenes/level.tscn")
