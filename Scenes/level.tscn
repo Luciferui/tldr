@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://5g0k8gvdf3n0" path="res://Assets/Level assets/Background.png" id="1_1ainy"]
 [ext_resource type="PackedScene" uid="uid://4s000tfvfba4" path="res://Scenes/player_1.tscn" id="2_pnn78"]
-[ext_resource type="PackedScene" uid="uid://nan34hhlq4wx" path="res://Scenes/player_2.tscn" id="3_0b4ue"]
 [ext_resource type="PackedScene" uid="uid://cge2mur86lklw" path="res://Scenes/ddr.tscn" id="3_oi3di"]
 [ext_resource type="Texture2D" uid="uid://d1ebkqnditaer" path="res://Assets/Level assets/Plateform0.5.png" id="5_aicyk"]
 [ext_resource type="Texture2D" uid="uid://hor63ba6jyk8" path="res://Assets/Level assets/Plateform0.png" id="5_n6hdu"]
@@ -176,4 +175,10 @@ scale = Vector2(1.5, 1.5)
 position = Vector2(153, 126)
 scale = Vector2(0.15, 0.15)
 
-[node name="Player2" parent="." unique_id=1446604150 instance=ExtResource("3_0b4ue")]
+[node name="Player2" parent="." unique_id=466770512 instance=ExtResource("2_pnn78")]
+scale = Vector2(1.5, 1.5)
+left_action = &"p2_left"
+right_action = &"p2_right"
+jump_action = &"p2_jump"
+heavy_attack_action = &"p2_heavy"
+light_attack_action = &"p2_light"

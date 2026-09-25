@@ -294,9 +294,9 @@ func _show_spell_info(player: int, spell_index: int) -> void:
 
 
 func _on_main_menu_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 
 func _on_start_button_pressed() -> void:
 	DataDistributor.distribute_spells(p1_slots, p2_slots)
-	get_tree().change_scene_to_file("res://level.tscn")
+	get_tree().change_scene_to_file("res://Scenes/level.tscn")
