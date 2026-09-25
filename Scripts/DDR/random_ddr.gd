@@ -30,20 +30,15 @@ func validateInput():
 	currentInput = InputList[0]
 	InputList.append(usedInput[randi_range(0, usedInput.size()-1)])
 	$HBoxContainer.display_combo_queue(InputList)
-	print(playerInputs)
 
 func validateCombo():
-	print(playerInputs)
 	var comboLength := playerInputs.size()
 	playerInputs = []
 	for i in range(len(DataManager.spellChoice[RelatedPlayer.player_id]), 0, -1):
-		print(DataManager.spellChoice[RelatedPlayer.player_id][i-1].required_combo, " ", comboLength)
 		if comboLength >= DataManager.spellChoice[RelatedPlayer.player_id][i-1].required_combo: #DDR Cost
 			RelatedPlayer.set_hold(DataManager.spellChoice[RelatedPlayer.player_id][i-1].id) # Spell Id
-			print(RelatedPlayer, "  ", DataManager.spellChoice[RelatedPlayer.player_id][i-1].id)
 		
 	
 func failCombo():
 	playerInputs = []
-	print("FAIL LLOSER")
 	$Counter.text = str(playerInputs.size())

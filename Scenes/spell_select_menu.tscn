@@ -23,7 +23,7 @@ grow_vertical = 2
 mouse_filter = 1
 theme = ExtResource("3_l6vtl")
 script = ExtResource("1_sodsc")
-p1_spell_data = Array[ExtResource("3_4caw1")]([ExtResource("4_g8y0d"), ExtResource("5_g8y0d"), ExtResource("6_pq234"), ExtResource("7_4qyee"), ExtResource("8_byhix")])
+p1_spell_data = Array[ExtResource("3_4caw1")]([ExtResource("4_g8y0d"), ExtResource("4_w60tb"), ExtResource("5_g8y0d"), ExtResource("6_pq234"), ExtResource("7_4qyee")])
 p2_spell_data = Array[ExtResource("3_4caw1")]([ExtResource("8_byhix"), ExtResource("4_w60tb"), ExtResource("5_g8y0d"), ExtResource("6_pq234"), ExtResource("7_4qyee")])
 
 [node name="BackGround" type="TextureRect" parent="." unique_id=1093828120]

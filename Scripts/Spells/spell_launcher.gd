@@ -24,6 +24,7 @@ func process_input(event: InputEvent) -> void:
 				player.heal(10)
 			_:
 				push_warning("Unknown spell detected in hold")
+		player.set_hold(-1)
 		
 func process_frame(delta: float) -> void:
 	pass

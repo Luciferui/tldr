@@ -30,7 +30,7 @@ extends Control
 @export var p1_spell_data: Array[SpellData] = []
 @export var p2_spell_data: Array[SpellData] = []
 
-# Descriptions des sorts, dans le même ordre que les boutons Spell1..Spell5
+# Defions des sorts, dans le même ordre que les boutons Spell1..Spell5
 # (indices 0 à 4, partagés par les deux joueurs)
 const SPELL_DESCRIPTIONS := [
 	"Description du sort 1 à compléter.",
