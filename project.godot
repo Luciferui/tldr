@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-DataDistributor="*uid://c3110dhmv6j7r"
+DataManager="*uid://c3110dhmv6j7r"
 
 [display]
 
