@@ -1,25 +1,30 @@
 extends Control
-
+ 
 #Sorts disponibles
-@onready var p1_spell_buttons: Array = [$VBoxContainer/Spell1, $VBoxContainer/Spell2, $VBoxContainer/Spell3, $VBoxContainer/Spell4, $VBoxContainer/Spell5]
-@onready var p2_spell_buttons: Array = [$VBoxContainer2/Spell1, $VBoxContainer2/Spell2, $VBoxContainer2/Spell3, $VBoxContainer2/Spell4, $VBoxContainer2/Spell5]
-
+@onready var p1_spell_buttons: Array = [$"Cadre J1/J1 VBoxContainer/Spell1", $"Cadre J1/J1 VBoxContainer/Spell2", $"Cadre J1/J1 VBoxContainer/Spell3", $"Cadre J1/J1 VBoxContainer/Spell4", $"Cadre J1/J1 VBoxContainer/Spell5"]
+@onready var p2_spell_buttons: Array = [$"Cadre J2/J2 VBoxContainer/Spell1", $"Cadre J2/J2 VBoxContainer/Spell2", $"Cadre J2/J2 VBoxContainer/Spell3", $"Cadre J2/J2 VBoxContainer/Spell4", $"Cadre J2/J2 VBoxContainer/Spell5"]
+ 
 #Slots (3 par joueur)
-@onready var p1_slot_buttons: Array = [$VBoxContainerSlots/Slot1, $VBoxContainerSlots/Slot2, $VBoxContainerSlots/Slot3]
-@onready var p2_slot_buttons: Array = [$VBoxContainerSlots2/Slot1, $VBoxContainerSlots2/Slot2, $VBoxContainerSlots2/Slot3]
-
+@onready var p1_slot_buttons: Array = [$"Cadre J1/J1 VBoxContainerSlots/Slot1", $"Cadre J1/J1 VBoxContainerSlots/Slot2", $"Cadre J1/J1 VBoxContainerSlots/Slot3"]
+@onready var p2_slot_buttons: Array = [$"Cadre J2/J2 VBoxContainerSlots/Slot1", $"Cadre J2/J2 VBoxContainerSlots/Slot2", $"Cadre J2/J2 VBoxContainerSlots/Slot3"]
+ 
 #Conteneurs pour basculer entre vue "slots" et vue "liste des sorts"
-@onready var p1_spelllist_container: Control = $VBoxContainer
-@onready var p2_spelllist_container: Control = $VBoxContainer2
-@onready var p1_slotlist_container: Control = $VBoxContainerSlots
-@onready var p2_slotlist_container: Control = $VBoxContainerSlots2
-
+@onready var p1_spelllist_container: Control = $"Cadre J1/J1 VBoxContainer"
+@onready var p2_spelllist_container: Control = $"Cadre J2/J2 VBoxContainer"
+@onready var p1_slotlist_container: Control = $"Cadre J1/J1 VBoxContainerSlots"
+@onready var p2_slotlist_container: Control = $"Cadre J2/J2 VBoxContainerSlots"
+ 
 @onready var start_button: Button = $StartButton
 @onready var main_menu_button: Button = $MainMenuButton
 @onready var p1_spell_info_panel: PanelContainer = $SpellInfoPanel1
 @onready var p1_spell_info_label: Label = $SpellInfoPanel1/Label
 @onready var p2_spell_info_panel: PanelContainer = $SpellInfoPanel2
 @onready var p2_spell_info_label: Label = $SpellInfoPanel2/Label
+ 
+# À assigner dans l'Inspecteur : les 5 SpellData dans le même ordre
+# que p1_spell_buttons / p2_spell_buttons (donc que p1_spell_names)
+@export var p1_spell_data: Array[SpellData] = []
+@export var p2_spell_data: Array[SpellData] = []
 
 # Descriptions des sorts, dans le même ordre que les boutons Spell1..Spell5
 # (indices 0 à 4, partagés par les deux joueurs)
@@ -236,8 +241,11 @@ func _refresh_slot_labels(player: int) -> void:
 func _refresh_highlights() -> void:
 	for b in p1_spell_buttons + p2_spell_buttons + p1_slot_buttons + p2_slot_buttons:
 		b.remove_theme_color_override("font_color")
+		b.remove_theme_stylebox_override("normal")
 	start_button.remove_theme_color_override("font_color")
+	start_button.remove_theme_stylebox_override("normal")
 	main_menu_button.remove_theme_color_override("font_color")
+	main_menu_button.remove_theme_stylebox_override("normal")
 
 	p1_spell_info_panel.visible = false
 	p2_spell_info_panel.visible = false
@@ -274,7 +282,11 @@ func _highlight_player(player: int) -> void:
 func _set_highlight(button: Button, on: bool) -> void:
 	if on:
 		button.add_theme_color_override("font_color", "f2f200")
+		var style = button.get_theme_stylebox("normal").duplicate()
+		style.border_color = Color("#f2f200")
+		button.add_theme_stylebox_override("normal", style)
 	else:
+		button.remove_theme_stylebox_override("normal")
 		button.remove_theme_color_override("font_color")
 
 
@@ -298,5 +310,11 @@ func _on_main_menu_button_pressed() -> void:
 
 
 func _on_start_button_pressed() -> void:
-	DataManager.distribute_spells(p1_slots, p2_slots)
+	var p1_chosen: Array[SpellData] = []
+	var p2_chosen: Array[SpellData] = []
+	for i in p1_slots:
+		p1_chosen.append(p1_spell_data[i])
+	for i in p2_slots:
+		p2_chosen.append(p2_spell_data[i])
+	DataManager.distribute_spells(p1_chosen, p2_chosen)
 	get_tree().change_scene_to_file("res://Scenes/level.tscn")

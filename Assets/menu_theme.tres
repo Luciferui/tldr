@@ -26,3 +26,4 @@ Button/fonts/font = ExtResource("1_2krdf")
 Button/styles/focus = SubResource("StyleBoxFlat_bfgyt")
 Button/styles/hover = SubResource("StyleBoxFlat_3d7xv")
 Button/styles/normal = SubResource("StyleBoxFlat_3d7xv")
+VBoxContainer/constants/separation = 25

@@ -33,8 +33,8 @@ func validateCombo():
 	var comboLength := playerInputs.size()
 	playerInputs = []
 	for i in range(len(DataManager.spellChoice[RelatedPlayer.player_id]), 0, -1):
-		if comboLength > DataManager.spellChoice[RelatedPlayer.player_id][i].required_combo: #DDR Cost
-			RelatedPlayer.holdSpell = DataManager.spellChoice[RelatedPlayer.player_id][i].id # Spell Id
+		if comboLength > DataManager.spellChoice[RelatedPlayer.player_id][i-1].required_combo: #DDR Cost
+			RelatedPlayer.holdSpell = DataManager.spellChoice[RelatedPlayer.player_id][i-1].id # Spell Id
 		
 	
 func failCombo():

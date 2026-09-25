@@ -1,7 +1,9 @@
 [gd_resource type="Resource" script_class="SpellData" format=3 uid="uid://c4rklg1wcgfau"]
 
-[ext_resource type="Script" uid="uid://c1jdnee840avq" path="res://Scripts/Spells/spell_data.gd" id="1_38cc4"]
+[ext_resource type="Script" uid="uid://cfdnl1032oipy" path="res://Scripts/Spells/spell_data.gd" id="1_38cc4"]
 
 [resource]
 script = ExtResource("1_38cc4")
-metadata/_custom_type_script = "uid://c1jdnee840avq"
+id = &"0"
+display_name = "heavy"
+description = "baba	"

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SpellData" format=3 uid="uid://v5ldxrkbvlhv"]
+
+[ext_resource type="Script" uid="uid://cfdnl1032oipy" path="res://Scripts/Spells/spell_data.gd" id="1_5joom"]
+
+[resource]
+script = ExtResource("1_5joom")
+metadata/_custom_type_script = "uid://cfdnl1032oipy"

@@ -2,14 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cd5wp2cer48ib" path="res://Scripts/spell_select_menu.gd" id="1_sodsc"]
 [ext_resource type="Texture2D" uid="uid://cau38gwi818vq" path="res://Assets/Level assets/Total map.png" id="2_yoeu3"]
-[ext_resource type="Script" uid="uid://cfdnl1032oipy" path="res://Scripts/Spells/spell_data.gd" id="3_4caw1"]
 [ext_resource type="Theme" uid="uid://c8dq55fba1oen" path="res://Assets/menu_theme.tres" id="3_l6vtl"]
 [ext_resource type="Texture2D" uid="uid://brmoyhfvondt2" path="res://Assets/select_background.png" id="4_560oh"]
-[ext_resource type="Resource" uid="uid://bkbnjvbg6yrwj" path="res://Scripts/Spells/spell1.tres" id="4_w60tb"]
-[ext_resource type="Resource" uid="uid://v5ldxrkbvlhv" path="res://Scripts/Spells/spell2.tres" id="5_g8y0d"]
-[ext_resource type="Resource" uid="uid://5ivw1g3c6ocf" path="res://Scripts/Spells/spell3.tres" id="6_pq234"]
-[ext_resource type="Resource" uid="uid://bwuskw4a2mb8t" path="res://Scripts/Spells/spell4.tres" id="7_4qyee"]
-[ext_resource type="Resource" uid="uid://c4rklg1wcgfau" path="res://Spells/heavy_kick.tres" id="8_byhix"]
 
 [node name="SpellSelectMenu" type="Control" unique_id=648442748]
 layout_mode = 3
@@ -21,8 +15,6 @@ grow_vertical = 2
 mouse_filter = 1
 theme = ExtResource("3_l6vtl")
 script = ExtResource("1_sodsc")
-p1_spell_data = Array[ExtResource("3_4caw1")]([ExtResource("4_w60tb"), ExtResource("5_g8y0d"), ExtResource("6_pq234"), ExtResource("7_4qyee"), ExtResource("8_byhix")])
-p2_spell_data = Array[ExtResource("3_4caw1")]([ExtResource("8_byhix"), ExtResource("4_w60tb"), ExtResource("5_g8y0d"), ExtResource("6_pq234"), ExtResource("7_4qyee")])
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1093828120]
 modulate = Color(0.381961, 0.381961, 0.381961, 1)
@@ -60,19 +52,16 @@ offset_bottom = 630.0
 [node name="Slot1" type="Button" parent="Cadre J1/J1 VBoxContainerSlots" unique_id=356202784]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
 text = "Slot 1 - Vide"
 
 [node name="Slot2" type="Button" parent="Cadre J1/J1 VBoxContainerSlots" unique_id=1731658189]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
 text = "Slot 2 - Vide"
 
 [node name="Slot3" type="Button" parent="Cadre J1/J1 VBoxContainerSlots" unique_id=1321738984]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
 text = "Slot 3 - Vide"
 
 [node name="J1 VBoxContainer" type="VBoxContainer" parent="Cadre J1" unique_id=497915246]
@@ -85,7 +74,6 @@ offset_bottom = 620.0
 [node name="Spell1" type="Button" parent="Cadre J1/J1 VBoxContainer" unique_id=723704336]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
 theme = ExtResource("3_l6vtl")
 text = "Spell 1"
 metadata/_edit_use_anchors_ = true
@@ -93,7 +81,6 @@ metadata/_edit_use_anchors_ = true
 [node name="Spell2" type="Button" parent="Cadre J1/J1 VBoxContainer" unique_id=361601372]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
 theme = ExtResource("3_l6vtl")
 text = "Spell 2"
 metadata/_edit_use_anchors_ = true
@@ -101,20 +88,17 @@ metadata/_edit_use_anchors_ = true
 [node name="Spell3" type="Button" parent="Cadre J1/J1 VBoxContainer" unique_id=1363101694]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
 text = "Spell 3"
 metadata/_edit_use_anchors_ = true
 
 [node name="Spell4" type="Button" parent="Cadre J1/J1 VBoxContainer" unique_id=571699647]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
 text = "Spell 4"
 
 [node name="Spell5" type="Button" parent="Cadre J1/J1 VBoxContainer" unique_id=586600152]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
 text = "Spell 5"
 
 [node name="Cadre J2" type="TextureRect" parent="." unique_id=1081745547]
@@ -135,19 +119,16 @@ offset_bottom = 630.0
 [node name="Slot1" type="Button" parent="Cadre J2/J2 VBoxContainerSlots" unique_id=1006321318]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
 text = "Slot 1 - Vide"
 
 [node name="Slot2" type="Button" parent="Cadre J2/J2 VBoxContainerSlots" unique_id=193982375]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
 text = "Slot 2 - Vide"
 
 [node name="Slot3" type="Button" parent="Cadre J2/J2 VBoxContainerSlots" unique_id=586372609]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
 text = "Slot 3 - Vide"
 
 [node name="J2 VBoxContainer" type="VBoxContainer" parent="Cadre J2" unique_id=245069000]
@@ -160,34 +141,29 @@ offset_bottom = 630.0
 [node name="Spell1" type="Button" parent="Cadre J2/J2 VBoxContainer" unique_id=449267814]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
 text = "Spell 1"
 metadata/_edit_use_anchors_ = true
 
 [node name="Spell2" type="Button" parent="Cadre J2/J2 VBoxContainer" unique_id=365627421]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
 text = "Spell 2"
 metadata/_edit_use_anchors_ = true
 
 [node name="Spell3" type="Button" parent="Cadre J2/J2 VBoxContainer" unique_id=1565935004]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
 text = "Spell 3"
 metadata/_edit_use_anchors_ = true
 
 [node name="Spell4" type="Button" parent="Cadre J2/J2 VBoxContainer" unique_id=500913571]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
 text = "Spell 4"
 
 [node name="Spell5" type="Button" parent="Cadre J2/J2 VBoxContainer" unique_id=960046777]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
 text = "Spell 5"
 
 [node name="Player1Spells" type="TextEdit" parent="." unique_id=1302061127]
