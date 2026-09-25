@@ -27,6 +27,29 @@ func activateAttack(attack: AttackData) -> void:
 		return
 	current_attack = attack
 	shape.set_deferred("disabled", false)
+
+func setCurrentAttack(attack: AttackData) ->void:
+	##selectionne l'attaque actuelle pour activation plus tard
+	if current_attack!=null :
+		push_warning(
+			"Attack '%s' set while other attack still current"
+			% [attack.attack_name]
+		)
+	current_attack = attack
+
+func flipActivationAttack(attack : AttackData) ->void:
+	##flip l'état d'activation d'une attaque (travaille avec player_attack_state.attack_timing)
+	var shape = collision_shape_dict.get(current_attack.hitbox_name)
+	if shape == null:
+		push_warning(
+			"Attack '%s' references unknown hitbox shape '%s'"
+			% [attack.attack_name, attack.hitbox_name]
+		)
+		return
+	if shape.disabled:
+		shape.set_deferred("disabled",false)
+	else:
+		shape.set_deferred("disabled",true)
 	
 func deactivateAttack() -> void:
 	if current_attack == null:

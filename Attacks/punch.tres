@@ -7,4 +7,5 @@ script = ExtResource("1_drgim")
 attack_name = &"punch"
 hitbox_name = &"punch"
 animation_name = &"punch"
+attack_timing = Array[int]([10, 14, 20, 24])
 metadata/_custom_type_script = "uid://drx73h07qa6ou"

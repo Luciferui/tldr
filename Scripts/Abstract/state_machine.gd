@@ -3,7 +3,8 @@ extends Node
 ##Classe abstraite statemachine [br]
 ##init, change_state(new_state), process_input(event), process_frame(delta), process_physics(delta)
 
-@export var starting_state: State
+@export var starting_state: PlayerState
+@export var pain_state : PlayerState
 var current_state: State
 
 func init() -> void:
@@ -15,6 +16,11 @@ func change_state(new_state: State) -> void:
 		current_state.exit(new_state)
 	current_state = new_state
 	current_state.enter()
+	
+func take_stun(framecount : int) -> void:
+	pain_state.apply_stun_time(framecount)
+	if not current_state==pain_state :
+		change_state(pain_state)
 
 func process_input(event: InputEvent) -> void:
 	var new_state = current_state.process_input(event)
