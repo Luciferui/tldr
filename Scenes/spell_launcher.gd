@@ -1,9 +1,13 @@
+class_name SpellLauncher
 extends Node2D
 
 var player : Player
 
 func _ready() ->void:
 	player = owner as Player
+	
+func init() ->void:
+	pass
 
 func process_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed(player.spell_action):

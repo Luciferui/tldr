@@ -3,6 +3,7 @@ extends CharacterBody2D
 ##Joueur controllable [br]
 
 @onready var statemachine: StateMachine = $StateMachine
+@onready var spellLauncher : SpellLauncher = $SpellLauncher
 @onready var sprite: AnimatedSprite2D = $Sprite
 
 @export var player_id: int = 0
@@ -19,20 +20,26 @@ extends CharacterBody2D
 var ddhealth : int = 0
 
 var holdSpell : int = -1
-func get_hold(): return holdSpell
+func get_hold(): 
+	print("hold ",holdSpell)
+	return holdSpell
 func set_hold(hold: int): holdSpell = hold
 
 func _ready() -> void:
 	statemachine.init()
+	spellLauncher.init()
 
 func _unhandled_input(event: InputEvent) -> void:
 	statemachine.process_input(event)
+	spellLauncher.process_input(event)
 
 func _process(delta: float) -> void:
 	statemachine.process_frame(delta)
+	spellLauncher.process_frame(delta)
 
 func _physics_process(delta: float) -> void:
 	statemachine.process_physics(delta)
+	spellLauncher.process_physics(delta)
 	move_and_slide()
 
 func takeAttack(data:AttackData) -> void:
