@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://demtq66vuxhph"]
+
+[ext_resource type="Script" uid="uid://drx73h07qa6ou" path="res://Scripts/Abstract/attack_data.gd" id="1_rr4dv"]
+
+[resource]
+script = ExtResource("1_rr4dv")
+attack_name = &"lightning_strike"
+hitbox_name = &"LightningStrike"
+animation_name = &"LightningStrike"
+absolute_knockback = Vector2(0, -50)
+metadata/_custom_type_script = "uid://drx73h07qa6ou"

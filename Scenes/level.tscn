@@ -166,10 +166,11 @@ shape = SubResource("RectangleShape2D_2v8g7")
 position = Vector2(360, -2)
 shape = SubResource("RectangleShape2D_2v8g7")
 
-[node name="Player" parent="." unique_id=2123069804 instance=ExtResource("2_pnn78")]
+[node name="Player" parent="." unique_id=2123069804 node_paths=PackedStringArray("opponent") instance=ExtResource("2_pnn78")]
 position = Vector2(-60, -2)
+opponent = NodePath("../Player2")
 
-[node name="Player2" parent="." unique_id=11960359 instance=ExtResource("2_pnn78")]
+[node name="Player2" parent="." unique_id=11960359 node_paths=PackedStringArray("opponent") instance=ExtResource("2_pnn78")]
 position = Vector2(-15, -4)
 player_id = 1
 left_action = &"p2_left"
@@ -180,3 +181,4 @@ heavy_attack_action = &"p2_heavy"
 light_attack_action = &"p2_light"
 spell_action = &"p2_spell"
 dodge_action = &"p2_dodge"
+opponent = NodePath("../Player")

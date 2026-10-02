@@ -1,6 +1,7 @@
 class_name SpellLauncher
 extends Node2D
 
+const LightningStrikeScene := preload("res://Scenes/Spells/lightning_strike.tscn")
 var player : Player
 
 func _ready() ->void:
@@ -17,11 +18,11 @@ func process_input(event: InputEvent) -> void:
 			return
 		match spell_n:
 			1:
-				player.heal(10)
+				_cast_lightning()
 			2:
-				player.heal(10)
+				_cast_lightning()
 			3:
-				player.heal(10)
+				_cast_lightning()
 			_:
 				push_warning("Unknown spell detected in hold")
 		player.set_hold(-1)
@@ -29,5 +30,14 @@ func process_input(event: InputEvent) -> void:
 func process_frame(delta: float) -> void:
 	pass
 
+func _cast_lightning() -> void:
+	if player.opponent == null:
+		push_warning("opponent non assigné sur ce Player")
+		return
+	var strike: LightningStrike = LightningStrikeScene.instantiate()
+	self.add_child(strike)
+	strike.setup(player.opponent.global_position.x)
+
 func process_physics(delta: float) -> void:
-	pass
+	for child in self.get_children():
+		child.process_physics()

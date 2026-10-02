@@ -15,6 +15,7 @@ extends CharacterBody2D
 @export var light_attack_action: StringName = &"p1_light"
 @export var spell_action: StringName = &"p1_spell"
 @export var dodge_action: StringName = &"p1_dodge"
+@export var opponent: Player
 @export var sprite_faces_left: bool = false
 
 func get_sprite_faces_left() -> bool:

@@ -5,6 +5,7 @@ var collision_shape_dict: Dictionary[StringName, CollisionShape2D] = {}
 
 var current_attack: AttackData = null
 var player : Player
+@export var dissociated_from_player : bool = false
 
 func _ready() -> void:
 	player = owner as Player

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dljjhergm2e4s"
-path="res://.godot/imported/description_background.png-04fec2d7965ebd8497754c4a02a326dd.ctex"
+uid="uid://ynaeatvguus8"
+path="res://.godot/imported/spell_lightning_warning.png-ba4b952a9f84172defd94206b9845473.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/description_background.png"
-dest_files=["res://.godot/imported/description_background.png-04fec2d7965ebd8497754c4a02a326dd.ctex"]
+source_file="res://Scenes/Spells/spell_lightning_warning.png"
+dest_files=["res://.godot/imported/spell_lightning_warning.png-ba4b952a9f84172defd94206b9845473.ctex"]
 
 [params]
 

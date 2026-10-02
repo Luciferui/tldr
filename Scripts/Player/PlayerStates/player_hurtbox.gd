@@ -13,7 +13,13 @@ func _on_area_entered(area: Area2D) -> void:
 	if hitbox.current_attack == null:
 		return
 	if not hitbox.get_owner()==owner:
-		player.takeAttack(hitbox.current_attack, hitbox.getOwnerPosition(),hitbox.getOwnerOrientation())
+		var position : Vector2 = Vector2(0,0)
+		var orientation : int = 1
+		if hitbox.current_attack.orientation_knockback != Vector2(0,0):
+			orientation = hitbox.getOwnerOrientation()
+		if hitbox.current_attack.relative_knockback_factor != 0:
+			position = hitbox.getOwnerPosition()
+		player.takeAttack(hitbox.current_attack, position ,orientation)
 
 func activate_hurtbox() -> void:
 	for child in get_children():
