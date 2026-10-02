@@ -21,7 +21,6 @@
 [ext_resource type="Script" uid="uid://d0ub2tmk2jb87" path="res://Scripts/Player/PlayerStates/player_dodge_state.gd" id="38_ewrxp"]
 [ext_resource type="Script" uid="uid://dgdeyrlm0eoen" path="res://Scripts/DDR/random_ddr.gd" id="38_h8d83"]
 [ext_resource type="Texture2D" uid="uid://c8i7des2qdnha" path="res://Assets/ddr_textures/DDR_rectangle.png" id="40_5xydj"]
-[ext_resource type="Script" uid="uid://f6l3gi2j7n5k" path="res://Scripts/Player/PlayerStates/player_dying-state.gd" id="39_m77ku"]
 [ext_resource type="Script" uid="uid://dp52ex5alaklm" path="res://Scripts/DDR/Display_inputs.gd" id="40_ewrxp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a8pmy"]
@@ -115,44 +114,9 @@ region = Rect2(64, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jiv8u"]
 atlas = ExtResource("7_2xfhf")
 region = Rect2(96, 0, 32, 32)
-[ext_resource type="Script" uid="uid://cfp70edt1064v" path="res://rescue_controller.gd" id="44_nf0y4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ssidi"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("14_43kbg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_p5xb0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_43kbg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_p5xb0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_43kbg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_p5xb0")
-}],
-"loop": 0,
-"name": &"death",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("14_43kbg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_p5xb0")
-}],
-"loop": 1,
-"name": &"dying",
-"speed": 10.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_ccce5")
@@ -275,9 +239,8 @@ size = Vector2(35.5, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6x7ra"]
 size = Vector2(35, 7)
 
-[node name="Player" type="CharacterBody2D" unique_id=2123069804 node_paths=PackedStringArray("rescue") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=2123069804 groups=["Player"]]
 script = ExtResource("1_3kxg5")
-rescue = NodePath("RescueController")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=164475980]
 position = Vector2(0, 3)
@@ -362,14 +325,6 @@ idle_state = NodePath("../Idle")
 fall_state = NodePath("../Fall")
 hurtbox = NodePath("../../Hurtbox")
 
-[node name="Death" type="Node" parent="StateMachine" unique_id=172789434]
-script = ExtResource("38_ewrxp")
-metadata/_custom_type_script = "uid://bcht0rd2ayu13"
-
-[node name="Dying" type="Node" parent="StateMachine" unique_id=1578593940]
-script = ExtResource("39_m77ku")
-metadata/_custom_type_script = "uid://f6l3gi2j7n5k"
-
 [node name="SpellLauncher" type="Node2D" parent="." unique_id=2049645845]
 top_level = true
 script = ExtResource("38_5xydj")
@@ -401,7 +356,3 @@ offset_right = 800.0
 offset_bottom = -256.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 90
-
-[node name="RescueController" type="Node2D" parent="." unique_id=156116668 node_paths=PackedStringArray("ddr")]
-script = ExtResource("44_nf0y4")
-ddr = NodePath("../Ddr")

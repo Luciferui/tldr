@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://chwmndk84evfv" path="res://Assets/Level assets/Plateform1.2.png" id="8_v5j5c"]
 [ext_resource type="Texture2D" uid="uid://cxsl5lry7g4sd" path="res://Assets/Level assets/Plateform2.png" id="9_5pxul"]
 [ext_resource type="Texture2D" uid="uid://bvrok30y4k74t" path="res://Assets/Level assets/Plateform3.png" id="10_fedht"]
-[ext_resource type="Script" uid="uid://cep170025805t" path="res://match_manager.gd" id="10_oqgf2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfqu"]
 size = Vector2(73, 8.5)
@@ -185,10 +184,6 @@ down_action = &"p2_down"
 heavy_attack_action = &"p2_heavy"
 light_attack_action = &"p2_light"
 
-[node name="MatchManager" type="Node2D" parent="." unique_id=580982380 node_paths=PackedStringArray("player1", "player2")]
-script = ExtResource("10_oqgf2")
-player1 = NodePath("../Player")
-player2 = NodePath("../Player2")
 spell_action = &"p2_spell"
 dodge_action = &"p2_dodge"
 opponent = NodePath("../Player")
