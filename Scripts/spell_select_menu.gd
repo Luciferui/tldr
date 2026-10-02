@@ -34,6 +34,7 @@ extends Control
 @export var p1_spell_data: Array[SpellData] = []
 @export var p2_spell_data: Array[SpellData] = []
 
+@export var menu_music: AudioStream
 
 
 const REQUIRED_SPELLS := 3
@@ -58,6 +59,9 @@ var p2_slots := [-1, -1, -1]
 
 
 func _ready() -> void:
+	
+	Jukebox.play_music(menu_music)
+	
 	start_button.visible = false
 	p1_spell_info_panel.visible = false
 	p2_spell_info_panel.visible = false

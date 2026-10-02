@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 DataManager="*uid://c3110dhmv6j7r"
+Jukebox="*uid://dy4bpb216uokg"
 
 [display]
 
