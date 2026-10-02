@@ -1,8 +1,12 @@
 [gd_resource type="Resource" script_class="SpellData" format=3 uid="uid://v5ldxrkbvlhv"]
 
 [ext_resource type="Script" uid="uid://cfdnl1032oipy" path="res://Scripts/Spells/spell_data.gd" id="1_lvxbg"]
+[ext_resource type="Texture2D" uid="uid://xdnjlkolbj4q" path="res://Assets/spells/icone_sort_bdg.png" id="1_xakk4"]
 
 [resource]
 script = ExtResource("1_lvxbg")
 id = 1
+display_name = "Boule de glace"
+description = "lance une boule de feu de manière horizontale dans la direction vers laquelle le joueur fait face et ralentit l’ennemi pendant 3 secondes après l’impact"
+icon = ExtResource("1_xakk4")
 metadata/_custom_type_script = "uid://cfdnl1032oipy"

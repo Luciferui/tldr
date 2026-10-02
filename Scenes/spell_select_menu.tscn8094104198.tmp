@@ -42,7 +42,6 @@ layout_mode = 1
 offset_right = 685.0
 offset_bottom = 124.0
 theme = ExtResource("3_l6vtl")
-theme_override_font_sizes/font_size = 67
 text = "Return to Menu"
 
 [node name="Cadre J1" type="TextureRect" parent="." unique_id=612475297]
@@ -218,7 +217,6 @@ offset_left = 784.0
 offset_top = 932.0
 offset_right = 1175.0
 offset_bottom = 1056.0
-theme_override_font_sizes/font_size = 67
 text = "Start Game"
 
 [node name="Texture SpellInfo J1" type="TextureRect" parent="." unique_id=2050618199]
@@ -248,13 +246,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 stretch_mode = 5
 
-[node name="J1 SpellDesc" type="RichTextLabel" parent="SpellInfo J1/J1 SpellInfoBox" unique_id=281796428]
+[node name="J1 SpellDesc" type="Label" parent="SpellInfo J1/J1 SpellInfoBox" unique_id=226215370]
 layout_mode = 2
-bbcode_enabled = true
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
 text = "Spell info"
-fit_content = true
-autowrap_mode = 2
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Texture SpellInfo J2" type="TextureRect" parent="." unique_id=2090399919]
 modulate = Color(0.33511627, 0.33511627, 0.33511627, 1)
@@ -284,13 +282,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 stretch_mode = 5
 
-[node name="J2 SpellDesc" type="RichTextLabel" parent="SpellInfoPanel2/J2 SpellInfoBox" unique_id=1386036967]
+[node name="J2 SpellDesc" type="Label" parent="SpellInfoPanel2/J2 SpellInfoBox" unique_id=81421936]
 layout_mode = 2
-bbcode_enabled = true
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
 text = "Spell info"
-fit_content = true
-autowrap_mode = 2
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
