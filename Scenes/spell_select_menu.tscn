@@ -11,7 +11,8 @@
 [ext_resource type="Resource" uid="uid://5ivw1g3c6ocf" path="res://Spells/spell3.tres" id="6_pq234"]
 [ext_resource type="Resource" uid="uid://bwuskw4a2mb8t" path="res://Spells/spell4.tres" id="7_4qyee"]
 [ext_resource type="Resource" uid="uid://c4rklg1wcgfau" path="res://Spells/heavy_kick.tres" id="8_byhix"]
-[ext_resource type="Texture2D" uid="uid://dljjhergm2e4s" path="res://Assets/description_background.png" id="11_w60tb"]
+[ext_resource type="AudioStream" uid="uid://b1ayrca6aq4ol" path="res://Assets/Music/Volcanic Bomb (Climax).mp3" id="10_pq234"]
+[ext_resource type="Texture2D" uid="uid://b7ndosblnj8y6" path="res://Assets/description_background.png" id="11_w60tb"]
 
 [node name="SpellSelectMenu" type="Control" unique_id=648442748]
 layout_mode = 3
@@ -25,6 +26,7 @@ theme = ExtResource("3_l6vtl")
 script = ExtResource("1_sodsc")
 p1_spell_data = Array[ExtResource("3_4caw1")]([ExtResource("4_g8y0d"), ExtResource("4_w60tb"), ExtResource("5_g8y0d"), ExtResource("6_pq234"), ExtResource("7_4qyee")])
 p2_spell_data = Array[ExtResource("3_4caw1")]([ExtResource("8_byhix"), ExtResource("4_w60tb"), ExtResource("5_g8y0d"), ExtResource("6_pq234"), ExtResource("7_4qyee")])
+menu_music = ExtResource("10_pq234")
 
 [node name="BackGround" type="TextureRect" parent="." unique_id=1093828120]
 modulate = Color(0.381961, 0.381961, 0.381961, 1)
