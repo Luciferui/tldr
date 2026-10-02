@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cj1lae4s4rbop"]
 
 [ext_resource type="Texture2D" uid="uid://5g0k8gvdf3n0" path="res://Assets/Level assets/Background.png" id="1_1ainy"]
+[ext_resource type="Script" uid="uid://gr3og6bes57d" path="res://Scripts/level_script.gd" id="1_qxfql"]
+[ext_resource type="AudioStream" uid="uid://ceobjdid5v7l2" path="res://Assets/Music/Full Moon 2.0.mp3" id="2_ha31o"]
 [ext_resource type="PackedScene" uid="uid://4s000tfvfba4" path="res://Scenes/player_1.tscn" id="2_pnn78"]
 [ext_resource type="Texture2D" uid="uid://d1ebkqnditaer" path="res://Assets/Level assets/Plateform0.5.png" id="5_aicyk"]
 [ext_resource type="Texture2D" uid="uid://hor63ba6jyk8" path="res://Assets/Level assets/Plateform0.png" id="5_n6hdu"]
@@ -48,6 +50,8 @@ size = Vector2(23, 26.5)
 size = Vector2(86, 382)
 
 [node name="Level" type="Node2D" unique_id=552634920]
+script = ExtResource("1_qxfql")
+level_music = ExtResource("2_ha31o")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1311848255]
 scale = Vector2(2.4999995, 2.5)
@@ -167,14 +171,17 @@ shape = SubResource("RectangleShape2D_2v8g7")
 position = Vector2(360, -2)
 shape = SubResource("RectangleShape2D_2v8g7")
 
-[node name="Player" parent="." unique_id=2123069804 instance=ExtResource("2_pnn78")]
+[node name="Player" parent="." unique_id=2123069804 node_paths=PackedStringArray("opponent") instance=ExtResource("2_pnn78")]
 position = Vector2(-60, -2)
+opponent = NodePath("../Player2")
 
-[node name="Player2" parent="." unique_id=466770512 instance=ExtResource("2_pnn78")]
+[node name="Player2" parent="." unique_id=11960359 node_paths=PackedStringArray("opponent") instance=ExtResource("2_pnn78")]
+position = Vector2(-15, -4)
 player_id = 1
 left_action = &"p2_left"
 right_action = &"p2_right"
 jump_action = &"p2_jump"
+down_action = &"p2_down"
 heavy_attack_action = &"p2_heavy"
 light_attack_action = &"p2_light"
 
@@ -182,3 +189,6 @@ light_attack_action = &"p2_light"
 script = ExtResource("10_oqgf2")
 player1 = NodePath("../Player")
 player2 = NodePath("../Player2")
+spell_action = &"p2_spell"
+dodge_action = &"p2_dodge"
+opponent = NodePath("../Player")

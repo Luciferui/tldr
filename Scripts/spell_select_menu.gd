@@ -16,10 +16,14 @@ extends Control
  
 @onready var start_button: Button = $StartButton
 @onready var main_menu_button: Button = $MainMenuButton
+
 @onready var p1_spell_info_panel: PanelContainer = $"SpellInfo J1"
-@onready var p1_spell_info_label: Label = $"SpellInfo J1/J1 SpellDesc"
+@onready var p1_spell_info_label: RichTextLabel = $"SpellInfo J1/J1 SpellInfoBox/J1 SpellDesc"
+@onready var p1_spell_icon: TextureRect = $"SpellInfo J1/J1 SpellInfoBox/J1 SpellIcon"
+
 @onready var p2_spell_info_panel: PanelContainer = $SpellInfoPanel2
-@onready var p2_spell_info_label: Label = $"SpellInfoPanel2/J2 SpellDesc"
+@onready var p2_spell_info_label: RichTextLabel = $"SpellInfoPanel2/J2 SpellInfoBox/J2 SpellDesc"
+@onready var p2_spell_icon: TextureRect = $"SpellInfoPanel2/J2 SpellInfoBox/J2 SpellIcon"
 
 # TextureRect associés (fond visuel des panneaux d'info)
 @onready var p1_spell_info_texture: TextureRect = $"Texture SpellInfo J1"
@@ -30,15 +34,8 @@ extends Control
 @export var p1_spell_data: Array[SpellData] = []
 @export var p2_spell_data: Array[SpellData] = []
 
-# Defions des sorts, dans le même ordre que les boutons Spell1..Spell5
-# (indices 0 à 4, partagés par les deux joueurs)
-const SPELL_DESCRIPTIONS := [
-	"Description du sort 1 à compléter.",
-	"Description du sort 2 à compléter.",
-	"Description du sort 3 à compléter.",
-	"Description du sort 4 à compléter.",
-	"Description du sort 5 à compléter.",
-]
+@export var menu_music: AudioStream
+
 
 const REQUIRED_SPELLS := 3
 const NUM_SPELLS := 5
@@ -60,33 +57,31 @@ var p2_editing_slot := -1
 var p1_slots := [-1, -1, -1]  # index de sort (0 à 4) assigné à chaque slot, -1 = vide
 var p2_slots := [-1, -1, -1]
 
-var p1_spell_names: Array = []
-var p2_spell_names: Array = []
-
 
 func _ready() -> void:
+	
+	Jukebox.play_music(menu_music)
+	
 	start_button.visible = false
 	p1_spell_info_panel.visible = false
 	p2_spell_info_panel.visible = false
 	p1_spell_info_texture.visible = false
 	p2_spell_info_texture.visible = false
 
-	for b in p1_spell_buttons:
-		p1_spell_names.append(b.text)
-	for b in p2_spell_buttons:
-		p2_spell_names.append(b.text)
+	for i in p1_spell_buttons.size():
+		p1_spell_buttons[i].text = p1_spell_data[i].display_name
+	for i in p2_spell_buttons.size():
+		p2_spell_buttons[i].text = p2_spell_data[i].display_name
 
 	for b in p1_spell_buttons + p2_spell_buttons + p1_slot_buttons + p2_slot_buttons + [start_button, main_menu_button]:
 		b.focus_mode = Control.FOCUS_NONE
 
-	# Au départ on voit les slots (vides), pas la liste des sorts
 	p1_spelllist_container.visible = false
 	p2_spelllist_container.visible = false
 
 	_refresh_slot_labels(1)
 	_refresh_slot_labels(2)
 	_refresh_highlights()
-
 
 func _unhandled_input(event: InputEvent) -> void:
 	_handle_player_input(1, event)
@@ -235,13 +230,14 @@ func _refresh_spell_list_visibility(player: int) -> void:
 func _refresh_slot_labels(player: int) -> void:
 	var slots: Array = p1_slots if player == 1 else p2_slots
 	var slot_buttons: Array = p1_slot_buttons if player == 1 else p2_slot_buttons
-	var names: Array = p1_spell_names if player == 1 else p2_spell_names
+	var spell_data: Array = p1_spell_data if player == 1 else p2_spell_data
 
 	for i in slot_buttons.size():
 		if slots[i] == -1:
 			slot_buttons[i].text = "Slot %d - Vide" % (i + 1)
 		else:
-			slot_buttons[i].text = names[slots[i]]
+			slot_buttons[i].text = spell_data[slots[i]].display_name
+
 
 
 func _refresh_highlights() -> void:
@@ -307,12 +303,22 @@ func _check_ready_to_start() -> void:
 func _show_spell_info(player: int, spell_index: int) -> void:
 	var panel: PanelContainer = p1_spell_info_panel if player == 1 else p2_spell_info_panel
 	var texture: TextureRect = p1_spell_info_texture if player == 1 else p2_spell_info_texture
-	var label: Label = p1_spell_info_label if player == 1 else p2_spell_info_label
-	var names: Array = p1_spell_names if player == 1 else p2_spell_names
+	var label: RichTextLabel = p1_spell_info_label if player == 1 else p2_spell_info_label
+	var icon: TextureRect = p1_spell_icon if player == 1 else p2_spell_icon
+	var spell_data: Array = p1_spell_data if player == 1 else p2_spell_data
+	var spell: SpellData = spell_data[spell_index]
 
 	panel.visible = true
 	texture.visible = true
-	label.text = "%s\n%s" % [names[spell_index], SPELL_DESCRIPTIONS[spell_index]]
+	icon.texture = spell.icon
+	label.text = "[b]%s[/b]\n%s\n[b]Coût[/b] : %d\n[b]Dégâts[/b] : %.0f" % [
+		spell.display_name.to_upper(),
+		spell.description,
+		spell.required_combo,
+		spell.damage
+	]
+
+
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

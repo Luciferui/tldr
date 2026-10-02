@@ -4,8 +4,11 @@ extends Area2D
 var collision_shape_dict: Dictionary[StringName, CollisionShape2D] = {}
 
 var current_attack: AttackData = null
+var player : Player
+@export var dissociated_from_player : bool = false
 
 func _ready() -> void:
+	player = owner as Player
 	collision_layer = 2
 	collision_mask = 4
 	for child in get_children():
@@ -58,3 +61,12 @@ func deactivateAttack() -> void:
 	if shape != null:
 		shape.set_deferred("disabled", true)
 	current_attack = null
+
+func getOwnerPosition() ->Vector2:
+	return player.position
+
+func getOwnerOrientation() ->int:
+	if player.get_sprite_faces_left() :
+		return -1
+	else:
+		return 1

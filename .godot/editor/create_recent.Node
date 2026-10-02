@@ -5,6 +5,7 @@ PlayerDeathState
 ProgressBar
 Control
 CanvasLayer
+AudioStreamPlayer2D
 Label
 Player
 CollisionShape2D

@@ -17,14 +17,13 @@ func enter() -> void:
 #	apply_knockback()
 	
 
-#func apply_knockback() -> void:
-#	var attack_dir = (player.global_position - hurtbox.hitting_area.global_position).normalized()
-#	player.velocity.x = attack_dir.x * knockback_force
+func apply_knockback(attack : AttackData, pos : Vector2, orientation:int) -> void:
+	player.velocity = attack.absolute_knockback + attack.orientation_knockback * orientation + (player.position - pos)*attack.relative_knockback_factor
+	
 
 func exit(new_state: State = null) -> void:
 	super.exit(new_state)
 	total_frame_count = 0
-	player.velocity.x = 0
 
 func _on_animation_finished() -> void:
 	if player.sprite.animation == animation_name:
@@ -38,6 +37,7 @@ func apply_stun_time(time : int) ->void:
 
 func process_physics(delta: float) -> State:
 	super.process_physics(delta)
+	player.velocity = 0.95*player.velocity
 	if stun_finished:
 		return idle_state
 	frame_count +=1
