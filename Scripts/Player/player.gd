@@ -10,11 +10,11 @@ extends CharacterBody2D
 @export var left_action: StringName = &"p1_left"
 @export var right_action: StringName = &"p1_right"
 @export var jump_action: StringName = &"p1_jump"
+@export var down_action: StringName = &"p1_down"
 @export var heavy_attack_action: StringName = &"p1_heavy"
 @export var light_attack_action: StringName = &"p1_light"
-@export var spell_action: StringName = &"p1_spell1"
-
-
+@export var spell_action: StringName = &"p1_spell"
+@export var dodge_action: StringName = &"p1_dodge"
 
 @export var sprite_faces_left: bool = false
 var ddhealth : int = 0
@@ -24,6 +24,12 @@ func get_hold():
 	return holdSpell
 func set_hold(hold: int): 
 	holdSpell = hold
+	
+var can_dodge = true
+func get_can_dodge() -> bool:
+	return can_dodge
+func set_can_dodge(x:bool) ->void :
+	can_dodge = x
 
 func _ready() -> void:
 	statemachine.init()

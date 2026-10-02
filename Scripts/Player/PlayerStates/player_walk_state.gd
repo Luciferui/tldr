@@ -7,8 +7,10 @@ extends PlayerState
 @export var jump_state: State
 @export var fall_state: State
 @export var attack_state: State
+@export var dodge_state : State
 
 func enter() -> void:
+	player.set_can_dodge(true)
 	player.sprite.play(animation_name)
 	player.sprite.flip_h = sprite_flip
 
@@ -17,6 +19,8 @@ func process_input(event: InputEvent) -> State:
 		return jump_state
 	if Input.is_action_just_pressed(player.light_attack_action) or Input.is_action_just_pressed(player.light_attack_action):
 		return attack_state
+	if Input.is_action_just_pressed(player.dodge_action) and player.get_can_dodge():
+		return dodge_state
 	return null
 
 func process_physics(delta: float) -> State:

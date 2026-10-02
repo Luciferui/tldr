@@ -15,7 +15,12 @@ func _on_area_entered(area: Area2D) -> void:
 	if not hitbox.get_owner()==owner:
 		player.takeAttack(hitbox.current_attack)
 
-#func engine_slow(scale: float, duration: float) -> void:
-#	Engine.time_scale = scale
-#	await get_tree().create_timer(duration * scale).timeout
-#	Engine.time_scale = 1.0
+func activate_hurtbox() -> void:
+	for child in get_children():
+		if child is CollisionShape2D:
+			child.set_deferred("disabled", false)
+
+func deactivate_hurtbox() -> void:
+	for child in get_children():
+		if child is CollisionShape2D:
+			child.set_deferred("disabled", true)

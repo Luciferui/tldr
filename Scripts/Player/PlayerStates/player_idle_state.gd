@@ -5,11 +5,13 @@ extends PlayerState
 @export var walk_state: State
 @export var jump_state: State
 @export var attack_state: State
+@export var dodge_state: State
 
 var attackActions: Array[StringName]
 
 func enter() -> void:
 	super.enter()
+	player.set_can_dodge(true)
 	attackActions = [player.heavy_attack_action,player.light_attack_action]
 	player.sprite.play(animation_name)
 	player.sprite.flip_h = sprite_flip
@@ -23,6 +25,8 @@ func process_input(event: InputEvent) -> State:
 	if attackActions.any(func(action): return Input.is_action_just_pressed(action)):
 		#si l'une des actions de attackActions est pressed
 		return attack_state
+	if Input.is_action_just_pressed(player.dodge_action) and player.get_can_dodge():
+		return dodge_state
 	return null
 
 func process_physics(delta: float) -> State:

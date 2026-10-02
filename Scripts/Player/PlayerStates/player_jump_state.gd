@@ -5,16 +5,19 @@ extends PlayerState
 @export var jump_force: float = -400.0
 @export var air_move_speed: float = 150.0
 @export var fall_state: State
+@export var dodge_state: State
 
 func enter() -> void:
 	player.sprite.play(animation_name)
 	player.sprite.flip_h = sprite_flip
 	player.velocity.y = jump_force
 
-#func process_input(event: InputEvent) -> State:
+func process_input(event: InputEvent) -> State:
 #	if Input.is_action_just_released("jump") and player.velocity.y > 0:
 #		player.velocity.y = 0.0
-#	return null
+	if Input.is_action_just_pressed(player.dodge_action) and player.get_can_dodge():
+		return dodge_state
+	return null
 
 func process_physics(delta: float) -> State:
 	super.process_physics(delta)
