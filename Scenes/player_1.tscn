@@ -326,6 +326,7 @@ fall_state = NodePath("../Fall")
 hurtbox = NodePath("../../Hurtbox")
 
 [node name="SpellLauncher" type="Node2D" parent="." unique_id=2049645845]
+top_level = true
 script = ExtResource("38_5xydj")
 
 [node name="Ddr" type="Node2D" parent="." unique_id=1646128952 node_paths=PackedStringArray("RelatedPlayer")]
