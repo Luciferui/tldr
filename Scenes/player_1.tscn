@@ -179,7 +179,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"kick",
-"speed": 8.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -246,7 +246,9 @@ script = ExtResource("1_3kxg5")
 position = Vector2(0, 3)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ssidi")
-animation = &"dodge"
+animation = &"kick"
+frame = 4
+frame_progress = 1.0
 
 [node name="GroundCollisionShape" type="CollisionShape2D" parent="." unique_id=1216312141]
 position = Vector2(1, 3)
