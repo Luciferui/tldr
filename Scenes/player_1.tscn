@@ -37,13 +37,50 @@
 [ext_resource type="Script" path="res://Scripts/Abstract/hitbox.gd" id="25_yef3s"]
 [ext_resource type="Script" uid="uid://dj0uvd5fjr6b8" path="res://Scripts/Player/PlayerStates/player_hurtbox.gd" id="28_cu0p0"]
 [ext_resource type="Script" uid="uid://pyvofwuo17c5" path="res://Scripts/Player/PlayerStates/player_pain_state.gd" id="35_oexav"]
-[ext_resource type="Script" uid="uid://duerir5sl8d6s" path="res://Scenes/spell_launcher.gd" id="38_5xydj"]
+[ext_resource type="Script" uid="uid://duerir5sl8d6s" path="res://Scripts/Spells/spell_launcher.gd" id="38_5xydj"]
+[ext_resource type="Script" uid="uid://bcht0rd2ayu13" path="res://Scripts/Player/PlayerStates/player_death_state.gd" id="38_ewrxp"]
 [ext_resource type="Script" uid="uid://dgdeyrlm0eoen" path="res://Scripts/DDR/random_ddr.gd" id="38_h8d83"]
 [ext_resource type="Texture2D" uid="uid://crk3iyihyfof2" path="res://Assets/ddr_textures/greek-key-rectangle-frame-greek-border-vector_231786-4614.png" id="39_5xydj"]
+[ext_resource type="Script" uid="uid://f6l3gi2j7n5k" path="res://Scripts/Player/PlayerStates/player_dying-state.gd" id="39_m77ku"]
 [ext_resource type="Script" uid="uid://dp52ex5alaklm" path="res://Scripts/DDR/Display_inputs.gd" id="40_ewrxp"]
+[ext_resource type="Script" uid="uid://cfp70edt1064v" path="res://rescue_controller.gd" id="44_nf0y4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ssidi"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_43kbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_p5xb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_43kbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_p5xb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_43kbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_p5xb0")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_43kbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_p5xb0")
+}],
+"loop": 1,
+"name": &"dying",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("9_1b40w")
@@ -185,13 +222,16 @@ size = Vector2(35.5, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6x7ra"]
 size = Vector2(35, 7)
 
-[node name="Player" type="CharacterBody2D" unique_id=2123069804 groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=2123069804 node_paths=PackedStringArray("rescue") groups=["Player"]]
 script = ExtResource("1_3kxg5")
 spell_action = &"p1_spell"
+rescue = NodePath("RescueController")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=164475980]
 sprite_frames = SubResource("SpriteFrames_ssidi")
-animation = &"punch"
+animation = &"pain"
+frame = 1
+frame_progress = 1.0
 
 [node name="GroundCollisionShape" type="CollisionShape2D" parent="." unique_id=1216312141]
 position = Vector2(-2, 9)
@@ -262,6 +302,14 @@ script = ExtResource("35_oexav")
 hurtbox = NodePath("../../Hurtbox")
 idle_state = NodePath("../Idle")
 
+[node name="Death" type="Node" parent="StateMachine" unique_id=172789434]
+script = ExtResource("38_ewrxp")
+metadata/_custom_type_script = "uid://bcht0rd2ayu13"
+
+[node name="Dying" type="Node" parent="StateMachine" unique_id=1578593940]
+script = ExtResource("39_m77ku")
+metadata/_custom_type_script = "uid://f6l3gi2j7n5k"
+
 [node name="SpellLauncher" type="Node2D" parent="." unique_id=2049645845]
 script = ExtResource("38_5xydj")
 
@@ -291,3 +339,7 @@ offset_right = 800.0
 offset_bottom = -256.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 90
+
+[node name="RescueController" type="Node2D" parent="." unique_id=156116668 node_paths=PackedStringArray("ddr")]
+script = ExtResource("44_nf0y4")
+ddr = NodePath("../Ddr")

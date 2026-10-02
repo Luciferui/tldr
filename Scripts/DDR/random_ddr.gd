@@ -3,6 +3,9 @@ extends SuperDDR
 @export var inputRange : int = 5
 @export var RelatedPlayer : Player
 
+signal total_input_change (total: int) 
+var total_input = 0
+
 func _ready() -> void:
 	# Gère les deux joueurs
 	if RelatedPlayer.player_id % 2 == 0:
@@ -26,6 +29,8 @@ func generateRandomInputs():
 func validateInput():
 	playerInputs.append(InputList[0])
 	$Counter.text = str(playerInputs.size())
+	total_input += 1
+	total_input_change.emit(total_input)
 	InputList = InputList.slice(1)
 	currentInput = InputList[0]
 	InputList.append(usedInput[randi_range(0, usedInput.size()-1)])

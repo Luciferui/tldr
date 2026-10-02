@@ -1,9 +1,14 @@
+Node2D
+PlayerDyingState
+Node
+PlayerDeathState
+ProgressBar
+Control
+CanvasLayer
 Label
 Player
 CollisionShape2D
 Hitbox
 AnimatedSprite2D
 StaticBody2D
-Node2D
-Node
 Button

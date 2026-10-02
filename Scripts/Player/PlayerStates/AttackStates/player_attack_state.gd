@@ -72,4 +72,6 @@ func process_physics(delta: float) -> State:
 	return null
 
 func exit(new_state: State = null) -> void:
+	if hitbox:
+		hitbox.deactivateAttack()
 	super.exit(new_state)
