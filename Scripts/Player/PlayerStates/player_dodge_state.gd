@@ -2,7 +2,7 @@ class_name PlayerDodgeState
 extends PlayerState
 
 @export var animation_name: String = "dodge"
-@export var dodge_force: float = 200.0
+@export var dodge_force: float = 150.0
 @export var total_frame_count: int = 20
 @export var idle_state : PlayerState
 @export var fall_state: PlayerState
@@ -25,7 +25,7 @@ func enter() -> void:
 
 func process_physics(delta: float) -> State:
 	super.process_physics(delta)
-	player.velocity = ((((total_frame_count-frame_count)/total_frame_count)+1)**2)*dir*dodge_force
+	player.velocity = (((2*(total_frame_count-frame_count)/total_frame_count)+0.5)**2)*dir*dodge_force
 	if frame_count >= total_frame_count:
 		frame_count = 0
 		if player.is_on_floor():

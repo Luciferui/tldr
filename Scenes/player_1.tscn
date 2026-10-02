@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://yjyk6jav6o1k" path="res://Scripts/Player/player.gd" id="1_3kxg5"]
 [ext_resource type="Texture2D" uid="uid://cwufqh807xaqw" path="res://Assets/Sprites/Brawler-Girl/Idle/idle1.png" id="1_3ncc6"]
 [ext_resource type="Texture2D" uid="uid://bknft8h8j7x1y" path="res://Assets/Sprites/Brawler-Girl/Idle/idle2.png" id="2_3kxg5"]
+[ext_resource type="Texture2D" uid="uid://drle3cdrh01jl" path="res://Assets/Sprites/Brawler-Girl/Dodge/dodge.png" id="2_m77ku"]
 [ext_resource type="Texture2D" uid="uid://dqb45f1umr46v" path="res://Assets/Sprites/Brawler-Girl/Idle/idle3.png" id="3_bxgnc"]
 [ext_resource type="Texture2D" uid="uid://bfp7epfh8yygc" path="res://Assets/Sprites/Brawler-Girl/Idle/idle4.png" id="4_2ri8u"]
 [ext_resource type="Texture2D" uid="uid://db8twyxrp8ur1" path="res://Assets/Sprites/Brawler-Girl/Walk/walk1.png" id="5_841sn"]
@@ -38,12 +39,21 @@
 [ext_resource type="Script" uid="uid://dj0uvd5fjr6b8" path="res://Scripts/Player/PlayerStates/player_hurtbox.gd" id="28_cu0p0"]
 [ext_resource type="Script" uid="uid://pyvofwuo17c5" path="res://Scripts/Player/PlayerStates/player_pain_state.gd" id="35_oexav"]
 [ext_resource type="Script" uid="uid://duerir5sl8d6s" path="res://Scripts/Spells/spell_launcher.gd" id="38_5xydj"]
+[ext_resource type="Script" uid="uid://d0ub2tmk2jb87" path="res://Scripts/Player/PlayerStates/player_dodge_state.gd" id="38_ewrxp"]
 [ext_resource type="Script" uid="uid://dgdeyrlm0eoen" path="res://Scripts/DDR/random_ddr.gd" id="38_h8d83"]
 [ext_resource type="Texture2D" uid="uid://c8i7des2qdnha" path="res://Assets/ddr_textures/DDR_rectangle.png" id="40_5xydj"]
 [ext_resource type="Script" uid="uid://dp52ex5alaklm" path="res://Scripts/DDR/Display_inputs.gd" id="40_ewrxp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ssidi"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_m77ku")
+}],
+"loop": 1,
+"name": &"dodge",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("9_1b40w")
@@ -187,11 +197,10 @@ size = Vector2(35, 7)
 
 [node name="Player" type="CharacterBody2D" unique_id=2123069804 groups=["Player"]]
 script = ExtResource("1_3kxg5")
-spell_action = &"p1_spell"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=164475980]
 sprite_frames = SubResource("SpriteFrames_ssidi")
-animation = &"punch"
+animation = &"dodge"
 
 [node name="GroundCollisionShape" type="CollisionShape2D" parent="." unique_id=1216312141]
 position = Vector2(-2, 9)
@@ -227,27 +236,31 @@ script = ExtResource("16_bxgnc")
 starting_state = NodePath("Idle")
 pain_state = NodePath("Pain")
 
-[node name="Idle" type="Node2D" parent="StateMachine" unique_id=849906485 node_paths=PackedStringArray("walk_state", "jump_state", "attack_state")]
+[node name="Idle" type="Node2D" parent="StateMachine" unique_id=849906485 node_paths=PackedStringArray("walk_state", "jump_state", "attack_state", "dodge_state")]
 script = ExtResource("17_2ri8u")
 walk_state = NodePath("../Walk")
 jump_state = NodePath("../Jump")
 attack_state = NodePath("../Attack")
+dodge_state = NodePath("../Dodge")
 
-[node name="Walk" type="Node2D" parent="StateMachine" unique_id=1181021020 node_paths=PackedStringArray("idle_state", "jump_state", "fall_state", "attack_state")]
+[node name="Walk" type="Node2D" parent="StateMachine" unique_id=1181021020 node_paths=PackedStringArray("idle_state", "jump_state", "fall_state", "attack_state", "dodge_state")]
 script = ExtResource("18_2230n")
 idle_state = NodePath("../Idle")
 jump_state = NodePath("../Jump")
 fall_state = NodePath("../Fall")
 attack_state = NodePath("../Attack")
+dodge_state = NodePath("../Dodge")
 
-[node name="Jump" type="Node2D" parent="StateMachine" unique_id=262411182 node_paths=PackedStringArray("fall_state")]
+[node name="Jump" type="Node2D" parent="StateMachine" unique_id=262411182 node_paths=PackedStringArray("fall_state", "dodge_state")]
 script = ExtResource("19_d3d1g")
 fall_state = NodePath("../Fall")
+dodge_state = NodePath("../Dodge")
 
-[node name="Fall" type="Node2D" parent="StateMachine" unique_id=1746493180 node_paths=PackedStringArray("idle_state", "walk_state")]
+[node name="Fall" type="Node2D" parent="StateMachine" unique_id=1746493180 node_paths=PackedStringArray("idle_state", "walk_state", "dodge_state")]
 script = ExtResource("20_ratjp")
 idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
+dodge_state = NodePath("../Dodge")
 
 [node name="Attack" type="Node2D" parent="StateMachine" unique_id=2112761695 node_paths=PackedStringArray("idle_state", "walk_state", "pain_state", "hitbox")]
 script = ExtResource("25_fvdx0")
@@ -261,6 +274,12 @@ totalFrameCount = 300
 script = ExtResource("35_oexav")
 hurtbox = NodePath("../../Hurtbox")
 idle_state = NodePath("../Idle")
+
+[node name="Dodge" type="Node2D" parent="StateMachine" unique_id=1541599424 node_paths=PackedStringArray("idle_state", "fall_state", "hurtbox")]
+script = ExtResource("38_ewrxp")
+idle_state = NodePath("../Idle")
+fall_state = NodePath("../Fall")
+hurtbox = NodePath("../../Hurtbox")
 
 [node name="SpellLauncher" type="Node2D" parent="." unique_id=2049645845]
 script = ExtResource("38_5xydj")

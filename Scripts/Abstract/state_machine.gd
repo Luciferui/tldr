@@ -17,9 +17,10 @@ func change_state(new_state: State) -> void:
 	current_state = new_state
 	current_state.enter()
 	
-func take_stun(framecount : int) -> void:
-	pain_state.apply_stun_time(framecount)
-	if not current_state==pain_state and framecount >0:
+func take_attack(attack : AttackData, attackerPos : Vector2, attackerOrientation : int) -> void:
+	pain_state.apply_stun_time(attack.hitstun)
+	pain_state.apply_knockback(attack, attackerPos, attackerOrientation)
+	if not current_state==pain_state and attack.hitstun>0:
 		change_state(pain_state)
 		
 func override_state(state : PlayerState) ->void:

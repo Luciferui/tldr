@@ -15,8 +15,11 @@ extends CharacterBody2D
 @export var light_attack_action: StringName = &"p1_light"
 @export var spell_action: StringName = &"p1_spell"
 @export var dodge_action: StringName = &"p1_dodge"
-
 @export var sprite_faces_left: bool = false
+
+func get_sprite_faces_left() -> bool:
+	return sprite.flip_h
+
 var ddhealth : int = 0
 
 var holdSpell : int = -1
@@ -48,10 +51,10 @@ func _physics_process(delta: float) -> void:
 	spellLauncher.process_physics(delta)
 	move_and_slide()
 
-func takeAttack(data:AttackData) -> void:
+func takeAttack(data:AttackData, attackerPos : Vector2, attackerOrientation : int) -> void:
 	##Le joueur s'est prit l'attaque data.
 	ddhealth += data.damage
-	statemachine.take_stun(data.hitstun)
+	statemachine.take_attack(data,attackerPos,attackerOrientation)
 	
 func heal(x : int) ->void:
 	print("heal",x)
