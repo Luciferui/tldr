@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var statemachine: StateMachine = $StateMachine
 @onready var spellLauncher : SpellLauncher = $SpellLauncher
 @onready var sprite: AnimatedSprite2D = $Sprite
+@onready var rescue_controller: Node = $RescueController
 
 @export var player_id: int = 0
 @export var left_action: StringName = &"p1_left"
@@ -17,6 +18,9 @@ extends CharacterBody2D
 @export var dodge_action: StringName = &"p1_dodge"
 @export var opponent: Player
 @export var sprite_faces_left: bool = false
+@export var dying_threshold: int = 100
+
+signal damage_changed(value: int)
 
 func get_sprite_faces_left() -> bool:
 	return sprite.flip_h
@@ -24,6 +28,9 @@ func get_sprite_faces_left() -> bool:
 var ddhealth : int = 0
 
 var holdSpell : int = -1
+
+var match_over: bool = false
+
 
 func get_hold(): 
 	return holdSpell
@@ -41,25 +48,49 @@ func _ready() -> void:
 	spellLauncher.init()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if match_over or rescue_controller.active or rescue_controller.failed:
+		return
 	statemachine.process_input(event)
 	spellLauncher.process_input(event)
 
 func _process(delta: float) -> void:
+	if match_over:
+		return
 	statemachine.process_frame(delta)
-	spellLauncher.process_frame(delta)
+	if not rescue_controller.active and not rescue_controller.failed:
+		spellLauncher.process_frame(delta)
 
 func _physics_process(delta: float) -> void:
+	if match_over:
+		if statemachine.current_state is PlayerDeathState:
+			statemachine.process_physics(delta)
+			move_and_slide()
+		else:
+			velocity = Vector2.ZERO
+		return
+	
 	statemachine.process_physics(delta)
-	spellLauncher.process_physics(delta)
+	if not rescue_controller.active and not rescue_controller.failed:
+		spellLauncher.process_physics(delta)
 	move_and_slide()
 
-func takeAttack(data:AttackData, attackerPos : Vector2, attackerOrientation : int) -> void:
-	##Le joueur s'est prit l'attaque data.
+func takeAttack(data: AttackData, attackerPos: Vector2,
+		attackerOrientation: int) -> void:
+	if match_over or rescue_controller.active or rescue_controller.failed:
+		return
+
 	ddhealth += data.damage
-	statemachine.take_attack(data,attackerPos,attackerOrientation)
-func heal(x : int) ->void:
-	print("heal",x)
-	ddhealth = max(0, ddhealth - x)
+	damage_changed.emit(ddhealth)
+
+	if ddhealth >= dying_threshold:
+		rescue_controller.begin_rescue()
+		return
+
+	statemachine.take_attack(data, attackerPos, attackerOrientation)
+
+func heal(x: int) -> void:
+	ddhealth = maxi(0, ddhealth - x)
+	damage_changed.emit(ddhealth)
 
 
 	

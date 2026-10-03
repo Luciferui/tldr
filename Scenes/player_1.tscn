@@ -11,8 +11,11 @@
 [ext_resource type="Script" uid="uid://cx6iomacw7umd" path="res://Scripts/Abstract/state_machine.gd" id="16_bxgnc"]
 [ext_resource type="Script" uid="uid://bvbwrwksp8hjt" path="res://Scripts/Player/PlayerStates/player_idle_state.gd" id="17_2ri8u"]
 [ext_resource type="Script" uid="uid://bvyy2x5hx0gaj" path="res://Scripts/Player/PlayerStates/player_walk_state.gd" id="18_2230n"]
+[ext_resource type="Script" uid="uid://byje1jngo30my" path="res://Scripts/Player/PlayerStates/player_death_state.gd" id="19_2xfhf"]
 [ext_resource type="Script" uid="uid://cdwm33efq4l8f" path="res://Scripts/Player/PlayerStates/player_jump_state.gd" id="19_d3d1g"]
+[ext_resource type="Script" uid="uid://d2eqep4rx1rwj" path="res://Scripts/Player/PlayerStates/player_dying_state.gd" id="20_a8pmy"]
 [ext_resource type="Script" uid="uid://d1vxorwm5xta4" path="res://Scripts/Player/PlayerStates/player_fall_state.gd" id="20_ratjp"]
+[ext_resource type="Script" uid="uid://cfp70edt1064v" path="res://rescue_controller.gd" id="23_ex6al"]
 [ext_resource type="Script" uid="uid://cha207lvv53uk" path="res://Scripts/Player/PlayerStates/AttackStates/player_attack_state.gd" id="25_fvdx0"]
 [ext_resource type="Script" path="res://Scripts/Abstract/hitbox.gd" id="25_yef3s"]
 [ext_resource type="Script" uid="uid://dj0uvd5fjr6b8" path="res://Scripts/Player/PlayerStates/player_hurtbox.gd" id="28_cu0p0"]
@@ -22,6 +25,14 @@
 [ext_resource type="Script" uid="uid://dgdeyrlm0eoen" path="res://Scripts/DDR/random_ddr.gd" id="38_h8d83"]
 [ext_resource type="Texture2D" uid="uid://c8i7des2qdnha" path="res://Assets/ddr_textures/DDR_rectangle.png" id="40_5xydj"]
 [ext_resource type="Script" uid="uid://dp52ex5alaklm" path="res://Scripts/DDR/Display_inputs.gd" id="40_ewrxp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xfhf"]
+atlas = ExtResource("5_ex6al")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8d83"]
+atlas = ExtResource("5_ex6al")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a8pmy"]
 atlas = ExtResource("2_qrwht")
@@ -119,11 +130,51 @@ region = Rect2(96, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_2xfhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8d83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xfhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8d83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xfhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8d83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xfhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8d83")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_ccce5")
 }],
 "loop": 1,
 "name": &"dodge",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xfhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8d83")
+}],
+"loop": 1,
+"name": &"dying",
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -246,8 +297,8 @@ script = ExtResource("1_3kxg5")
 position = Vector2(0, 3)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ssidi")
-animation = &"kick"
-frame = 4
+animation = &"death"
+frame = 7
 frame_progress = 1.0
 
 [node name="GroundCollisionShape" type="CollisionShape2D" parent="." unique_id=1216312141]
@@ -325,6 +376,14 @@ idle_state = NodePath("../Idle")
 fall_state = NodePath("../Fall")
 hurtbox = NodePath("../../Hurtbox")
 
+[node name="Death" type="Node" parent="StateMachine" unique_id=392229146]
+script = ExtResource("19_2xfhf")
+metadata/_custom_type_script = "uid://byje1jngo30my"
+
+[node name="Dying" type="Node" parent="StateMachine" unique_id=1226418361]
+script = ExtResource("20_a8pmy")
+metadata/_custom_type_script = "uid://d2eqep4rx1rwj"
+
 [node name="SpellLauncher" type="Node2D" parent="." unique_id=2049645845]
 top_level = true
 script = ExtResource("38_5xydj")
@@ -356,3 +415,8 @@ offset_right = 800.0
 offset_bottom = -256.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 90
+
+[node name="RescueController" type="Node2D" parent="." unique_id=669820595 node_paths=PackedStringArray("ddr")]
+script = ExtResource("23_ex6al")
+ddr = NodePath("../Ddr")
+required_inputs = 5
