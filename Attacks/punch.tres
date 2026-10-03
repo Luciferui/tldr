@@ -8,5 +8,5 @@ attack_name = &"punch"
 hitbox_name = &"punch"
 animation_name = &"punch"
 hitstun = 1
-attack_timing = Array[int]([10, 14, 20, 24])
+attack_timing = Array[int]([12, 13])
 metadata/_custom_type_script = "uid://drx73h07qa6ou"

@@ -8,6 +8,6 @@ attack_name = &"kick"
 hitbox_name = &"kick"
 animation_name = &"kick"
 hitstun = 70
-attack_timing = Array[int]([24, 25])
+attack_timing = Array[int]([18, 19])
 orientation_knockback = Vector2(100, 0)
 metadata/_custom_type_script = "uid://drx73h07qa6ou"

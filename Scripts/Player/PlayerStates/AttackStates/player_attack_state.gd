@@ -45,13 +45,13 @@ func selectAttack() -> void :
 	if Input.is_action_just_pressed(player.heavy_attack_action):
 		currentAttack = kick_attack
 		animation_name = currentAttack.animation_name
-		totalFrameCount = 60
+		totalFrameCount = 30
 		attack_timing = currentAttack.attack_timing
 		hitbox.setCurrentAttack(currentAttack)
 	elif Input.is_action_just_pressed(player.light_attack_action):
 		currentAttack = punch_attack
 		animation_name = currentAttack.animation_name
-		totalFrameCount = 36
+		totalFrameCount = 20
 		attack_timing = currentAttack.attack_timing
 		hitbox.setCurrentAttack(currentAttack)		
 

@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://5g0k8gvdf3n0" path="res://Assets/Level assets/Background.png" id="1_1ainy"]
 [ext_resource type="Script" uid="uid://gr3og6bes57d" path="res://Scripts/level_script.gd" id="1_qxfql"]
-[ext_resource type="AudioStream" uid="uid://ceobjdid5v7l2" path="res://Assets/Music/Full Moon 2.0.mp3" id="2_ha31o"]
 [ext_resource type="PackedScene" uid="uid://4s000tfvfba4" path="res://Scenes/player_1.tscn" id="2_pnn78"]
+[ext_resource type="AudioStream" uid="uid://b1ayrca6aq4ol" path="res://Assets/Music/Volcanic Bomb (Climax).mp3" id="2_qxfql"]
 [ext_resource type="Texture2D" uid="uid://d1ebkqnditaer" path="res://Assets/Level assets/Plateform0.5.png" id="5_aicyk"]
 [ext_resource type="Texture2D" uid="uid://hor63ba6jyk8" path="res://Assets/Level assets/Plateform0.png" id="5_n6hdu"]
 [ext_resource type="Texture2D" uid="uid://c8ktl3ql2rywt" path="res://Assets/Level assets/Plateform1.png" id="6_8b0r0"]
@@ -50,7 +50,7 @@ size = Vector2(86, 382)
 
 [node name="Level" type="Node2D" unique_id=552634920 node_paths=PackedStringArray("player1", "player2")]
 script = ExtResource("1_qxfql")
-level_music = ExtResource("2_ha31o")
+level_music = ExtResource("2_qxfql")
 player1 = NodePath("Player")
 player2 = NodePath("Player2")
 
@@ -62,6 +62,8 @@ texture = ExtResource("1_1ainy")
 zoom = Vector2(3, 3)
 
 [node name="Plateform0_5" type="StaticBody2D" parent="." unique_id=1605015684]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Plateform0_5" unique_id=2052033808]
 scale = Vector2(2.5, 2.5)
@@ -74,6 +76,8 @@ shape = SubResource("RectangleShape2D_ktfqu")
 one_way_collision = true
 
 [node name="Plateform1" type="StaticBody2D" parent="." unique_id=572226935]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Plateform1" unique_id=1337023203]
 scale = Vector2(2.5, 2.5)
@@ -87,6 +91,8 @@ shape = SubResource("RectangleShape2D_4c15r")
 one_way_collision = true
 
 [node name="Plateform1_1" type="StaticBody2D" parent="." unique_id=168143236]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Plateform1_1" unique_id=1992183159]
 scale = Vector2(2.5, 2.5)
@@ -100,6 +106,8 @@ shape = SubResource("RectangleShape2D_ait7k")
 one_way_collision = true
 
 [node name="Plateform1_2" type="StaticBody2D" parent="." unique_id=377349298]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Plateform1_2" unique_id=1968559704]
 scale = Vector2(2.5, 2.5)
@@ -113,6 +121,8 @@ shape = SubResource("RectangleShape2D_42xju")
 one_way_collision = true
 
 [node name="Plateform2" type="StaticBody2D" parent="." unique_id=855975115]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Plateform2" unique_id=1672218257]
 scale = Vector2(2.5, 2.5)
@@ -126,6 +136,8 @@ shape = SubResource("RectangleShape2D_v7sqt")
 one_way_collision = true
 
 [node name="Plateform3" type="StaticBody2D" parent="." unique_id=1914034728]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Plateform3" unique_id=2048616470]
 scale = Vector2(2.5, 2.5)
@@ -146,6 +158,8 @@ shape = SubResource("RectangleShape2D_y3bce")
 one_way_collision = true
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=57516992]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=153569379]
 scale = Vector2(2.5, 2.5)
@@ -172,6 +186,8 @@ position = Vector2(313.5, 94)
 shape = SubResource("RectangleShape2D_1ainy")
 
 [node name="LeftWall" type="StaticBody2D" parent="." unique_id=991804508]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=290896773]
 visible = false
@@ -179,6 +195,8 @@ position = Vector2(-360, 0)
 shape = SubResource("RectangleShape2D_2v8g7")
 
 [node name="RightWall" type="StaticBody2D" parent="." unique_id=912091570]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=507741712]
 visible = false
@@ -191,6 +209,8 @@ opponent = NodePath("../Player2")
 
 [node name="Player2" parent="." unique_id=11960359 node_paths=PackedStringArray("opponent") instance=ExtResource("2_pnn78")]
 position = Vector2(50, 95)
+collision_layer = 2
+collision_mask = 2
 player_id = 1
 left_action = &"p2_left"
 right_action = &"p2_right"
