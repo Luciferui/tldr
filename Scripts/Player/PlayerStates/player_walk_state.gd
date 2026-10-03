@@ -17,7 +17,7 @@ func enter() -> void:
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed(player.jump_action) and player.is_on_floor():
 		return jump_state
-	if Input.is_action_just_pressed(player.light_attack_action) or Input.is_action_just_pressed(player.light_attack_action):
+	if Input.is_action_just_pressed(player.light_attack_action) or Input.is_action_just_pressed(player.heavy_attack_action):
 		return attack_state
 	if Input.is_action_just_pressed(player.dodge_action) and player.get_can_dodge():
 		return dodge_state

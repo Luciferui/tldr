@@ -1,7 +1,7 @@
 class_name SpellLauncher
 extends Node2D
 
-const LightningStrikeScene := preload("res://Scenes/Spells/lightning_strike.tscn")
+const LightningStrikeScene := preload("res://Spells/lightning_strike/lightning_strike.tscn")
 var player : Player
 
 func _ready() ->void:

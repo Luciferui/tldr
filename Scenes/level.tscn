@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://chwmndk84evfv" path="res://Assets/Level assets/Plateform1.2.png" id="8_v5j5c"]
 [ext_resource type="Texture2D" uid="uid://cxsl5lry7g4sd" path="res://Assets/Level assets/Plateform2.png" id="9_5pxul"]
 [ext_resource type="Texture2D" uid="uid://bvrok30y4k74t" path="res://Assets/Level assets/Plateform3.png" id="10_fedht"]
-[ext_resource type="Script" uid="uid://dfwe2jovxltaj" path="res://match_manager.gd" id="12_ha31o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfqu"]
 size = Vector2(73, 8.5)
@@ -49,9 +48,11 @@ size = Vector2(23, 26.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2v8g7"]
 size = Vector2(86, 382)
 
-[node name="Level" type="Node2D" unique_id=552634920]
+[node name="Level" type="Node2D" unique_id=552634920 node_paths=PackedStringArray("player1", "player2")]
 script = ExtResource("1_qxfql")
 level_music = ExtResource("2_ha31o")
+player1 = NodePath("Player")
+player2 = NodePath("Player2")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1311848255]
 scale = Vector2(2.4999995, 2.5)
@@ -67,6 +68,7 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("5_aicyk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plateform0_5" unique_id=339553001]
+visible = false
 position = Vector2(-50.5, 59)
 shape = SubResource("RectangleShape2D_ktfqu")
 one_way_collision = true
@@ -78,6 +80,7 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("6_8b0r0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plateform1" unique_id=666933125]
+visible = false
 position = Vector2(190, 5)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_4c15r")
@@ -90,6 +93,7 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("7_h6smj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plateform1_1" unique_id=1539073021]
+visible = false
 position = Vector2(138.5, -55.499996)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_ait7k")
@@ -102,6 +106,7 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("8_v5j5c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plateform1_2" unique_id=746784932]
+visible = false
 position = Vector2(266.25, -56)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_42xju")
@@ -114,6 +119,7 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("9_5pxul")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plateform2" unique_id=1641527125]
+visible = false
 position = Vector2(-235.875, 23.75)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_v7sqt")
@@ -126,12 +132,14 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("10_fedht")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plateform3" unique_id=987867860]
+visible = false
 position = Vector2(-186, -111)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_ilwjd")
 one_way_collision = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Plateform3" unique_id=1426365623]
+visible = false
 position = Vector2(-136, -101)
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_y3bce")
@@ -144,39 +152,45 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("5_n6hdu")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground" unique_id=96594740]
+visible = false
 position = Vector2(-191.5, 107.875)
 shape = SubResource("RectangleShape2D_km5ld")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1017835427]
+visible = false
 position = Vector2(-1, 162)
 shape = SubResource("RectangleShape2D_i2t4f")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground" unique_id=930518562]
+visible = false
 position = Vector2(262.25, 121.75)
 shape = SubResource("RectangleShape2D_8cye3")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Ground" unique_id=1957586222]
+visible = false
 position = Vector2(313.5, 94)
 shape = SubResource("RectangleShape2D_1ainy")
 
 [node name="LeftWall" type="StaticBody2D" parent="." unique_id=991804508]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=290896773]
+visible = false
 position = Vector2(-360, 0)
 shape = SubResource("RectangleShape2D_2v8g7")
 
 [node name="RightWall" type="StaticBody2D" parent="." unique_id=912091570]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=507741712]
+visible = false
 position = Vector2(360, -2)
 shape = SubResource("RectangleShape2D_2v8g7")
 
 [node name="Player" parent="." unique_id=2123069804 node_paths=PackedStringArray("opponent") instance=ExtResource("2_pnn78")]
-position = Vector2(-60, -2)
+position = Vector2(-50, 95)
 opponent = NodePath("../Player2")
 
 [node name="Player2" parent="." unique_id=11960359 node_paths=PackedStringArray("opponent") instance=ExtResource("2_pnn78")]
-position = Vector2(-15, -4)
+position = Vector2(50, 95)
 player_id = 1
 left_action = &"p2_left"
 right_action = &"p2_right"
@@ -187,8 +201,3 @@ light_attack_action = &"p2_light"
 spell_action = &"p2_spell"
 dodge_action = &"p2_dodge"
 opponent = NodePath("../Player")
-
-[node name="MatchManager" type="Node2D" parent="." unique_id=638733309 node_paths=PackedStringArray("player1", "player2")]
-script = ExtResource("12_ha31o")
-player1 = NodePath("../Player")
-player2 = NodePath("../Player2")

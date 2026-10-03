@@ -1,18 +1,18 @@
 [gd_scene format=3 uid="uid://bnrcon2hu7g4k"]
 
-[ext_resource type="Script" uid="uid://c5a56ysg8f1j5" path="res://Scenes/Spells/lightning_strike.gd" id="1_xlavy"]
-[ext_resource type="Texture2D" uid="uid://ceee8ocm6jq1m" path="res://Scenes/Spells/spell_lightning_strke.png" id="2_oj3fk"]
-[ext_resource type="Texture2D" uid="uid://ynaeatvguus8" path="res://Scenes/Spells/spell_lightning_warning.png" id="3_rnkpb"]
-[ext_resource type="Script" path="res://Scripts/Abstract/hitbox.gd" id="4_rnkpb"]
+[ext_resource type="Script" uid="uid://c5a56ysg8f1j5" path="res://Spells/lightning_strike/lightning_strike.gd" id="1_vj0o1"]
+[ext_resource type="Texture2D" uid="uid://ynaeatvguus8" path="res://Spells/lightning_strike/spell_lightning_warning.png" id="2_fyhq4"]
+[ext_resource type="Texture2D" uid="uid://ceee8ocm6jq1m" path="res://Spells/lightning_strike/spell_lightning_strke.png" id="3_cdhk4"]
+[ext_resource type="Script" path="res://Scripts/Abstract/hitbox.gd" id="4_k6kus"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2v8g7"]
 animations = [{
 "frames": [{
 "duration": 4.0,
-"texture": ExtResource("3_rnkpb")
+"texture": ExtResource("2_fyhq4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_oj3fk")
+"texture": ExtResource("3_cdhk4")
 }],
 "loop": 0,
 "name": &"lightning",
@@ -23,7 +23,7 @@ animations = [{
 size = Vector2(193, 649)
 
 [node name="LightningStrike" type="Node2D" unique_id=1935942012]
-script = ExtResource("1_xlavy")
+script = ExtResource("1_vj0o1")
 
 [node name="LightningStrike" type="AnimatedSprite2D" parent="." unique_id=1579821193]
 sprite_frames = SubResource("SpriteFrames_2v8g7")
@@ -32,7 +32,7 @@ frame = 1
 frame_progress = 1.0
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1797279289]
-script = ExtResource("4_rnkpb")
+script = ExtResource("4_k6kus")
 
 [node name="LightningStrike" type="CollisionShape2D" parent="Hitbox" unique_id=1749614899]
 position = Vector2(13, -34.5)
