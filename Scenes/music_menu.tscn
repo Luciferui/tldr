@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://bga6dei4bkxxs"]
+
+[ext_resource type="Theme" uid="uid://c8dq55fba1oen" path="res://Assets/menu_theme.tres" id="1_j613u"]
+[ext_resource type="Script" uid="uid://ddgbia12dkl0o" path="res://Scripts/music_menu.gd" id="2_skhlu"]
+[ext_resource type="Texture2D" uid="uid://clixcyoas0nj4" path="res://Assets/ddr_textures/new_textures/light.png" id="9_n5urk"]
+[ext_resource type="Texture2D" uid="uid://cau38gwi818vq" path="res://Assets/Level assets/Total map.png" id="11_as5n4"]
+[ext_resource type="Script" uid="uid://c505cd136phyy" path="res://Scripts/DDR/fixed_ddr.gd" id="12_r4fyu"]
+[ext_resource type="Texture2D" uid="uid://bnnrky7d0rogx" path="res://Assets/ddr_textures/new_textures/left.png" id="13_1asmh"]
+[ext_resource type="Texture2D" uid="uid://o6jkqc2ynoub" path="res://Assets/ddr_textures/new_textures/right.png" id="14_yash2"]
+[ext_resource type="Texture2D" uid="uid://b28urc1o4i5rm" path="res://Assets/ddr_textures/new_textures/down.png" id="15_kpaje"]
+[ext_resource type="Texture2D" uid="uid://dv4avv1dl8c8m" path="res://Assets/select_background.png" id="16_o6iqr"]
+
+[node name="MusicMenu" type="Control" unique_id=648442748]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_j613u")
+script = ExtResource("2_skhlu")
+
+[node name="BackGround" type="TextureRect" parent="." unique_id=1093828120]
+modulate = Color(0.381961, 0.381961, 0.381961, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_as5n4")
+expand_mode = 1
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=1311359581]
+layout_mode = 1
+offset_right = 685.0
+offset_bottom = 124.0
+theme = ExtResource("1_j613u")
+theme_override_font_sizes/font_size = 67
+text = "Return to Spell list"
+script = ExtResource("12_r4fyu")
+fixedInputList = Array[String](["p1_left", "p1_right", "p1_down"])
+
+[node name="Left" type="Sprite2D" parent="MainMenuButton" unique_id=1522513591]
+position = Vector2(278, 128)
+scale = Vector2(4, 4)
+texture = ExtResource("13_1asmh")
+
+[node name="Right" type="Sprite2D" parent="MainMenuButton" unique_id=1817788316]
+position = Vector2(337, 128)
+scale = Vector2(4, 4)
+texture = ExtResource("14_yash2")
+
+[node name="Down" type="Sprite2D" parent="MainMenuButton" unique_id=1081957023]
+position = Vector2(396, 128)
+scale = Vector2(4, 4)
+texture = ExtResource("15_kpaje")
+
+[node name="Cadre J1" type="TextureRect" parent="." unique_id=612475297]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 246.0
+offset_right = 1674.0
+offset_bottom = 1021.0
+texture = ExtResource("16_o6iqr")
+
+[node name="J1 VBoxContainerSlots" type="VBoxContainer" parent="Cadre J1" unique_id=497915247]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 46.0
+offset_right = 1294.0
+offset_bottom = 726.0
+theme_override_constants/separation = 40
+
+[node name="Slot1" type="Button" parent="Cadre J1/J1 VBoxContainerSlots" unique_id=356202784]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+text = "Volcanic Bomb"
+script = ExtResource("12_r4fyu")
+fixedInputList = Array[String](["p1_light", "p1_light", "p1_light"])
+
+[node name="Light" type="Sprite2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot1" unique_id=2142708818]
+position = Vector2(528, 304)
+scale = Vector2(6, 6)
+texture = ExtResource("9_n5urk")
+
+[node name="Light2" type="Sprite2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot1" unique_id=1706908190]
+position = Vector2(617, 304)
+scale = Vector2(6, 6)
+texture = ExtResource("9_n5urk")
+
+[node name="Light3" type="Sprite2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot1" unique_id=1346115106]
+position = Vector2(707, 304)
+scale = Vector2(6, 6)
+texture = ExtResource("9_n5urk")
+
+[node name="Slot2" type="Button" parent="Cadre J1/J1 VBoxContainerSlots" unique_id=1731658189]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+text = "Full Moon 2.0"
+script = ExtResource("12_r4fyu")
+fixedInputList = Array[String](["p1_left", "p1_light", "p1_right"])
+
+[node name="Left" type="Sprite2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot2" unique_id=774887899]
+position = Vector2(528, 298)
+scale = Vector2(6, 6)
+texture = ExtResource("13_1asmh")
+
+[node name="Right" type="Sprite2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot2" unique_id=1126855194]
+position = Vector2(707, 298)
+scale = Vector2(6, 6)
+texture = ExtResource("14_yash2")
+
+[node name="Light" type="Sprite2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot2" unique_id=2101039339]
+position = Vector2(617, 298)
+scale = Vector2(6, 6)
+texture = ExtResource("9_n5urk")
+
+[node name="Player1Name" type="Label" parent="." unique_id=215531820]
+layout_mode = 0
+offset_left = 822.0
+offset_top = 124.0
+offset_right = 1126.0
+offset_bottom = 208.0
+theme = ExtResource("1_j613u")
+text = "Music List"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentMusic" type="Label" parent="." unique_id=1571536700]
+layout_mode = 0
+offset_left = 1511.0
+offset_top = 37.0
+offset_right = 1735.0
+offset_bottom = 96.0
+theme = ExtResource("1_j613u")
+theme_override_font_sizes/font_size = 30
+text = "Current:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="CurrentMusic" unique_id=1592409348]
+layout_mode = 0
+offset_left = -172.0
+offset_top = 51.0
+offset_right = 399.0
+offset_bottom = 121.0
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="Cadre J1/J1 VBoxContainerSlots/Slot1" to="." method="_on_change_music_button_pressed" binds= ["Volcanic Bomb"]]
+[connection signal="pressed" from="Cadre J1/J1 VBoxContainerSlots/Slot2" to="." method="_on_change_music_button_pressed" binds= ["Full Moon 2.0"]]

@@ -1,6 +1,5 @@
 extends Node
 
-@export var level_music : AudioStream
 @export var player1: Player
 @export var player2: Player
 var match_finished: bool = false
@@ -8,7 +7,7 @@ var winner_number: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Jukebox.play_music(level_music)
+	Jukebox.play_music()
 	for player in [player1, player2]:
 		var controller: Node = player.get_node("RescueController")
 		controller.connect("rescue_failed", _on_rescue_failed)

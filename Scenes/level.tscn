@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://5g0k8gvdf3n0" path="res://Assets/Level assets/Background.png" id="1_1ainy"]
 [ext_resource type="Script" uid="uid://gr3og6bes57d" path="res://Scripts/level_script.gd" id="1_qxfql"]
 [ext_resource type="PackedScene" uid="uid://4s000tfvfba4" path="res://Scenes/player_1.tscn" id="2_pnn78"]
-[ext_resource type="AudioStream" uid="uid://b1ayrca6aq4ol" path="res://Assets/Music/Volcanic Bomb (Climax).mp3" id="2_qxfql"]
 [ext_resource type="Texture2D" uid="uid://d1ebkqnditaer" path="res://Assets/Level assets/Plateform0.5.png" id="5_aicyk"]
 [ext_resource type="Texture2D" uid="uid://hor63ba6jyk8" path="res://Assets/Level assets/Plateform0.png" id="5_n6hdu"]
 [ext_resource type="Texture2D" uid="uid://c8ktl3ql2rywt" path="res://Assets/Level assets/Plateform1.png" id="6_8b0r0"]
@@ -50,7 +49,6 @@ size = Vector2(86, 382)
 
 [node name="Level" type="Node2D" unique_id=552634920 node_paths=PackedStringArray("player1", "player2")]
 script = ExtResource("1_qxfql")
-level_music = ExtResource("2_qxfql")
 player1 = NodePath("Player")
 player2 = NodePath("Player2")
 

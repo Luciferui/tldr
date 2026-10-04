@@ -2,6 +2,7 @@ extends Node
 
 # Référence vers le nœud audio qui persiste entre les scènes
 var music_player: AudioStreamPlayer
+var chosen_song: String = "Volcanic Bomb"
 
 func _ready() -> void:
 	# Instanciation et ajout de l'AudioStreamPlayer
@@ -11,7 +12,8 @@ func _ready() -> void:
 	add_child(music_player)
 
 # Fonction principale pour jouer une musique
-func play_music(stream: AudioStream, force_restart: bool = false) -> void:
+func play_music(force_restart: bool = false) -> void:
+	var stream: AudioStream = load("res://Assets/Music/"+chosen_song+".mp3")
 	if stream == null:
 		stop_music()
 		return

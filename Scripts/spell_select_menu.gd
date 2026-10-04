@@ -34,8 +34,6 @@ extends Control
 @export var p1_spell_data: Array[SpellData] = []
 @export var p2_spell_data: Array[SpellData] = []
 
-@export var menu_music: AudioStream
-
 
 const REQUIRED_SPELLS := 3
 const NUM_SPELLS := 5
@@ -60,7 +58,7 @@ var p2_slots := [-1, -1, -1]
 
 func _ready() -> void:
 	
-	Jukebox.play_music(menu_music)
+	Jukebox.play_music()
 	
 	start_button.visible = false
 	p1_spell_info_panel.visible = false
@@ -333,3 +331,7 @@ func _on_start_button_pressed() -> void:
 		p2_chosen.append(p2_spell_data[i])
 	DataManager.distribute_spells(p1_chosen, p2_chosen)
 	get_tree().change_scene_to_file("res://Scenes/level.tscn")
+
+
+func _on_music_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/music_menu.tscn")
