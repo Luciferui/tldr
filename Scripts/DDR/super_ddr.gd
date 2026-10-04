@@ -4,7 +4,7 @@ class_name SuperDDR
 var finishInput : String = "p1_endcombo"
 var currentInput : String
 
-var usedInput : Array[String] = ["jump", "down", "right", "left"]#, "lightatk", "heavyatk"]
+var usedInput : Array[String] = ["p1_jump", "p1_down", "p1_right", "p1_left"]#, "lightatk", "heavyatk"]
 var playerInputs : Array[String] = []
 var InputList : Array[String] = []
 
@@ -17,6 +17,7 @@ func _physics_process(delta: float) -> void:
 	
 	for action in usedInput:
 		if Input.is_action_just_pressed(action):
+			print(action)
 			if action == currentInput:
 				validateInput()
 			else:
@@ -24,6 +25,7 @@ func _physics_process(delta: float) -> void:
 				
 	if Input.is_action_just_pressed(finishInput):
 		validateCombo()
+		print("validate")
 
 func failCombo():
 	pass

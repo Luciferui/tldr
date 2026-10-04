@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://cau38gwi818vq" path="res://Assets/Level assets/Total map.png" id="2_fu7sn"]
 [ext_resource type="AudioStream" uid="uid://b1ayrca6aq4ol" path="res://Assets/Music/Volcanic Bomb (Climax).mp3" id="2_n45e2"]
 [ext_resource type="Theme" uid="uid://c8dq55fba1oen" path="res://Assets/menu_theme.tres" id="3_jix8l"]
+[ext_resource type="Texture2D" uid="uid://bnnrky7d0rogx" path="res://Assets/ddr_textures/new_textures/left.png" id="6_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://o6jkqc2ynoub" path="res://Assets/ddr_textures/new_textures/right.png" id="7_trj04"]
+[ext_resource type="Texture2D" uid="uid://cjy8gd5a0xvcs" path="res://Assets/ddr_textures/new_textures/up.png" id="8_16hvj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
 bg_color = Color(0, 0.13725491, 0.40784314, 1)
@@ -46,6 +49,21 @@ theme_override_font_sizes/font_size = 90
 theme_override_styles/hover = SubResource("StyleBoxFlat_jix8l")
 text = "Start"
 script = ExtResource("2_7vrkn")
-fixedInputList = Array[String](["left", "right", "jump"])
+fixedInputList = Array[String](["p1_left", "p1_right", "p1_jump"])
+
+[node name="Left" type="Sprite2D" parent="." unique_id=1430110372]
+position = Vector2(908, 677)
+scale = Vector2(4, 4)
+texture = ExtResource("6_yhxw7")
+
+[node name="Right" type="Sprite2D" parent="." unique_id=2009155854]
+position = Vector2(967, 677)
+scale = Vector2(4, 4)
+texture = ExtResource("7_trj04")
+
+[node name="Up" type="Sprite2D" parent="." unique_id=1088521018]
+position = Vector2(1025, 677)
+scale = Vector2(4, 4)
+texture = ExtResource("8_16hvj")
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

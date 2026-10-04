@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djsbv83kssbn6"
-path="res://.godot/imported/heavy.png-e534b310f58dba80c685508b9f2639a8.ctex"
+uid="uid://c8i7des2qdnha"
+path="res://.godot/imported/DDR_rectangle.png-4a6160d2701440d695986b1873b72d96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ddr_textures/heavy.png"
-dest_files=["res://.godot/imported/heavy.png-e534b310f58dba80c685508b9f2639a8.ctex"]
+source_file="res://Assets/ddr_textures/old_textures/DDR_rectangle.png"
+dest_files=["res://.godot/imported/DDR_rectangle.png-4a6160d2701440d695986b1873b72d96.ctex"]
 
 [params]
 

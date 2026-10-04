@@ -20,6 +20,7 @@ extends CharacterBody2D
 @export var sprite_faces_left: bool = false
 @export var dying_threshold: int = 100
 
+@export var shader_code: Shader  = preload("res://Scripts/Player/blue_filter.gdshader")
 signal damage_changed(value: int)
 
 func get_sprite_faces_left() -> bool:
@@ -46,6 +47,8 @@ func set_can_dodge(x:bool) ->void :
 func _ready() -> void:
 	statemachine.init()
 	spellLauncher.init()
+	if player_id % 2 == 1:
+		apply_blue_filter($Sprite)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if match_over or rescue_controller.active or rescue_controller.failed:
@@ -92,6 +95,20 @@ func takeAttack(data: AttackData, attackerPos: Vector2,
 func heal(x: int) -> void:
 	ddhealth = maxi(0, ddhealth - x)
 	damage_changed.emit(ddhealth)
+	
+
+func apply_blue_filter(sprite: AnimatedSprite2D) -> void:
+	# 1. Créer un ShaderMaterial
+	var mat = ShaderMaterial.new()
+	mat.shader = shader_code
+	
+	# 2. Configurer les paramètres (Rouge -> Bleu)
+	mat.set_shader_parameter("target_color", Color(1.0, 0.0, 0.0)) # Rouge à remplacer
+	mat.set_shader_parameter("replace_color", Color(0.0, 0.4, 1.0)) # Nouveau bleu
+	mat.set_shader_parameter("tolerance", 0.5) # Ajuster si le sprite a du shading/dégradé
+	
+	# 3. Appliquer le matériau au sprite du joueur 2 uniquement
+	sprite.material = mat
 
 
 	

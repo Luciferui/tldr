@@ -1,6 +1,6 @@
 extends SuperDDR
 
-@export var inputRange : int = 5
+@export var inputRange : int = 6
 @export var RelatedPlayer : Player
 
 signal total_input_change (total: int) 
@@ -10,11 +10,11 @@ func _ready() -> void:
 	# Gère les deux joueurs
 	if RelatedPlayer.player_id % 2 == 0:
 		self.position = Vector2(-220, 150)
-		usedInput = ["p1_jump", "p1_down", "p1_right", "p1_left"]
+		usedInput = ["p1_jump", "p1_down", "p1_right", "p1_left", "p1_light", "p1_heavy"]
 		finishInput = "p1_endcombo"
 	else:
 		self.position = Vector2(220, 150)
-		usedInput = ["p2_jump", "p2_down", "p2_right", "p2_left"]
+		usedInput = ["p2_jump", "p2_down", "p2_right", "p2_left", "p2_light", "p2_heavy"]
 		finishInput = "p2_endcombo"
 	# Init
 	generateRandomInputs()

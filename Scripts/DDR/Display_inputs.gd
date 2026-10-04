@@ -3,18 +3,18 @@ extends Control
 
 # 1. Associez vos actions à leurs textures
 @export var input_textures: Dictionary = {
-	"p1_jump": preload("res://Assets/ddr_textures/up.png"),
-	"p1_down": preload("res://Assets/ddr_textures/down.png"),
-	"p1_left": preload("res://Assets/ddr_textures/left.png"),
-	"p1_right": preload("res://Assets/ddr_textures/right.png"),
-	"p1_lightatk": preload("res://Assets/ddr_textures/light.png"),
-	"p1_heavyatk": preload("res://Assets/ddr_textures/heavy.png"),
-	"p2_jump": preload("res://Assets/ddr_textures/up.png"),
-	"p2_down": preload("res://Assets/ddr_textures/down.png"),
-	"p2_left": preload("res://Assets/ddr_textures/left.png"),
-	"p2_right": preload("res://Assets/ddr_textures/right.png"),
-	"p2_lightatk": preload("res://Assets/ddr_textures/light.png"),
-	"p2_heavyatk": preload("res://Assets/ddr_textures/heavy.png")
+	"p1_jump": preload("res://Assets/ddr_textures/new_textures/up.png"),
+	"p1_down": preload("res://Assets/ddr_textures/new_textures/down.png"),
+	"p1_left": preload("res://Assets/ddr_textures/new_textures/left.png"),
+	"p1_right": preload("res://Assets/ddr_textures/new_textures/right.png"),
+	"p1_light": preload("res://Assets/ddr_textures/new_textures/light.png"),
+	"p1_heavy": preload("res://Assets/ddr_textures/new_textures/heavy.png"),
+	"p2_jump": preload("res://Assets/ddr_textures/new_textures/up.png"),
+	"p2_down": preload("res://Assets/ddr_textures/new_textures/down.png"),
+	"p2_left": preload("res://Assets/ddr_textures/new_textures/left.png"),
+	"p2_right": preload("res://Assets/ddr_textures/new_textures/right.png"),
+	"p2_light": preload("res://Assets/ddr_textures/new_textures/light.png"),
+	"p2_heavy": preload("res://Assets/ddr_textures/new_textures/heavy.png")
 }
 
 # 2. Fonction pour régénérer la file d'icônes

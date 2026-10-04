@@ -13,6 +13,10 @@
 [ext_resource type="Resource" uid="uid://c4rklg1wcgfau" path="res://Spells/heavy_kick.tres" id="8_byhix"]
 [ext_resource type="AudioStream" uid="uid://b1ayrca6aq4ol" path="res://Assets/Music/Volcanic Bomb (Climax).mp3" id="10_pq234"]
 [ext_resource type="Texture2D" uid="uid://dljjhergm2e4s" path="res://Assets/description_background.png" id="11_w60tb"]
+[ext_resource type="Script" uid="uid://c505cd136phyy" path="res://Scripts/DDR/fixed_ddr.gd" id="12_4qyee"]
+[ext_resource type="Texture2D" uid="uid://bnnrky7d0rogx" path="res://Assets/ddr_textures/new_textures/left.png" id="15_c5n12"]
+[ext_resource type="Texture2D" uid="uid://o6jkqc2ynoub" path="res://Assets/ddr_textures/new_textures/right.png" id="16_jqvyv"]
+[ext_resource type="Texture2D" uid="uid://b28urc1o4i5rm" path="res://Assets/ddr_textures/new_textures/down.png" id="17_ufyrv"]
 
 [node name="SpellSelectMenu" type="Control" unique_id=648442748]
 layout_mode = 3
@@ -46,6 +50,8 @@ offset_bottom = 124.0
 theme = ExtResource("3_l6vtl")
 theme_override_font_sizes/font_size = 67
 text = "Return to Menu"
+script = ExtResource("12_4qyee")
+fixedInputList = Array[String](["p1_left", "p1_right", "p1_down"])
 
 [node name="Cadre J1" type="TextureRect" parent="." unique_id=612475297]
 layout_mode = 0
@@ -294,6 +300,21 @@ text = "Spell info"
 fit_content = true
 autowrap_mode = 2
 horizontal_alignment = 1
+
+[node name="Left" type="Sprite2D" parent="." unique_id=1522513591]
+position = Vector2(278, 128)
+scale = Vector2(4, 4)
+texture = ExtResource("15_c5n12")
+
+[node name="Right" type="Sprite2D" parent="." unique_id=1817788316]
+position = Vector2(337, 128)
+scale = Vector2(4, 4)
+texture = ExtResource("16_jqvyv")
+
+[node name="Down" type="Sprite2D" parent="." unique_id=1081957023]
+position = Vector2(396, 128)
+scale = Vector2(4, 4)
+texture = ExtResource("17_ufyrv")
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

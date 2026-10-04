@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crk3iyihyfof2"
-path="res://.godot/imported/greek-key-rectangle-frame-greek-border-vector_231786-4614.png-bf483675b8f23e9475d9bee55766f903.ctex"
+uid="uid://s85inailnwjm"
+path="res://.godot/imported/light.png-dfe3940c200dc0590127c3d8c6683563.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ddr_textures/greek-key-rectangle-frame-greek-border-vector_231786-4614.png"
-dest_files=["res://.godot/imported/greek-key-rectangle-frame-greek-border-vector_231786-4614.png-bf483675b8f23e9475d9bee55766f903.ctex"]
+source_file="res://Assets/ddr_textures/old_textures/light.png"
+dest_files=["res://.godot/imported/light.png-dfe3940c200dc0590127c3d8c6683563.ctex"]
 
 [params]
 
