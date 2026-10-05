@@ -219,3 +219,6 @@ light_attack_action = &"p2_light"
 spell_action = &"p2_spell"
 dodge_action = &"p2_dodge"
 opponent = NodePath("../Player")
+
+[connection signal="damage_changed" from="Player" to="." method="_maj_bass_boost"]
+[connection signal="damage_changed" from="Player2" to="." method="_maj_bass_boost"]

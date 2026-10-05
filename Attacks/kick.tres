@@ -7,6 +7,7 @@ script = ExtResource("1_yvybr")
 attack_name = &"kick"
 hitbox_name = &"kick"
 animation_name = &"kick"
+damage = 1
 hitstun = 70
 attack_timing = Array[int]([18, 19])
 orientation_knockback = Vector2(100, 0)

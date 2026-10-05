@@ -24,7 +24,6 @@ func validateInput():
 func validateCombo():
 	if position == InputList.size():
 		emit_signal("pressed")
-		print("startpressed")
 		# Appeler l'action correspondante
 	position = 0
 	

@@ -17,7 +17,6 @@ func _physics_process(delta: float) -> void:
 	
 	for action in usedInput:
 		if Input.is_action_just_pressed(action):
-			print(action)
 			if action == currentInput:
 				validateInput()
 			else:
@@ -25,7 +24,6 @@ func _physics_process(delta: float) -> void:
 				
 	if Input.is_action_just_pressed(finishInput):
 		validateCombo()
-		print("validate")
 
 func failCombo():
 	pass
