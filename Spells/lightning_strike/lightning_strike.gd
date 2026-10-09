@@ -9,10 +9,10 @@ var frame_counter : int = 0
 
 func process_physics() -> void:
 	if frame_counter == 0:
-		sprite.modulate[3] = 0.2 
+		sprite.modulate[3] = 0.2 #transparence de l'avertissement
 	if frame_counter == 50 :
 		$Hitbox.activateAttack(attack)
-		sprite.modulate[3] = 1
+		sprite.modulate[3] = 1  #l'éclair est opaque lorsqu'il tape
 	if frame_counter > 60 :
 		queue_free()
 	frame_counter +=1

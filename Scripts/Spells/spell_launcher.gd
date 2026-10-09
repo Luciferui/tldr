@@ -2,6 +2,8 @@ class_name SpellLauncher
 extends Node2D
 
 const LightningStrikeScene := preload("res://Spells/lightning_strike/lightning_strike.tscn")
+const FireballScene := preload("res://Spells/fireball/Fireball.tscn")
+const FIREBALL_SPAWN_OFFSET := Vector2(60, 0)  # devant le joueur, à ajuster à l'œil
 var player : Player
 
 func _ready() ->void:
@@ -18,7 +20,7 @@ func process_input(event: InputEvent) -> void:
 			return
 		match spell_n:
 			1:
-				_cast_lightning()
+				_cast_fireball()
 			2:
 				_cast_lightning()
 			3:
@@ -37,6 +39,12 @@ func _cast_lightning() -> void:
 	var strike: LightningStrike = LightningStrikeScene.instantiate()
 	self.add_child(strike)
 	strike.setup(player.opponent.global_position.x)
+
+func _cast_fireball() -> void:
+	var dir: int = -1 if player.get_sprite_faces_left() else 1
+	var fireball: Fireball = FireballScene.instantiate()
+	add_child(fireball)  # d'abord dans l'arbre, ensuite setup()
+	fireball.setup(player, dir, player.global_position + Vector2(dir * FIREBALL_SPAWN_OFFSET.x, FIREBALL_SPAWN_OFFSET.y))
 
 func process_physics(delta: float) -> void:
 	for child in self.get_children():

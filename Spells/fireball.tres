@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://bw22h0buo05kb"]
+
+[ext_resource type="Script" uid="uid://drx73h07qa6ou" path="res://Scripts/Abstract/attack_data.gd" id="1_n67pg"]
+
+[resource]
+script = ExtResource("1_n67pg")
+hitbox_name = &"FireballShape"
+metadata/_custom_type_script = "uid://drx73h07qa6ou"
