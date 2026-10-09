@@ -19,6 +19,7 @@ var direction: int = 1
 @onready var hitbox: Hitbox = $Hitbox
 
 func _ready() -> void:
+	$Hitbox/FireballShape.set_deferred("disabled", true)
 	sprite.play("warning")
 	hitbox.area_entered.connect(_on_hitbox_area_entered)
 
@@ -27,10 +28,11 @@ func _ready() -> void:
 func setup(p_caster: Player, p_faces_left: bool, spawn_position: Vector2) -> void:
 	caster = p_caster
 	sprite_faces_left = p_faces_left
-	top_level = true            # reste en coordonnées monde, ne suit pas le joueur
+	top_level = true
 	initial_pos = spawn_position
 	global_position = initial_pos
 	sprite.flip_h = sprite_faces_left
+	hitbox.owner = caster    # la hurtbox du lanceur ignore maintenant cette attaque
 
 func process_physics() -> void:
 	if is_warning:

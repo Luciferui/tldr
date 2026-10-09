@@ -20,7 +20,7 @@ func process_input(event: InputEvent) -> void:
 			return
 		match spell_n:
 			1:
-				_cast_fireball()
+				_cast_lightning()
 			2:
 				_cast_fireball()
 			3:
@@ -38,7 +38,7 @@ func _cast_lightning() -> void:
 		return
 	var strike: LightningStrike = LightningStrikeScene.instantiate()
 	self.add_child(strike)
-	strike.setup(player.opponent.global_position.x)
+	strike.setup(player.opponent.global_position.x, player)
 
 func _cast_fireball() -> void:
 	var fireball: Fireball = FireballScene.instantiate()

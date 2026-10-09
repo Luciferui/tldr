@@ -23,5 +23,6 @@ func _ready() -> void:
 	$Hitbox.setCurrentAttack(attack)
 	$Hitbox.flipActivationAttack(attack)
 
-func setup(x_position: float) -> void:
+func setup(x_position: float, p_caster: Player) -> void:
 	global_position = Vector2(x_position, 0)
+	$Hitbox.owner = p_caster
