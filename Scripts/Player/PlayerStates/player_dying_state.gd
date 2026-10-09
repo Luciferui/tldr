@@ -8,12 +8,13 @@ func enter() -> void:
 	player.sprite.play(animation_name)
 
 func process_input(_event: InputEvent) -> State:
-	return null
+	return
 
 func process_physics(delta: float) -> State:
 	super.process_physics(delta)
 	player.velocity.x = 0.0
-	return null
+	return
 
 func exit(new_state: State = null) -> void:
 	super.exit(new_state)
+	return

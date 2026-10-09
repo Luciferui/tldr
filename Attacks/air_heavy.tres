@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://b8sgl2yfvtqbe"]
+
+[ext_resource type="Script" uid="uid://drx73h07qa6ou" path="res://Scripts/Abstract/attack_data.gd" id="1_y4q6n"]
+
+[resource]
+script = ExtResource("1_y4q6n")
+total_frame_count = 50
+attack_timing = Array[int]([20, 25])
+absolute_knockback = Vector2(0, -40)
+metadata/_custom_type_script = "uid://drx73h07qa6ou"

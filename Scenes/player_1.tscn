@@ -11,10 +11,10 @@
 [ext_resource type="Script" uid="uid://cx6iomacw7umd" path="res://Scripts/Abstract/state_machine.gd" id="16_bxgnc"]
 [ext_resource type="Script" uid="uid://bvbwrwksp8hjt" path="res://Scripts/Player/PlayerStates/player_idle_state.gd" id="17_2ri8u"]
 [ext_resource type="Script" uid="uid://bvyy2x5hx0gaj" path="res://Scripts/Player/PlayerStates/player_walk_state.gd" id="18_2230n"]
-[ext_resource type="Script" uid="uid://byje1jngo30my" path="res://Scripts/Player/PlayerStates/player_death_state.gd" id="19_2xfhf"]
 [ext_resource type="Script" uid="uid://cdwm33efq4l8f" path="res://Scripts/Player/PlayerStates/player_jump_state.gd" id="19_d3d1g"]
-[ext_resource type="Script" uid="uid://d2eqep4rx1rwj" path="res://Scripts/Player/PlayerStates/player_dying_state.gd" id="20_a8pmy"]
+[ext_resource type="Script" uid="uid://byje1jngo30my" path="res://Scripts/Player/PlayerStates/player_death_state.gd" id="19_uotsj"]
 [ext_resource type="Script" uid="uid://d1vxorwm5xta4" path="res://Scripts/Player/PlayerStates/player_fall_state.gd" id="20_ratjp"]
+[ext_resource type="Script" uid="uid://d2eqep4rx1rwj" path="res://Scripts/Player/PlayerStates/player_dying_state.gd" id="20_va88g"]
 [ext_resource type="Script" uid="uid://cfp70edt1064v" path="res://rescue_controller.gd" id="23_ex6al"]
 [ext_resource type="Texture2D" uid="uid://os57ueemv7iu" path="res://Assets/ddr_textures/new_textures/DDRBar.png" id="23_uotsj"]
 [ext_resource type="Shader" uid="uid://cxxobj30kj0yi" path="res://Scripts/Player/blue_filter.gdshader" id="23_va88g"]
@@ -293,6 +293,9 @@ size = Vector2(38.5, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6x7ra"]
 size = Vector2(35, 7)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cimj"]
+size = Vector2(39, 14.5)
+
 [node name="Player" type="CharacterBody2D" unique_id=2123069804 groups=["Player"]]
 script = ExtResource("1_3kxg5")
 
@@ -303,12 +306,10 @@ sprite_frames = SubResource("SpriteFrames_ssidi")
 animation = &"kick"
 
 [node name="GroundCollisionShape" type="CollisionShape2D" parent="." unique_id=1216312141]
-visible = false
 position = Vector2(1, 3)
 shape = SubResource("RectangleShape2D_ssidi")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1219363051]
-visible = false
 script = ExtResource("25_yef3s")
 
 [node name="kick" type="CollisionShape2D" parent="Hitbox" unique_id=972660298]
@@ -321,8 +322,12 @@ position = Vector2(18.5, -1.5)
 shape = SubResource("RectangleShape2D_6x7ra")
 disabled = true
 
+[node name="air_heavy" type="CollisionShape2D" parent="Hitbox" unique_id=145288315]
+position = Vector2(20, 0)
+shape = SubResource("RectangleShape2D_6cimj")
+disabled = true
+
 [node name="Hurtbox" type="Area2D" parent="." unique_id=565552736 node_paths=PackedStringArray("state_machine")]
-visible = false
 script = ExtResource("28_cu0p0")
 state_machine = NodePath("../StateMachine")
 
@@ -380,13 +385,11 @@ idle_state = NodePath("../Idle")
 fall_state = NodePath("../Fall")
 hurtbox = NodePath("../../Hurtbox")
 
-[node name="Death" type="Node" parent="StateMachine" unique_id=392229146]
-script = ExtResource("19_2xfhf")
-metadata/_custom_type_script = "uid://byje1jngo30my"
+[node name="Death" type="Node2D" parent="StateMachine" unique_id=1151750899]
+script = ExtResource("19_uotsj")
 
-[node name="Dying" type="Node" parent="StateMachine" unique_id=1226418361]
-script = ExtResource("20_a8pmy")
-metadata/_custom_type_script = "uid://d2eqep4rx1rwj"
+[node name="Dying" type="Node2D" parent="StateMachine" unique_id=918593594]
+script = ExtResource("20_va88g")
 
 [node name="SpellLauncher" type="Node2D" parent="." unique_id=2049645845]
 top_level = true

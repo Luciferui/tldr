@@ -18,7 +18,10 @@ func process_physics() -> void:
 	frame_counter +=1
 
 func _ready() -> void:
+	self.position = Vector2(0,0)
 	sprite.play("lightning")
+	$Hitbox.setCurrentAttack(attack)
+	$Hitbox.flipActivationAttack(attack)
 
 func setup(x_position: float) -> void:
 	global_position = Vector2(x_position, 0)

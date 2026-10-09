@@ -17,12 +17,16 @@ var attack_timing : Array[int] = [0]
 var currentAttack: AttackData
 var kick_attack : AttackData
 var punch_attack : AttackData
+var air_heavy_attack : AttackData
+
+var gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready() -> void:
 	##load les attaques
 	super._ready()
 	kick_attack = load("res://Attacks/kick.tres")
 	punch_attack = load("res://Attacks/punch.tres")
+	air_heavy_attack = load("res://Attacks/air_heavy.tres")
 
 func enter() -> void:
 	
@@ -43,19 +47,22 @@ func enter() -> void:
 		
 func selectAttack() -> void :
 	if Input.is_action_just_pressed(player.heavy_attack_action):
-		currentAttack = kick_attack
-		animation_name = currentAttack.animation_name
-		totalFrameCount = 30
-		attack_timing = currentAttack.attack_timing
-		hitbox.setCurrentAttack(currentAttack)
+		if player.is_on_floor():
+			currentAttack = kick_attack
+		else:
+			currentAttack = air_heavy_attack
 	elif Input.is_action_just_pressed(player.light_attack_action):
-		currentAttack = punch_attack
-		animation_name = currentAttack.animation_name
-		totalFrameCount = 20
-		attack_timing = currentAttack.attack_timing
-		hitbox.setCurrentAttack(currentAttack)		
+		if player.is_on_floor():
+			currentAttack = punch_attack
+			
+	animation_name = currentAttack.animation_name
+	totalFrameCount = currentAttack.total_frame_count
+	attack_timing = currentAttack.attack_timing
+	hitbox.setCurrentAttack(currentAttack)
 
 func process_physics(delta: float) -> State:
+	if not player.is_on_floor():
+		player.velocity.y -= gravity
 	if attack_finished:
 		hitbox.deactivateAttack()
 		#attaque finie de manière standard

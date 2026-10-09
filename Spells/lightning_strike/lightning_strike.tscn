@@ -36,6 +36,7 @@ frame_progress = 1.0
 [node name="Hitbox" type="Area2D" parent="." unique_id=1797279289]
 visible = false
 script = ExtResource("4_k6kus")
+dissociated_from_player = true
 
 [node name="LightningStrike" type="CollisionShape2D" parent="Hitbox" unique_id=1749614899]
 visible = false
