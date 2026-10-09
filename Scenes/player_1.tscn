@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://d1vxorwm5xta4" path="res://Scripts/Player/PlayerStates/player_fall_state.gd" id="20_ratjp"]
 [ext_resource type="Script" uid="uid://cfp70edt1064v" path="res://rescue_controller.gd" id="23_ex6al"]
 [ext_resource type="Texture2D" uid="uid://os57ueemv7iu" path="res://Assets/ddr_textures/new_textures/DDRBar.png" id="23_uotsj"]
+[ext_resource type="Shader" uid="uid://cxxobj30kj0yi" path="res://Scripts/Player/blue_filter.gdshader" id="23_va88g"]
 [ext_resource type="Script" uid="uid://cha207lvv53uk" path="res://Scripts/Player/PlayerStates/AttackStates/player_attack_state.gd" id="25_fvdx0"]
 [ext_resource type="Script" path="res://Scripts/Abstract/hitbox.gd" id="25_yef3s"]
 [ext_resource type="Script" uid="uid://bvsu7laq12osn" path="res://Scripts/Player/DDH_health_display.gd" id="26_uotsj"]
@@ -396,6 +397,7 @@ top_level = true
 scale = Vector2(0.1, 0.1)
 script = ExtResource("38_h8d83")
 RelatedPlayer = NodePath("..")
+shader_code = ExtResource("23_va88g")
 
 [node name="GreekKeyRectangleFrameGreekBorderVector2317864614" type="Sprite2D" parent="Ddr" unique_id=1041930583]
 position = Vector2(0, -2)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceee8ocm6jq1m"
-path="res://.godot/imported/spell_lightning_strke.png-dd4103526c0724ac2f40b65a992295bf.ctex"
+uid="uid://dkvrihrndg4ib"
+path="res://.godot/imported/lightning_strike.png-c2d6074a3a96e6f766b0d34b52235805.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Spells/lightning_strike/spell_lightning_strke.png"
-dest_files=["res://.godot/imported/spell_lightning_strke.png-dd4103526c0724ac2f40b65a992295bf.ctex"]
+source_file="res://Spells/lightning_strike/lightning_strike.png"
+dest_files=["res://.godot/imported/lightning_strike.png-c2d6074a3a96e6f766b0d34b52235805.ctex"]
 
 [params]
 

@@ -8,9 +8,12 @@ var attack = preload("res://Spells/lightning_strike.tres")
 var frame_counter : int = 0
 
 func process_physics() -> void:
-	if frame_counter == 10 :
+	if frame_counter == 0:
+		sprite.modulate[3] = 0.2 
+	if frame_counter == 50 :
 		$Hitbox.activateAttack(attack)
-	if frame_counter > 50 :
+		sprite.modulate[3] = 1
+	if frame_counter > 60 :
 		queue_free()
 	frame_counter +=1
 
