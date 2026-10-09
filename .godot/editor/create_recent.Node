@@ -1,11 +1,11 @@
+ProgressBar
+Control
+CanvasLayer
 AnimatedSprite2D
 Node2D
 PlayerDyingState
 Node
 PlayerDeathState
-ProgressBar
-Control
-CanvasLayer
 AudioStreamPlayer2D
 Label
 Player

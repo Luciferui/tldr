@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://chwmndk84evfv" path="res://Assets/Level assets/Plateform1.2.png" id="8_v5j5c"]
 [ext_resource type="Texture2D" uid="uid://cxsl5lry7g4sd" path="res://Assets/Level assets/Plateform2.png" id="9_5pxul"]
 [ext_resource type="Texture2D" uid="uid://bvrok30y4k74t" path="res://Assets/Level assets/Plateform3.png" id="10_fedht"]
+[ext_resource type="Script" uid="uid://beshc157c8xw0" path="res://damage_bars.gd" id="11_qxfql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfqu"]
 size = Vector2(73, 8.5)
@@ -46,6 +47,14 @@ size = Vector2(23, 26.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2v8g7"]
 size = Vector2(86, 382)
+
+[sub_resource type="Theme" id="Theme_qxfql"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ha31o"]
+bg_color = Color(0.9607843, 0.22352941, 0.17254902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pa6b8"]
+bg_color = Color(0.9607843, 0.22352941, 0.17254902, 1)
 
 [node name="Level" type="Node2D" unique_id=552634920 node_paths=PackedStringArray("player1", "player2")]
 script = ExtResource("1_qxfql")
@@ -219,6 +228,42 @@ light_attack_action = &"p2_light"
 spell_action = &"p2_spell"
 dodge_action = &"p2_dodge"
 opponent = NodePath("../Player")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1519348569]
+
+[node name="DamageBars" type="Control" parent="HUD" unique_id=849522296 node_paths=PackedStringArray("player1", "player2")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_qxfql")
+script = ExtResource("11_qxfql")
+player1 = NodePath("../../Player")
+player2 = NodePath("../../Player2")
+
+[node name="P2Damage" type="ProgressBar" parent="HUD/DamageBars" unique_id=1505174891]
+layout_mode = 0
+offset_left = 1220.0
+offset_top = 100.0
+offset_right = 1670.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(0.9490196, 0.16078432, 0.16078432, 1)
+theme_override_styles/fill = SubResource("StyleBoxFlat_ha31o")
+step = 1.0
+show_percentage = false
+
+[node name="P1Damage" type="ProgressBar" parent="HUD/DamageBars" unique_id=439579449]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 100.0
+offset_right = 700.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(0.95, 0.1615, 0.1615, 1)
+theme_override_styles/fill = SubResource("StyleBoxFlat_pa6b8")
+step = 1.0
+show_percentage = false
 
 [connection signal="damage_changed" from="Player" to="." method="_maj_bass_boost"]
 [connection signal="damage_changed" from="Player2" to="." method="_maj_bass_boost"]
