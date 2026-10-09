@@ -12,7 +12,6 @@
 [ext_resource type="Script" uid="uid://bvbwrwksp8hjt" path="res://Scripts/Player/PlayerStates/player_idle_state.gd" id="17_2ri8u"]
 [ext_resource type="Script" uid="uid://bvyy2x5hx0gaj" path="res://Scripts/Player/PlayerStates/player_walk_state.gd" id="18_2230n"]
 [ext_resource type="Script" uid="uid://cdwm33efq4l8f" path="res://Scripts/Player/PlayerStates/player_jump_state.gd" id="19_d3d1g"]
-[ext_resource type="Script" uid="uid://byje1jngo30my" path="res://Scripts/Player/PlayerStates/player_death_state.gd" id="19_uotsj"]
 [ext_resource type="Script" uid="uid://d1vxorwm5xta4" path="res://Scripts/Player/PlayerStates/player_fall_state.gd" id="20_ratjp"]
 [ext_resource type="Script" uid="uid://d2eqep4rx1rwj" path="res://Scripts/Player/PlayerStates/player_dying_state.gd" id="20_va88g"]
 [ext_resource type="Script" uid="uid://cfp70edt1064v" path="res://rescue_controller.gd" id="23_ex6al"]
@@ -303,7 +302,7 @@ script = ExtResource("1_3kxg5")
 position = Vector2(0, 3)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ssidi")
-animation = &"kick"
+animation = &"death"
 
 [node name="GroundCollisionShape" type="CollisionShape2D" parent="." unique_id=1216312141]
 position = Vector2(1, 3)
@@ -384,9 +383,6 @@ script = ExtResource("38_ewrxp")
 idle_state = NodePath("../Idle")
 fall_state = NodePath("../Fall")
 hurtbox = NodePath("../../Hurtbox")
-
-[node name="Death" type="Node2D" parent="StateMachine" unique_id=1151750899]
-script = ExtResource("19_uotsj")
 
 [node name="Dying" type="Node2D" parent="StateMachine" unique_id=918593594]
 script = ExtResource("20_va88g")

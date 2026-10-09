@@ -33,18 +33,11 @@ func _on_rescue_failed(loser: Player) -> void:
 		player.velocity = Vector2.ZERO
 
 		var controller: Node = player.get_node("RescueController")
-		controller.active = false
+		controller.rescue_active = false
 
 		player.get_node("Ddr").set_physics_process(false)
 		player.get_node("Hitbox").deactivateAttack()
 
-	var death := loser.get_node(
-		"StateMachine/Death"
-	) as PlayerDeathState
-
-	loser.statemachine.override_state(death)
-	
-	await get_tree().create_timer(5.0).timeout
 	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
 

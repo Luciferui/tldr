@@ -1,4 +1,5 @@
 extends SuperDDR
+class_name RandomDDR
 
 @export var inputRange : int = 6
 @export var RelatedPlayer : Player
@@ -56,9 +57,11 @@ func validateInput():
 	border_frames_left = success_ddr_duration_frame
 	playerInputs.append(InputList[0])
 	$Counter.text = str(playerInputs.size())
-	total_input += 1
-	total_input_change.emit(total_input)
-	InputList = InputList.slice(1)
+	
+	total_input = playerInputs.size()
+	total_input_change.emit(total_input) # -> rescue_controller pour les inputs de mort
+	
+	InputList = InputList.slice(1) # Change l'affichage
 	currentInput = InputList[0]
 	InputList.append(usedInput[randi_range(0, usedInput.size()-1)])
 	$HBoxContainer.display_combo_queue(InputList)

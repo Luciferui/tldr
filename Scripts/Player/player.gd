@@ -51,7 +51,7 @@ func _ready() -> void:
 		apply_blue_filter($Sprite)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if match_over or rescue_controller.active or rescue_controller.failed:
+	if match_over or rescue_controller.rescue_active or rescue_controller.failed:
 		return
 	statemachine.process_input(event)
 	spellLauncher.process_input(event)
@@ -60,26 +60,19 @@ func _process(delta: float) -> void:
 	if match_over:
 		return
 	statemachine.process_frame(delta)
-	if not rescue_controller.active and not rescue_controller.failed:
+	if not rescue_controller.rescue_active and not rescue_controller.failed:
 		spellLauncher.process_frame(delta)
 
 func _physics_process(delta: float) -> void:
-	if match_over:
-		if statemachine.current_state is PlayerDeathState:
-			statemachine.process_physics(delta)
-			move_and_slide()
-		else:
-			velocity = Vector2.ZERO
-		return
 	
 	statemachine.process_physics(delta)
-	if not rescue_controller.active and not rescue_controller.failed:
+	if not rescue_controller.rescue_active and not rescue_controller.failed:
 		spellLauncher.process_physics(delta)
 	move_and_slide()
 
 func takeAttack(data: AttackData, attackerPos: Vector2,
 		attackerOrientation: int) -> void:
-	if match_over or rescue_controller.active or rescue_controller.failed:
+	if match_over or rescue_controller.rescue_active or rescue_controller.failed:
 		return
 
 	ddhealth += data.damage
