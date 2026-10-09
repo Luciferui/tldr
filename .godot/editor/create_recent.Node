@@ -1,3 +1,4 @@
+AnimatedSprite2D
 Node2D
 PlayerDyingState
 Node
@@ -10,6 +11,4 @@ Label
 Player
 CollisionShape2D
 Hitbox
-AnimatedSprite2D
 StaticBody2D
-Button
