@@ -4,4 +4,9 @@
 
 [resource]
 script = ExtResource("1_ujipp")
+attack_name = &"air_light"
+hitbox_name = &"air_light"
+animation_name = &"air_light"
+orientation_knockback = Vector2(5, 100)
+relative_knockback_factor = -5.0
 metadata/_custom_type_script = "uid://drx73h07qa6ou"

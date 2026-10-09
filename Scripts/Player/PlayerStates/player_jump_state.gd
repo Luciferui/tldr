@@ -5,6 +5,7 @@ extends PlayerState
 @export var jump_force: float = -400.0
 @export var air_move_speed: float = 150.0
 @export var fall_state: State
+@export var attack_state : State
 @export var dodge_state: State
 
 func enter() -> void:
@@ -17,6 +18,8 @@ func process_input(event: InputEvent) -> State:
 #		player.velocity.y = 0.0
 	if Input.is_action_just_pressed(player.dodge_action) and player.get_can_dodge():
 		return dodge_state
+	elif Input.is_action_just_pressed(player.heavy_attack_action) or Input.is_action_just_pressed(player.light_attack_action):
+		return attack_state
 	return null
 
 func process_physics(delta: float) -> State:

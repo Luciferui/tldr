@@ -7,6 +7,7 @@ extends PlayerState
 @export var hitbox: Hitbox
 @export var totalFrameCount : int ##durée en nb frames de l'attaque
 var spellLauncher : Node2D
+@export var air_attack_move_speed: float = 75.0
 
 var frameCount : int ##nb frames depuis le début de l'attaque
 var attack_finished: bool = false
@@ -18,6 +19,7 @@ var currentAttack: AttackData
 var kick_attack : AttackData
 var punch_attack : AttackData
 var air_heavy_attack : AttackData
+var air_light_attack : AttackData
 
 var gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -27,9 +29,10 @@ func _ready() -> void:
 	kick_attack = load("res://Attacks/kick.tres")
 	punch_attack = load("res://Attacks/punch.tres")
 	air_heavy_attack = load("res://Attacks/air_heavy.tres")
+	air_light_attack = load("res://Attacks/air_light.tres")
 
 func enter() -> void:
-	
+		
 	selectAttack()
 	
 	frameCount = 0
@@ -54,15 +57,21 @@ func selectAttack() -> void :
 	elif Input.is_action_just_pressed(player.light_attack_action):
 		if player.is_on_floor():
 			currentAttack = punch_attack
-			
+		else:
+			currentAttack = air_light_attack
+
 	animation_name = currentAttack.animation_name
 	totalFrameCount = currentAttack.total_frame_count
 	attack_timing = currentAttack.attack_timing
 	hitbox.setCurrentAttack(currentAttack)
 
 func process_physics(delta: float) -> State:
+	super.process_physics(delta)
 	if not player.is_on_floor():
-		player.velocity.y -= gravity
+		var dir = get_movement_direction()
+		player.velocity.x = air_attack_move_speed * dir
+	else:
+		player.velocity.x = 0
 	if attack_finished:
 		hitbox.deactivateAttack()
 		#attaque finie de manière standard

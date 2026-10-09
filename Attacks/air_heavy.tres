@@ -4,6 +4,10 @@
 
 [resource]
 script = ExtResource("1_y4q6n")
+attack_name = &"air_heavy"
+hitbox_name = &"air_heavy"
+animation_name = &"air_heavy"
 total_frame_count = 50
 attack_timing = Array[int]([20, 25])
+relative_knockback_factor = 5.0
 metadata/_custom_type_script = "uid://drx73h07qa6ou"

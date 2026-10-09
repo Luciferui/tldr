@@ -287,13 +287,16 @@ animations = [{
 size = Vector2(32, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4wrae"]
-size = Vector2(38.5, 13)
+size = Vector2(41.5, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6x7ra"]
 size = Vector2(35, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cimj"]
 size = Vector2(39, 14.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5p21k"]
+size = Vector2(34, 20)
 
 [node name="Player" type="CharacterBody2D" unique_id=2123069804 groups=["Player"]]
 script = ExtResource("1_3kxg5")
@@ -312,7 +315,7 @@ shape = SubResource("RectangleShape2D_ssidi")
 script = ExtResource("25_yef3s")
 
 [node name="kick" type="CollisionShape2D" parent="Hitbox" unique_id=972660298]
-position = Vector2(16.75, 7.5)
+position = Vector2(18.25, 7.5)
 shape = SubResource("RectangleShape2D_4wrae")
 disabled = true
 
@@ -324,6 +327,11 @@ disabled = true
 [node name="air_heavy" type="CollisionShape2D" parent="Hitbox" unique_id=145288315]
 position = Vector2(20, 0)
 shape = SubResource("RectangleShape2D_6cimj")
+disabled = true
+
+[node name="air_light" type="CollisionShape2D" parent="Hitbox" unique_id=157149086]
+position = Vector2(14, -25)
+shape = SubResource("RectangleShape2D_5p21k")
 disabled = true
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=565552736 node_paths=PackedStringArray("state_machine")]
@@ -354,16 +362,18 @@ fall_state = NodePath("../Fall")
 attack_state = NodePath("../Attack")
 dodge_state = NodePath("../Dodge")
 
-[node name="Jump" type="Node2D" parent="StateMachine" unique_id=262411182 node_paths=PackedStringArray("fall_state", "dodge_state")]
+[node name="Jump" type="Node2D" parent="StateMachine" unique_id=262411182 node_paths=PackedStringArray("fall_state", "attack_state", "dodge_state")]
 script = ExtResource("19_d3d1g")
 fall_state = NodePath("../Fall")
+attack_state = NodePath("../Attack")
 dodge_state = NodePath("../Dodge")
 
-[node name="Fall" type="Node2D" parent="StateMachine" unique_id=1746493180 node_paths=PackedStringArray("idle_state", "walk_state", "dodge_state")]
+[node name="Fall" type="Node2D" parent="StateMachine" unique_id=1746493180 node_paths=PackedStringArray("idle_state", "walk_state", "dodge_state", "attack_state")]
 script = ExtResource("20_ratjp")
 idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
 dodge_state = NodePath("../Dodge")
+attack_state = NodePath("../Attack")
 
 [node name="Attack" type="Node2D" parent="StateMachine" unique_id=2112761695 node_paths=PackedStringArray("idle_state", "walk_state", "pain_state", "hitbox")]
 script = ExtResource("25_fvdx0")
