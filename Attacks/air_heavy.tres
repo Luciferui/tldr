@@ -6,5 +6,4 @@
 script = ExtResource("1_y4q6n")
 total_frame_count = 50
 attack_timing = Array[int]([20, 25])
-absolute_knockback = Vector2(0, -40)
 metadata/_custom_type_script = "uid://drx73h07qa6ou"

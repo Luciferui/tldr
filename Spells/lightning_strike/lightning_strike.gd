@@ -1,7 +1,7 @@
 class_name LightningStrike
 extends Node2D
 
-var attack = preload("res://Spells/lightning_strike.tres")
+var attack = preload("res://Spells/lightning_strike/lightning_strike.tres")
 @onready var collision_shape: CollisionShape2D = $Hitbox/LightningStrike
 @onready var sprite: AnimatedSprite2D = $LightningStrike
 

@@ -34,13 +34,11 @@ position = Vector2(1.0000076, 1.0000038)
 scale = Vector2(0.17413798, 0.17413796)
 sprite_frames = SubResource("SpriteFrames_j3pel")
 animation = &"fireball"
-frame = 2
+frame = 1
 frame_progress = 0.24955104
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=71991003]
-visible = false
 script = ExtResource("2_qkunt")
 
 [node name="FireballShape" type="CollisionShape2D" parent="Hitbox" unique_id=1453742068]
-visible = false
 shape = SubResource("CircleShape2D_2v8g7")
