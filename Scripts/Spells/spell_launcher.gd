@@ -20,7 +20,7 @@ func process_input(event: InputEvent) -> void:
 			return
 		match spell_n:
 			1:
-				_cast_fireball()
+				_cast_lightning()
 			2:
 				_cast_lightning()
 			3:
@@ -41,10 +41,9 @@ func _cast_lightning() -> void:
 	strike.setup(player.opponent.global_position.x)
 
 func _cast_fireball() -> void:
-	var dir: int = -1 if player.get_sprite_faces_left() else 1
 	var fireball: Fireball = FireballScene.instantiate()
 	add_child(fireball)  # d'abord dans l'arbre, ensuite setup()
-	fireball.setup(player, dir, player.global_position + Vector2(dir * FIREBALL_SPAWN_OFFSET.x, FIREBALL_SPAWN_OFFSET.y))
+	fireball.setup(player, player.get_sprite_faces_left(), player.global_position + Vector2((-1 if player.get_sprite_faces_left() else 1) * FIREBALL_SPAWN_OFFSET.x, FIREBALL_SPAWN_OFFSET.y))
 
 func process_physics(delta: float) -> void:
 	for child in self.get_children():

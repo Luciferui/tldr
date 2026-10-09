@@ -19,6 +19,7 @@ func _ready() -> void:
 	for player in [player1, player2]:
 		var controller: Node = player.get_node("RescueController")
 		controller.connect("rescue_failed", _on_rescue_failed)
+		
 
 func _on_rescue_failed(loser: Player) -> void:
 	if match_finished:
@@ -50,8 +51,7 @@ func _on_rescue_failed(loser: Player) -> void:
 func _maj_bass_boost(value:int = 0.): #le signal donne la ddhealth dont on ne s'occupe pas
 	if not eq_effect:
 		return
-	bass_boost_intensity = (player1.ddhealth+player2.ddhealth)/2/200.0
-	print(bass_boost_intensity)
+	bass_boost_intensity = (player1.ddhealth+player2.ddhealth)/2/100.0
 	# Sur un AudioEffectEQ6 :
 	# Bande 0 = ~32 Hz, Bande 1 = ~100 Hz (les vraies basses)
 	# Le gain s'exprime en décibels (dB), généralement entre -60 dB et +24 dB.
@@ -65,3 +65,7 @@ func _maj_bass_boost(value:int = 0.): #le signal donne la ddhealth dont on ne s'
 	# Augmente le gain des basses sous 32Hz et 100Hz
 	eq_effect.set_band_gain_db(0, boost_db_32) # 32 Hz
 	eq_effect.set_band_gain_db(1, boost_db_100) # 100 Hz
+	
+func rescue_background() ->void:
+	pass
+	
