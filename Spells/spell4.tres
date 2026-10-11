@@ -9,5 +9,5 @@ id = 1
 display_name = "Onde de choc"
 description = "une onde de choc qui immobilise l’ennemi pendant 2 secondes après l’impact"
 icon = ExtResource("1_ole6c")
-required_combo = 3
+required_combo = 6
 metadata/_custom_type_script = "uid://cfdnl1032oipy"

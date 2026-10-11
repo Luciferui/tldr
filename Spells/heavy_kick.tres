@@ -7,3 +7,4 @@ script = ExtResource("1_38cc4")
 id = 1
 display_name = "heavy"
 description = "baba	"
+required_combo = 1

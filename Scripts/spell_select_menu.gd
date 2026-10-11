@@ -58,11 +58,8 @@ var p2_slots := [-1, -1, -1]
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	var bus_index = AudioServer.get_bus_index("Music")
-	var eq_effect = AudioServer.get_bus_effect(bus_index, 0) as AudioEffectEQ
-	eq_effect.set_band_gain_db(0, 0.) # 32 Hz
-	eq_effect.set_band_gain_db(1, 0.) # 100 Hz
 	Jukebox.play_music()
+	Jukebox.set_bass_boost(0.0)
 	
 	start_button.visible = false
 	p1_spell_info_panel.visible = false

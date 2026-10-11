@@ -8,5 +8,5 @@ script = ExtResource("1_72yr5")
 id = 1
 display_name = "marcel sartor"
 icon = ExtResource("1_dc8mj")
-required_combo = 3
+required_combo = 2
 metadata/_custom_type_script = "uid://cfdnl1032oipy"

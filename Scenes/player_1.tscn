@@ -16,10 +16,12 @@
 [ext_resource type="Script" uid="uid://d2eqep4rx1rwj" path="res://Scripts/Player/PlayerStates/player_dying_state.gd" id="20_va88g"]
 [ext_resource type="Script" uid="uid://cfp70edt1064v" path="res://rescue_controller.gd" id="23_ex6al"]
 [ext_resource type="Texture2D" uid="uid://os57ueemv7iu" path="res://Assets/ddr_textures/new_textures/DDRBar.png" id="23_uotsj"]
-[ext_resource type="Shader" uid="uid://cxxobj30kj0yi" path="res://Scripts/Player/blue_filter.gdshader" id="23_va88g"]
 [ext_resource type="Script" uid="uid://cha207lvv53uk" path="res://Scripts/Player/PlayerStates/AttackStates/player_attack_state.gd" id="25_fvdx0"]
+[ext_resource type="Texture2D" uid="uid://dci4q4f7ffaqr" path="res://Assets/ddr_textures/blue_fire_effect.png" id="25_vadkl"]
 [ext_resource type="Script" path="res://Scripts/Abstract/hitbox.gd" id="25_yef3s"]
+[ext_resource type="Texture2D" uid="uid://d24sddmpm6xwp" path="res://Assets/ddr_textures/purple_fire_effect.png" id="26_bkimo"]
 [ext_resource type="Script" uid="uid://bvsu7laq12osn" path="res://Scripts/Player/DDH_health_display.gd" id="26_uotsj"]
+[ext_resource type="Texture2D" uid="uid://bnc7e6mh44mbb" path="res://Assets/ddr_textures/yellow_fire_effect.png" id="26_va88g"]
 [ext_resource type="FontFile" uid="uid://chyl1b4eiejtw" path="res://Assets/Fonts/Ithaca-LVB75.ttf" id="27_va88g"]
 [ext_resource type="Script" uid="uid://dj0uvd5fjr6b8" path="res://Scripts/Player/PlayerStates/player_hurtbox.gd" id="28_cu0p0"]
 [ext_resource type="Script" uid="uid://pyvofwuo17c5" path="res://Scripts/Player/PlayerStates/player_pain_state.gd" id="35_oexav"]
@@ -298,6 +300,120 @@ size = Vector2(39, 14.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5p21k"]
 size = Vector2(34, 20)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_82lt2"]
+atlas = ExtResource("25_vadkl")
+region = Rect2(224, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkb3y"]
+atlas = ExtResource("25_vadkl")
+region = Rect2(240, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijipl"]
+atlas = ExtResource("25_vadkl")
+region = Rect2(256, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lk5x"]
+atlas = ExtResource("25_vadkl")
+region = Rect2(272, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of62n"]
+atlas = ExtResource("26_bkimo")
+region = Rect2(224, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cx4x"]
+atlas = ExtResource("26_bkimo")
+region = Rect2(240, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_658bf"]
+atlas = ExtResource("26_bkimo")
+region = Rect2(256, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymmlu"]
+atlas = ExtResource("26_bkimo")
+region = Rect2(272, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xydj"]
+atlas = ExtResource("26_va88g")
+region = Rect2(224, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewrxp"]
+atlas = ExtResource("26_va88g")
+region = Rect2(240, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m77ku"]
+atlas = ExtResource("26_va88g")
+region = Rect2(256, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nf0y4"]
+atlas = ExtResource("26_va88g")
+region = Rect2(272, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfi4n"]
+atlas = ExtResource("26_va88g")
+region = Rect2(0, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4d8j6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82lt2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkb3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijipl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lk5x")
+}],
+"loop": 1,
+"name": &"BlueFrame",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of62n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cx4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_658bf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymmlu")
+}],
+"loop": 1,
+"name": &"PurpleFlame",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xydj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewrxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m77ku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nf0y4")
+}],
+"loop": 1,
+"name": &"YellowFlame",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfi4n")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" unique_id=2123069804 groups=["Player"]]
 script = ExtResource("1_3kxg5")
 
@@ -406,7 +522,6 @@ top_level = true
 scale = Vector2(0.1, 0.1)
 script = ExtResource("38_h8d83")
 RelatedPlayer = NodePath("..")
-shader_code = ExtResource("23_va88g")
 
 [node name="GreekKeyRectangleFrameGreekBorderVector2317864614" type="Sprite2D" parent="Ddr" unique_id=1041930583]
 position = Vector2(0, -2)
@@ -425,13 +540,34 @@ alignment = 1
 script = ExtResource("40_ewrxp")
 metadata/_edit_use_anchors_ = true
 
+[node name="FlameSprite" type="AnimatedSprite2D" parent="Ddr" unique_id=1158069883]
+scale = Vector2(25, 25)
+sprite_frames = SubResource("SpriteFrames_4d8j6")
+
 [node name="Counter" type="Label" parent="Ddr" unique_id=33738571]
-offset_left = 760.0
-offset_top = -380.0
-offset_right = 800.0
-offset_bottom = -256.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -760.0
+offset_top = -437.5
+offset_right = 829.9999
+offset_bottom = 437.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 90
+theme_override_fonts/font = ExtResource("27_va88g")
+theme_override_font_sizes/font_size = 500
+text = "0"
+horizontal_alignment = 1
+
+[node name="SpellReady" type="HBoxContainer" parent="Ddr" unique_id=1345911089]
+offset_left = -500.0
+offset_top = -650.0
+offset_right = 1130.0
+offset_bottom = -290.0
+alignment = 1
 
 [node name="RescueController" type="Node2D" parent="." unique_id=669820595 node_paths=PackedStringArray("ddr")]
 script = ExtResource("23_ex6al")

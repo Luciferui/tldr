@@ -8,4 +8,5 @@ script = ExtResource("1_oxajn")
 display_name = "Météorite"
 description = "3 météorites tombent du ciel sur l’adversaire"
 icon = ExtResource("1_3mjyt")
+required_combo = 7
 metadata/_custom_type_script = "uid://cfdnl1032oipy"

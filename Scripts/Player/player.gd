@@ -21,7 +21,7 @@ extends CharacterBody2D
 @export var dying_threshold: int = 100
 
 @export var shader_code: Shader  = preload("res://Scripts/Player/blue_filter.gdshader")
-signal damage_changed(value: int)
+signal ddhealth_changed # Pour booster les bass
 
 func get_sprite_faces_left() -> bool:
 	return sprite.flip_h
@@ -77,7 +77,7 @@ func takeAttack(data: AttackData, attackerPos: Vector2,
 
 	ddhealth += data.damage
 	$DDHealthDisplayer.update_ddhealt(ddhealth)
-	damage_changed.emit(ddhealth)
+	ddhealth_changed.emit()
 
 	if ddhealth >= dying_threshold:
 		rescue_controller.begin_rescue()
@@ -87,7 +87,7 @@ func takeAttack(data: AttackData, attackerPos: Vector2,
 
 func heal(x: int) -> void:
 	ddhealth = maxi(0, ddhealth - x)
-	damage_changed.emit(ddhealth)
+	ddhealth_changed.emit()
 	
 
 func apply_blue_filter(sprite: AnimatedSprite2D) -> void:
