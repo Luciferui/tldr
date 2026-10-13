@@ -14,11 +14,13 @@ func init() ->void:
 
 func process_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed(player.spell_action):
-		var spell_n = player.get_hold()
-		if spell_n == -1:
+		var spell_id = player.get_hold()
+		if spell_id == -1:
 			#il n'y a pas de sort préparé
 			return
-		match spell_n:
+			
+		# Lance le spell dans hold
+		match spell_id:
 			1:
 				_cast_lightning()
 			2:
@@ -27,6 +29,12 @@ func process_input(event: InputEvent) -> void:
 				_cast_fireball()
 			_:
 				push_warning("Unknown spell detected in hold")
+				
+		# Affichage du spell hold
+		player.get_node("Ddr").display_hold_spell(0, false)
+		player.get_node("Ddr").display_hold_spell(1, false)
+		player.get_node("Ddr").display_hold_spell(2, false)
+		
 		player.set_hold(-1)
 		
 func process_frame(delta: float) -> void:

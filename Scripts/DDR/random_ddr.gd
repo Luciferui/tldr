@@ -21,6 +21,7 @@ var FrameSprite : Sprite2D
 
 
 func _ready() -> void:
+	# init du cadre Ddr
 	FrameSprite = $GreekKeyRectangleFrameGreekBorderVector2317864614
 	default_material = FrameSprite.material
 	border_material = ShaderMaterial.new()
@@ -36,6 +37,7 @@ func _ready() -> void:
 		$Counter.position = Vector2(340, -237)
 		$FlameSprite.position = Vector2(1110, 0)
 		$SpellReady.position = Vector2(-1000, -650)
+		$SpellHold.position = Vector2(-880, -430)
 	else:
 		self.position = Vector2(220, 150)
 		usedInput = ["p2_jump", "p2_down", "p2_right", "p2_left", "p2_light", "p2_heavy"]
@@ -43,8 +45,9 @@ func _ready() -> void:
 		$Counter.position = Vector2(-1860, -237)
 		$FlameSprite.position = Vector2(-1100, 0)
 		$SpellReady.position = Vector2(-500, -650)
+		$SpellHold.position = Vector2(-400, -450)
 	
-	# Init
+	# Init Ddr
 	generateRandomInputs()
 	$HBoxContainer.display_combo_queue(InputList)
 	currentInput = InputList[0]
@@ -65,6 +68,10 @@ func _ready() -> void:
 		mat.set_shader_parameter("saturation", 0.0)
 		icon.material = mat
 		$SpellReady.add_child(icon)
+	
+	# Cache les sprite des spellHold
+	for i in range(3):
+		display_hold_spell(i, false)
 
 func _physics_process(delta: float) -> void:
 	super(delta)
@@ -120,13 +127,23 @@ func refresh_display() -> void:
 	
 func validateCombo() -> void:
 	# Parcours les spells et met le plus grand dans set_hold
-	for spell in DataManager.spellChoice[RelatedPlayer.player_id]:
+	var player_spell_id = -1
+	for i in range(len(DataManager.spellChoice[RelatedPlayer.player_id])):
+		var spell = DataManager.spellChoice[RelatedPlayer.player_id][i]
 		if total_input >= spell.required_combo:
 			RelatedPlayer.set_hold(spell.id) # écrase si plus petit déjà envoyé
+			player_spell_id = i
 	playerInputs = []
 	total_input = 0
 	refresh_display()
+	
+	if player_spell_id != -1:
+		display_hold_spell(player_spell_id, true)
+		
 			
+func display_hold_spell(spell_id : int, state: bool) -> void:
+	$SpellHold.get_node("Spell"+str(spell_id)).get_node("Spell"+str(spell_id)).visible = state
+
 func failCombo() -> void:
 	if playerInputs.size() > 0:
 		apply_red_filter()
