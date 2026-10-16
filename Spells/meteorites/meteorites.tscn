@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://crbo8ui67dhh8"]
+
+[ext_resource type="Script" uid="uid://gs3ak8rhu8pt" path="res://Spells/meteorites/meteorites.gd" id="1_fovla"]
+[ext_resource type="Texture2D" uid="uid://cbh6y28ooi6am" path="res://Spells/meteorites/warning.png" id="2_0gcae"]
+
+[node name="Meteorites" type="Node2D" unique_id=650840897]
+script = ExtResource("1_fovla")
+
+[node name="Warning0" type="Sprite2D" parent="." unique_id=1337909097]
+position = Vector2(2, 0)
+texture = ExtResource("2_0gcae")
+
+[node name="Warning1" type="Sprite2D" parent="." unique_id=94610994]
+texture = ExtResource("2_0gcae")
+
+[node name="Warning2" type="Sprite2D" parent="." unique_id=2067466911]
+texture = ExtResource("2_0gcae")

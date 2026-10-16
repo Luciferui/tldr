@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("1_lvxbg")
-id = 1
+id = 2
 display_name = "Boule de glace"
-description = "lance une boule de feu de manière horizontale dans la direction vers laquelle le joueur fait face et ralentit l’ennemi pendant 3 secondes après l’impact"
+description = "lance une boule de glace de manière horizontale dans la direction vers laquelle le joueur fait face et immbolise l’ennemi pendant 2 secondes après l’impact"
 icon = ExtResource("1_xakk4")
+required_combo = 6
 metadata/_custom_type_script = "uid://cfdnl1032oipy"

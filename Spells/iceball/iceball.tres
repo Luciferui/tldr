@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://blxtqiq8v6lm4"]
+
+[ext_resource type="Script" uid="uid://drx73h07qa6ou" path="res://Scripts/Abstract/attack_data.gd" id="1_vq20v"]
+
+[resource]
+script = ExtResource("1_vq20v")
+hitbox_name = &"IceballShape"
+hitstun = 120
+attack_timing = Array[int]([1])
+orientation_knockback = Vector2(100, -150)
+metadata/_custom_type_script = "uid://drx73h07qa6ou"

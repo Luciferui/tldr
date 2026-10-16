@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://c3t0tqgiikaup"]
+
+[ext_resource type="Script" uid="uid://dq80553fyy2pq" path="res://Spells/meteorites/meteorite.gd" id="1_a0d6j"]
+[ext_resource type="Texture2D" uid="uid://c7gu3avx00cgf" path="res://Spells/meteorites/explosion_1.png" id="2_38eti"]
+[ext_resource type="Script" path="res://Scripts/Abstract/hitbox.gd" id="2_hit"]
+[ext_resource type="Texture2D" uid="uid://dfakrktyg67j1" path="res://Spells/meteorites/explosion_2.png" id="3_63jiv"]
+[ext_resource type="Texture2D" uid="uid://hgry50pybdjw" path="res://Spells/meteorites/explosion_3.png" id="4_pl3uq"]
+[ext_resource type="Texture2D" uid="uid://bpvje3mlv8ebx" path="res://Spells/meteorites/fall.png" id="5_6g0ao"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_met"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_38eti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_63jiv")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_pl3uq")
+}],
+"loop": 0,
+"name": &"explosion",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6g0ao")
+}],
+"loop": 1,
+"name": &"fall",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hit"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
+size = Vector2(16, 16)
+
+[node name="Meteorite" type="Node2D" unique_id=684112749]
+script = ExtResource("1_a0d6j")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1424651722]
+position = Vector2(0, -46.000004)
+scale = Vector2(0.44799998, 0.4480001)
+sprite_frames = SubResource("SpriteFrames_met")
+animation = &"fall"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=296387710]
+script = ExtResource("2_hit")
+dissociated_from_player = true
+
+[node name="Meteorite" type="CollisionShape2D" parent="Hitbox" unique_id=2088338210]
+shape = SubResource("RectangleShape2D_hit")
+
+[node name="GroundDetector" type="Area2D" parent="." unique_id=1413173868]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundDetector" unique_id=742484681]
+shape = SubResource("RectangleShape2D_ground")

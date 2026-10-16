@@ -9,5 +9,4 @@ id = 1
 display_name = "Boule de feu"
 description = "lance une boule de feu de manière horizontale dans la direction vers laquelle le joueur fait face "
 icon = ExtResource("1_q40ah")
-required_combo = 3
 metadata/_custom_type_script = "uid://cfdnl1032oipy"

@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("1_oxajn")
-display_name = "Météorite"
-description = "3 météorites tombent du ciel sur l’adversaire"
+id = 5
+display_name = "Météorites"
+description = "3 météorites tombent du ciel sur l’adversaire et s'écrasent sur le premier sol rencontré"
 icon = ExtResource("1_3mjyt")
-required_combo = 7
+required_combo = 5
 metadata/_custom_type_script = "uid://cfdnl1032oipy"

@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_42u34")
-id = 1
-display_name = "Boule électrique"
-description = "lance une boule de feu de manière horizontale dans la direction vers laquelle le joueur fait face et accélère le joueur qui la lance pour 3 secondes après le lancer"
+id = 3
+display_name = "Eclair"
+description = "lance un éclair sur l'adversaire"
 icon = ExtResource("1_sfvll")
-required_combo = 5
+required_combo = 7
 metadata/_custom_type_script = "uid://cfdnl1032oipy"

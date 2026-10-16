@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://yipddckqbo85"]
+
+[ext_resource type="Script" uid="uid://bkv1x6jxcuuj3" path="res://Spells/iceball/iceball.gd" id="1_xi4n0"]
+[ext_resource type="Texture2D" uid="uid://dmx018i2x7gqg" path="res://Spells/iceball/iceball_1.png" id="2_xi4n0"]
+[ext_resource type="Texture2D" uid="uid://dn0ibpmogb1ks" path="res://Spells/iceball/iceball_2.png" id="3_63cr1"]
+[ext_resource type="Texture2D" uid="uid://c6mrnmearg4v2" path="res://Spells/iceball/iceball_3.png" id="4_1hd0a"]
+[ext_resource type="Texture2D" uid="uid://gkipoerotfp5" path="res://Spells/iceball/iceball_warning_1.png" id="5_066p6"]
+[ext_resource type="Texture2D" uid="uid://d2hrgqkxkqm3m" path="res://Spells/iceball/iceball_warning_2.png" id="6_eqtwr"]
+[ext_resource type="Texture2D" uid="uid://d1u2lmw826cqi" path="res://Spells/iceball/iceball_warning_3.png" id="7_u0hoo"]
+[ext_resource type="Script" path="res://Scripts/Abstract/hitbox.gd" id="8_k3w0n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j3pel"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xi4n0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_63cr1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1hd0a")
+}],
+"loop": 1,
+"name": &"iceball",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_066p6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_eqtwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_u0hoo")
+}],
+"loop": 1,
+"name": &"warning",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2v8g7"]
+radius = 23.086792
+
+[node name="Iceball" type="Node2D" unique_id=2083482982]
+script = ExtResource("1_xi4n0")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1069168313]
+position = Vector2(0, -2)
+scale = Vector2(0.19600001, 0.22000001)
+sprite_frames = SubResource("SpriteFrames_j3pel")
+animation = &"warning"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=71991003]
+script = ExtResource("8_k3w0n")
+
+[node name="IceballShape" type="CollisionShape2D" parent="Hitbox" unique_id=1453742068]
+shape = SubResource("CircleShape2D_2v8g7")

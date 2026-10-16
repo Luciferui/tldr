@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_72yr5")
-id = 1
+id = 10000
 display_name = "marcel sartor"
 icon = ExtResource("1_dc8mj")
 required_combo = 2
