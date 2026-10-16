@@ -14,7 +14,7 @@ func enter() -> void:
 	player.sprite.play(animation_name)
 	player.sprite.flip_h = sprite_flip
 
-func process_input(event: InputEvent) -> State:
+func process_input(_event: InputEvent) -> State:
 	if Input.is_action_just_pressed(player.jump_action) and player.is_on_floor():
 		return jump_state
 	if Input.is_action_just_pressed(player.light_attack_action) or Input.is_action_just_pressed(player.heavy_attack_action):

@@ -13,7 +13,7 @@ func enter() -> void:
 	player.sprite.flip_h = sprite_flip
 	player.velocity.y = jump_force
 
-func process_input(event: InputEvent) -> State:
+func process_input(_event: InputEvent) -> State:
 #	if Input.is_action_just_released("jump") and player.velocity.y > 0:
 #		player.velocity.y = 0.0
 	if Input.is_action_just_pressed(player.dodge_action) and player.get_can_dodge():

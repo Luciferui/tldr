@@ -16,7 +16,7 @@ extends CharacterBody2D
 @export var light_attack_action: StringName = &"p1_light"
 @export var spell_action: StringName = &"p1_spell"
 @export var dodge_action: StringName = &"p1_dodge"
-@export var opponent: Player
+@export var opponent: CharacterBody2D
 @export var sprite_faces_left: bool = false
 @export var dying_threshold: int = 100
 
@@ -90,7 +90,7 @@ func heal(x: int) -> void:
 	ddhealth_changed.emit()
 	
 
-func apply_blue_filter(sprite: AnimatedSprite2D) -> void:
+func apply_blue_filter(s: AnimatedSprite2D) -> void:
 	# 1. Créer un ShaderMaterial
 	var mat = ShaderMaterial.new()
 	mat.shader = shader_code
@@ -101,7 +101,7 @@ func apply_blue_filter(sprite: AnimatedSprite2D) -> void:
 	mat.set_shader_parameter("tolerance", 0.5) # Ajuster si le sprite a du shading/dégradé
 	
 	# 3. Appliquer le matériau au sprite du joueur 2 uniquement
-	sprite.material = mat
+	s.material = mat
 
 
 	

@@ -25,7 +25,7 @@ func enter() -> void:
 
 func process_physics(delta: float) -> State:
 	super.process_physics(delta)
-	player.velocity = (((2*(total_frame_count-frame_count)/total_frame_count)+0.5)**2)*dir*dodge_force
+	player.velocity = (((2*float(total_frame_count-frame_count)/total_frame_count)+0.5)**2)*dir*dodge_force
 	if frame_count >= total_frame_count:
 		frame_count = 0
 		if player.is_on_floor():
@@ -35,5 +35,5 @@ func process_physics(delta: float) -> State:
 	frame_count += 1
 	return null
 	
-func exit(new_state : State = null) -> void:
+func exit(_new_state : State = null) -> void:
 	hurtbox.activate_hurtbox()

@@ -12,7 +12,7 @@ func _ready() ->void:
 func init() ->void:
 	pass
 
-func process_input(event: InputEvent) -> void:
+func process_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed(player.spell_action):
 		var spell_id = player.get_hold()
 		if spell_id == -1:
@@ -37,7 +37,7 @@ func process_input(event: InputEvent) -> void:
 		
 		player.set_hold(-1)
 		
-func process_frame(delta: float) -> void:
+func process_frame(_delta: float) -> void:
 	pass
 
 func _cast_lightning() -> void:
@@ -53,6 +53,6 @@ func _cast_fireball() -> void:
 	add_child(fireball)  # d'abord dans l'arbre, ensuite setup()
 	fireball.setup(player, player.get_sprite_faces_left(), player.global_position + Vector2((-1 if player.get_sprite_faces_left() else 1) * FIREBALL_SPAWN_OFFSET.x, 0))
 
-func process_physics(delta: float) -> void:
+func process_physics(_delta: float) -> void:
 	for child in self.get_children():
 		child.process_physics()

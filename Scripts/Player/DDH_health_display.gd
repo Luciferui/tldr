@@ -3,7 +3,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var player = owner as Player
+	var player = owner
 	if player.player_id%2 == 0:
 		self.position = Vector2(-290, -150)
 		

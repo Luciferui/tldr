@@ -11,5 +11,5 @@ func distribute_spells(p1_selected_spells: Array[SpellData], p2_selected_spells:
 	#print(spellChoice)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

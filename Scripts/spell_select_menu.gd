@@ -324,6 +324,7 @@ func _on_main_menu_button_pressed() -> void:
 
 
 func _on_start_button_pressed() -> void:
+	var testing : bool = false
 	var p1_chosen: Array[SpellData] = []
 	var p2_chosen: Array[SpellData] = []
 	for i in p1_slots:
@@ -331,7 +332,10 @@ func _on_start_button_pressed() -> void:
 	for i in p2_slots:
 		p2_chosen.append(p2_spell_data[i])
 	DataManager.distribute_spells(p1_chosen, p2_chosen)
-	get_tree().change_scene_to_file("res://Scenes/level.tscn")
+	if testing:
+		get_tree().change_scene_to_file("res://Scenes/training_level.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/level.tscn")
 
 
 func _on_music_button_pressed() -> void:

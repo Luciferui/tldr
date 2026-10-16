@@ -19,7 +19,7 @@ func enter() -> void:
 #func exit(state : State = null) -> void:
 #	print("exit idle")
 
-func process_input(event: InputEvent) -> State:
+func process_input(_event: InputEvent) -> State:
 	if Input.is_action_just_pressed(player.jump_action) and player.is_on_floor():
 		return jump_state
 	if attackActions.any(func(action): return Input.is_action_just_pressed(action)):

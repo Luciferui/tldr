@@ -3,8 +3,8 @@ extends Node
 ##Classe abstraite statemachine [br]
 ##init, change_state(new_state), process_input(event), process_frame(delta), process_physics(delta)
 
-@export var starting_state: PlayerState
-@export var pain_state : PlayerState
+@export var starting_state: State
+@export var pain_state : State
 var current_state: State
 
 func init() -> void:
