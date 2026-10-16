@@ -10,7 +10,6 @@ var attacker : Node2D
 func _ready() -> void:
 	attacker = owner #l'objet qui attaque sera toujours la première scène au-dessus
 	collision_layer = 2
-	collision_mask = 4
 	for child in get_children():
 		if child is CollisionShape2D:
 			collision_shape_dict[child.name] = child
