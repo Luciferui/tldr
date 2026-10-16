@@ -463,51 +463,27 @@ animations = [{
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3we4x"]
 atlas = ExtResource("25_vadkl")
-region = Rect2(304, 0, 16, 16)
+region = Rect2(384, 144, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h8i1p"]
 atlas = ExtResource("25_vadkl")
-region = Rect2(320, 0, 16, 16)
+region = Rect2(400, 144, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1m8ld"]
-atlas = ExtResource("25_vadkl")
-region = Rect2(336, 0, 16, 16)
+atlas = ExtResource("26_bkimo")
+region = Rect2(384, 144, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y5ntg"]
-atlas = ExtResource("25_vadkl")
-region = Rect2(352, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jqblu"]
 atlas = ExtResource("26_bkimo")
-region = Rect2(304, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wsea5"]
-atlas = ExtResource("26_bkimo")
-region = Rect2(320, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tyeg6"]
-atlas = ExtResource("26_bkimo")
-region = Rect2(336, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l6bev"]
-atlas = ExtResource("26_bkimo")
-region = Rect2(352, 0, 16, 16)
+region = Rect2(400, 144, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a7fm0"]
 atlas = ExtResource("26_va88g")
-region = Rect2(304, 0, 16, 16)
+region = Rect2(384, 144, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qygew"]
 atlas = ExtResource("26_va88g")
-region = Rect2(320, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fojh7"]
-atlas = ExtResource("26_va88g")
-region = Rect2(336, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lbbsd"]
-atlas = ExtResource("26_va88g")
-region = Rect2(352, 0, 16, 16)
+region = Rect2(400, 144, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3d320"]
 animations = [{
@@ -517,12 +493,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h8i1p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1m8ld")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y5ntg")
 }],
 "loop": 1,
 "name": &"blue",
@@ -530,16 +500,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jqblu")
+"texture": SubResource("AtlasTexture_1m8ld")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wsea5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tyeg6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l6bev")
+"texture": SubResource("AtlasTexture_y5ntg")
 }],
 "loop": 1,
 "name": &"purple",
@@ -551,12 +515,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qygew")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fojh7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lbbsd")
 }],
 "loop": 1,
 "name": &"yellow",
@@ -711,53 +669,52 @@ theme_override_font_sizes/font_size = 500
 text = "0"
 horizontal_alignment = 1
 
+[node name="SpellReady" type="HBoxContainer" parent="Ddr" unique_id=1345911089]
+offset_left = -500.0
+offset_top = -650.0
+offset_right = 500.0
+offset_bottom = -394.0
+alignment = 1
+
 [node name="SpellHold" type="HBoxContainer" parent="Ddr" unique_id=1800694284]
-offset_left = -499.99994
+offset_left = -599.99994
 offset_top = -649.99994
-offset_right = 1130.0
-offset_bottom = -289.99994
-theme_override_constants/separation = 180
+offset_right = 400.00006
+offset_bottom = -393.99994
 alignment = 1
 
 [node name="Spell0" type="Control" parent="Ddr/SpellHold" unique_id=341807335]
-custom_minimum_size = Vector2(256, 256)
-custom_maximum_size = Vector2(256, 256)
+custom_minimum_size = Vector2(250, 250)
+custom_maximum_size = Vector2(250, 250)
 layout_mode = 2
 
 [node name="Spell0" type="AnimatedSprite2D" parent="Ddr/SpellHold/Spell0" unique_id=1492178106]
-scale = Vector2(40, 40)
+scale = Vector2(20, 20)
 sprite_frames = SubResource("SpriteFrames_3d320")
 animation = &"yellow"
 autoplay = "yellow"
 
 [node name="Spell1" type="Control" parent="Ddr/SpellHold" unique_id=1810797094]
-custom_minimum_size = Vector2(256, 256)
-custom_maximum_size = Vector2(256, 256)
+custom_minimum_size = Vector2(250, 250)
+custom_maximum_size = Vector2(250, 250)
 layout_mode = 2
 
 [node name="Spell1" type="AnimatedSprite2D" parent="Ddr/SpellHold/Spell1" unique_id=404085791]
-scale = Vector2(40, 40)
+scale = Vector2(20, 20)
 sprite_frames = SubResource("SpriteFrames_3d320")
 animation = &"blue"
 autoplay = "blue"
 
 [node name="Spell2" type="Control" parent="Ddr/SpellHold" unique_id=618820927]
-custom_minimum_size = Vector2(256, 256)
-custom_maximum_size = Vector2(256, 256)
+custom_minimum_size = Vector2(250, 250)
+custom_maximum_size = Vector2(250, 250)
 layout_mode = 2
 
 [node name="Spell2" type="AnimatedSprite2D" parent="Ddr/SpellHold/Spell2" unique_id=1251920826]
-scale = Vector2(40, 40)
+scale = Vector2(20, 20)
 sprite_frames = SubResource("SpriteFrames_3d320")
 animation = &"purple"
 autoplay = "purple"
-
-[node name="SpellReady" type="HBoxContainer" parent="Ddr" unique_id=1345911089]
-offset_left = -500.0
-offset_top = -650.0
-offset_right = 1130.0
-offset_bottom = -290.0
-alignment = 1
 
 [node name="RescueController" type="Node2D" parent="." unique_id=669820595 node_paths=PackedStringArray("ddr")]
 script = ExtResource("23_ex6al")

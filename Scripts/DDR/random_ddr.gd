@@ -31,21 +31,21 @@ func _ready() -> void:
 	
 	# Gère le emplacements et les deux joueurs
 	if RelatedPlayer.player_id % 2 == 0:
-		self.position = Vector2(-220, 150)
+		self.position = Vector2(-220, 158)
 		usedInput = ["p1_jump", "p1_down", "p1_right", "p1_left", "p1_light", "p1_heavy"]
 		finishInput = "p1_endcombo"
-		$Counter.position = Vector2(340, -237)
-		$FlameSprite.position = Vector2(1110, 0)
-		$SpellReady.position = Vector2(-1000, -650)
-		$SpellHold.position = Vector2(-880, -430)
+		$Counter.position = Vector2(340, -245)
+		$FlameSprite.position = Vector2(1110, 8)
+		$SpellReady.position = Vector2(-950,-458)
+		$SpellHold.position = Vector2(-830, -330)
 	else:
-		self.position = Vector2(220, 150)
+		self.position = Vector2(220, 158)
 		usedInput = ["p2_jump", "p2_down", "p2_right", "p2_left", "p2_light", "p2_heavy"]
 		finishInput = "p2_endcombo"
-		$Counter.position = Vector2(-1860, -237)
-		$FlameSprite.position = Vector2(-1100, 0)
-		$SpellReady.position = Vector2(-500, -650)
-		$SpellHold.position = Vector2(-400, -450)
+		$Counter.position = Vector2(-1860, -245)
+		$FlameSprite.position = Vector2(-1100, 8)
+		$SpellReady.position = Vector2(-60, -458)
+		$SpellHold.position = Vector2(60, -330)
 	
 	# Init Ddr
 	generateRandomInputs()
@@ -59,6 +59,7 @@ func _ready() -> void:
 		icon.texture = spell.icon
 		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		icon.custom_minimum_size = Vector2(256, 256) # Ajustez la taille voulue en pixels
+		icon.custom_maximum_size = Vector2(256, 256) # Ajustez la taille voulue en pixels
 		
 		var sat_shader = load("res://Scripts/Player/sat_exp_tint.gdshader")
 	
@@ -102,6 +103,7 @@ func refresh_display() -> void:
 	# Hbox liste des inputs
 	$HBoxContainer.display_combo_queue(InputList)
 	
+	
 	#Affichage textuel
 	var p_id = RelatedPlayer.player_id
 	$Counter.text = str(total_input)
@@ -137,12 +139,14 @@ func validateCombo() -> void:
 	total_input = 0
 	refresh_display()
 	
-	if player_spell_id != -1:
-		display_hold_spell(player_spell_id, true)
+	for i in range(3):
+		display_hold_spell(i, i==player_spell_id)
+		print(i, "  ", i == player_spell_id)
 		
 			
-func display_hold_spell(spell_id : int, state: bool) -> void:
-	$SpellHold.get_node("Spell"+str(spell_id)).get_node("Spell"+str(spell_id)).visible = state
+func display_hold_spell(player_spell_id : int, state: bool) -> void:
+	$SpellHold.get_node("Spell"+str(player_spell_id)).get_node("Spell"+str(player_spell_id)).visible = state
+
 
 func failCombo() -> void:
 	if playerInputs.size() > 0:
