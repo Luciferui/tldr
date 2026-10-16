@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var spellLauncher : SpellLauncher = $SpellLauncher
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var rescue_controller: Node = $RescueController
+@onready var hurt_sound: AudioStreamPlayer = $HurtSound
 
 @export var player_id: int = 0
 @export var left_action: StringName = &"p1_left"
@@ -21,7 +22,9 @@ extends CharacterBody2D
 @export var dying_threshold: int = 100
 
 @export var shader_code: Shader  = preload("res://Scripts/Player/blue_filter.gdshader")
+
 signal ddhealth_changed # Pour booster les bass
+signal hit_received(attack: AttackData) 
 
 func get_sprite_faces_left() -> bool:
 	return sprite.flip_h
@@ -47,9 +50,17 @@ func set_can_dodge(x:bool) ->void :
 func _ready() -> void:
 	statemachine.init()
 	spellLauncher.init()
+	hit_received.connect(_on_hit_received)
 	if player_id % 2 == 1:
 		apply_blue_filter($Sprite)
+		
+func _on_hit_received(attack: AttackData) -> void:
+	if attack.hit_sound == null:
+		return
 
+	hurt_sound.stream = attack.hit_sound
+	hurt_sound.play()
+	
 func _unhandled_input(event: InputEvent) -> void:
 	if match_over or rescue_controller.rescue_active or rescue_controller.failed:
 		return
@@ -74,7 +85,9 @@ func takeAttack(data: AttackData, attackerPos: Vector2,
 		attackerOrientation: int) -> void:
 	if match_over or rescue_controller.rescue_active or rescue_controller.failed:
 		return
-
+		
+	hit_received.emit(data)
+	
 	ddhealth += data.damage
 	$DDHealthDisplayer.update_ddhealt(ddhealth)
 	ddhealth_changed.emit()

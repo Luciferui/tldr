@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://oo2aufg5t647"]
 
+[ext_resource type="AudioStream" uid="uid://cxadejsakc5dm" path="res://Assets/Sound/be_hit_punch.wav" id="1_g0c28"]
 [ext_resource type="Script" uid="uid://drx73h07qa6ou" path="res://Scripts/Abstract/attack_data.gd" id="1_ujipp"]
 
 [resource]
@@ -11,4 +12,5 @@ total_frame_count = 30
 attack_timing = Array[int]([12, 24])
 orientation_knockback = Vector2(5, 100)
 relative_knockback_factor = -5.0
+hit_sound = ExtResource("1_g0c28")
 metadata/_custom_type_script = "uid://drx73h07qa6ou"

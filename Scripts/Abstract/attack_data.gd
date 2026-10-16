@@ -14,3 +14,4 @@ extends Resource
 ##knockback vectoriel relatif gauche/droite
 @export var relative_knockback_factor: float = 0
 ##facteur de knockback sur l'axe entre les hitbox
+@export var hit_sound: AudioStream

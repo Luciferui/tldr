@@ -64,6 +64,7 @@ func selectAttack() -> void :
 	totalFrameCount = currentAttack.total_frame_count
 	attack_timing = currentAttack.attack_timing
 	hitbox.setCurrentAttack(currentAttack)
+	
 
 func process_physics(delta: float) -> State:
 	super.process_physics(delta)
