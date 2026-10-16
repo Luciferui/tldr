@@ -3,7 +3,6 @@ extends Node
 signal rescue_failed(loser: Player)
 
 @export var time_limit: float = 5.0
-@export var required_inputs: int
 
 @onready var player: Player = get_parent() as Player
 @onready var dying: PlayerDyingState = $"../StateMachine/Dying"
@@ -12,6 +11,8 @@ signal rescue_failed(loser: Player)
 var ddr: RandomDDR
 var DDCounter : RichTextLabel
 
+var required_inputs: int
+var input_counter: int
 var rescue_active: bool = false
 var failed: bool = false
 var deadline_ms: int = 0
@@ -21,6 +22,8 @@ func _ready() -> void:
 	DDCounter = ddr.get_node("DeathItems").get_node("DDHealthCounter")
 
 func begin_rescue() -> void:
+	if player.ddhealth == 0:
+		return
 	if rescue_active or failed:
 		return
 	rescue_active = true
@@ -61,11 +64,14 @@ func ddr_input_changed() -> void:
 	if Time.get_ticks_msec() >= deadline_ms:
 		_fail()
 		return
+	
+	input_counter += 1
 		
-	DDCounter.text = str(required_inputs-ddr.total_input)
-	if ddr.total_input >= required_inputs:
+	DDCounter.text = str(required_inputs-input_counter)
+	if input_counter >= required_inputs:
 		rescue_active = false
 		player.ddhealth = floori(player.ddhealth / 2.0)
+		input_counter = 0
 		
 		ddr.playerInputs = []
 		ddr.total_input = 0
@@ -73,7 +79,10 @@ func ddr_input_changed() -> void:
 		player.get_node("DDHealthDisplayer").update_ddhealt(player.ddhealth)
 		
 		flip_ddr_spell_visible()
-		player.apply_blue_filter(player.get_node("Sprite"))
+		if player.player_id%2 == 0:
+			player.sprite.material = null
+		else:
+			player.apply_blue_filter(player.get_node("Sprite"))
 		
 		player.statemachine.override_state(idle if player.is_on_floor() else fall)
 

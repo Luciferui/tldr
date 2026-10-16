@@ -742,7 +742,7 @@ horizontal_alignment = 1
 
 [node name="RescueController" type="Node2D" parent="." unique_id=669820595]
 script = ExtResource("23_ex6al")
-required_inputs = 5
+time_limit = 10.0
 
 [node name="DDHealthDisplayer" type="Node2D" parent="." unique_id=482003183]
 top_level = true
