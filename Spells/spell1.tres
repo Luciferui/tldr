@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://868d0k8j1mtb" path="res://Assets/spells/icone_sort_bdf.png" id="1_q40ah"]
 [ext_resource type="Script" uid="uid://cfdnl1032oipy" path="res://Scripts/Spells/spell_data.gd" id="1_ubfca"]
+[ext_resource type="AudioStream" uid="uid://14wtsdb5njfv" path="res://Assets/Sound/fireball.wav" id="3_2e4x4"]
 
 [resource]
 script = ExtResource("1_ubfca")
@@ -9,4 +10,5 @@ id = 1
 display_name = "Boule de feu"
 description = "lance une boule de feu de manière horizontale dans la direction vers laquelle le joueur fait face "
 icon = ExtResource("1_q40ah")
+spell_sound = ExtResource("3_2e4x4")
 metadata/_custom_type_script = "uid://cfdnl1032oipy"

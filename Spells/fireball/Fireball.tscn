@@ -57,3 +57,5 @@ script = ExtResource("2_qkunt")
 
 [node name="FireballShape" type="CollisionShape2D" parent="Hitbox" unique_id=1453742068]
 shape = SubResource("CircleShape2D_2v8g7")
+
+[node name="SpellAudio" type="AudioStreamPlayer" parent="." unique_id=2006509757]

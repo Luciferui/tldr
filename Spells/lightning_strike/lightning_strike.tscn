@@ -40,3 +40,5 @@ dissociated_from_player = true
 [node name="LightningStrike" type="CollisionShape2D" parent="Hitbox" unique_id=1749614899]
 position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2v8g7")
+
+[node name="SpellAudio" type="AudioStreamPlayer" parent="." unique_id=1972020588]

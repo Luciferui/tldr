@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cfdnl1032oipy" path="res://Scripts/Spells/spell_data.gd" id="1_42u34"]
 [ext_resource type="Texture2D" uid="uid://dbi8gyyat1q2w" path="res://Assets/spells/icone_sort_bde.png" id="1_sfvll"]
+[ext_resource type="AudioStream" uid="uid://bvyusgspuynpy" path="res://Assets/Sound/lightening.wav" id="3_478xa"]
 
 [resource]
 script = ExtResource("1_42u34")
@@ -9,5 +10,6 @@ id = 3
 display_name = "Eclair"
 description = "lance un éclair sur l'adversaire"
 icon = ExtResource("1_sfvll")
+spell_sound = ExtResource("3_478xa")
 required_combo = 7
 metadata/_custom_type_script = "uid://cfdnl1032oipy"

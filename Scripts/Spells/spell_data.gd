@@ -5,6 +5,7 @@ extends Resource
 @export var display_name: String = ""
 @export_multiline var description: String = ""
 @export var icon: Texture2D
+@export var spell_sound: AudioStream 
 
 @export_range(0, 100) var required_combo: int = 4
 @export var damage: float = 10.0

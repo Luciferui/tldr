@@ -7,6 +7,7 @@ extends Node2D
 @export var lifetime_frames: int = 180
 
 var attack: AttackData = preload("res://Spells/iceball/iceball.tres")
+var spell = preload("res://Spells/spell2.tres")
 var caster: Player
 var sprite_faces_left: bool
 var frame_counter: int = 0
@@ -16,11 +17,14 @@ var direction: int = 1
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var hitbox: Hitbox = $Hitbox
+@onready var spell_audio: AudioStreamPlayer = $SpellAudio
 
 func _ready() -> void:
 	$Hitbox/IceballShape.set_deferred("disabled", true)
 	sprite.play("warning")
 	hitbox.area_entered.connect(_on_hitbox_area_entered)
+	spell_audio.stream = spell.spell_sound
+	spell_audio.play()
 
 
 # À appeler APRÈS add_child() : le Hitbox doit déjà être dans l'arbre, sous le joueur.

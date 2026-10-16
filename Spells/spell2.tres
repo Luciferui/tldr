@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cfdnl1032oipy" path="res://Scripts/Spells/spell_data.gd" id="1_lvxbg"]
 [ext_resource type="Texture2D" uid="uid://xdnjlkolbj4q" path="res://Assets/spells/icone_sort_bdg.png" id="1_xakk4"]
+[ext_resource type="AudioStream" uid="uid://b557co7jc3wta" path="res://Assets/Sound/smash_ice.wav" id="3_mvcne"]
 
 [resource]
 script = ExtResource("1_lvxbg")
@@ -9,5 +10,6 @@ id = 2
 display_name = "Boule de glace"
 description = "lance une boule de glace de manière horizontale dans la direction vers laquelle le joueur fait face et immbolise l’ennemi pendant 2 secondes après l’impact"
 icon = ExtResource("1_xakk4")
+spell_sound = ExtResource("3_mvcne")
 required_combo = 6
 metadata/_custom_type_script = "uid://cfdnl1032oipy"
