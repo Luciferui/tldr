@@ -6,3 +6,15 @@
 script = ExtResource("1_l6i0s")
 
 [node name="Particles" type="CPUParticles2D" parent="." unique_id=200494525]
+position = Vector2(0, -1)
+amount = 20
+lifetime = 2.0
+preprocess = 1.44
+explosiveness = 1.0
+fixed_fps = 60
+fract_delta = false
+gravity = Vector2(0, 100)
+angular_velocity_min = -46.45
+angular_velocity_max = 74.32
+orbit_velocity_min = -5.0
+orbit_velocity_max = 5.0

@@ -25,7 +25,7 @@ func enter() -> void:
 
 func process_physics(delta: float) -> State:
 	super.process_physics(delta)
-	player.velocity = (((2*float(total_frame_count-frame_count)/total_frame_count)+0.5)**2)*dir*dodge_force
+	player.velocity = (((1.5*float(total_frame_count-frame_count)/total_frame_count)+0.5)**2)*dir*dodge_force
 	if frame_count >= total_frame_count:
 		frame_count = 0
 		if player.is_on_floor():

@@ -15,3 +15,6 @@ extends Resource
 @export var relative_knockback_factor: float = 0
 ##facteur de knockback sur l'axe entre les hitbox
 @export var hit_sound: AudioStream
+
+@export var is_moving: bool = false
+@export var move_amplitude : float = 0

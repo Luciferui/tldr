@@ -39,7 +39,10 @@ func enter() -> void:
 	attack_finished = false
 	player.sprite.play(currentAttack.animation_name)
 	player.sprite.flip_h = sprite_flip
-	player.velocity.x = 0
+	if currentAttack.is_moving:
+		player.velocity.x = (-1 if sprite_flip else 1)*currentAttack.move_amplitude
+	else:
+		player.velocity.x = 0
 	
 	if hitbox:
 		if sprite_flip:
@@ -68,7 +71,9 @@ func selectAttack() -> void :
 
 func process_physics(delta: float) -> State:
 	super.process_physics(delta)
-	if not player.is_on_floor():
+	if currentAttack.is_moving:
+		player.velocity.x = 0.97*player.velocity.x
+	elif not player.is_on_floor():
 		var dir = get_movement_direction()
 		player.velocity.x = air_attack_move_speed * dir
 	else:

@@ -43,7 +43,6 @@ func ddr_input_changed() -> void:
 	if Time.get_ticks_msec() >= deadline_ms:
 		_fail()
 		return
-	print(ddr.total_input, "   ", required_inputs)
 	if ddr.total_input >= required_inputs:
 		rescue_active = false
 		player.ddhealth = floori(player.ddhealth / 2.0)

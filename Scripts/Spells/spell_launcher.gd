@@ -94,6 +94,6 @@ func _cast_meteorites() -> void:
 	add_child(meteorites)  # d'abord dans l'arbre, ensuite setup()
 	meteorites.setup(player.opponent.global_position.x, player)
 
-func process_physics(delta: float) -> void:
+func process_physics(_delta: float) -> void:
 	for child in self.get_children():
 		child.process_physics()

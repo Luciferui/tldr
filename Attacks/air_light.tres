@@ -9,6 +9,7 @@ attack_name = &"air_light"
 hitbox_name = &"air_light"
 animation_name = &"air_light"
 total_frame_count = 30
+damage = 2
 attack_timing = Array[int]([12, 24])
 orientation_knockback = Vector2(5, 100)
 relative_knockback_factor = -5.0

@@ -12,5 +12,5 @@ func _back_to_menus() -> void:
 	if Input.is_action_just_pressed("p1_heavy"):
 		get_tree().change_scene_to_file("res://Scenes/spell_select_menu.tscn")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_back_to_menus()

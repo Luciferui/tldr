@@ -13,4 +13,7 @@ damage = 2
 hitstun = 1
 attack_timing = Array[int]([12, 13])
 hit_sound = ExtResource("1_7gnxf")
+damage = 3
+hitstun = 5
+attack_timing = Array[int]([12, 18])
 metadata/_custom_type_script = "uid://drx73h07qa6ou"

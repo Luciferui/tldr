@@ -141,7 +141,6 @@ func validateCombo() -> void:
 	
 	for i in range(3):
 		display_hold_spell(i, i==player_spell_id)
-		print(i, "  ", i == player_spell_id)
 		
 			
 func display_hold_spell(player_spell_id : int, state: bool) -> void:

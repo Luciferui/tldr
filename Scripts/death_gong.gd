@@ -11,7 +11,7 @@ func _ready() -> void:
 	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_p1_activated:
 		if Input.is_action_just_pressed("p1_light"):
 			Player2.get_node("RescueController").begin_rescue()
@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("p2_light"):
 			Player1.get_node("RescueController").begin_rescue()
 			is_p2_activated = false
-			reset_gong
+			reset_gong()
 
 func _on_body_entered(area: Node2D) -> void:
 	if area == Player1:
