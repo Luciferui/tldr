@@ -18,3 +18,5 @@ angular_velocity_min = -46.45
 angular_velocity_max = 74.32
 orbit_velocity_min = -5.0
 orbit_velocity_max = 5.0
+
+[node name="SpellAudio" type="AudioStreamPlayer" parent="." unique_id=2138196759]
