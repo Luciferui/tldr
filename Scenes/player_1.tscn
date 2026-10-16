@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://4s000tfvfba4"]
 
 [ext_resource type="Script" uid="uid://yjyk6jav6o1k" path="res://Scripts/Player/player.gd" id="1_3kxg5"]
+[ext_resource type="Texture2D" uid="uid://byrmh1uhp4l78" path="res://Assets/Sprites/Kratos-player/air_down.png" id="2_bkimo"]
 [ext_resource type="Texture2D" uid="uid://ccusjramuggih" path="res://Assets/Sprites/Kratos-player/dodge.png" id="2_ccce5"]
 [ext_resource type="Texture2D" uid="uid://q85ievvteft5" path="res://Assets/Sprites/Kratos-player/Jump.png" id="2_qrwht"]
 [ext_resource type="Texture2D" uid="uid://dvyhs7sjduwtl" path="res://Assets/Sprites/Kratos-player/idle.png" id="3_dbliy"]
+[ext_resource type="Texture2D" uid="uid://dtwhwylh5pk1" path="res://Assets/Sprites/Kratos-player/air_up.png" id="3_yt1lk"]
 [ext_resource type="Texture2D" uid="uid://feyfebxj1o3c" path="res://Assets/Sprites/Kratos-player/kick.png" id="4_ccce5"]
 [ext_resource type="Texture2D" uid="uid://cehrjgir6u68d" path="res://Assets/Sprites/Kratos-player/pain.png" id="5_ex6al"]
 [ext_resource type="Texture2D" uid="uid://bhuoqoby2xnk4" path="res://Assets/Sprites/Kratos-player/punch.png" id="6_durvq"]
@@ -29,6 +31,26 @@
 [ext_resource type="Script" uid="uid://d0ub2tmk2jb87" path="res://Scripts/Player/PlayerStates/player_dodge_state.gd" id="38_ewrxp"]
 [ext_resource type="Script" uid="uid://dgdeyrlm0eoen" path="res://Scripts/DDR/random_ddr.gd" id="38_h8d83"]
 [ext_resource type="Script" uid="uid://dp52ex5alaklm" path="res://Scripts/DDR/Display_inputs.gd" id="40_ewrxp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efan6"]
+atlas = ExtResource("2_bkimo")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnh5b"]
+atlas = ExtResource("2_bkimo")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bljq"]
+atlas = ExtResource("3_yt1lk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta45h"]
+atlas = ExtResource("3_yt1lk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upi3c"]
+atlas = ExtResource("3_yt1lk")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2xfhf"]
 atlas = ExtResource("5_ex6al")
@@ -132,6 +154,31 @@ region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ssidi"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efan6")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_tnh5b")
+}],
+"loop": 1,
+"name": &"air_heavy",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_7bljq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta45h")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_upi3c")
+}],
+"loop": 1,
+"name": &"air_light",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2xfhf")
@@ -523,7 +570,7 @@ script = ExtResource("1_3kxg5")
 position = Vector2(0, 3)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ssidi")
-animation = &"death"
+animation = &"air_light"
 
 [node name="GroundCollisionShape" type="CollisionShape2D" parent="." unique_id=1216312141]
 position = Vector2(1, 3)
