@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bixragi2af5gd" path="res://Scripts/training_level.gd" id="1_k11pi"]
 [ext_resource type="Texture2D" uid="uid://5g0k8gvdf3n0" path="res://Assets/Level assets/Background.png" id="2_8pk4s"]
+[ext_resource type="Theme" uid="uid://c8dq55fba1oen" path="res://Assets/menu_theme.tres" id="3_8pk4s"]
 [ext_resource type="Texture2D" uid="uid://d1ebkqnditaer" path="res://Assets/Level assets/Plateform0.5.png" id="3_omxj5"]
 [ext_resource type="Texture2D" uid="uid://c8ktl3ql2rywt" path="res://Assets/Level assets/Plateform1.png" id="4_f1ws0"]
 [ext_resource type="Texture2D" uid="uid://c218s8r0w6yjg" path="res://Assets/Level assets/Plateform1.1.png" id="5_i68la"]
@@ -61,8 +62,8 @@ texture = ExtResource("2_8pk4s")
 zoom = Vector2(3, 3)
 
 [node name="Plateform0_5" type="StaticBody2D" parent="." unique_id=1605015684]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="Plateform0_5" unique_id=2052033808]
 position = Vector2(-3.44, 29)
@@ -75,8 +76,8 @@ shape = SubResource("RectangleShape2D_ktfqu")
 one_way_collision = true
 
 [node name="Plateform1" type="StaticBody2D" parent="." unique_id=572226935]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="Plateform1" unique_id=1337023203]
 scale = Vector2(2.5, 2.5)
@@ -89,8 +90,8 @@ shape = SubResource("RectangleShape2D_4c15r")
 one_way_collision = true
 
 [node name="Plateform1_1" type="StaticBody2D" parent="." unique_id=168143236]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="Plateform1_1" unique_id=1992183159]
 scale = Vector2(2.5, 2.5)
@@ -103,8 +104,8 @@ shape = SubResource("RectangleShape2D_ait7k")
 one_way_collision = true
 
 [node name="Plateform1_2" type="StaticBody2D" parent="." unique_id=377349298]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="Plateform1_2" unique_id=1968559704]
 scale = Vector2(2.5, 2.5)
@@ -117,8 +118,8 @@ shape = SubResource("RectangleShape2D_42xju")
 one_way_collision = true
 
 [node name="Plateform2" type="StaticBody2D" parent="." unique_id=855975115]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="Plateform2" unique_id=1672218257]
 scale = Vector2(2.5, 2.5)
@@ -131,8 +132,8 @@ shape = SubResource("RectangleShape2D_v7sqt")
 one_way_collision = true
 
 [node name="Plateform3" type="StaticBody2D" parent="." unique_id=1914034728]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="Plateform3" unique_id=2048616470]
 scale = Vector2(2.5, 2.5)
@@ -151,8 +152,8 @@ shape = SubResource("RectangleShape2D_y3bce")
 one_way_collision = true
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=57516992]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=153569379]
 scale = Vector2(2.5, 2.5)
@@ -175,23 +176,51 @@ position = Vector2(313.5, 94)
 shape = SubResource("RectangleShape2D_1ainy")
 
 [node name="LeftWall" type="StaticBody2D" parent="." unique_id=991804508]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=290896773]
 position = Vector2(-360, 0)
 shape = SubResource("RectangleShape2D_2v8g7")
 
 [node name="RightWall" type="StaticBody2D" parent="." unique_id=912091570]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=507741712]
 position = Vector2(360, -2)
 shape = SubResource("RectangleShape2D_2v8g7")
 
+[node name="MainMenuButton" type="Button" parent="." unique_id=631509944]
+offset_left = -319.0
+offset_top = -180.0
+offset_right = -115.5977
+offset_bottom = -148.0
+theme = ExtResource("3_8pk4s")
+theme_override_font_sizes/font_size = 20
+text = "Return to Menu"
+
 [node name="Player" parent="." unique_id=2123069804 node_paths=PackedStringArray("opponent") instance=ExtResource("10_1fpgv")]
 position = Vector2(-50, 95)
 opponent = NodePath("../Sandbag")
 
+[node name="Player2" parent="." unique_id=447175879 node_paths=PackedStringArray("opponent") instance=ExtResource("10_1fpgv")]
+position = Vector2(50, 95)
+collision_layer = 2
+collision_mask = 2
+player_id = 1
+left_action = &"p2_left"
+right_action = &"p2_right"
+jump_action = &"p2_jump"
+down_action = &"p2_down"
+heavy_attack_action = &"p2_heavy"
+light_attack_action = &"p2_light"
+spell_action = &"p2_spell"
+dodge_action = &"p2_dodge"
+opponent = NodePath("../Sandbag")
+
 [node name="Sandbag" parent="." unique_id=731463083 instance=ExtResource("11_k11pi")]
+collision_layer = 4
+collision_mask = 4
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
