@@ -1,10 +1,1 @@
-\.godot\editor\
-/.godot/editor/
-.godot/editor/editor_layout.cfg
-.godot/editor
-.godot/
-.godot/editor/editor_layout.cfg
-.godot/editor/editor_layout.cfg
-.godot/editor/filesystem_cache10
-.godot/editor/project_metadata.cfg
-.godot/editor/script_editor_cache.cfg
+/".godot"/
