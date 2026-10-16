@@ -116,5 +116,14 @@ func apply_blue_filter(s: AnimatedSprite2D) -> void:
 	# 3. Appliquer le matériau au sprite du joueur 2 uniquement
 	s.material = mat
 
+func apply_dark_filter() -> void:
+	var mat = ShaderMaterial.new()
+	
+	mat.set_shader_parameter("target_color", Color(1.0, 1.0, 1.0, 1.0)) # Rouge à remplacer
+	mat.set_shader_parameter("replace_color", Color(0.0, 0.0, 0.0, 1.0)) # Nouveau bleu
+	mat.set_shader_parameter("tolerance", 0.5) # Ajuster si le sprite a du shading/dégradé
+	
+	sprite.material = mat
+
 
 	
