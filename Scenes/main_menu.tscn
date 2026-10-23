@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ccmalcse4to0q"]
 
 [ext_resource type="Script" uid="uid://diawerx1qmn7q" path="res://Scripts/main_menu.gd" id="1_06t4h"]
-[ext_resource type="Script" uid="uid://c505cd136phyy" path="res://Scripts/DDR/fixed_ddr.gd" id="2_7vrkn"]
+[ext_resource type="Script" uid="uid://c505cd136phyy" path="res://Scripts/DDR/menu_ddr.gd" id="2_7vrkn"]
 [ext_resource type="Texture2D" uid="uid://cau38gwi818vq" path="res://Assets/Level assets/Total map.png" id="2_fu7sn"]
 [ext_resource type="Theme" uid="uid://c8dq55fba1oen" path="res://Assets/menu_theme.tres" id="3_jix8l"]
 [ext_resource type="Texture2D" uid="uid://bnnrky7d0rogx" path="res://Assets/ddr_textures/new_textures/left.png" id="6_yhxw7"]

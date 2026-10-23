@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ddgbia12dkl0o" path="res://Scripts/music_menu.gd" id="2_skhlu"]
 [ext_resource type="Texture2D" uid="uid://clixcyoas0nj4" path="res://Assets/ddr_textures/new_textures/light.png" id="9_n5urk"]
 [ext_resource type="Texture2D" uid="uid://cau38gwi818vq" path="res://Assets/Level assets/Total map.png" id="11_as5n4"]
-[ext_resource type="Script" uid="uid://c505cd136phyy" path="res://Scripts/DDR/fixed_ddr.gd" id="12_r4fyu"]
+[ext_resource type="Script" uid="uid://c505cd136phyy" path="res://Scripts/DDR/menu_ddr.gd" id="12_r4fyu"]
 [ext_resource type="Texture2D" uid="uid://bnnrky7d0rogx" path="res://Assets/ddr_textures/new_textures/left.png" id="13_1asmh"]
 [ext_resource type="Texture2D" uid="uid://o6jkqc2ynoub" path="res://Assets/ddr_textures/new_textures/right.png" id="14_yash2"]
 [ext_resource type="Texture2D" uid="uid://b28urc1o4i5rm" path="res://Assets/ddr_textures/new_textures/down.png" id="15_kpaje"]

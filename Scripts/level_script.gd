@@ -20,7 +20,7 @@ func _ready() -> void:
 		
 
 func update_bass_boost():
-	var value: float = float((player1.ddhealth+player2.ddhealth))/2 /70
+	var value: float = float((player1.ddhealth+player2.ddhealth))/2 /40
 	Jukebox.set_bass_boost(value)
 
 func _on_rescue_failed(loser: Player) -> void:

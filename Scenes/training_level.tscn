@@ -11,7 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://bvrok30y4k74t" path="res://Assets/Level assets/Plateform3.png" id="8_ces26"]
 [ext_resource type="Texture2D" uid="uid://dpln6tt7v8y0l" path="res://Assets/Level assets/Plateform0.png" id="9_csj5y"]
 [ext_resource type="PackedScene" uid="uid://4s000tfvfba4" path="res://Scenes/player_1.tscn" id="10_1fpgv"]
+[ext_resource type="Script" uid="uid://c505cd136phyy" path="res://Scripts/DDR/menu_ddr.gd" id="11_8pk4s"]
 [ext_resource type="PackedScene" uid="uid://cpptcq1q1kph8" path="res://Scenes/sandbag.tscn" id="11_k11pi"]
+[ext_resource type="Texture2D" uid="uid://bnnrky7d0rogx" path="res://Assets/ddr_textures/new_textures/left.png" id="12_i68la"]
+[ext_resource type="Texture2D" uid="uid://o6jkqc2ynoub" path="res://Assets/ddr_textures/new_textures/right.png" id="13_k08qk"]
+[ext_resource type="Texture2D" uid="uid://b28urc1o4i5rm" path="res://Assets/ddr_textures/new_textures/down.png" id="14_o71hg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfqu"]
 size = Vector2(118, 9.25)
@@ -200,6 +204,20 @@ offset_bottom = -148.0
 theme = ExtResource("3_8pk4s")
 theme_override_font_sizes/font_size = 20
 text = "Return to Menu"
+script = ExtResource("11_8pk4s")
+fixedInputList = Array[String](["p1_left", "p1_right", "p1_down"])
+
+[node name="Left" type="Sprite2D" parent="MainMenuButton" unique_id=941317798]
+position = Vector2(85, 32)
+texture = ExtResource("12_i68la")
+
+[node name="Right" type="Sprite2D" parent="MainMenuButton" unique_id=643499382]
+position = Vector2(100, 32)
+texture = ExtResource("13_k08qk")
+
+[node name="Down" type="Sprite2D" parent="MainMenuButton" unique_id=2101233418]
+position = Vector2(115, 32)
+texture = ExtResource("14_o71hg")
 
 [node name="Player" parent="." unique_id=2123069804 node_paths=PackedStringArray("opponent") instance=ExtResource("10_1fpgv")]
 position = Vector2(-50, 95)
