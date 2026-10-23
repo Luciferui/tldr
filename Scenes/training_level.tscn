@@ -242,6 +242,9 @@ texture = ExtResource("12_i68la")
 position = Vector2(115, 32)
 texture = ExtResource("12_i68la")
 
+[node name="Sandbag" parent="." unique_id=731463083 instance=ExtResource("11_k11pi")]
+collision_layer = 8
+
 [node name="Player" parent="." unique_id=2123069804 node_paths=PackedStringArray("opponent") instance=ExtResource("10_1fpgv")]
 position = Vector2(-50, 95)
 collision_layer = 2
@@ -260,9 +263,6 @@ light_attack_action = &"p2_light"
 spell_action = &"p2_spell"
 dodge_action = &"p2_dodge"
 opponent = NodePath("../Sandbag")
-
-[node name="Sandbag" parent="." unique_id=731463083 instance=ExtResource("11_k11pi")]
-collision_layer = 8
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="ControlsButton" to="." method="_on_controls_button_pressed"]

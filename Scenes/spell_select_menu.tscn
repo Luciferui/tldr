@@ -221,7 +221,7 @@ offset_top = 156.0
 offset_right = 964.0
 offset_bottom = 240.0
 theme = ExtResource("3_l6vtl")
-text = " Select - Player 1"
+text = " Select - G | Player 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -232,7 +232,7 @@ offset_top = 157.0
 offset_right = 1678.0
 offset_bottom = 241.0
 theme = ExtResource("3_l6vtl")
-text = "Player 2 -       : Select"
+text = "Player 2 | 1 : Select"
 horizontal_alignment = 1
 vertical_alignment = 1
 

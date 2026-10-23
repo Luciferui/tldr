@@ -2,7 +2,7 @@ extends Node
 @export var Player1: Player
 @export var Player2: Player
 @export var reload_speed: float = 1.
-@onready var announcements: RichTextLabel = $Announcements/RichTextLabel
+@onready var announcements: RichTextLabel = $"../Announcements/RichTextLabel"
 var announcement_tween: Tween
 var current_announcement: String = ""
 var is_p1_activated = false
