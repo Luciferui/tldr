@@ -10,11 +10,11 @@
 [ext_resource type="Resource" uid="uid://5ivw1g3c6ocf" path="res://Spells/spell3.tres" id="6_pq234"]
 [ext_resource type="Resource" uid="uid://bwuskw4a2mb8t" path="res://Spells/spell4.tres" id="7_4qyee"]
 [ext_resource type="Resource" uid="uid://cina0k4gdl6io" path="res://Spells/spell5.tres" id="8_e41wk"]
+[ext_resource type="Texture2D" uid="uid://os57ueemv7iu" path="res://Assets/ddr_textures/new_textures/DDRBar.png" id="11_jqvyv"]
 [ext_resource type="Texture2D" uid="uid://dljjhergm2e4s" path="res://Assets/description_background.png" id="11_w60tb"]
 [ext_resource type="Script" uid="uid://c505cd136phyy" path="res://Scripts/DDR/menu_ddr.gd" id="12_4qyee"]
-[ext_resource type="Texture2D" uid="uid://bnnrky7d0rogx" path="res://Assets/ddr_textures/new_textures/left.png" id="15_c5n12"]
-[ext_resource type="Texture2D" uid="uid://o6jkqc2ynoub" path="res://Assets/ddr_textures/new_textures/right.png" id="16_jqvyv"]
-[ext_resource type="Texture2D" uid="uid://b28urc1o4i5rm" path="res://Assets/ddr_textures/new_textures/down.png" id="17_ufyrv"]
+[ext_resource type="Script" uid="uid://dp52ex5alaklm" path="res://Scripts/DDR/Display_inputs.gd" id="12_ufyrv"]
+[ext_resource type="FontFile" uid="uid://chyl1b4eiejtw" path="res://Assets/Fonts/Ithaca-LVB75.ttf" id="13_hpkcu"]
 [ext_resource type="Texture2D" uid="uid://kq52vd2hneax" path="res://Assets/menu_assets/gramophonepng.png" id="18_jqvyv"]
 
 [node name="SpellSelectMenu" type="Control" unique_id=648442748]
@@ -49,22 +49,47 @@ theme = ExtResource("3_l6vtl")
 theme_override_font_sizes/font_size = 67
 text = "Return to Menu"
 script = ExtResource("12_4qyee")
-fixedInputList = Array[String](["p1_left", "p1_right", "p1_down"])
 
-[node name="Left" type="Sprite2D" parent="MainMenuButton" unique_id=1522513591]
-position = Vector2(278, 128)
+[node name="Border" type="Sprite2D" parent="MainMenuButton" unique_id=1777817430]
+position = Vector2(332, 134)
 scale = Vector2(4, 4)
-texture = ExtResource("15_c5n12")
+texture = ExtResource("11_jqvyv")
 
-[node name="Right" type="Sprite2D" parent="MainMenuButton" unique_id=1817788316]
-position = Vector2(337, 128)
-scale = Vector2(4, 4)
-texture = ExtResource("16_jqvyv")
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenuButton" unique_id=160722004]
+custom_minimum_size = Vector2(308, 48)
+custom_maximum_size = Vector2(308, 48)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 178.0
+offset_top = 109.0
+offset_right = -199.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("12_ufyrv")
+icon_size = 52
 
-[node name="Down" type="Sprite2D" parent="MainMenuButton" unique_id=1081957023]
-position = Vector2(396, 128)
-scale = Vector2(4, 4)
-texture = ExtResource("17_ufyrv")
+[node name="Counter" type="Label" parent="MainMenuButton" unique_id=936236478]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 166.5
+offset_top = 26.0
+offset_right = 379.5
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_hpkcu")
+theme_override_font_sizes/font_size = 100
+text = "0"
 
 [node name="Cadre J1" type="TextureRect" parent="." unique_id=612475297]
 layout_mode = 0
@@ -330,31 +355,52 @@ offset_top = 931.3257
 offset_right = 1796.0
 offset_bottom = 939.3257
 script = ExtResource("12_4qyee")
-fixedInputList = Array[String](["p1_left", "p1_right", "p1_left", "p1_right"])
 
 [node name="Gramophonepng" type="Sprite2D" parent="Button" unique_id=320532394]
 scale = Vector2(2.3255801, 2.3255806)
 texture = ExtResource("18_jqvyv")
 
-[node name="Left" type="Sprite2D" parent="Button/Gramophonepng" unique_id=1736040222]
-position = Vector2(-33.14002, 44.549976)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("15_c5n12")
+[node name="Border" type="Sprite2D" parent="Button" unique_id=1808209089]
+position = Vector2(1.0000229, 101.67432)
+scale = Vector2(2.611111, 2.6111112)
+texture = ExtResource("11_jqvyv")
 
-[node name="Right" type="Sprite2D" parent="Button/Gramophonepng" unique_id=1814749702]
-position = Vector2(-11.210018, 44.549976)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("16_jqvyv")
+[node name="HBoxContainer" type="HBoxContainer" parent="Button" unique_id=2079042348]
+custom_minimum_size = Vector2(200, 31)
+custom_maximum_size = Vector2(200, 31)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -99.0
+offset_top = 85.674286
+offset_right = 93.0
+offset_bottom = 108.674286
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("12_ufyrv")
+icon_size = 34
 
-[node name="Right2" type="Sprite2D" parent="Button/Gramophonepng" unique_id=798798816]
-position = Vector2(32.61998, 44.549976)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("16_jqvyv")
-
-[node name="Left2" type="Sprite2D" parent="Button/Gramophonepng" unique_id=1700676981]
-position = Vector2(10.689981, 44.549976)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("15_c5n12")
+[node name="Counter" type="Label" parent="Button" unique_id=1460765435]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -330.0
+offset_top = 65.67432
+offset_right = -117.0
+offset_bottom = 130.67432
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_hpkcu")
+theme_override_font_sizes/font_size = 70
+text = "0"
+horizontal_alignment = 2
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

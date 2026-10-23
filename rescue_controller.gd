@@ -76,7 +76,7 @@ func ddr_input_changed() -> void:
 		ddr.playerInputs = []
 		ddr.total_input = 0
 		ddr.refresh_display()
-		player.get_node("DDHealthDisplayer").update_ddhealt(player.ddhealth)
+		player.get_node("DDHealthDisplayer").update_ddhealth(player.ddhealth)
 		
 		flip_ddr_spell_visible()
 		if player.player_id%2 == 0:

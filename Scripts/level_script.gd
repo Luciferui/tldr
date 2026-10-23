@@ -28,7 +28,7 @@ func _on_rescue_failed(loser: Player) -> void:
 		return
 
 	match_finished = true
-	winner_number = 2 if loser == player1 else 1
+	DataManager.player_won = 2 if loser == player1 else 1
 
 	for player in [player1, player2]:
 		player.match_over = true

@@ -130,11 +130,12 @@ func refresh_display() -> void:
 func validateCombo() -> void:
 	# Parcours les spells et met le plus grand dans set_hold
 	var player_spell_id = -1
-	for i in range(len(DataManager.spellChoice[RelatedPlayer.player_id])):
-		var spell = DataManager.spellChoice[RelatedPlayer.player_id][i]
-		if total_input >= spell.required_combo:
-			RelatedPlayer.set_hold(spell.id) # écrase si plus petit déjà envoyé
-			player_spell_id = i
+	if RelatedPlayer.holdSpell == -1:
+		for i in range(len(DataManager.spellChoice[RelatedPlayer.player_id])):
+			var spell = DataManager.spellChoice[RelatedPlayer.player_id][i]
+			if total_input >= spell.required_combo:
+				RelatedPlayer.set_hold(spell.id) # écrase si plus petit déjà envoyé
+				player_spell_id = i
 	playerInputs = []
 	total_input = 0
 	refresh_display()

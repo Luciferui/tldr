@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://c505cd136phyy" path="res://Scripts/DDR/menu_ddr.gd" id="2_7vrkn"]
 [ext_resource type="Texture2D" uid="uid://cau38gwi818vq" path="res://Assets/Level assets/Total map.png" id="2_fu7sn"]
 [ext_resource type="Theme" uid="uid://c8dq55fba1oen" path="res://Assets/menu_theme.tres" id="3_jix8l"]
-[ext_resource type="Texture2D" uid="uid://bnnrky7d0rogx" path="res://Assets/ddr_textures/new_textures/left.png" id="6_yhxw7"]
-[ext_resource type="Texture2D" uid="uid://o6jkqc2ynoub" path="res://Assets/ddr_textures/new_textures/right.png" id="7_trj04"]
-[ext_resource type="Texture2D" uid="uid://cjy8gd5a0xvcs" path="res://Assets/ddr_textures/new_textures/up.png" id="8_16hvj"]
+[ext_resource type="Texture2D" uid="uid://os57ueemv7iu" path="res://Assets/ddr_textures/new_textures/DDRBar.png" id="5_trj04"]
+[ext_resource type="Script" uid="uid://dp52ex5alaklm" path="res://Scripts/DDR/Display_inputs.gd" id="6_16hvj"]
+[ext_resource type="FontFile" uid="uid://chyl1b4eiejtw" path="res://Assets/Fonts/Ithaca-LVB75.ttf" id="7_vr1f0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
 bg_color = Color(0, 0.13725491, 0.40784314, 1)
@@ -47,22 +47,47 @@ theme_override_font_sizes/font_size = 90
 theme_override_styles/hover = SubResource("StyleBoxFlat_jix8l")
 text = "Start"
 script = ExtResource("2_7vrkn")
-fixedInputList = Array[String](["p1_left", "p1_right", "p1_jump"])
 
-[node name="Left" type="Sprite2D" parent="." unique_id=1430110372]
-position = Vector2(908, 677)
+[node name="Border" type="Sprite2D" parent="StartButton" unique_id=383113426]
+position = Vector2(250, 175)
 scale = Vector2(4, 4)
-texture = ExtResource("6_yhxw7")
+texture = ExtResource("5_trj04")
 
-[node name="Right" type="Sprite2D" parent="." unique_id=2009155854]
-position = Vector2(967, 677)
-scale = Vector2(4, 4)
-texture = ExtResource("7_trj04")
+[node name="HBoxContainer" type="HBoxContainer" parent="StartButton" unique_id=715886150]
+custom_minimum_size = Vector2(308, 48)
+custom_maximum_size = Vector2(308, 48)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 96.5
+offset_top = 150.99997
+offset_right = -96.5
+offset_bottom = 30.99997
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("6_16hvj")
+icon_size = 52
 
-[node name="Up" type="Sprite2D" parent="." unique_id=1088521018]
-position = Vector2(1025, 677)
-scale = Vector2(4, 4)
-texture = ExtResource("8_16hvj")
+[node name="Counter" type="Label" parent="StartButton" unique_id=510573073]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 175.5
+offset_top = 46.0
+offset_right = 388.5
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_vr1f0")
+theme_override_font_sizes/font_size = 100
+text = "0"
 
 [node name="TutorialButton" type="Button" parent="." unique_id=388483869]
 layout_mode = 0

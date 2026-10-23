@@ -88,17 +88,10 @@ func hide_announcement() -> void:
 	announcement_tween = create_tween()
 	announcement_tween.set_parallel(true)
 
-	announcement_tween.tween_property(
-		announcements, "modulate:a", 0.0, 0.2
-	)
+	announcement_tween.tween_property(announcements, "modulate:a", 0.0, 0.2)
+	announcement_tween.tween_property(announcements, "scale", Vector2(0.9, 0.9), 0.2)
 
-	announcement_tween.tween_property(
-		announcements, "scale", Vector2(0.9, 0.9), 0.2
-	)
-
-	announcement_tween.chain().tween_callback(
-		func(): announcements.visible = false
-	)
+	announcement_tween.chain().tween_callback(func(): announcements.visible = false)
 
 func _on_body_entered(area: Node2D) -> void:
 	if area == Player1:

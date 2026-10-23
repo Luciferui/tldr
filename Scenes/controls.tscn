@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cau38gwi818vq" path="res://Assets/Level assets/Total map.png" id="1_8qavf"]
 [ext_resource type="Script" uid="uid://cska5fxgoa1ky" path="res://Scenes/controls.gd" id="1_21kh3"]
 [ext_resource type="Theme" uid="uid://c8dq55fba1oen" path="res://Assets/menu_theme.tres" id="2_e8c2f"]
-[ext_resource type="Script" uid="uid://c505cd136phyy" path="res://Scripts/DDR/menu_ddr.gd" id="4_f0kct"]
 [ext_resource type="Texture2D" uid="uid://bnnrky7d0rogx" path="res://Assets/ddr_textures/new_textures/left.png" id="5_pwth0"]
 [ext_resource type="Texture2D" uid="uid://cjy8gd5a0xvcs" path="res://Assets/ddr_textures/new_textures/up.png" id="5_y32fe"]
 [ext_resource type="Texture2D" uid="uid://o6jkqc2ynoub" path="res://Assets/ddr_textures/new_textures/right.png" id="6_y32fe"]
@@ -635,22 +634,5 @@ offset_bottom = 124.0
 theme = ExtResource("2_e8c2f")
 theme_override_font_sizes/font_size = 67
 text = "Return to Training"
-script = ExtResource("4_f0kct")
-fixedInputList = Array[String](["p1_left", "p1_right", "p1_down"])
-
-[node name="Left" type="Sprite2D" parent="TrainingButton" unique_id=1313400571]
-position = Vector2(278, 128)
-scale = Vector2(4, 4)
-texture = ExtResource("5_pwth0")
-
-[node name="Right" type="Sprite2D" parent="TrainingButton" unique_id=1654373802]
-position = Vector2(337, 128)
-scale = Vector2(4, 4)
-texture = ExtResource("6_y32fe")
-
-[node name="Down" type="Sprite2D" parent="TrainingButton" unique_id=1250427268]
-position = Vector2(396, 128)
-scale = Vector2(4, 4)
-texture = ExtResource("7_miyui")
 
 [connection signal="pressed" from="TrainingButton" to="." method="_on_training_button_pressed"]

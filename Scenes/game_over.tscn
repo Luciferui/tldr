@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6d6awdieeiyj" path="res://Scripts/game_over.gd" id="1_ojehl"]
 [ext_resource type="Texture2D" uid="uid://pkdgamwakmab" path="res://Assets/Sprites/GAME OVER.png" id="2_8fo1c"]
-[ext_resource type="Texture2D" uid="uid://cau38gwi818vq" path="res://Assets/Level assets/Total map.png" id="3_ek8ke"]
+[ext_resource type="FontFile" uid="uid://chyl1b4eiejtw" path="res://Assets/Fonts/Ithaca-LVB75.ttf" id="3_ek8ke"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ek8ke"]
 atlas = ExtResource("2_8fo1c")
@@ -46,3 +46,13 @@ scale = Vector2(7, 7)
 sprite_frames = SubResource("SpriteFrames_vkybu")
 animation = &"gameover"
 frame_progress = 0.33488795
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=803845005]
+offset_left = 254.0
+offset_top = 123.0
+offset_right = 1715.0
+offset_bottom = 357.0
+theme_override_fonts/normal_font = ExtResource("3_ek8ke")
+theme_override_font_sizes/normal_font_size = 200
+text = "Player 1 has won"
+horizontal_alignment = 1

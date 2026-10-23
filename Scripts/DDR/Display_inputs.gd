@@ -16,6 +16,7 @@ extends Control
 	"p2_light": preload("res://Assets/ddr_textures/new_textures/light.png"),
 	"p2_heavy": preload("res://Assets/ddr_textures/new_textures/heavy.png")
 }
+@export var icon_size := 256
 
 # 2. Fonction pour régénérer la file d'icônes
 func display_combo_queue(combo_list: Array[String]) -> void:
@@ -32,6 +33,6 @@ func display_combo_queue(combo_list: Array[String]) -> void:
 			# Configuration pour garder de belles proportions
 			#icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 			icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-			icon.custom_minimum_size = Vector2(256, 256) # Ajustez la taille voulue en pixels
+			icon.custom_minimum_size = Vector2(icon_size, icon_size) # Ajustez la taille voulue en pixels
 			
 			add_child(icon)

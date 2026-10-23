@@ -7,6 +7,12 @@ func _ready() -> void:
 	sprite.play(&"gameover")
 	await get_tree().create_timer(10.0).timeout
 	get_tree().change_scene_to_file("res://Scenes/spell_select_menu.tscn")
+	
+	if DataManager.player_won%2 == 0:
+		$RichTextLabel.text = "Player 1 has won"
+	else:
+		$RichTextLabel.text = "Player 2 has won"
+		
 
 func _back_to_menus() -> void:
 	await get_tree().create_timer(5.0).timeout

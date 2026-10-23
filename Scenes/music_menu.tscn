@@ -2,12 +2,11 @@
 
 [ext_resource type="Theme" uid="uid://c8dq55fba1oen" path="res://Assets/menu_theme.tres" id="1_j613u"]
 [ext_resource type="Script" uid="uid://ddgbia12dkl0o" path="res://Scripts/music_menu.gd" id="2_skhlu"]
-[ext_resource type="Texture2D" uid="uid://clixcyoas0nj4" path="res://Assets/ddr_textures/new_textures/light.png" id="9_n5urk"]
+[ext_resource type="Texture2D" uid="uid://os57ueemv7iu" path="res://Assets/ddr_textures/new_textures/DDRBar.png" id="9_sb6qr"]
+[ext_resource type="Script" uid="uid://dp52ex5alaklm" path="res://Scripts/DDR/Display_inputs.gd" id="10_nkc7x"]
 [ext_resource type="Texture2D" uid="uid://cau38gwi818vq" path="res://Assets/Level assets/Total map.png" id="11_as5n4"]
+[ext_resource type="FontFile" uid="uid://chyl1b4eiejtw" path="res://Assets/Fonts/Ithaca-LVB75.ttf" id="11_dxxlu"]
 [ext_resource type="Script" uid="uid://c505cd136phyy" path="res://Scripts/DDR/menu_ddr.gd" id="12_r4fyu"]
-[ext_resource type="Texture2D" uid="uid://bnnrky7d0rogx" path="res://Assets/ddr_textures/new_textures/left.png" id="13_1asmh"]
-[ext_resource type="Texture2D" uid="uid://o6jkqc2ynoub" path="res://Assets/ddr_textures/new_textures/right.png" id="14_yash2"]
-[ext_resource type="Texture2D" uid="uid://b28urc1o4i5rm" path="res://Assets/ddr_textures/new_textures/down.png" id="15_kpaje"]
 [ext_resource type="Texture2D" uid="uid://dv4avv1dl8c8m" path="res://Assets/select_background.png" id="16_o6iqr"]
 
 [node name="MusicMenu" type="Control" unique_id=648442748]
@@ -40,22 +39,47 @@ theme = ExtResource("1_j613u")
 theme_override_font_sizes/font_size = 67
 text = "Return to Spell list"
 script = ExtResource("12_r4fyu")
-fixedInputList = Array[String](["p1_left", "p1_right", "p1_down"])
 
-[node name="Left" type="Sprite2D" parent="MainMenuButton" unique_id=1522513591]
-position = Vector2(278, 128)
+[node name="Border" type="Sprite2D" parent="MainMenuButton" unique_id=1878237641]
+position = Vector2(332, 134)
 scale = Vector2(4, 4)
-texture = ExtResource("13_1asmh")
+texture = ExtResource("9_sb6qr")
 
-[node name="Right" type="Sprite2D" parent="MainMenuButton" unique_id=1817788316]
-position = Vector2(337, 128)
-scale = Vector2(4, 4)
-texture = ExtResource("14_yash2")
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenuButton" unique_id=61029800]
+custom_minimum_size = Vector2(308, 48)
+custom_maximum_size = Vector2(308, 48)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 178.0
+offset_top = 109.0
+offset_right = -199.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("10_nkc7x")
+icon_size = 52
 
-[node name="Down" type="Sprite2D" parent="MainMenuButton" unique_id=1081957023]
-position = Vector2(396, 128)
-scale = Vector2(4, 4)
-texture = ExtResource("15_kpaje")
+[node name="Counter" type="Label" parent="MainMenuButton" unique_id=1915477829]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 166.5
+offset_top = 26.0
+offset_right = 379.5
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_dxxlu")
+theme_override_font_sizes/font_size = 100
+text = "0"
 
 [node name="Cadre J1" type="TextureRect" parent="." unique_id=612475297]
 layout_mode = 0
@@ -79,22 +103,47 @@ size_flags_vertical = 3
 mouse_filter = 2
 text = "Volcanic Bomb"
 script = ExtResource("12_r4fyu")
-fixedInputList = Array[String](["p1_light", "p1_light", "p1_light"])
 
-[node name="Light" type="Sprite2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot1" unique_id=2142708818]
-position = Vector2(528, 304)
-scale = Vector2(6, 6)
-texture = ExtResource("9_n5urk")
+[node name="Border" type="Sprite2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot1" unique_id=1231013826]
+position = Vector2(616, 231)
+scale = Vector2(4, 4)
+texture = ExtResource("9_sb6qr")
 
-[node name="Light2" type="Sprite2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot1" unique_id=1706908190]
-position = Vector2(617, 304)
-scale = Vector2(6, 6)
-texture = ExtResource("9_n5urk")
+[node name="HBoxContainer" type="HBoxContainer" parent="Cadre J1/J1 VBoxContainerSlots/Slot1" unique_id=1346217511]
+custom_minimum_size = Vector2(308, 48)
+custom_maximum_size = Vector2(308, 48)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 462.0
+offset_top = 207.0
+offset_right = -460.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("10_nkc7x")
+icon_size = 52
 
-[node name="Light3" type="Sprite2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot1" unique_id=1346115106]
-position = Vector2(707, 304)
-scale = Vector2(6, 6)
-texture = ExtResource("9_n5urk")
+[node name="Counter" type="Label" parent="Cadre J1/J1 VBoxContainerSlots/Slot1" unique_id=1809121294]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 182.0
+offset_top = 24.0
+offset_right = 395.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_dxxlu")
+theme_override_font_sizes/font_size = 100
+text = "0"
 
 [node name="Slot2" type="Button" parent="Cadre J1/J1 VBoxContainerSlots" unique_id=1731658189]
 layout_mode = 2
@@ -102,22 +151,47 @@ size_flags_vertical = 3
 mouse_filter = 2
 text = "Full Moon 2.0"
 script = ExtResource("12_r4fyu")
-fixedInputList = Array[String](["p1_left", "p1_light", "p1_right"])
 
-[node name="Left" type="Sprite2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot2" unique_id=774887899]
-position = Vector2(528, 298)
-scale = Vector2(6, 6)
-texture = ExtResource("13_1asmh")
+[node name="Border" type="Sprite2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot2" unique_id=1680711510]
+position = Vector2(616, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("9_sb6qr")
 
-[node name="Right" type="Sprite2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot2" unique_id=1126855194]
-position = Vector2(707, 298)
-scale = Vector2(6, 6)
-texture = ExtResource("14_yash2")
+[node name="HBoxContainer" type="HBoxContainer" parent="Cadre J1/J1 VBoxContainerSlots/Slot2" unique_id=995345432]
+custom_minimum_size = Vector2(308, 48)
+custom_maximum_size = Vector2(308, 48)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 462.0
+offset_top = 208.0
+offset_right = -460.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("10_nkc7x")
+icon_size = 52
 
-[node name="Light" type="Sprite2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot2" unique_id=2101039339]
-position = Vector2(617, 298)
-scale = Vector2(6, 6)
-texture = ExtResource("9_n5urk")
+[node name="Counter" type="Label" parent="Cadre J1/J1 VBoxContainerSlots/Slot2" unique_id=1175728075]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 182.0
+offset_top = 25.0
+offset_right = 395.0
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_dxxlu")
+theme_override_font_sizes/font_size = 100
+text = "0"
 
 [node name="Player1Name" type="Label" parent="." unique_id=215531820]
 layout_mode = 0
