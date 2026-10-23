@@ -64,4 +64,14 @@ position = Vector2(1025, 677)
 scale = Vector2(4, 4)
 texture = ExtResource("8_16hvj")
 
+[node name="TutorialButton" type="Button" parent="." unique_id=388483869]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 833.0
+offset_right = 1151.0
+offset_bottom = 957.0
+theme_override_font_sizes/font_size = 67
+text = "Tutorial"
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_button_pressed"]
