@@ -5,8 +5,11 @@
 [ext_resource type="Theme" uid="uid://c8dq55fba1oen" path="res://Assets/menu_theme.tres" id="2_e8c2f"]
 [ext_resource type="Script" uid="uid://c505cd136phyy" path="res://Scripts/DDR/menu_ddr.gd" id="4_f0kct"]
 [ext_resource type="Texture2D" uid="uid://bnnrky7d0rogx" path="res://Assets/ddr_textures/new_textures/left.png" id="5_pwth0"]
+[ext_resource type="Texture2D" uid="uid://cjy8gd5a0xvcs" path="res://Assets/ddr_textures/new_textures/up.png" id="5_y32fe"]
 [ext_resource type="Texture2D" uid="uid://o6jkqc2ynoub" path="res://Assets/ddr_textures/new_textures/right.png" id="6_y32fe"]
 [ext_resource type="Texture2D" uid="uid://b28urc1o4i5rm" path="res://Assets/ddr_textures/new_textures/down.png" id="7_miyui"]
+[ext_resource type="Texture2D" uid="uid://clixcyoas0nj4" path="res://Assets/ddr_textures/new_textures/light.png" id="8_miyui"]
+[ext_resource type="Texture2D" uid="uid://ceoubc06jmsq5" path="res://Assets/ddr_textures/new_textures/heavy.png" id="9_au1p5"]
 
 [node name="Controls" type="Control" unique_id=455001068]
 layout_mode = 3
@@ -35,6 +38,31 @@ offset_top = 133.0
 offset_right = 1797.0
 offset_bottom = 970.0
 
+[node name="Down P1" type="ColorRect" parent="Panel" unique_id=1645876342]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 298.0
+offset_right = 538.0
+offset_bottom = 374.0
+
+[node name="Down" type="Sprite2D" parent="Panel/Down P1" unique_id=1596650617]
+position = Vector2(37.99994, 83)
+scale = Vector2(3.3749962, 3.3749962)
+texture = ExtResource("7_miyui")
+
+[node name="Key" type="Label" parent="Panel/Down P1" unique_id=741506987]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
 [node name="Up P1" type="ColorRect" parent="Panel" unique_id=937914588]
 layout_mode = 0
 offset_left = 463.0
@@ -55,25 +83,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Down P1" type="ColorRect" parent="Panel" unique_id=1645876342]
-layout_mode = 0
-offset_left = 462.0
-offset_top = 298.0
-offset_right = 538.0
-offset_bottom = 374.0
-
-[node name="Key" type="Label" parent="Panel/Down P1" unique_id=741506987]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 3.0
-offset_right = 64.0
-offset_bottom = 73.0
-theme = ExtResource("2_e8c2f")
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-text = "S"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
+[node name="Down" type="Sprite2D" parent="Panel/Up P1" unique_id=1231259073]
+position = Vector2(37, 79)
+scale = Vector2(3.3749962, 3.3749962)
+texture = ExtResource("5_y32fe")
 
 [node name="Left P1" type="ColorRect" parent="Panel" unique_id=1739279991]
 layout_mode = 0
@@ -95,10 +108,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
+[node name="Down" type="Sprite2D" parent="Panel/Left P1" unique_id=733804799]
+position = Vector2(37.99994, 83)
+scale = Vector2(3.3749962, 3.3749962)
+texture = ExtResource("5_pwth0")
+
 [node name="Right P1" type="ColorRect" parent="Panel" unique_id=1674718784]
 layout_mode = 0
 offset_left = 551.0
-offset_top = 299.0
+offset_top = 297.0
 offset_right = 627.0
 offset_bottom = 375.0
 
@@ -114,6 +132,11 @@ text = "D"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
+
+[node name="Down" type="Sprite2D" parent="Panel/Right P1" unique_id=1510286605]
+position = Vector2(37.99994, 83)
+scale = Vector2(3.3749962, 3.3749962)
+texture = ExtResource("6_y32fe")
 
 [node name="Dash P1" type="ColorRect" parent="Panel" unique_id=435197571]
 layout_mode = 0
@@ -138,9 +161,9 @@ metadata/_edit_lock_ = true
 [node name="Punch P1" type="ColorRect" parent="Panel" unique_id=1110179962]
 layout_mode = 0
 offset_left = 360.0
-offset_top = 609.0
+offset_top = 614.0
 offset_right = 436.0
-offset_bottom = 685.0
+offset_bottom = 690.0
 
 [node name="Key" type="Label" parent="Panel/Punch P1" unique_id=1344990141]
 layout_mode = 0
@@ -154,6 +177,11 @@ text = "F"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
+
+[node name="Down" type="Sprite2D" parent="Panel/Punch P1" unique_id=1638922839]
+position = Vector2(37.99994, 83)
+scale = Vector2(3.3749962, 3.3749962)
+texture = ExtResource("8_miyui")
 
 [node name="Hold P1" type="ColorRect" parent="Panel" unique_id=1063187926]
 layout_mode = 0
@@ -214,6 +242,11 @@ text = "G"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
+
+[node name="Down" type="Sprite2D" parent="Panel/Kick P1" unique_id=289516879]
+position = Vector2(37.99994, 83)
+scale = Vector2(3.3749962, 3.3749962)
+texture = ExtResource("9_au1p5")
 
 [node name="Movement Key P1" type="Label" parent="Panel" unique_id=1375825494]
 layout_mode = 0
@@ -393,6 +426,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
+[node name="Down" type="Sprite2D" parent="Panel/Kick P2" unique_id=1080541308]
+position = Vector2(37.99994, 83)
+scale = Vector2(3.3749962, 3.3749962)
+texture = ExtResource("9_au1p5")
+
 [node name="Launch P2" type="ColorRect" parent="Panel" unique_id=1392613707]
 layout_mode = 0
 offset_left = 1251.0
@@ -453,6 +491,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
+[node name="Down" type="Sprite2D" parent="Panel/Punch P2" unique_id=612093129]
+position = Vector2(37.99994, 83)
+scale = Vector2(3.3749962, 3.3749962)
+texture = ExtResource("8_miyui")
+
 [node name="Dash P2" type="ColorRect" parent="Panel" unique_id=845878829]
 layout_mode = 0
 offset_left = 1375.0
@@ -493,6 +536,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
+[node name="Down" type="Sprite2D" parent="Panel/Right P2" unique_id=1989821512]
+position = Vector2(37.99994, 83)
+scale = Vector2(3.3749962, 3.3749962)
+texture = ExtResource("6_y32fe")
+
 [node name="Left P2" type="ColorRect" parent="Panel" unique_id=1862694087]
 layout_mode = 0
 offset_left = 1081.0
@@ -512,6 +560,11 @@ text = "←"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
+
+[node name="Down" type="Sprite2D" parent="Panel/Left P2" unique_id=430785384]
+position = Vector2(37.99994, 83)
+scale = Vector2(3.3749962, 3.3749962)
+texture = ExtResource("5_pwth0")
 
 [node name="Down P2" type="ColorRect" parent="Panel" unique_id=2010621352]
 layout_mode = 0
@@ -533,6 +586,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
+[node name="Down" type="Sprite2D" parent="Panel/Down P2" unique_id=1508995368]
+position = Vector2(37.99994, 83)
+scale = Vector2(3.3749962, 3.3749962)
+texture = ExtResource("7_miyui")
+
 [node name="Up P2" type="ColorRect" parent="Panel" unique_id=394161020]
 layout_mode = 0
 offset_left = 1171.0
@@ -552,6 +610,11 @@ text = "↑"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
+
+[node name="Down" type="Sprite2D" parent="Panel/Up P2" unique_id=273253527]
+position = Vector2(37.99994, 83)
+scale = Vector2(3.3749962, 3.3749962)
+texture = ExtResource("5_y32fe")
 
 [node name="Player2Name" type="Label" parent="Panel" unique_id=1953926100]
 layout_mode = 0
