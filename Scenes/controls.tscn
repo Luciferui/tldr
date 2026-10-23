@@ -1,0 +1,593 @@
+[gd_scene format=3 uid="uid://bk4t444mpsb2n"]
+
+[ext_resource type="Texture2D" uid="uid://cau38gwi818vq" path="res://Assets/Level assets/Total map.png" id="1_8qavf"]
+[ext_resource type="Script" uid="uid://cska5fxgoa1ky" path="res://Scenes/controls.gd" id="1_21kh3"]
+[ext_resource type="Theme" uid="uid://c8dq55fba1oen" path="res://Assets/menu_theme.tres" id="2_e8c2f"]
+[ext_resource type="Script" uid="uid://c505cd136phyy" path="res://Scripts/DDR/menu_ddr.gd" id="4_f0kct"]
+[ext_resource type="Texture2D" uid="uid://bnnrky7d0rogx" path="res://Assets/ddr_textures/new_textures/left.png" id="5_pwth0"]
+[ext_resource type="Texture2D" uid="uid://o6jkqc2ynoub" path="res://Assets/ddr_textures/new_textures/right.png" id="6_y32fe"]
+[ext_resource type="Texture2D" uid="uid://b28urc1o4i5rm" path="res://Assets/ddr_textures/new_textures/down.png" id="7_miyui"]
+
+[node name="Controls" type="Control" unique_id=455001068]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_21kh3")
+
+[node name="BackGround" type="TextureRect" parent="." unique_id=580731042]
+modulate = Color(0.381961, 0.381961, 0.381961, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8qavf")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=548744231]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 133.0
+offset_right = 1797.0
+offset_bottom = 970.0
+
+[node name="Up P1" type="ColorRect" parent="Panel" unique_id=937914588]
+layout_mode = 0
+offset_left = 463.0
+offset_top = 209.0
+offset_right = 539.0
+offset_bottom = 285.0
+
+[node name="Key" type="Label" parent="Panel/Up P1" unique_id=280318659]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "Z"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Down P1" type="ColorRect" parent="Panel" unique_id=1645876342]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 298.0
+offset_right = 538.0
+offset_bottom = 374.0
+
+[node name="Key" type="Label" parent="Panel/Down P1" unique_id=741506987]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Left P1" type="ColorRect" parent="Panel" unique_id=1739279991]
+layout_mode = 0
+offset_left = 373.0
+offset_top = 298.0
+offset_right = 449.0
+offset_bottom = 374.0
+
+[node name="Key" type="Label" parent="Panel/Left P1" unique_id=1782772369]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "Q"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Right P1" type="ColorRect" parent="Panel" unique_id=1674718784]
+layout_mode = 0
+offset_left = 551.0
+offset_top = 299.0
+offset_right = 627.0
+offset_bottom = 375.0
+
+[node name="Key" type="Label" parent="Panel/Right P1" unique_id=1803103292]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Dash P1" type="ColorRect" parent="Panel" unique_id=435197571]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 301.0
+offset_right = 350.0
+offset_bottom = 377.0
+
+[node name="Key" type="Label" parent="Panel/Dash P1" unique_id=1259305435]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "Shift"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Punch P1" type="ColorRect" parent="Panel" unique_id=1110179962]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 609.0
+offset_right = 436.0
+offset_bottom = 685.0
+
+[node name="Key" type="Label" parent="Panel/Punch P1" unique_id=1344990141]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "F"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Hold P1" type="ColorRect" parent="Panel" unique_id=1063187926]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 529.0
+offset_right = 524.0
+offset_bottom = 605.0
+
+[node name="Key" type="Label" parent="Panel/Hold P1" unique_id=744038312]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "T"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Launch P1" type="ColorRect" parent="Panel" unique_id=1705728355]
+layout_mode = 0
+offset_left = 533.0
+offset_top = 612.0
+offset_right = 609.0
+offset_bottom = 688.0
+
+[node name="Key" type="Label" parent="Panel/Launch P1" unique_id=689603105]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "H"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Kick P1" type="ColorRect" parent="Panel" unique_id=1779581612]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 613.0
+offset_right = 523.0
+offset_bottom = 689.0
+
+[node name="Key" type="Label" parent="Panel/Kick P1" unique_id=164732237]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "G"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Movement Key P1" type="Label" parent="Panel" unique_id=1375825494]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 141.0
+offset_right = 639.0
+offset_bottom = 208.0
+theme = ExtResource("2_e8c2f")
+theme_override_font_sizes/font_size = 40
+text = "Movement"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Punch Key P1" type="Label" parent="Panel" unique_id=1356346379]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 619.0
+offset_right = 355.0
+offset_bottom = 686.0
+theme = ExtResource("2_e8c2f")
+theme_override_font_sizes/font_size = 40
+text = "Punch"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Kick Key P1" type="Label" parent="Panel" unique_id=620507433]
+layout_mode = 0
+offset_left = 409.0
+offset_top = 690.0
+offset_right = 563.0
+offset_bottom = 757.0
+theme = ExtResource("2_e8c2f")
+theme_override_font_sizes/font_size = 40
+text = "Kick"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hold Key P1" type="Label" parent="Panel" unique_id=891325581]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 464.0
+offset_right = 601.0
+offset_bottom = 531.0
+theme = ExtResource("2_e8c2f")
+theme_override_font_sizes/font_size = 40
+text = "Hold Spell"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Launch Key P1" type="Label" parent="Panel" unique_id=709439585]
+layout_mode = 0
+offset_left = 572.0
+offset_top = 613.0
+offset_right = 834.0
+offset_bottom = 710.0
+theme = ExtResource("2_e8c2f")
+theme_override_font_sizes/font_size = 40
+text = "Launch
+Spell"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Dash Key P1" type="Label" parent="Panel" unique_id=763789840]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 383.0
+offset_right = 342.0
+offset_bottom = 450.0
+theme = ExtResource("2_e8c2f")
+theme_override_font_sizes/font_size = 40
+text = "Dash"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player1Name" type="Label" parent="Panel" unique_id=1429428436]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 38.0
+offset_right = 694.5714
+offset_bottom = 128.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(1, 0.8235294, 0, 1)
+text = "Player 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Dash Key P2" type="Label" parent="Panel" unique_id=1993888861]
+layout_mode = 0
+offset_left = 1330.0
+offset_top = 388.0
+offset_right = 1493.0
+offset_bottom = 455.0
+theme = ExtResource("2_e8c2f")
+theme_override_font_sizes/font_size = 40
+text = "Dash"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Launch Key P2" type="Label" parent="Panel" unique_id=694103099]
+layout_mode = 0
+offset_left = 1294.0
+offset_top = 610.0
+offset_right = 1556.0
+offset_bottom = 707.0
+theme = ExtResource("2_e8c2f")
+theme_override_font_sizes/font_size = 40
+text = "Launch
+Spell"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hold Key P2" type="Label" parent="Panel" unique_id=1257586286]
+layout_mode = 0
+offset_left = 1099.0
+offset_top = 445.0
+offset_right = 1310.0
+offset_bottom = 512.0
+theme = ExtResource("2_e8c2f")
+theme_override_font_sizes/font_size = 40
+text = "Hold Spell"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Kick Key P2" type="Label" parent="Panel" unique_id=205945415]
+layout_mode = 0
+offset_left = 1123.0
+offset_top = 687.0
+offset_right = 1277.0
+offset_bottom = 754.0
+theme = ExtResource("2_e8c2f")
+theme_override_font_sizes/font_size = 40
+text = "Kick"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Punch Key P2" type="Label" parent="Panel" unique_id=1997207216]
+layout_mode = 0
+offset_left = 909.0
+offset_top = 615.0
+offset_right = 1063.0
+offset_bottom = 682.0
+theme = ExtResource("2_e8c2f")
+theme_override_font_sizes/font_size = 40
+text = "Punch"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Movement Key P2" type="Label" parent="Panel" unique_id=1981226655]
+layout_mode = 0
+offset_left = 1089.0
+offset_top = 152.0
+offset_right = 1347.0
+offset_bottom = 219.0
+theme = ExtResource("2_e8c2f")
+theme_override_font_sizes/font_size = 40
+text = "Movement"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Kick P2" type="ColorRect" parent="Panel" unique_id=786249224]
+layout_mode = 0
+offset_left = 1163.0
+offset_top = 613.0
+offset_right = 1239.0
+offset_bottom = 689.0
+
+[node name="Key" type="Label" parent="Panel/Kick P2" unique_id=1691031522]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Launch P2" type="ColorRect" parent="Panel" unique_id=1392613707]
+layout_mode = 0
+offset_left = 1251.0
+offset_top = 611.0
+offset_right = 1327.0
+offset_bottom = 687.0
+
+[node name="Key" type="Label" parent="Panel/Launch P2" unique_id=829003447]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Hold P2" type="ColorRect" parent="Panel" unique_id=258083666]
+layout_mode = 0
+offset_left = 1165.0
+offset_top = 526.0
+offset_right = 1241.0
+offset_bottom = 602.0
+
+[node name="Key" type="Label" parent="Panel/Hold P2" unique_id=1501041828]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Punch P2" type="ColorRect" parent="Panel" unique_id=1073623976]
+layout_mode = 0
+offset_left = 1076.0
+offset_top = 614.0
+offset_right = 1152.0
+offset_bottom = 690.0
+
+[node name="Key" type="Label" parent="Panel/Punch P2" unique_id=1839947839]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Dash P2" type="ColorRect" parent="Panel" unique_id=845878829]
+layout_mode = 0
+offset_left = 1375.0
+offset_top = 314.0
+offset_right = 1449.0
+offset_bottom = 390.0
+
+[node name="Key" type="Label" parent="Panel/Dash P2" unique_id=2101081962]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Right P2" type="ColorRect" parent="Panel" unique_id=368196794]
+layout_mode = 0
+offset_left = 1259.0
+offset_top = 310.0
+offset_right = 1335.0
+offset_bottom = 386.0
+
+[node name="Key" type="Label" parent="Panel/Right P2" unique_id=97428958]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "→"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Left P2" type="ColorRect" parent="Panel" unique_id=1862694087]
+layout_mode = 0
+offset_left = 1081.0
+offset_top = 309.0
+offset_right = 1157.0
+offset_bottom = 385.0
+
+[node name="Key" type="Label" parent="Panel/Left P2" unique_id=1078785172]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "←"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Down P2" type="ColorRect" parent="Panel" unique_id=2010621352]
+layout_mode = 0
+offset_left = 1170.0
+offset_top = 309.0
+offset_right = 1246.0
+offset_bottom = 385.0
+
+[node name="Key" type="Label" parent="Panel/Down P2" unique_id=282721969]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "↓"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Up P2" type="ColorRect" parent="Panel" unique_id=394161020]
+layout_mode = 0
+offset_left = 1171.0
+offset_top = 220.0
+offset_right = 1247.0
+offset_bottom = 296.0
+
+[node name="Key" type="Label" parent="Panel/Up P2" unique_id=861088602]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "↑"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Player2Name" type="Label" parent="Panel" unique_id=1953926100]
+layout_mode = 0
+offset_left = 1036.0
+offset_top = 42.0
+offset_right = 1338.0
+offset_bottom = 126.0
+theme = ExtResource("2_e8c2f")
+theme_override_colors/font_color = Color(1, 0.8235294, 0, 1)
+text = "Player 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TrainingButton" type="Button" parent="." unique_id=172227316]
+layout_mode = 0
+offset_right = 685.0
+offset_bottom = 124.0
+theme = ExtResource("2_e8c2f")
+theme_override_font_sizes/font_size = 67
+text = "Return to Training"
+script = ExtResource("4_f0kct")
+fixedInputList = Array[String](["p1_left", "p1_right", "p1_down"])
+
+[node name="Left" type="Sprite2D" parent="TrainingButton" unique_id=1313400571]
+position = Vector2(278, 128)
+scale = Vector2(4, 4)
+texture = ExtResource("5_pwth0")
+
+[node name="Right" type="Sprite2D" parent="TrainingButton" unique_id=1654373802]
+position = Vector2(337, 128)
+scale = Vector2(4, 4)
+texture = ExtResource("6_y32fe")
+
+[node name="Down" type="Sprite2D" parent="TrainingButton" unique_id=1250427268]
+position = Vector2(396, 128)
+scale = Vector2(4, 4)
+texture = ExtResource("7_miyui")
+
+[connection signal="pressed" from="TrainingButton" to="." method="_on_training_button_pressed"]

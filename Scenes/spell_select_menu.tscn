@@ -216,23 +216,23 @@ text = "Spell 5"
 
 [node name="Player1Name" type="Label" parent="." unique_id=215531820]
 layout_mode = 0
-offset_left = 599.0
-offset_top = 153.0
-offset_right = 851.0
-offset_bottom = 237.0
+offset_left = 314.0
+offset_top = 156.0
+offset_right = 964.0
+offset_bottom = 240.0
 theme = ExtResource("3_l6vtl")
-text = "Player 1"
+text = " Select - Player 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Player2Name" type="Label" parent="." unique_id=186401823]
 layout_mode = 0
-offset_left = 1113.0
-offset_top = 153.0
-offset_right = 1365.0
-offset_bottom = 237.0
+offset_left = 1034.0
+offset_top = 157.0
+offset_right = 1678.0
+offset_bottom = 241.0
 theme = ExtResource("3_l6vtl")
-text = "Player 2"
+text = "Player 2 -       : Select"
 horizontal_alignment = 1
 vertical_alignment = 1
 

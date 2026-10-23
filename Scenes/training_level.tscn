@@ -219,6 +219,29 @@ texture = ExtResource("13_k08qk")
 position = Vector2(115, 32)
 texture = ExtResource("14_o71hg")
 
+[node name="ControlsButton" type="Button" parent="." unique_id=1865310703]
+offset_left = 113.0
+offset_top = -179.0
+offset_right = 316.40228
+offset_bottom = -147.0
+theme = ExtResource("3_8pk4s")
+theme_override_font_sizes/font_size = 20
+text = "Controls"
+script = ExtResource("11_8pk4s")
+fixedInputList = Array[String](["p1_left", "p1_left", "p1_left"])
+
+[node name="Left" type="Sprite2D" parent="ControlsButton" unique_id=1833041621]
+position = Vector2(85, 32)
+texture = ExtResource("12_i68la")
+
+[node name="Left2" type="Sprite2D" parent="ControlsButton" unique_id=77364463]
+position = Vector2(100, 32)
+texture = ExtResource("12_i68la")
+
+[node name="Left3" type="Sprite2D" parent="ControlsButton" unique_id=1765775360]
+position = Vector2(115, 32)
+texture = ExtResource("12_i68la")
+
 [node name="Player" parent="." unique_id=2123069804 node_paths=PackedStringArray("opponent") instance=ExtResource("10_1fpgv")]
 position = Vector2(-50, 95)
 collision_layer = 2
@@ -242,3 +265,4 @@ opponent = NodePath("../Sandbag")
 collision_layer = 8
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="ControlsButton" to="." method="_on_controls_button_pressed"]
