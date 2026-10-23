@@ -23,4 +23,4 @@ func _on_tutorial_button_pressed() -> void:
 	const SPELL_3: SpellData = preload("res://Spells/spell3.tres")
 	const SPELL_5: SpellData = preload("res://Spells/spell5.tres")
 	DataManager.distribute_spells([SPELL_1,SPELL_3,SPELL_5],[SPELL_1,SPELL_3,SPELL_5])
-	get_tree().change_scene_to_file("res://Scenes/training_level.tscn")
+	get_tree().change_scene_to_file("res://Scenes/tutorial_level.tscn")

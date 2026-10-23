@@ -15,5 +15,5 @@ func _ready() -> void:
 	
 	$RichTextLabel.text = "0"
 
-func update_ddhealt(health: int):
+func update_ddhealth(health: int):
 	$RichTextLabel.text = str(health)

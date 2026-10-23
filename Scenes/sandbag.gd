@@ -51,6 +51,6 @@ func takeAttack(data: AttackData, attackerPos: Vector2,
 		return
 
 	ddhealth += data.damage
-	$DDHealthDisplayer.update_ddhealt(ddhealth)
+	$DDHealthDisplayer.update_ddhealth(ddhealth)
 	ddhealth_changed.emit()
 	statemachine.take_attack(data, attackerPos, attackerOrientation)

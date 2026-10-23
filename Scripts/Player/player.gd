@@ -89,7 +89,7 @@ func takeAttack(data: AttackData, attackerPos: Vector2,
 	hit_received.emit(data)
 	
 	ddhealth += data.damage
-	$DDHealthDisplayer.update_ddhealt(ddhealth)
+	$DDHealthDisplayer.update_ddhealth(ddhealth)
 	ddhealth_changed.emit()
 
 	if ddhealth >= dying_threshold:

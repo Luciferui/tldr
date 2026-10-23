@@ -1,0 +1,342 @@
+[gd_scene format=3 uid="uid://cn43bhvwbjlh8"]
+
+[ext_resource type="Script" uid="uid://cohyf2t0ysheu" path="res://Scenes/tutorial_level.gd" id="1_u3rwy"]
+[ext_resource type="Texture2D" uid="uid://5g0k8gvdf3n0" path="res://Assets/Level assets/Background.png" id="2_0ksah"]
+[ext_resource type="Texture2D" uid="uid://d1ebkqnditaer" path="res://Assets/Level assets/Plateform0.5.png" id="3_gh2jb"]
+[ext_resource type="Texture2D" uid="uid://c8ktl3ql2rywt" path="res://Assets/Level assets/Plateform1.png" id="4_ohtq0"]
+[ext_resource type="Texture2D" uid="uid://cxsl5lry7g4sd" path="res://Assets/Level assets/Plateform2.png" id="7_lqt5r"]
+[ext_resource type="Texture2D" uid="uid://dpln6tt7v8y0l" path="res://Assets/Level assets/Plateform0.png" id="9_q1s2v"]
+[ext_resource type="Script" uid="uid://cc4wqnxk7105q" path="res://Scenes/tutorial_manager.gd" id="10_gh2jb"]
+[ext_resource type="FontFile" uid="uid://chyl1b4eiejtw" path="res://Assets/Fonts/Ithaca-LVB75.ttf" id="10_xlori"]
+[ext_resource type="Theme" uid="uid://c8dq55fba1oen" path="res://Assets/menu_theme.tres" id="10_yhs6i"]
+[ext_resource type="PackedScene" uid="uid://4s000tfvfba4" path="res://Scenes/player_1.tscn" id="11_0l1o8"]
+[ext_resource type="FontFile" uid="uid://bel44q2fvwb6n" path="res://Assets/ITC Eras Bold.otf" id="11_u3rwy"]
+[ext_resource type="PackedScene" uid="uid://cpptcq1q1kph8" path="res://Scenes/sandbag.tscn" id="12_3h0wn"]
+[ext_resource type="Script" uid="uid://difrbwhij0a6h" path="res://Scenes/tutorial_text.gd" id="13_ohtq0"]
+[ext_resource type="Texture2D" uid="uid://bknf7jndu0uc" path="res://Assets/menu_assets/checkbox.png" id="14_hy7s5"]
+[ext_resource type="Texture2D" uid="uid://dsm4sbig2rl5d" path="res://Assets/ddr_textures/death/pixelart_skull_red.png" id="15_ohtq0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfqu"]
+size = Vector2(118, 9.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c15r"]
+size = Vector2(170, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7sqt"]
+size = Vector2(141.75, 22.499996)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_km5ld"]
+size = Vector2(21, 73.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2t4f"]
+size = Vector2(642, 65.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cye3"]
+size = Vector2(120.5, 26.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ainy"]
+size = Vector2(23, 26.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2v8g7"]
+size = Vector2(86, 382)
+
+[node name="Level" type="Node2D" unique_id=552634920 node_paths=PackedStringArray("player1", "sandbag", "tutorialManager")]
+script = ExtResource("1_u3rwy")
+player1 = NodePath("Player")
+sandbag = NodePath("Sandbag")
+tutorialManager = NodePath("TutorialManager")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1311848255]
+scale = Vector2(2.4999995, 2.5)
+texture = ExtResource("2_0ksah")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=74320995]
+zoom = Vector2(3, 3)
+
+[node name="Plateform0_5" type="StaticBody2D" parent="." unique_id=1605015684]
+collision_layer = 15
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Plateform0_5" unique_id=2052033808]
+position = Vector2(-3.44, 29)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_gh2jb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plateform0_5" unique_id=339553001]
+position = Vector2(0, 58.625)
+shape = SubResource("RectangleShape2D_ktfqu")
+one_way_collision = true
+
+[node name="Plateform1" type="StaticBody2D" parent="." unique_id=572226935]
+collision_layer = 15
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Plateform1" unique_id=1337023203]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_ohtq0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plateform1" unique_id=666933125]
+position = Vector2(190, 5)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_4c15r")
+one_way_collision = true
+
+[node name="Plateform2" type="StaticBody2D" parent="." unique_id=855975115]
+collision_layer = 15
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Plateform2" unique_id=1672218257]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("7_lqt5r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plateform2" unique_id=1641527125]
+position = Vector2(-235.875, 23.75)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_v7sqt")
+one_way_collision = true
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=57516992]
+collision_layer = 15
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=153569379]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("9_q1s2v")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground" unique_id=96594740]
+position = Vector2(-191.5, 107.875)
+shape = SubResource("RectangleShape2D_km5ld")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1017835427]
+position = Vector2(-1, 162)
+shape = SubResource("RectangleShape2D_i2t4f")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground" unique_id=930518562]
+position = Vector2(262.25, 121.75)
+shape = SubResource("RectangleShape2D_8cye3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Ground" unique_id=1957586222]
+position = Vector2(313.5, 94)
+shape = SubResource("RectangleShape2D_1ainy")
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=991804508]
+collision_layer = 15
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=290896773]
+position = Vector2(-360, 0)
+shape = SubResource("RectangleShape2D_2v8g7")
+
+[node name="RightWall" type="StaticBody2D" parent="." unique_id=912091570]
+collision_layer = 15
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=507741712]
+position = Vector2(360, -2)
+shape = SubResource("RectangleShape2D_2v8g7")
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=631509944]
+offset_left = -319.0
+offset_top = -180.0
+offset_right = -115.5977
+offset_bottom = -148.0
+theme = ExtResource("10_yhs6i")
+theme_override_font_sizes/font_size = 20
+text = "Return to Menu"
+
+[node name="Player" parent="." unique_id=2123069804 node_paths=PackedStringArray("opponent") instance=ExtResource("11_0l1o8")]
+position = Vector2(-50, 95)
+collision_layer = 2
+opponent = NodePath("../Sandbag")
+
+[node name="Sandbag" parent="." unique_id=731463083 instance=ExtResource("12_3h0wn")]
+collision_layer = 8
+
+[node name="TutorialManager" type="Control" parent="." unique_id=57685612 node_paths=PackedStringArray("player", "sandbag")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("10_gh2jb")
+player = NodePath("../Player")
+sandbag = NodePath("../Sandbag")
+
+[node name="Text WAD" type="RichTextLabel" parent="TutorialManager" unique_id=1167140657]
+layout_mode = 0
+offset_left = -301.0
+offset_top = -127.0
+offset_right = 305.0
+offset_bottom = 32.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.9411765, 0.7882353, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("10_xlori")
+theme_override_fonts/bold_font = ExtResource("11_u3rwy")
+theme_override_fonts/bold_italics_font = ExtResource("10_xlori")
+theme_override_fonts/italics_font = ExtResource("10_xlori")
+theme_override_fonts/mono_font = ExtResource("10_xlori")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "Welcome to [b]TLDR[/b] !
+Before you unleash misery upon your opponents, make sure to learn the controls !
+
+Use [b]W[/b] (jump), [b]A[/b] (left), [b]D[/b] (right) to move around."
+script = ExtResource("13_ohtq0")
+
+[node name="W ok" type="Sprite2D" parent="TutorialManager/Text WAD" unique_id=1954005504]
+position = Vector2(41, 96)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_hy7s5")
+
+[node name="A ok" type="Sprite2D" parent="TutorialManager/Text WAD" unique_id=1574660127]
+position = Vector2(113.99999, 97)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_hy7s5")
+
+[node name="D ok" type="Sprite2D" parent="TutorialManager/Text WAD" unique_id=219519462]
+position = Vector2(176.99997, 98)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_hy7s5")
+
+[node name="Text attacks" type="RichTextLabel" parent="TutorialManager" unique_id=211122024]
+layout_mode = 0
+offset_left = -302.0
+offset_top = -125.0
+offset_right = 304.0
+offset_bottom = -19.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.9411765, 0.7882353, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("10_xlori")
+theme_override_fonts/bold_font = ExtResource("11_u3rwy")
+theme_override_fonts/bold_italics_font = ExtResource("10_xlori")
+theme_override_fonts/italics_font = ExtResource("10_xlori")
+theme_override_fonts/mono_font = ExtResource("10_xlori")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "
+To attack, you have a light and heavy option, on the ground and in the air.
+Ground light : [b]F[/b]                       Ground heavy : [b]G[/b]
+Air light :       [b]F[/b]                       Air heavy :       [b]G[/b]"
+script = ExtResource("13_ohtq0")
+
+[node name="Glight ok" type="Sprite2D" parent="TutorialManager/Text attacks" unique_id=169855391]
+position = Vector2(135.00002, 50)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_hy7s5")
+
+[node name="Alight ok" type="Sprite2D" parent="TutorialManager/Text attacks" unique_id=673349521]
+position = Vector2(137.00002, 79)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_hy7s5")
+
+[node name="Gheavy ok" type="Sprite2D" parent="TutorialManager/Text attacks" unique_id=1072726105]
+position = Vector2(340, 52)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_hy7s5")
+
+[node name="Aheavy ok" type="Sprite2D" parent="TutorialManager/Text attacks" unique_id=1722135917]
+position = Vector2(341, 77)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_hy7s5")
+
+[node name="Text dodge" type="RichTextLabel" parent="TutorialManager" unique_id=240221291]
+layout_mode = 0
+offset_left = -302.0
+offset_top = -141.0
+offset_right = 305.0
+offset_bottom = -20.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.9411765, 0.7882353, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("10_xlori")
+theme_override_fonts/bold_font = ExtResource("11_u3rwy")
+theme_override_fonts/bold_italics_font = ExtResource("10_xlori")
+theme_override_fonts/italics_font = ExtResource("11_u3rwy")
+theme_override_fonts/mono_font = ExtResource("10_xlori")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+bbcode_enabled = true
+text = "
+To dodge an attack :
+
+Press [b]SHIFT[/b]
+
+You are unhittable while you dodge."
+script = ExtResource("13_ohtq0")
+
+[node name="Dodge ok" type="Sprite2D" parent="TutorialManager/Text dodge" unique_id=1658649849]
+position = Vector2(149.00002, 67.00001)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_hy7s5")
+
+[node name="Text spell" type="RichTextLabel" parent="TutorialManager" unique_id=264003615]
+layout_mode = 0
+offset_left = -301.0
+offset_top = -141.0
+offset_right = 306.0
+offset_bottom = -20.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.9411765, 0.7882353, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("10_xlori")
+theme_override_fonts/bold_font = ExtResource("11_u3rwy")
+theme_override_fonts/bold_italics_font = ExtResource("10_xlori")
+theme_override_fonts/italics_font = ExtResource("11_u3rwy")
+theme_override_fonts/mono_font = ExtResource("10_xlori")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+bbcode_enabled = true
+text = "
+To launch a [i]spell[/i], you :
+Enter as many correct keys in a row in the bottom left as the spell costs
+Hold the spell : [b]T[/b]
+Unleash it :     [b]H[/b]"
+script = ExtResource("13_ohtq0")
+
+[node name="Hold ok" type="Sprite2D" parent="TutorialManager/Text spell" unique_id=1638165735]
+position = Vector2(136.99997, 78.00001)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_hy7s5")
+
+[node name="Unleash ok" type="Sprite2D" parent="TutorialManager/Text spell" unique_id=1362462765]
+position = Vector2(136.99997, 105.00001)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_hy7s5")
+
+[node name="Text end" type="RichTextLabel" parent="TutorialManager" unique_id=1575460821]
+layout_mode = 0
+offset_left = -301.0
+offset_top = -161.0
+offset_right = 309.0
+offset_bottom = 9.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.9411765, 0.7882353, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("10_xlori")
+theme_override_fonts/bold_font = ExtResource("11_u3rwy")
+theme_override_fonts/bold_italics_font = ExtResource("10_xlori")
+theme_override_fonts/italics_font = ExtResource("11_u3rwy")
+theme_override_fonts/mono_font = ExtResource("10_xlori")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+bbcode_enabled = true
+text = "
+
+To [i]KO[/i] your opponent, hit the             . This starts the [i]countdown[/i].
+
+Your opponent then has 10 seconds to save themselves by purging their ddr-damage with the same amount of correct inputs.
+If he succeeds, he heals half his health and the duel continues.
+This is the end of the tutorial. Have fun fighting !"
+script = ExtResource("13_ohtq0")
+final = true
+
+[node name="Skull" type="Sprite2D" parent="TutorialManager/Text end" unique_id=1564881892]
+position = Vector2(230.99998, 56)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("15_ohtq0")
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
