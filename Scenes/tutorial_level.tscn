@@ -136,10 +136,10 @@ position = Vector2(360, -2)
 shape = SubResource("RectangleShape2D_2v8g7")
 
 [node name="MainMenuButton" type="Button" parent="." unique_id=631509944]
-offset_left = -319.0
-offset_top = -180.0
-offset_right = -115.5977
-offset_bottom = -148.0
+offset_left = 111.0
+offset_top = 141.0
+offset_right = 314.40228
+offset_bottom = 173.0
 theme = ExtResource("10_yhs6i")
 theme_override_font_sizes/font_size = 20
 text = "Return to Menu"

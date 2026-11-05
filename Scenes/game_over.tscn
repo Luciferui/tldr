@@ -38,7 +38,6 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_ek8ke")
 
 [node name="Gameover Sprite" type="AnimatedSprite2D" parent="." unique_id=1107937934]
 position = Vector2(970, 502.00003)
