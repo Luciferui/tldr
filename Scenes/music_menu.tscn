@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://c8dq55fba1oen" path="res://Assets/menu_theme.tres" id="1_j613u"]
 [ext_resource type="Script" uid="uid://ddgbia12dkl0o" path="res://Scripts/music_menu.gd" id="2_skhlu"]
+[ext_resource type="Texture2D" uid="uid://tu5ecvl333ay" path="res://Assets/ddr_textures/H_key.png" id="5_skhlu"]
 [ext_resource type="Script" uid="uid://4uubbudk0uet" path="res://Scenes/input_cursor.gd" id="8_n5urk"]
 [ext_resource type="Texture2D" uid="uid://os57ueemv7iu" path="res://Assets/ddr_textures/new_textures/DDRBar.png" id="9_sb6qr"]
 [ext_resource type="Script" uid="uid://dp52ex5alaklm" path="res://Scripts/DDR/Display_inputs.gd" id="10_nkc7x"]
@@ -40,6 +41,8 @@ theme = ExtResource("1_j613u")
 theme_override_font_sizes/font_size = 67
 text = "Return to Spell list"
 script = ExtResource("12_r4fyu")
+finish_key_hint = ExtResource("5_skhlu")
+hint_margin = -380.0
 cursor = NodePath("InputCursor")
 
 [node name="Border" type="Sprite2D" parent="MainMenuButton" unique_id=1878237641]
@@ -111,6 +114,8 @@ size_flags_vertical = 3
 mouse_filter = 2
 text = "Volcanic Bomb"
 script = ExtResource("12_r4fyu")
+finish_key_hint = ExtResource("5_skhlu")
+hint_margin = -380.0
 cursor = NodePath("InputCursor")
 
 [node name="Border" type="Sprite2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot1" unique_id=1231013826]
@@ -166,6 +171,8 @@ size_flags_vertical = 3
 mouse_filter = 2
 text = "Full Moon 2.0"
 script = ExtResource("12_r4fyu")
+finish_key_hint = ExtResource("5_skhlu")
+hint_margin = -380.0
 cursor = NodePath("InputCursor")
 
 [node name="Border" type="Sprite2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot2" unique_id=1680711510]

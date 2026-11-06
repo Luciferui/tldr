@@ -165,6 +165,8 @@ func failCombo() -> void:
 		playerInputs = []
 		total_input = 0
 		refresh_display()
+		if cursor:
+			cursor.play_fail()
 
 func _set_border_color(_color: Color) -> void:
 	#border_material.set_shader_parameter("replace_color", color)

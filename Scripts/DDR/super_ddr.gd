@@ -19,8 +19,6 @@ func _physics_process(_delta: float) -> void:
 					cursor.play_success()
 			else:
 				failCombo()
-				if cursor:
-					cursor.play_fail()
 
 	if Input.is_action_just_pressed(finishInput):
 		validateCombo()

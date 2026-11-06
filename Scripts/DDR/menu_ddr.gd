@@ -6,7 +6,12 @@ var playerFinishedCombo : bool = false
 @export var inputRange : int = 6
 @export var missed_ddr_duration_frame : int = 15   # durée du rouge (30 frames ≈ 0,5 s à 60 Hz)
 @export var success_ddr_duration_frame : int = 12  # durée du vert
+@export var finish_key_hint: Texture2D  # image de la touche p1_endcombo, à remplir dans l'inspecteur
+@export var hint_size: Vector2 = Vector2(48, 48)
+@export var hint_offset: Vector2 = Vector2(0, 0)  # à régler pour le placer à côté du DDR
+@export var hint_margin: float = 8.0
 
+var finish_hint: TextureRect
 var total_input = 0
 
 const BORDER_BLUE  := Color(0.0, 0.4, 1.0)
@@ -33,6 +38,7 @@ func _ready() -> void:
 	generateRandomInputs()
 	currentInput = InputList[0]
 	refresh_display()
+	_create_finish_hint()
 	
 func _physics_process(delta: float) -> void:
 	super(delta)
@@ -53,22 +59,24 @@ func validateInput():
 	InputList.append(usedInput[randi_range(0, usedInput.size()-1)])
 	total_input = playerInputs.size()
 	
-	if total_input > button_ddr_count:
+	if total_input >= button_ddr_count:
 		_set_border_color(BORDER_GREEN)
 		if cursor: cursor.start_ready_pulse()
 	else:
 		FrameSprite.material = default_material
 		if cursor: cursor.stop_ready_pulse()
-		
+	
+	_set_finish_hint(total_input >= button_ddr_count)
 	refresh_display()
 	
 func validateCombo():
-	if total_input >= 3:
+	if total_input >= button_ddr_count:
 		emit_signal("pressed")
 	playerInputs = []
 	total_input = 0
 	refresh_display()
 	if cursor: cursor.stop_ready_pulse()
+	_set_finish_hint(false)
 	
 func refresh_display() -> void:
 	$HBoxContainer.display_combo_queue(InputList)
@@ -81,9 +89,36 @@ func failCombo() -> void:
 		playerInputs = []
 		total_input = 0
 		refresh_display()
-		if cursor: cursor.stop_ready_pulse()
+		if cursor: 
+			cursor.stop_ready_pulse()
+			cursor.play_fail()
+		_set_finish_hint(false)
 	
 func _set_border_color(color: Color) -> void:
 	border_material.set_shader_parameter("replace_color", color)
 	FrameSprite.material = border_material
-	
+
+func _create_finish_hint() -> void:
+	finish_hint = TextureRect.new()
+	finish_hint.name = "FinishHint"
+	finish_hint.texture = finish_key_hint
+	finish_hint.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	finish_hint.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	finish_hint.custom_minimum_size = hint_size
+	finish_hint.size = hint_size
+	finish_hint.position = hint_offset
+	finish_hint.visible = false
+	add_child(finish_hint)
+	_place_finish_hint()
+
+func _set_finish_hint(state: bool) -> void:
+	if finish_hint:
+		finish_hint.visible = state
+
+func _place_finish_hint() -> void:
+	var border_rect := FrameSprite.get_rect()  # rect local du sprite
+	var border_pos := FrameSprite.position
+	var scl := FrameSprite.scale
+	var right_edge := border_pos.x + (border_rect.position.x + border_rect.size.x) * scl.x
+	var center_y := border_pos.y + (border_rect.position.y + border_rect.size.y / 2.0) * scl.y
+	finish_hint.position = Vector2(right_edge + hint_margin, center_y - hint_size.y / 2.0) + hint_offset
