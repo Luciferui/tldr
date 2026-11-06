@@ -120,12 +120,16 @@ func refresh_display() -> void:
 		$Counter.add_theme_color_override("font_color", Color(1.0, 1.0, 1.0, 1.0))
 		$FlameSprite.play("default")
 	
-	# Affichage des spell possibles à activer (saturation)
-	for i in range(len(DataManager.spellChoice[RelatedPlayer.player_id])):
-		if total_input >= DataManager.spellChoice[RelatedPlayer.player_id][i].required_combo: #DDR Cost
-			$SpellReady.get_child(i).material.set_shader_parameter("saturation", 1.0)
-		else:
-			$SpellReady.get_child(i).material.set_shader_parameter("saturation", 0.0)
+	# Affichage du seul spell qui sera lancé (le plus haut débloqué)
+	var spells = DataManager.spellChoice[RelatedPlayer.player_id]
+	var best_spell_index := -1
+	for i in range(len(spells)):
+		if total_input >= spells[i].required_combo:
+			best_spell_index = i  # écrase : on garde le plus grand débloqué
+
+	for i in range(len(spells)):
+		var sat := 1.0 if i == best_spell_index else 0.0
+		$SpellReady.get_child(i).material.set_shader_parameter("saturation", sat)
 	
 func validateCombo() -> void:
 	# Parcours les spells et met le plus grand dans set_hold
@@ -136,14 +140,20 @@ func validateCombo() -> void:
 			if total_input >= spell.required_combo:
 				RelatedPlayer.set_hold(spell.id) # écrase si plus petit déjà envoyé
 				player_spell_id = i
+
+	# Aucun spell stocké : on garde le compteur et la liste d'inputs tels quels
+	if player_spell_id == -1:
+		return
+
 	playerInputs = []
 	total_input = 0
 	refresh_display()
-	
+
 	for i in range(3):
-		display_hold_spell(i, i==player_spell_id)
-		
-			
+		display_hold_spell(i, i == player_spell_id)
+
+
+
 func display_hold_spell(player_spell_id : int, state: bool) -> void:
 	$SpellHold.get_node("Spell"+str(player_spell_id)).get_node("Spell"+str(player_spell_id)).visible = state
 
@@ -157,8 +167,9 @@ func failCombo() -> void:
 		refresh_display()
 
 func _set_border_color(color: Color) -> void:
-	border_material.set_shader_parameter("replace_color", color)
-	FrameSprite.material = border_material
+	#border_material.set_shader_parameter("replace_color", color)
+	#FrameSprite.material = border_material
+	pass
 
 func apply_red_filter() -> void:
 	_set_border_color(BORDER_RED)

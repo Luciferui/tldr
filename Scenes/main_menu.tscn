@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://os57ueemv7iu" path="res://Assets/ddr_textures/new_textures/DDRBar.png" id="5_trj04"]
 [ext_resource type="Script" uid="uid://dp52ex5alaklm" path="res://Scripts/DDR/Display_inputs.gd" id="6_16hvj"]
 [ext_resource type="FontFile" uid="uid://chyl1b4eiejtw" path="res://Assets/Fonts/Ithaca-LVB75.ttf" id="7_vr1f0"]
+[ext_resource type="Script" uid="uid://4uubbudk0uet" path="res://Scenes/input_cursor.gd" id="8_yhxw7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
 bg_color = Color(0, 0.13725491, 0.40784314, 1)
@@ -35,7 +36,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_fu7sn")
 
-[node name="StartButton" type="Button" parent="." unique_id=1308076142]
+[node name="StartButton" type="Button" parent="." unique_id=1308076142 node_paths=PackedStringArray("cursor")]
 layout_mode = 1
 offset_left = 712.0
 offset_top = 518.0
@@ -47,6 +48,7 @@ theme_override_font_sizes/font_size = 90
 theme_override_styles/hover = SubResource("StyleBoxFlat_jix8l")
 text = "Start"
 script = ExtResource("2_7vrkn")
+cursor = NodePath("InputCursor")
 
 [node name="Border" type="Sprite2D" parent="StartButton" unique_id=383113426]
 position = Vector2(250, 175)
@@ -85,11 +87,18 @@ offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("7_vr1f0")
 theme_override_font_sizes/font_size = 100
 text = "0"
 
-[node name="TutorialButton" type="Button" parent="." unique_id=388483869]
+[node name="InputCursor" type="Node2D" parent="StartButton" unique_id=787134615]
+position = Vector2(123, 176)
+script = ExtResource("8_yhxw7")
+frame_size = Vector2(60, 60)
+color = Color(1, 0.8235294, 0, 1)
+
+[node name="TutorialButton" type="Button" parent="." unique_id=388483869 node_paths=PackedStringArray("cursor")]
 layout_mode = 0
 offset_left = 760.0
 offset_top = 833.0
@@ -98,6 +107,7 @@ offset_bottom = 957.0
 theme_override_font_sizes/font_size = 67
 text = "Tutorial"
 script = ExtResource("2_7vrkn")
+cursor = NodePath("InputCursor")
 
 [node name="Border" type="Sprite2D" parent="TutorialButton" unique_id=1301051820]
 position = Vector2(197, 132)
@@ -136,9 +146,16 @@ offset_bottom = 121.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("7_vr1f0")
 theme_override_font_sizes/font_size = 100
 text = "0"
+
+[node name="InputCursor" type="Node2D" parent="TutorialButton" unique_id=128485818]
+position = Vector2(69, 135)
+script = ExtResource("8_yhxw7")
+frame_size = Vector2(60, 60)
+color = Color(1, 0.8235294, 0, 1)
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_button_pressed"]

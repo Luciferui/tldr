@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://c505cd136phyy" path="res://Scripts/DDR/menu_ddr.gd" id="12_4qyee"]
 [ext_resource type="Script" uid="uid://dp52ex5alaklm" path="res://Scripts/DDR/Display_inputs.gd" id="12_ufyrv"]
 [ext_resource type="FontFile" uid="uid://chyl1b4eiejtw" path="res://Assets/Fonts/Ithaca-LVB75.ttf" id="13_hpkcu"]
+[ext_resource type="Script" uid="uid://4uubbudk0uet" path="res://Scenes/input_cursor.gd" id="16_ufyrv"]
 [ext_resource type="Texture2D" uid="uid://kq52vd2hneax" path="res://Assets/menu_assets/gramophonepng.png" id="18_jqvyv"]
 
 [node name="SpellSelectMenu" type="Control" unique_id=648442748]
@@ -45,7 +46,7 @@ grow_vertical = 2
 texture = ExtResource("2_yoeu3")
 expand_mode = 1
 
-[node name="MainMenuButton" type="Button" parent="." unique_id=1311359581]
+[node name="MainMenuButton" type="Button" parent="." unique_id=1311359581 node_paths=PackedStringArray("cursor")]
 layout_mode = 1
 offset_right = 685.0
 offset_bottom = 124.0
@@ -53,6 +54,7 @@ theme = ExtResource("3_l6vtl")
 theme_override_font_sizes/font_size = 67
 text = "Return to Menu"
 script = ExtResource("12_4qyee")
+cursor = NodePath("InputCursor")
 
 [node name="Border" type="Sprite2D" parent="MainMenuButton" unique_id=1777817430]
 position = Vector2(332, 134)
@@ -91,9 +93,16 @@ offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("13_hpkcu")
 theme_override_font_sizes/font_size = 100
 text = "0"
+
+[node name="InputCursor" type="Node2D" parent="MainMenuButton" unique_id=776709451]
+position = Vector2(204, 134)
+script = ExtResource("16_ufyrv")
+frame_size = Vector2(60, 60)
+color = Color(1, 0.8235294, 0, 1)
 
 [node name="Cadre J1" type="TextureRect" parent="." unique_id=612475297]
 layout_mode = 0
@@ -362,13 +371,14 @@ fit_content = true
 autowrap_mode = 2
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="." unique_id=1209786866]
+[node name="Button" type="Button" parent="." unique_id=1209786866 node_paths=PackedStringArray("cursor")]
 layout_mode = 0
 offset_left = 1788.0
 offset_top = 931.3257
 offset_right = 1796.0
 offset_bottom = 939.3257
 script = ExtResource("12_4qyee")
+cursor = NodePath("InputCursor")
 
 [node name="Gramophonepng" type="Sprite2D" parent="Button" unique_id=320532394]
 scale = Vector2(2.3255801, 2.3255806)
@@ -411,10 +421,17 @@ offset_bottom = 130.67432
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("13_hpkcu")
 theme_override_font_sizes/font_size = 70
 text = "0"
 horizontal_alignment = 2
+
+[node name="InputCursor" type="Node2D" parent="Button" unique_id=1089836457]
+position = Vector2(-82, 101.67432)
+script = ExtResource("16_ufyrv")
+frame_size = Vector2(40, 40)
+color = Color(1, 0.8235294, 0, 1)
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

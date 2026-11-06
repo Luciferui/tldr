@@ -28,6 +28,7 @@
 [ext_resource type="Script" uid="uid://dj0uvd5fjr6b8" path="res://Scripts/Player/PlayerStates/player_hurtbox.gd" id="28_cu0p0"]
 [ext_resource type="Texture2D" uid="uid://b5cn73fsaq6ou" path="res://Assets/ddr_textures/death/Skull.png" id="30_yt1lk"]
 [ext_resource type="Texture2D" uid="uid://dpr3pknpnq6rr" path="res://Assets/Sprites/death_horloge/horloge.png" id="33_lctyb"]
+[ext_resource type="Script" uid="uid://4uubbudk0uet" path="res://Scenes/input_cursor.gd" id="33_s1db0"]
 [ext_resource type="Texture2D" uid="uid://b38avbn3x1dtu" path="res://Assets/Sprites/death_horloge/aiguille.png" id="34_s1db0"]
 [ext_resource type="Script" uid="uid://pyvofwuo17c5" path="res://Scripts/Player/PlayerStates/player_pain_state.gd" id="35_oexav"]
 [ext_resource type="Script" uid="uid://duerir5sl8d6s" path="res://Scripts/Spells/spell_launcher.gd" id="38_5xydj"]
@@ -711,11 +712,12 @@ script = ExtResource("20_va88g")
 top_level = true
 script = ExtResource("38_5xydj")
 
-[node name="Ddr" type="Node2D" parent="." unique_id=1646128952 node_paths=PackedStringArray("RelatedPlayer")]
+[node name="Ddr" type="Node2D" parent="." unique_id=1646128952 node_paths=PackedStringArray("RelatedPlayer", "cursor")]
 top_level = true
 scale = Vector2(0.1, 0.1)
 script = ExtResource("38_h8d83")
 RelatedPlayer = NodePath("..")
+cursor = NodePath("InputCursor")
 
 [node name="GreekKeyRectangleFrameGreekBorderVector2317864614" type="Sprite2D" parent="Ddr" unique_id=1041930583]
 position = Vector2(0, -2)
@@ -751,6 +753,7 @@ offset_bottom = 437.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
 theme_override_fonts/font = ExtResource("27_va88g")
 theme_override_font_sizes/font_size = 500
 text = "0"
@@ -833,6 +836,12 @@ text = "128
 "
 horizontal_alignment = 1
 
+[node name="InputCursor" type="Node2D" parent="Ddr" unique_id=1925833014]
+position = Vector2(-640, -9.999999)
+script = ExtResource("33_s1db0")
+frame_size = Vector2(265, 265)
+color = Color(1, 0.8235294, 0, 1)
+
 [node name="RescueController" type="Node2D" parent="." unique_id=669820595]
 script = ExtResource("23_ex6al")
 time_limit = 10.0
@@ -854,6 +863,7 @@ offset_right = 119.0
 offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/outline_size = 7
 theme_override_fonts/normal_font = ExtResource("27_va88g")
 theme_override_font_sizes/normal_font_size = 64
 text = "0

@@ -55,8 +55,10 @@ func validateInput():
 	
 	if total_input > button_ddr_count:
 		_set_border_color(BORDER_GREEN)
+		if cursor: cursor.start_ready_pulse()
 	else:
 		FrameSprite.material = default_material
+		if cursor: cursor.stop_ready_pulse()
 		
 	refresh_display()
 	
@@ -66,6 +68,7 @@ func validateCombo():
 	playerInputs = []
 	total_input = 0
 	refresh_display()
+	if cursor: cursor.stop_ready_pulse()
 	
 func refresh_display() -> void:
 	$HBoxContainer.display_combo_queue(InputList)
@@ -78,6 +81,7 @@ func failCombo() -> void:
 		playerInputs = []
 		total_input = 0
 		refresh_display()
+		if cursor: cursor.stop_ready_pulse()
 	
 func _set_border_color(color: Color) -> void:
 	border_material.set_shader_parameter("replace_color", color)

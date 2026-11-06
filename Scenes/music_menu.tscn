@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://c8dq55fba1oen" path="res://Assets/menu_theme.tres" id="1_j613u"]
 [ext_resource type="Script" uid="uid://ddgbia12dkl0o" path="res://Scripts/music_menu.gd" id="2_skhlu"]
+[ext_resource type="Script" uid="uid://4uubbudk0uet" path="res://Scenes/input_cursor.gd" id="8_n5urk"]
 [ext_resource type="Texture2D" uid="uid://os57ueemv7iu" path="res://Assets/ddr_textures/new_textures/DDRBar.png" id="9_sb6qr"]
 [ext_resource type="Script" uid="uid://dp52ex5alaklm" path="res://Scripts/DDR/Display_inputs.gd" id="10_nkc7x"]
 [ext_resource type="Texture2D" uid="uid://cau38gwi818vq" path="res://Assets/Level assets/Total map.png" id="11_as5n4"]
@@ -31,7 +32,7 @@ grow_vertical = 2
 texture = ExtResource("11_as5n4")
 expand_mode = 1
 
-[node name="MainMenuButton" type="Button" parent="." unique_id=1311359581]
+[node name="MainMenuButton" type="Button" parent="." unique_id=1311359581 node_paths=PackedStringArray("cursor")]
 layout_mode = 1
 offset_right = 685.0
 offset_bottom = 124.0
@@ -39,6 +40,7 @@ theme = ExtResource("1_j613u")
 theme_override_font_sizes/font_size = 67
 text = "Return to Spell list"
 script = ExtResource("12_r4fyu")
+cursor = NodePath("InputCursor")
 
 [node name="Border" type="Sprite2D" parent="MainMenuButton" unique_id=1878237641]
 position = Vector2(332, 134)
@@ -81,6 +83,12 @@ theme_override_fonts/font = ExtResource("11_dxxlu")
 theme_override_font_sizes/font_size = 100
 text = "0"
 
+[node name="InputCursor" type="Node2D" parent="MainMenuButton" unique_id=1487206551]
+position = Vector2(204, 134)
+script = ExtResource("8_n5urk")
+frame_size = Vector2(60, 60)
+color = Color(1, 0.8235294, 0, 1)
+
 [node name="Cadre J1" type="TextureRect" parent="." unique_id=612475297]
 layout_mode = 0
 offset_left = 316.0
@@ -97,12 +105,13 @@ offset_right = 1294.0
 offset_bottom = 726.0
 theme_override_constants/separation = 40
 
-[node name="Slot1" type="Button" parent="Cadre J1/J1 VBoxContainerSlots" unique_id=356202784]
+[node name="Slot1" type="Button" parent="Cadre J1/J1 VBoxContainerSlots" unique_id=356202784 node_paths=PackedStringArray("cursor")]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 text = "Volcanic Bomb"
 script = ExtResource("12_r4fyu")
+cursor = NodePath("InputCursor")
 
 [node name="Border" type="Sprite2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot1" unique_id=1231013826]
 position = Vector2(616, 231)
@@ -145,12 +154,19 @@ theme_override_fonts/font = ExtResource("11_dxxlu")
 theme_override_font_sizes/font_size = 100
 text = "0"
 
-[node name="Slot2" type="Button" parent="Cadre J1/J1 VBoxContainerSlots" unique_id=1731658189]
+[node name="InputCursor" type="Node2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot1" unique_id=729520419]
+position = Vector2(491, 231)
+script = ExtResource("8_n5urk")
+frame_size = Vector2(60, 60)
+color = Color(1, 0.8235294, 0, 1)
+
+[node name="Slot2" type="Button" parent="Cadre J1/J1 VBoxContainerSlots" unique_id=1731658189 node_paths=PackedStringArray("cursor")]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 text = "Full Moon 2.0"
 script = ExtResource("12_r4fyu")
+cursor = NodePath("InputCursor")
 
 [node name="Border" type="Sprite2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot2" unique_id=1680711510]
 position = Vector2(616, 232)
@@ -192,6 +208,12 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("11_dxxlu")
 theme_override_font_sizes/font_size = 100
 text = "0"
+
+[node name="InputCursor" type="Node2D" parent="Cadre J1/J1 VBoxContainerSlots/Slot2" unique_id=1758708355]
+position = Vector2(489, 234)
+script = ExtResource("8_n5urk")
+frame_size = Vector2(60, 60)
+color = Color(1, 0.8235294, 0, 1)
 
 [node name="Player1Name" type="Label" parent="." unique_id=215531820]
 layout_mode = 0
