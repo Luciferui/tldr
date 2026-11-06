@@ -1,0 +1,2 @@
+class_name Appearing_check
+extends Sprite2D

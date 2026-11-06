@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://cpptcq1q1kph8" path="res://Scenes/sandbag.tscn" id="12_3h0wn"]
 [ext_resource type="Script" uid="uid://difrbwhij0a6h" path="res://Scenes/tutorial_text.gd" id="13_ohtq0"]
 [ext_resource type="Texture2D" uid="uid://bknf7jndu0uc" path="res://Assets/menu_assets/checkbox.png" id="14_hy7s5"]
+[ext_resource type="Script" uid="uid://r8a26altacnd" path="res://Scenes/checkbox.gd" id="15_0jq2i"]
+[ext_resource type="Texture2D" uid="uid://cjy8gd5a0xvcs" path="res://Assets/ddr_textures/new_textures/up.png" id="15_hy7s5"]
 [ext_resource type="Texture2D" uid="uid://dsm4sbig2rl5d" path="res://Assets/ddr_textures/death/pixelart_skull_red.png" id="15_ohtq0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfqu"]
@@ -161,11 +163,12 @@ player = NodePath("../Player")
 sandbag = NodePath("../Sandbag")
 
 [node name="Text WAD" type="RichTextLabel" parent="TutorialManager" unique_id=1167140657]
+visible = false
 layout_mode = 0
 offset_left = -301.0
 offset_top = -127.0
 offset_right = 2075.0
-offset_bottom = 329.0
+offset_bottom = 345.0
 scale = Vector2(0.25, 0.25)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.9411765, 0.7882353, 0, 1)
@@ -184,22 +187,29 @@ Before you unleash misery upon your opponents, make sure to learn the controls !
 Use [b]W[/b] (jump), [b]A[/b] (left), [b]D[/b] (right) to move around."
 script = ExtResource("13_ohtq0")
 
-[node name="W ok" type="Sprite2D" parent="TutorialManager/Text WAD" unique_id=1954005504]
-position = Vector2(41, 96)
-scale = Vector2(0.2, 0.2)
+[node name="W ok" type="Sprite2D" parent="TutorialManager/Text WAD" unique_id=1051011459]
+position = Vector2(156, 400)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("14_hy7s5")
+script = ExtResource("15_0jq2i")
+metadata/_custom_type_script = "uid://r8a26altacnd"
 
-[node name="A ok" type="Sprite2D" parent="TutorialManager/Text WAD" unique_id=1574660127]
-position = Vector2(113.99999, 97)
-scale = Vector2(0.2, 0.2)
+[node name="A ok" type="Sprite2D" parent="TutorialManager/Text WAD" unique_id=1976657219]
+position = Vector2(448, 400)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("14_hy7s5")
+script = ExtResource("15_0jq2i")
+metadata/_custom_type_script = "uid://r8a26altacnd"
 
-[node name="D ok" type="Sprite2D" parent="TutorialManager/Text WAD" unique_id=219519462]
-position = Vector2(176.99997, 98)
-scale = Vector2(0.2, 0.2)
+[node name="D ok" type="Sprite2D" parent="TutorialManager/Text WAD" unique_id=1721340152]
+position = Vector2(704, 400)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("14_hy7s5")
+script = ExtResource("15_0jq2i")
+metadata/_custom_type_script = "uid://r8a26altacnd"
 
 [node name="Text attacks" type="RichTextLabel" parent="TutorialManager" unique_id=211122024]
+visible = false
 layout_mode = 0
 offset_left = -302.0
 offset_top = -125.0
@@ -223,27 +233,36 @@ Ground light : [b]F[/b]                       Ground heavy : [b]G[/b]
 Air light :       [b]F[/b]                       Air heavy :       [b]G[/b]"
 script = ExtResource("13_ohtq0")
 
-[node name="Glight ok" type="Sprite2D" parent="TutorialManager/Text attacks" unique_id=169855391]
-position = Vector2(135.00002, 50)
-scale = Vector2(0.2, 0.2)
+[node name="Glight ok" type="Sprite2D" parent="TutorialManager/Text attacks" unique_id=1217289478]
+position = Vector2(532, 199.99998)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("14_hy7s5")
+script = ExtResource("15_0jq2i")
+metadata/_custom_type_script = "uid://r8a26altacnd"
 
-[node name="Alight ok" type="Sprite2D" parent="TutorialManager/Text attacks" unique_id=673349521]
-position = Vector2(137.00002, 79)
-scale = Vector2(0.2, 0.2)
+[node name="Alight ok" type="Sprite2D" parent="TutorialManager/Text attacks" unique_id=1525854910]
+position = Vector2(532, 300)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("14_hy7s5")
+script = ExtResource("15_0jq2i")
+metadata/_custom_type_script = "uid://r8a26altacnd"
 
-[node name="Gheavy ok" type="Sprite2D" parent="TutorialManager/Text attacks" unique_id=1072726105]
-position = Vector2(340, 52)
-scale = Vector2(0.2, 0.2)
+[node name="Gheavy ok" type="Sprite2D" parent="TutorialManager/Text attacks" unique_id=883636066]
+position = Vector2(1348, 195.99998)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("14_hy7s5")
+script = ExtResource("15_0jq2i")
+metadata/_custom_type_script = "uid://r8a26altacnd"
 
-[node name="Aheavy ok" type="Sprite2D" parent="TutorialManager/Text attacks" unique_id=1722135917]
-position = Vector2(341, 77)
-scale = Vector2(0.2, 0.2)
+[node name="Aheavy ok" type="Sprite2D" parent="TutorialManager/Text attacks" unique_id=1952810904]
+position = Vector2(1348, 296)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("14_hy7s5")
+script = ExtResource("15_0jq2i")
+metadata/_custom_type_script = "uid://r8a26altacnd"
 
 [node name="Text dodge" type="RichTextLabel" parent="TutorialManager" unique_id=240221291]
+visible = false
 layout_mode = 0
 offset_left = -302.0
 offset_top = -141.0
@@ -270,12 +289,14 @@ Press [b]SHIFT[/b]
 You are unhittable while you dodge."
 script = ExtResource("13_ohtq0")
 
-[node name="Dodge ok" type="Sprite2D" parent="TutorialManager/Text dodge" unique_id=1658649849]
-position = Vector2(149.00002, 67.00001)
-scale = Vector2(0.2, 0.2)
+[node name="Dodge ok" type="Sprite2D" parent="TutorialManager/Text dodge" unique_id=1148140095]
+position = Vector2(532, 264)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("14_hy7s5")
+script = ExtResource("15_0jq2i")
+metadata/_custom_type_script = "uid://r8a26altacnd"
 
-[node name="Text spell" type="RichTextLabel" parent="TutorialManager" unique_id=264003615]
+[node name="Text spell" type="RichTextLabel" parent="TutorialManager" unique_id=264003615 node_paths=PackedStringArray("counter")]
 layout_mode = 0
 offset_left = -301.0
 offset_top = -141.0
@@ -292,26 +313,93 @@ theme_override_fonts/italics_font = ExtResource("11_u3rwy")
 theme_override_fonts/mono_font = ExtResource("10_xlori")
 theme_override_font_sizes/normal_font_size = 80
 theme_override_font_sizes/bold_font_size = 96
-theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 96
 bbcode_enabled = true
 text = "
 To launch a [i]spell[/i], you :
-Enter as many correct keys in a row in the bottom left as the spell costs
-Hold the spell : [b]T[/b]
+Enter enough correct keys in a row in the [b]DDR[/b], bottom left :
+Hold the spell : [b]H[/b]
 Unleash it :     [b]H[/b]"
 script = ExtResource("13_ohtq0")
+counter = NodePath("input count")
 
-[node name="Hold ok" type="Sprite2D" parent="TutorialManager/Text spell" unique_id=1638165735]
-position = Vector2(136.99997, 78.00001)
-scale = Vector2(0.2, 0.2)
+[node name="input count" type="RichTextLabel" parent="TutorialManager/Text spell" unique_id=79941397]
+layout_mode = 0
+offset_left = 1700.0
+offset_top = 204.0
+offset_right = 1800.0
+offset_bottom = 288.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.9411765, 0.7882353, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("10_xlori")
+theme_override_fonts/bold_font = ExtResource("11_u3rwy")
+theme_override_fonts/bold_italics_font = ExtResource("10_xlori")
+theme_override_fonts/italics_font = ExtResource("11_u3rwy")
+theme_override_fonts/mono_font = ExtResource("10_xlori")
+theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/bold_font_size = 96
+theme_override_font_sizes/italics_font_size = 96
+bbcode_enabled = true
+text = "null"
+
+[node name="Hold ok" type="Sprite2D" parent="TutorialManager/Text spell" unique_id=881749768]
+position = Vector2(540, 352)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("14_hy7s5")
+script = ExtResource("15_0jq2i")
+metadata/_custom_type_script = "uid://r8a26altacnd"
 
-[node name="Unleash ok" type="Sprite2D" parent="TutorialManager/Text spell" unique_id=1362462765]
-position = Vector2(136.99997, 105.00001)
-scale = Vector2(0.2, 0.2)
+[node name="Unleash ok" type="Sprite2D" parent="TutorialManager/Text spell" unique_id=1254249419]
+position = Vector2(540, 456)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("14_hy7s5")
+script = ExtResource("15_0jq2i")
+metadata/_custom_type_script = "uid://r8a26altacnd"
 
-[node name="Text end" type="RichTextLabel" parent="TutorialManager" unique_id=1575460821]
+[node name="Text health" type="RichTextLabel" parent="TutorialManager" unique_id=1575460821]
+visible = false
+layout_mode = 0
+offset_left = -305.0
+offset_top = -178.0
+offset_right = 2171.0
+offset_bottom = 838.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.9411765, 0.7882353, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("10_xlori")
+theme_override_fonts/bold_font = ExtResource("11_u3rwy")
+theme_override_fonts/bold_italics_font = ExtResource("10_xlori")
+theme_override_fonts/italics_font = ExtResource("11_u3rwy")
+theme_override_fonts/mono_font = ExtResource("10_xlori")
+theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/bold_font_size = 96
+theme_override_font_sizes/italics_font_size = 96
+bbcode_enabled = true
+text = "
+
+
+  This       is your [i]DDRHealth[/i]. The higher it is, the more hurt you are, and the more
+difficult it will be to save yourself during the [i]countdown[/i] phase.
+
+Cast spells to continue"
+script = ExtResource("13_ohtq0")
+
+[node name="Up" type="Sprite2D" parent="TutorialManager/Text health" unique_id=634831398]
+position = Vector2(200, 260)
+scale = Vector2(7, 7)
+texture = ExtResource("15_hy7s5")
+
+[node name="Unleash ok" type="Sprite2D" parent="TutorialManager/Text health" unique_id=643820875]
+position = Vector2(668.00006, 532)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("14_hy7s5")
+script = ExtResource("15_0jq2i")
+metadata/_custom_type_script = "uid://r8a26altacnd"
+
+[node name="Text end" type="RichTextLabel" parent="TutorialManager" unique_id=1843341126]
+visible = false
 layout_mode = 0
 offset_left = -301.0
 offset_top = -161.0
@@ -328,22 +416,44 @@ theme_override_fonts/italics_font = ExtResource("11_u3rwy")
 theme_override_fonts/mono_font = ExtResource("10_xlori")
 theme_override_font_sizes/normal_font_size = 80
 theme_override_font_sizes/bold_font_size = 96
-theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 96
 bbcode_enabled = true
 text = "
 
 To [i]KO[/i] your opponent, hit the             . This starts the [i]countdown[/i].
 
-Your opponent then has 10 seconds to save themselves by purging their ddr-damage with the same amount of correct inputs.
+Your opponent has 10 seconds to do as maby correct DDR inputs as his DDRHealth.
 If he succeeds, he heals half his health and the duel continues.
+
 This is the end of the tutorial. Have fun fighting !"
 script = ExtResource("13_ohtq0")
 final = true
 
-[node name="Skull" type="Sprite2D" parent="TutorialManager/Text end" unique_id=1564881892]
-position = Vector2(230.99998, 56)
-scale = Vector2(0.05, 0.05)
+[node name="Skull" type="Sprite2D" parent="TutorialManager/Text end" unique_id=474077762]
+position = Vector2(920.00006, 212.00003)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("15_ohtq0")
+
+[node name="Next_is_enter" type="RichTextLabel" parent="TutorialManager" unique_id=282901667]
+layout_mode = 0
+offset_left = 98.0
+offset_top = -36.0
+offset_right = 962.0
+offset_bottom = 80.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.9411765, 0.7882353, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("10_xlori")
+theme_override_fonts/bold_font = ExtResource("11_u3rwy")
+theme_override_fonts/bold_italics_font = ExtResource("10_xlori")
+theme_override_fonts/italics_font = ExtResource("11_u3rwy")
+theme_override_fonts/mono_font = ExtResource("10_xlori")
+theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/bold_font_size = 96
+theme_override_font_sizes/italics_font_size = 96
+bbcode_enabled = true
+text = "Press [i]ENTER[/i] to continue."
 
 [node name="touches" type="Button" parent="." unique_id=1793319267]
 offset_left = 163.0

@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var rescue_controller: Node = $RescueController
 @onready var hurt_sound: AudioStreamPlayer = $HurtSound
+@onready var ddr: RandomDDR = $Ddr
 
 @export var player_id: int = 0
 @export var left_action: StringName = &"p1_left"
@@ -61,7 +62,7 @@ func _on_hit_received(attack: AttackData) -> void:
 	hurt_sound.stream = attack.hit_sound
 	hurt_sound.play()
 	
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if match_over or rescue_controller.rescue_active or rescue_controller.failed:
 		return
 	statemachine.process_input(event)

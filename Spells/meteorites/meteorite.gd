@@ -45,8 +45,8 @@ func _on_ground_body_entered(body: Node2D) -> void:
 	if body is StaticBody2D:
 		_land()
 
-func _explosion_audio_start (spell: SpellData) -> void:
-	dropping.stream = spell.spell_sound
+func _explosion_audio_start (spell_to_play: SpellData) -> void:
+	dropping.stream = spell_to_play.spell_sound
 	dropping.play()
 	
 func _land() -> void:
