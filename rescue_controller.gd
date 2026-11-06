@@ -23,24 +23,25 @@ func _ready() -> void:
 	ddr = player.get_node("Ddr")
 	DDCounter = ddr.get_node("DeathItems").get_node("DDHealthCounter")
 
-func begin_rescue() -> void:
+func begin_rescue() -> bool:
 	if player.ddhealth == 0:
-		return
+		return false
 	if rescue_active or failed:
-		return
+		return false
 	rescue_active = true
 
 	ddr.playerInputs = [] # réinit les inputs entrées
-	
+
 	deadline_ms = Time.get_ticks_msec() + int(time_limit * 1000)
 	player.statemachine.override_state(dying)
 	required_inputs = player.ddhealth
-	
+
 	start_horloge(time_limit)
-	
+
 	flip_ddr_spell_visible()
-	
+
 	DDCounter.text = str(required_inputs)
+	return true
 
 func _process(_delta: float) -> void:
 	if not rescue_active:

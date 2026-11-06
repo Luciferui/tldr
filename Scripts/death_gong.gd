@@ -1,42 +1,65 @@
-extends Node
+extends Area2D
+
 @export var Player1: Player
 @export var Player2: Player
-@export var reload_speed: float = 1.
 @onready var announcements: RichTextLabel = $"../Announcements/RichTextLabel"
+
 var announcement_tween: Tween
 var current_announcement: String = ""
-var is_p1_activated = false
-var is_p2_activated = false
 var waiting_frames: int = -1
 
-var places_list : Array = [Vector2(-275, 0.), Vector2(-185, -135), Vector2(200, -25), Vector2(-271, 75), Vector2(150, 100)]
-
+var places_list: Array = [Vector2(-275, 0.), Vector2(-185, -135), Vector2(200, -25), Vector2(-271, 75), Vector2(150, 100)]
 
 func _ready() -> void:
+	collision_layer = 0   # le skull n'a pas besoin d'être détecté par les autres
+	collision_mask = 2    # il détecte les Hitbox (layer 2)
+	area_entered.connect(_on_area_entered)
+
 	announcements.visible = false
 	announcements.modulate.a = 0.0
 	announcements.scale = Vector2(0.75, 0.75)
 	respawn_gong()
-		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(_delta: float) -> void:
 	update_announcements()
-	if is_p1_activated:
-		if Input.is_action_just_pressed("p1_light"):
-			hide_gong()
-			Player2.get_node("RescueController").begin_rescue()
-			is_p1_activated = false
-	if is_p2_activated:
-		if Input.is_action_just_pressed("p2_light"):
-			hide_gong()
-			Player1.get_node("RescueController").begin_rescue()
-			is_p2_activated = false
-			
 	if waiting_frames != -1:
 		waiting_frames += 1
-	if waiting_frames == 60*10:
+	if waiting_frames == 60 * 10:
 		respawn_gong()
 		waiting_frames = -1
+
+func _on_area_entered(area: Area2D) -> void:
+	if not visible:
+		return
+	if not area is Hitbox:
+		return
+
+	var attacker = (area as Hitbox).attacker
+	var victim: Player = null
+	if attacker == Player1:
+		victim = Player2
+	elif attacker == Player2:
+		victim = Player1
+	else:
+		return # hitbox qui n'appartient à aucun des deux joueurs
+
+	if victim.get_node("RescueController").begin_rescue():
+		hide_gong()
+
+func hide_gong() -> void:
+	visible = false
+	set_deferred("monitoring", false) # sinon le skull invisible reste frappable
+	waiting_frames = 0
+
+func respawn_gong() -> void:
+	var previous_pos = position
+	var current_place = places_list.pick_random()
+	while current_place == previous_pos:
+		current_place = places_list.pick_random()
+	position = current_place
+	visible = true
+	set_deferred("monitoring", true)
+	$AnimationPlayer.play("skull_idling")
 
 func update_announcements() -> void:
 	var rescue1 = Player1.get_node("RescueController")
@@ -94,30 +117,3 @@ func hide_announcement() -> void:
 	announcement_tween.tween_property(announcements, "scale", Vector2(0.9, 0.9), 0.2)
 
 	announcement_tween.chain().tween_callback(func(): announcements.visible = false)
-
-func _on_body_entered(area: Node2D) -> void:
-	if area == Player1:
-		is_p1_activated = true
-	if area == Player2:
-		is_p2_activated = true
-
-func _on_body_exited(area: Node2D) -> void:
-	if area == Player1:
-		is_p1_activated = false
-	if area == Player2:
-		is_p2_activated = false
-	
-func hide_gong():
-	self.visible = false
-	waiting_frames = 0
-	
-func respawn_gong():
-	self.visible = true
-	var previous_pos = self.position
-	var current_place = places_list.pick_random()
-	while current_place == previous_pos:
-		current_place = places_list.pick_random()
-	self.position = current_place
-	print(current_place)
-	$AnimationPlayer.play("skull_idling")
-	

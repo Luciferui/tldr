@@ -57,7 +57,7 @@ size = Vector2(30.5, 20)
 size = Vector2(86, 382)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ssidi"]
-size = Vector2(46, 46)
+size = Vector2(45, 56)
 
 [sub_resource type="Animation" id="Animation_pa6b8"]
 length = 0.001
@@ -291,12 +291,11 @@ dodge_action = &"p2_dodge"
 opponent = NodePath("../Player")
 
 [node name="DeathSkull" type="Area2D" parent="." unique_id=1420214613 node_paths=PackedStringArray("Player1", "Player2")]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 3
 script = ExtResource("11_ha31o")
 Player1 = NodePath("../Player")
 Player2 = NodePath("../Player2")
-reload_speed = 0.05
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathSkull" unique_id=520652917]
 position = Vector2(0, 30)
@@ -333,6 +332,3 @@ theme_override_fonts/normal_font = ExtResource("11_c7le1")
 theme_override_font_sizes/normal_font_size = 30
 text = "P1 is KO!"
 horizontal_alignment = 1
-
-[connection signal="body_entered" from="DeathSkull" to="DeathSkull" method="_on_body_entered"]
-[connection signal="body_exited" from="DeathSkull" to="DeathSkull" method="_on_body_exited"]

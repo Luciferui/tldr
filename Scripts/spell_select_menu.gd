@@ -288,7 +288,8 @@ func _refresh_highlights() -> void:
 	p2_spell_info_panel.visible = false
 	p1_spell_info_texture.visible = false
 	p2_spell_info_texture.visible = false
-
+	
+	_apply_empty_slot_colors()
 	_highlight_player(1)
 	_highlight_player(2)
 
@@ -359,6 +360,14 @@ func _show_spell_info(player: int, spell_index: int) -> void:
 		spell.required_combo,
 		spell.damage
 	]
+
+func _apply_empty_slot_colors() -> void:
+	for i in p1_slot_buttons.size():
+		if p1_slots[i] == -1:
+			p1_slot_buttons[i].add_theme_color_override("font_color", Color("8a94b8"))
+	for i in p2_slot_buttons.size():
+		if p2_slots[i] == -1:
+			p2_slot_buttons[i].add_theme_color_override("font_color", Color("8a94b8"))
 
 func _add_key_hint(button: Button, texture: Texture2D) -> void:
 	var hint := TextureRect.new()
