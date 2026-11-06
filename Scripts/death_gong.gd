@@ -41,11 +41,13 @@ func _process(_delta: float) -> void:
 func update_announcements() -> void:
 	var rescue1 = Player1.get_node("RescueController")
 	var rescue2 = Player2.get_node("RescueController")
+	var p1_health = Player1.ddhealth
+	var p2_health = Player2.ddhealth
 
 	if rescue1.rescue_active:
-		show_announcement("P1 is KO")
+		show_announcement("P1 is KO\n Make " + str(p1_health) + "inputs to survive")
 	elif rescue2.rescue_active:
-		show_announcement("P2 is KO")
+		show_announcement("P2 is KO\n Make " + str(p2_health) + " inputs to survive")
 	else:
 		hide_announcement()
 

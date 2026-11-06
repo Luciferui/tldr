@@ -17,6 +17,21 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5n12"]
+bg_color = Color(0.31764707, 0.24705882, 0.78431374, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.9098039, 0.8039216, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e41wk"]
+bg_color = Color(0.31764707, 0.24705882, 0.78431374, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
 [resource]
 Button/colors/font_color = Color(16.637999, 16.637999, 16.637999, 1)
 Button/colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
@@ -28,4 +43,11 @@ Button/styles/hover = SubResource("StyleBoxFlat_3d7xv")
 Button/styles/normal = SubResource("StyleBoxFlat_3d7xv")
 Label/font_sizes/font_size = 60
 Label/fonts/font = ExtResource("1_2krdf")
+SpellButton/base_type = &"Button"
+SpellButton/font_sizes/font_size = 42
+SpellButton/fonts/font = ExtResource("1_2krdf")
+SpellButton/styles/focus = SubResource("StyleBoxFlat_c5n12")
+SpellButton/styles/hover = SubResource("StyleBoxFlat_c5n12")
+SpellButton/styles/normal = SubResource("StyleBoxFlat_e41wk")
+SpellButton/styles/pressed = SubResource("StyleBoxFlat_e41wk")
 VBoxContainer/constants/separation = 25

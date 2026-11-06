@@ -182,26 +182,6 @@ position = Vector2(37.99994, 83)
 scale = Vector2(3.3749962, 3.3749962)
 texture = ExtResource("8_miyui")
 
-[node name="Hold P1" type="ColorRect" parent="Panel" unique_id=1063187926]
-layout_mode = 0
-offset_left = 448.0
-offset_top = 529.0
-offset_right = 524.0
-offset_bottom = 605.0
-
-[node name="Key" type="Label" parent="Panel/Hold P1" unique_id=744038312]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 3.0
-offset_right = 64.0
-offset_bottom = 73.0
-theme = ExtResource("2_e8c2f")
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-text = "T"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
 [node name="Launch P1" type="ColorRect" parent="Panel" unique_id=1705728355]
 layout_mode = 0
 offset_left = 533.0
@@ -283,27 +263,16 @@ text = "Kick"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Hold Key P1" type="Label" parent="Panel" unique_id=891325581]
-layout_mode = 0
-offset_left = 390.0
-offset_top = 464.0
-offset_right = 601.0
-offset_bottom = 531.0
-theme = ExtResource("2_e8c2f")
-theme_override_font_sizes/font_size = 40
-text = "Hold Spell"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Launch Key P1" type="Label" parent="Panel" unique_id=709439585]
 layout_mode = 0
-offset_left = 572.0
-offset_top = 613.0
-offset_right = 834.0
-offset_bottom = 710.0
+offset_left = 601.0
+offset_top = 572.0
+offset_right = 863.0
+offset_bottom = 719.0
 theme = ExtResource("2_e8c2f")
 theme_override_font_sizes/font_size = 40
-text = "Launch
+text = "Hold Spell /
+Launch
 Spell"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -346,26 +315,15 @@ vertical_alignment = 1
 
 [node name="Launch Key P2" type="Label" parent="Panel" unique_id=694103099]
 layout_mode = 0
-offset_left = 1294.0
-offset_top = 610.0
-offset_right = 1556.0
-offset_bottom = 707.0
+offset_left = 1327.0
+offset_top = 583.0
+offset_right = 1589.0
+offset_bottom = 730.0
 theme = ExtResource("2_e8c2f")
 theme_override_font_sizes/font_size = 40
-text = "Launch
+text = "Hold Spell /
+Launch
 Spell"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Hold Key P2" type="Label" parent="Panel" unique_id=1257586286]
-layout_mode = 0
-offset_left = 1099.0
-offset_top = 445.0
-offset_right = 1310.0
-offset_bottom = 512.0
-theme = ExtResource("2_e8c2f")
-theme_override_font_sizes/font_size = 40
-text = "Hold Spell"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -446,26 +404,6 @@ offset_bottom = 73.0
 theme = ExtResource("2_e8c2f")
 theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 text = "3"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Hold P2" type="ColorRect" parent="Panel" unique_id=258083666]
-layout_mode = 0
-offset_left = 1165.0
-offset_top = 526.0
-offset_right = 1241.0
-offset_bottom = 602.0
-
-[node name="Key" type="Label" parent="Panel/Hold P2" unique_id=1501041828]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 3.0
-offset_right = 64.0
-offset_bottom = 73.0
-theme = ExtResource("2_e8c2f")
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true

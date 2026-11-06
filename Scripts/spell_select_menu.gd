@@ -1,6 +1,12 @@
 
 extends Control
 
+@export var p1_key_hint: Texture2D   # image de la touche G
+@export var p2_key_hint: Texture2D   # image de la touche 1 (pavé num)
+
+const HINT_SIZE := Vector2(48, 48)  
+const HINT_MARGIN := 28.0          
+
 # Sorts disponibles
 @onready var p1_spell_buttons: Array = [$"Cadre J1/J1 VBoxContainer/Spell1", $"Cadre J1/J1 VBoxContainer/Spell2", $"Cadre J1/J1 VBoxContainer/Spell3", $"Cadre J1/J1 VBoxContainer/Spell4", $"Cadre J1/J1 VBoxContainer/Spell5"]
 @onready var p2_spell_buttons: Array = [$"Cadre J2/J2 VBoxContainer/Spell1", $"Cadre J2/J2 VBoxContainer/Spell2", $"Cadre J2/J2 VBoxContainer/Spell3", $"Cadre J2/J2 VBoxContainer/Spell4", $"Cadre J2/J2 VBoxContainer/Spell5"]
@@ -81,7 +87,13 @@ func _ready() -> void:
 
 	p1_spelllist_container.visible = false
 	p2_spelllist_container.visible = false
-
+	
+	
+	for b in p1_spell_buttons + p1_slot_buttons + [start_button, start_training_button, main_menu_button]:
+		_add_key_hint(b, p1_key_hint)
+	for b in p2_spell_buttons + p2_slot_buttons:
+		_add_key_hint(b, p2_key_hint)
+	
 	_refresh_slot_labels(1)
 	_refresh_slot_labels(2)
 	_refresh_highlights()
@@ -267,11 +279,8 @@ func _refresh_slot_labels(player: int) -> void:
 
 
 func _refresh_highlights() -> void:
-	for b in p1_spell_buttons + p2_spell_buttons + p1_slot_buttons + p2_slot_buttons:
-		b.remove_theme_color_override("font_color")
-		b.remove_theme_stylebox_override("normal")
-
-	for b in [start_button, start_training_button, main_menu_button]:
+	for b in p1_spell_buttons + p2_spell_buttons + p1_slot_buttons + p2_slot_buttons + [start_button, start_training_button, main_menu_button]:
+		_set_key_hint(b, false)
 		b.remove_theme_color_override("font_color")
 		b.remove_theme_stylebox_override("normal")
 
@@ -314,6 +323,7 @@ func _highlight_player(player: int) -> void:
 
 func _set_highlight(button: Button, on: bool) -> void:
 	if on:
+		_set_key_hint(button, true)
 		button.add_theme_color_override("font_color", Color("#f2f200"))
 		var style = button.get_theme_stylebox("normal").duplicate()
 		style.border_color = Color("#f2f200")
@@ -350,6 +360,30 @@ func _show_spell_info(player: int, spell_index: int) -> void:
 		spell.damage
 	]
 
+func _add_key_hint(button: Button, texture: Texture2D) -> void:
+	var hint := TextureRect.new()
+	hint.name = "KeyHint"
+	hint.texture = texture
+	hint.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	hint.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	hint.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	hint.visible = false
+	button.add_child(hint)
+	# Collée au bord droit du bouton, centrée verticalement
+	hint.anchor_left = 1.0
+	hint.anchor_right = 1.0
+	hint.anchor_top = 0.5
+	hint.anchor_bottom = 0.5
+	hint.offset_left = -HINT_SIZE.x - HINT_MARGIN
+	hint.offset_right = -HINT_MARGIN
+	hint.offset_top = -HINT_SIZE.y / 2.0
+	hint.offset_bottom = HINT_SIZE.y / 2.0
+
+
+func _set_key_hint(button: Button, on: bool) -> void:
+	var hint := button.get_node_or_null("KeyHint") as TextureRect
+	if hint:
+		hint.visible = on
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
