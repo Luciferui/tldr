@@ -20,7 +20,10 @@ func _ready() -> void:
 	controller.connect("rescue_failed", _on_rescue_failed)
 	player1.connect("ddhealth_changed", update_bass_boost)
 	
-	controls_menu.hide()
+
+func _process(delta: float):
+	if Input.is_action_just_pressed("Esc"):
+		flip_inputs_menu()
 
 func update_bass_boost():
 	var value: float = float(player1.ddhealth)/2 /70
@@ -43,14 +46,7 @@ func _on_rescue_failed(loser: Player) -> void:
 	player1.get_node("Hitbox").deactivateAttack()
 
 	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
-	
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	tutorialManager.process_input(event)
+
 	
 
 func _on_main_menu_button_pressed() -> void:
@@ -59,5 +55,8 @@ func _on_main_menu_button_pressed() -> void:
 func rescue_background() ->void:
 	pass
 
-func _on_touches_pressed() -> void:
-	controls_menu.show()
+func flip_inputs_menu():
+	controls_menu.visible = !controls_menu.visible
+	$Player.visible = !$Player.visible
+	$Sandbag.visible = !$Sandbag.visible
+	print("tes")

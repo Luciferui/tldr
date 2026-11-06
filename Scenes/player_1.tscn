@@ -590,6 +590,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lctyb"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ssidi"]
 atlas = ExtResource("3_dbliy")
 region = Rect2(40.955, 1.99, 15.255, 12.76)
@@ -870,7 +872,7 @@ text = "0
 "
 
 [node name="Face" type="Sprite2D" parent="DDHealthDisplayer" unique_id=732908882]
-position = Vector2(-12, 2.9999998)
+material = SubResource("ShaderMaterial_lctyb")
 scale = Vector2(5, 5)
 texture = SubResource("AtlasTexture_ssidi")
 

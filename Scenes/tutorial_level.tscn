@@ -464,6 +464,11 @@ theme_override_font_sizes/font_size = 80
 text = "Controls"
 
 [node name="Controls" parent="." unique_id=1573093297 instance=ExtResource("18_lqt5r")]
+visible = false
+script = null
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="touches" to="." method="_on_touches_pressed"]
+[connection signal="pressed" from="touches" to="." method="flip_inputs_menu"]
+[connection signal="pressed" from="Controls/TrainingButton" to="." method="flip_inputs_menu"]
+
+[editable path="Controls"]

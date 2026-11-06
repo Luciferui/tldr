@@ -7,6 +7,11 @@ var winner_number: int = 0
 
 var bus_index: int
 
+func _process(delta: float):
+	if Input.is_action_just_pressed("Esc"):
+		flip_inputs_menu()
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Jukebox.play_music()
@@ -41,8 +46,16 @@ func _on_rescue_failed(loser: Player) -> void:
 		player.get_node("Hitbox").deactivateAttack()
 	
 	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
-	
+
+func flip_inputs_menu():
+	$Controls.visible = !$Controls.visible
+	$Player.visible = !$Player.visible
+	$Player2.visible = !$Player2.visible
 
 func rescue_background() ->void:
 	pass
 	
+
+
+func _on_return_button_pressed() -> void:
+	pass # Replace with function body.

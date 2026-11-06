@@ -20,6 +20,12 @@ func _ready() -> void:
 		player.connect("ddhealth_changed", update_bass_boost)
 		player.get_node("Hurtbox").collision_mask = 8
 		
+func _process(delta: float):
+	if Input.is_action_just_pressed("Esc"):
+		flip_inputs_menu()
+
+func flip_inputs_menu():
+	$Controls.visible = !$Controls.visible
 
 func update_bass_boost():
 	var value: float = float((player1.ddhealth+player2.ddhealth))/2 /70
@@ -43,13 +49,6 @@ func _on_rescue_failed(loser: Player) -> void:
 		player.get_node("Hitbox").deactivateAttack()
 
 	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
-	
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/spell_select_menu.tscn")

@@ -3,8 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://5g0k8gvdf3n0" path="res://Assets/Level assets/Background.png" id="1_1ainy"]
 [ext_resource type="Script" uid="uid://gr3og6bes57d" path="res://Scripts/level_script.gd" id="1_qxfql"]
 [ext_resource type="PackedScene" uid="uid://4s000tfvfba4" path="res://Scenes/player_1.tscn" id="2_pnn78"]
+[ext_resource type="Texture2D" uid="uid://r8q8e52b7ktp" path="res://Assets/Level assets/level_raw.png" id="3_crh0w"]
+[ext_resource type="Texture2D" uid="uid://biqpj4va41syh" path="res://Assets/Level assets/Background_glow.png" id="4_c7le1"]
 [ext_resource type="Texture2D" uid="uid://d1ebkqnditaer" path="res://Assets/Level assets/Plateform0.5.png" id="5_aicyk"]
 [ext_resource type="Texture2D" uid="uid://dpln6tt7v8y0l" path="res://Assets/Level assets/Plateform0.png" id="5_n6hdu"]
+[ext_resource type="Texture2D" uid="uid://ddqiw7e8f8w5v" path="res://Assets/Level assets/nuages.png" id="5_nngtn"]
 [ext_resource type="Texture2D" uid="uid://c8ktl3ql2rywt" path="res://Assets/Level assets/Plateform1.png" id="6_8b0r0"]
 [ext_resource type="Texture2D" uid="uid://c218s8r0w6yjg" path="res://Assets/Level assets/Plateform1.1.png" id="7_h6smj"]
 [ext_resource type="Texture2D" uid="uid://chwmndk84evfv" path="res://Assets/Level assets/Plateform1.2.png" id="8_v5j5c"]
@@ -13,6 +16,39 @@
 [ext_resource type="FontFile" uid="uid://chyl1b4eiejtw" path="res://Assets/Fonts/Ithaca-LVB75.ttf" id="11_c7le1"]
 [ext_resource type="Script" uid="uid://cry5wa7bhirnl" path="res://Scripts/death_gong.gd" id="11_ha31o"]
 [ext_resource type="Texture2D" uid="uid://dsm4sbig2rl5d" path="res://Assets/ddr_textures/death/pixelart_skull_red.png" id="12_ha31o"]
+[ext_resource type="Shader" uid="uid://cxxobj30kj0yi" path="res://Scripts/Player/blue_filter.gdshader" id="14_2klc5"]
+[ext_resource type="PackedScene" uid="uid://bk4t444mpsb2n" path="res://Scenes/controls.tscn" id="18_00k4y"]
+[ext_resource type="Theme" uid="uid://c8dq55fba1oen" path="res://Assets/menu_theme.tres" id="19_3a44l"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nngtn"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 4
+particles_anim_loop = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh3vm"]
+atlas = ExtResource("5_nngtn")
+region = Rect2(100, 100, 2500, 1400)
+
+[sub_resource type="Gradient" id="Gradient_vofx3"]
+colors = PackedColorArray(1, 1, 1, 0.8117647, 1, 1, 1, 0.7372549)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3d320"]
+gradient = SubResource("Gradient_vofx3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4d8j6"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(-360, -80, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1, 75, 1)
+spread = 0.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.29999998
+color_ramp = SubResource("GradientTexture1D_3d320")
+anim_offset_max = 0.87
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfqu"]
 size = Vector2(118, 9.25)
@@ -58,6 +94,12 @@ size = Vector2(86, 474)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ssidi"]
 size = Vector2(45, 56)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lctyb"]
+shader = ExtResource("14_2klc5")
+shader_parameter/target_color = Color(0.7490196, 0.19607843, 0.16470589, 1)
+shader_parameter/replace_color = Color(0.6832723, 0.0025938624, 0.9160174, 1)
+shader_parameter/tolerance = 0.3
 
 [sub_resource type="Animation" id="Animation_pa6b8"]
 length = 0.001
@@ -130,8 +172,25 @@ player2 = NodePath("Player2")
 scale = Vector2(2.4999995, 2.5)
 texture = ExtResource("1_1ainy")
 
+[node name="LevelRaw" type="Sprite2D" parent="." unique_id=560675122]
+visible = false
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_crh0w")
+
+[node name="BackgroundGlow" type="Sprite2D" parent="." unique_id=2130993942]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_c7le1")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=74320995]
 zoom = Vector2(3, 3)
+
+[node name="nuage 1" type="GPUParticles2D" parent="." unique_id=436251191]
+material = SubResource("CanvasItemMaterial_nngtn")
+amount = 7
+texture = SubResource("AtlasTexture_mh3vm")
+lifetime = 120.0
+preprocess = 120.0
+process_material = SubResource("ParticleProcessMaterial_4d8j6")
 
 [node name="Plateform0_5" type="StaticBody2D" parent="." unique_id=1605015684]
 collision_layer = 4
@@ -308,6 +367,7 @@ position = Vector2(0, 30)
 shape = SubResource("RectangleShape2D_ssidi")
 
 [node name="Sprite2D" type="Sprite2D" parent="DeathSkull" unique_id=846682657]
+material = SubResource("ShaderMaterial_lctyb")
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("12_ha31o")
 
@@ -315,11 +375,13 @@ texture = ExtResource("12_ha31o")
 libraries/ = SubResource("AnimationLibrary_c7le1")
 
 [node name="Announcements" type="Control" parent="." unique_id=1431261167]
+visible = false
 top_level = true
 layout_mode = 3
 anchors_preset = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Announcements" unique_id=282078720]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -338,3 +400,17 @@ theme_override_fonts/normal_font = ExtResource("11_c7le1")
 theme_override_font_sizes/normal_font_size = 30
 text = "P1 is KO!"
 horizontal_alignment = 1
+
+[node name="Controls" parent="." unique_id=455001068 instance=ExtResource("18_00k4y")]
+visible = false
+
+[node name="Return button" type="Button" parent="Controls" unique_id=738700574]
+offset_right = 685.0
+offset_bottom = 124.0
+theme = ExtResource("19_3a44l")
+theme_override_font_sizes/font_size = 67
+text = "Return"
+
+[connection signal="body_entered" from="DeathSkull" to="DeathSkull" method="_on_body_entered"]
+[connection signal="body_exited" from="DeathSkull" to="DeathSkull" method="_on_body_exited"]
+[connection signal="pressed" from="Controls/Return button" to="." method="flip_inputs_menu"]

@@ -98,6 +98,12 @@ func _ready() -> void:
 	_refresh_slot_labels(2)
 	_refresh_highlights()
 
+func _process(delta: float):
+	if Input.is_action_just_pressed("Esc"):
+		flip_inputs_menu()
+
+func flip_inputs_menu():
+	$Controls.visible = !$Controls.visible
 
 func _unhandled_input(event: InputEvent) -> void:
 	_handle_player_input(1, event)

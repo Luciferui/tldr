@@ -117,3 +117,4 @@ func apply_blue_filter(s: AnimatedSprite2D) -> void:
 	# 3. Appliquer le matériau au sprite du joueur 2 uniquement
 	s.material = mat
 	
+	

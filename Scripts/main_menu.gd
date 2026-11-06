@@ -1,5 +1,4 @@
 extends Control
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -9,7 +8,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("Esc"):
+		flip_inputs_menu()
 
 
 
@@ -17,6 +17,8 @@ func _on_start_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/spell_select_menu.tscn")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+func flip_inputs_menu():
+	$Controls.visible = !$Controls.visible
 
 func _on_tutorial_button_pressed() -> void:
 	const SPELL_1: SpellData = preload("res://Spells/spell1.tres")

@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dpln6tt7v8y0l" path="res://Assets/Level assets/Plateform0.png" id="9_csj5y"]
 [ext_resource type="PackedScene" uid="uid://4s000tfvfba4" path="res://Scenes/player_1.tscn" id="10_1fpgv"]
 [ext_resource type="PackedScene" uid="uid://cpptcq1q1kph8" path="res://Scenes/sandbag.tscn" id="11_k11pi"]
+[ext_resource type="PackedScene" uid="uid://bk4t444mpsb2n" path="res://Scenes/controls.tscn" id="13_8pk4s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfqu"]
 size = Vector2(118, 9.25)
@@ -231,4 +232,15 @@ theme = ExtResource("3_8pk4s")
 theme_override_font_sizes/font_size = 67
 text = "Return to Menu"
 
+[node name="Controls" parent="." unique_id=455001068 instance=ExtResource("13_8pk4s")]
+visible = false
+
+[node name="Return button" type="Button" parent="Controls" unique_id=586388447]
+offset_right = 685.0
+offset_bottom = 124.0
+theme = ExtResource("3_8pk4s")
+theme_override_font_sizes/font_size = 67
+text = "Return"
+
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="Controls/Return button" to="." method="flip_inputs_menu"]

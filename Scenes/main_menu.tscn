@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://os57ueemv7iu" path="res://Assets/ddr_textures/new_textures/DDRBar.png" id="5_trj04"]
 [ext_resource type="Script" uid="uid://dp52ex5alaklm" path="res://Scripts/DDR/Display_inputs.gd" id="6_16hvj"]
 [ext_resource type="FontFile" uid="uid://chyl1b4eiejtw" path="res://Assets/Fonts/Ithaca-LVB75.ttf" id="7_vr1f0"]
-[ext_resource type="Script" uid="uid://4uubbudk0uet" path="res://Scenes/input_cursor.gd" id="8_yhxw7"]
+[ext_resource type="PackedScene" uid="uid://bk4t444mpsb2n" path="res://Scenes/controls.tscn" id="8_yhxw7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
 bg_color = Color(0, 0.13725491, 0.40784314, 1)
@@ -94,9 +94,6 @@ text = "0"
 
 [node name="InputCursor" type="Node2D" parent="StartButton" unique_id=787134615]
 position = Vector2(123, 176)
-script = ExtResource("8_yhxw7")
-frame_size = Vector2(60, 60)
-color = Color(1, 0.8235294, 0, 1)
 
 [node name="TutorialButton" type="Button" parent="." unique_id=388483869 node_paths=PackedStringArray("cursor")]
 layout_mode = 0
@@ -153,9 +150,17 @@ text = "0"
 
 [node name="InputCursor" type="Node2D" parent="TutorialButton" unique_id=128485818]
 position = Vector2(69, 135)
-script = ExtResource("8_yhxw7")
-frame_size = Vector2(60, 60)
-color = Color(1, 0.8235294, 0, 1)
+
+[node name="Controls" parent="." unique_id=455001068 instance=ExtResource("8_yhxw7")]
+visible = false
+
+[node name="Return button" type="Button" parent="Controls" unique_id=451183495]
+offset_right = 685.0
+offset_bottom = 124.0
+theme = ExtResource("3_jix8l")
+theme_override_font_sizes/font_size = 67
+text = "Return"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="Controls/Return button" to="." method="flip_inputs_menu"]
