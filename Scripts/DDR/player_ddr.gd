@@ -166,7 +166,7 @@ func failCombo() -> void:
 		total_input = 0
 		refresh_display()
 
-func _set_border_color(color: Color) -> void:
+func _set_border_color(_color: Color) -> void:
 	#border_material.set_shader_parameter("replace_color", color)
 	#FrameSprite.material = border_material
 	pass

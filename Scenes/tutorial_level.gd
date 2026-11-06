@@ -19,11 +19,11 @@ func _ready() -> void:
 	var controller: Node = player1.get_node("RescueController")
 	controller.connect("rescue_failed", _on_rescue_failed)
 	player1.connect("ddhealth_changed", update_bass_boost)
-	
 
-func _process(delta: float):
+func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Esc"):
 		flip_inputs_menu()
+	tutorialManager.process_input(event)
 
 func update_bass_boost():
 	var value: float = float(player1.ddhealth)/2 /70
@@ -59,4 +59,3 @@ func flip_inputs_menu():
 	controls_menu.visible = !controls_menu.visible
 	$Player.visible = !$Player.visible
 	$Sandbag.visible = !$Sandbag.visible
-	print("tes")

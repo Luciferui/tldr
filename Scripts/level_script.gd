@@ -7,7 +7,7 @@ var winner_number: int = 0
 
 var bus_index: int
 
-func _process(delta: float):
+func _process(_delta: float):
 	if Input.is_action_just_pressed("Esc"):
 		flip_inputs_menu()
 

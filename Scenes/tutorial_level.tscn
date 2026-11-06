@@ -166,6 +166,7 @@ player = NodePath("../Player")
 sandbag = NodePath("../Sandbag")
 
 [node name="Text WAD" type="RichTextLabel" parent="TutorialManager" unique_id=1167140657]
+visible = false
 layout_mode = 0
 offset_left = -301.0
 offset_top = -127.0
@@ -211,6 +212,7 @@ script = ExtResource("15_0jq2i")
 metadata/_custom_type_script = "uid://r8a26altacnd"
 
 [node name="Text attacks" type="RichTextLabel" parent="TutorialManager" unique_id=211122024]
+visible = false
 layout_mode = 0
 offset_left = -302.0
 offset_top = -125.0
@@ -263,6 +265,7 @@ script = ExtResource("15_0jq2i")
 metadata/_custom_type_script = "uid://r8a26altacnd"
 
 [node name="Text dodge" type="RichTextLabel" parent="TutorialManager" unique_id=240221291]
+visible = false
 layout_mode = 0
 offset_left = -302.0
 offset_top = -141.0
@@ -297,6 +300,7 @@ script = ExtResource("15_0jq2i")
 metadata/_custom_type_script = "uid://r8a26altacnd"
 
 [node name="Text spell" type="RichTextLabel" parent="TutorialManager" unique_id=264003615 node_paths=PackedStringArray("counter")]
+visible = false
 layout_mode = 0
 offset_left = -301.0
 offset_top = -141.0
@@ -357,7 +361,39 @@ texture = ExtResource("14_hy7s5")
 script = ExtResource("15_0jq2i")
 metadata/_custom_type_script = "uid://r8a26altacnd"
 
+[node name="Text escape" type="RichTextLabel" parent="TutorialManager" unique_id=1503922098]
+layout_mode = 0
+offset_left = -297.0
+offset_top = -134.0
+offset_right = 2067.0
+offset_bottom = 554.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.9411765, 0.7882353, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("10_xlori")
+theme_override_fonts/bold_font = ExtResource("11_u3rwy")
+theme_override_fonts/bold_italics_font = ExtResource("10_xlori")
+theme_override_fonts/italics_font = ExtResource("11_u3rwy")
+theme_override_fonts/mono_font = ExtResource("10_xlori")
+theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/bold_font_size = 96
+theme_override_font_sizes/italics_font_size = 24
+bbcode_enabled = true
+text = "
+To see the reminder panel for controls at any time,
+press : [b]ESC[/b]"
+script = ExtResource("13_ohtq0")
+
+[node name="Esc ok" type="Sprite2D" parent="TutorialManager/Text escape" unique_id=2122617833]
+position = Vector2(468.00006, 196.00003)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("14_hy7s5")
+script = ExtResource("15_0jq2i")
+metadata/_custom_type_script = "uid://r8a26altacnd"
+
 [node name="Text health" type="RichTextLabel" parent="TutorialManager" unique_id=1575460821]
+visible = false
 layout_mode = 0
 offset_left = -305.0
 offset_top = -178.0
@@ -398,6 +434,7 @@ script = ExtResource("15_0jq2i")
 metadata/_custom_type_script = "uid://r8a26altacnd"
 
 [node name="Text end" type="RichTextLabel" parent="TutorialManager" unique_id=1843341126]
+visible = false
 layout_mode = 0
 offset_left = -301.0
 offset_top = -161.0

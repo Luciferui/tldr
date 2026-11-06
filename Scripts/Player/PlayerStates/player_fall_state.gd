@@ -23,7 +23,6 @@ func process_input(_event: InputEvent) -> State:
 		player.set_collision_mask_value(3,false)
 	else:
 		player.set_collision_mask_value(3,true)
-	print(player.get_collision_mask_value(3))
 	return null
 
 func process_physics(delta: float) -> State:

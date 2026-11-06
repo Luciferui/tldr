@@ -66,6 +66,9 @@ func process_input(event : InputEvent) -> void:
 					activate = 1
 					holded = false
 			4:
+				if event.is_action_pressed("Esc"):
+					activate = 0
+			5:
 				if event.is_action_pressed("p1_spell") and ddr.total_input>3:
 					holded = true
 				elif event.is_action_pressed("p1_spell") and holded:
