@@ -10,18 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://clixcyoas0nj4" path="res://Assets/ddr_textures/new_textures/light.png" id="8_miyui"]
 [ext_resource type="Texture2D" uid="uid://ceoubc06jmsq5" path="res://Assets/ddr_textures/new_textures/heavy.png" id="9_au1p5"]
 
-[node name="Controls" type="Control" unique_id=455001068]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Controls" type="CanvasLayer" unique_id=1573093297]
 script = ExtResource("1_21kh3")
 
 [node name="BackGround" type="TextureRect" parent="." unique_id=580731042]
 modulate = Color(0.381961, 0.381961, 0.381961, 1)
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -31,7 +24,6 @@ texture = ExtResource("1_8qavf")
 expand_mode = 1
 
 [node name="Panel" type="Panel" parent="." unique_id=548744231]
-layout_mode = 0
 offset_left = 127.0
 offset_top = 133.0
 offset_right = 1797.0
@@ -566,11 +558,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TrainingButton" type="Button" parent="." unique_id=172227316]
-layout_mode = 0
 offset_right = 685.0
 offset_bottom = 124.0
 theme = ExtResource("2_e8c2f")
 theme_override_font_sizes/font_size = 67
-text = "Return to Training"
+text = "Return"
 
 [connection signal="pressed" from="TrainingButton" to="." method="_on_training_button_pressed"]

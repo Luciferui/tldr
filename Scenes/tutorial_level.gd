@@ -1,5 +1,7 @@
 extends Node
 
+@onready var controls_menu : CanvasLayer = $Controls
+
 @export var player1: Player
 @export var sandbag: Sandbag
 @export var tutorialManager : TutorialManager
@@ -17,7 +19,8 @@ func _ready() -> void:
 	var controller: Node = player1.get_node("RescueController")
 	controller.connect("rescue_failed", _on_rescue_failed)
 	player1.connect("ddhealth_changed", update_bass_boost)
-		
+	
+	controls_menu.hide()
 
 func update_bass_boost():
 	var value: float = float(player1.ddhealth)/2 /70
@@ -55,8 +58,6 @@ func _on_main_menu_button_pressed() -> void:
 
 func rescue_background() ->void:
 	pass
-	
-
 
 func _on_touches_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/controls.tscn")
+	controls_menu.show()

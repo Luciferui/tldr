@@ -80,5 +80,3 @@ func tutorial_next()->void:
 		phases[currentPhase].set_deferred("visible",false)
 		phases[currentPhase+1].set_deferred("visible",true)
 		currentPhase +=1
-
-	

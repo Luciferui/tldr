@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://r8a26altacnd" path="res://Scenes/checkbox.gd" id="15_0jq2i"]
 [ext_resource type="Texture2D" uid="uid://cjy8gd5a0xvcs" path="res://Assets/ddr_textures/new_textures/up.png" id="15_hy7s5"]
 [ext_resource type="Texture2D" uid="uid://dsm4sbig2rl5d" path="res://Assets/ddr_textures/death/pixelart_skull_red.png" id="15_ohtq0"]
+[ext_resource type="PackedScene" uid="uid://bk4t444mpsb2n" path="res://Scenes/controls.tscn" id="18_lqt5r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfqu"]
 size = Vector2(118, 9.25)
@@ -163,7 +164,6 @@ player = NodePath("../Player")
 sandbag = NodePath("../Sandbag")
 
 [node name="Text WAD" type="RichTextLabel" parent="TutorialManager" unique_id=1167140657]
-visible = false
 layout_mode = 0
 offset_left = -301.0
 offset_top = -127.0
@@ -209,7 +209,6 @@ script = ExtResource("15_0jq2i")
 metadata/_custom_type_script = "uid://r8a26altacnd"
 
 [node name="Text attacks" type="RichTextLabel" parent="TutorialManager" unique_id=211122024]
-visible = false
 layout_mode = 0
 offset_left = -302.0
 offset_top = -125.0
@@ -262,7 +261,6 @@ script = ExtResource("15_0jq2i")
 metadata/_custom_type_script = "uid://r8a26altacnd"
 
 [node name="Text dodge" type="RichTextLabel" parent="TutorialManager" unique_id=240221291]
-visible = false
 layout_mode = 0
 offset_left = -302.0
 offset_top = -141.0
@@ -341,7 +339,7 @@ theme_override_font_sizes/normal_font_size = 80
 theme_override_font_sizes/bold_font_size = 96
 theme_override_font_sizes/italics_font_size = 96
 bbcode_enabled = true
-text = "null"
+text = "0"
 
 [node name="Hold ok" type="Sprite2D" parent="TutorialManager/Text spell" unique_id=881749768]
 position = Vector2(540, 352)
@@ -358,7 +356,6 @@ script = ExtResource("15_0jq2i")
 metadata/_custom_type_script = "uid://r8a26altacnd"
 
 [node name="Text health" type="RichTextLabel" parent="TutorialManager" unique_id=1575460821]
-visible = false
 layout_mode = 0
 offset_left = -305.0
 offset_top = -178.0
@@ -399,7 +396,6 @@ script = ExtResource("15_0jq2i")
 metadata/_custom_type_script = "uid://r8a26altacnd"
 
 [node name="Text end" type="RichTextLabel" parent="TutorialManager" unique_id=1843341126]
-visible = false
 layout_mode = 0
 offset_left = -301.0
 offset_top = -161.0
@@ -463,7 +459,9 @@ offset_bottom = -69.0
 scale = Vector2(0.25, 0.25)
 theme = ExtResource("10_yhs6i")
 theme_override_font_sizes/font_size = 80
-text = "Controles"
+text = "Controls"
+
+[node name="Controls" parent="." unique_id=1573093297 instance=ExtResource("18_lqt5r")]
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="touches" to="." method="_on_touches_pressed"]
