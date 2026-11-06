@@ -39,8 +39,9 @@ func _on_rescue_failed(loser: Player) -> void:
 
 		player.get_node("Ddr").set_physics_process(false)
 		player.get_node("Hitbox").deactivateAttack()
-
+	
 	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+	
 
 func rescue_background() ->void:
 	pass

@@ -5,13 +5,19 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sprite.play(&"gameover")
-	await get_tree().create_timer(10.0).timeout
-	get_tree().change_scene_to_file("res://Scenes/spell_select_menu.tscn")
-	
 	if DataManager.player_won%2 == 0:
 		$RichTextLabel.text = "Player 1 has won"
 	else:
 		$RichTextLabel.text = "Player 2 has won"
+		
+	# Supprimer tous les assets inutiles du player
+	$"Player/DDHealthDisplayer".queue_free()
+	$"Player/Ddr".queue_free()
+	$"Player2/DDHealthDisplayer".queue_free()
+	$"Player2/Ddr".queue_free()
+	await get_tree().create_timer(10.0).timeout
+	get_tree().change_scene_to_file("res://Scenes/spell_select_menu.tscn")
+	
 		
 
 func _back_to_menus() -> void:

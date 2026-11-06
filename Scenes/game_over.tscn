@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://c6d6awdieeiyj" path="res://Scripts/game_over.gd" id="1_ojehl"]
 [ext_resource type="Texture2D" uid="uid://pkdgamwakmab" path="res://Assets/Sprites/GAME OVER.png" id="2_8fo1c"]
+[ext_resource type="Texture2D" uid="uid://5g0k8gvdf3n0" path="res://Assets/Level assets/Background.png" id="2_j3ryr"]
 [ext_resource type="FontFile" uid="uid://chyl1b4eiejtw" path="res://Assets/Fonts/Ithaca-LVB75.ttf" id="3_ek8ke"]
+[ext_resource type="Texture2D" uid="uid://wtdcqyh87xt8" path="res://Assets/Level assets/prison.png" id="4_eoghk"]
+[ext_resource type="PackedScene" uid="uid://4s000tfvfba4" path="res://Scenes/player_1.tscn" id="5_14u15"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ek8ke"]
 atlas = ExtResource("2_8fo1c")
@@ -26,32 +29,109 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14u15"]
+size = Vector2(268.83328, 70.666664)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3ryr"]
+size = Vector2(126.083374, 88.99999)
+
 [node name="GameOver" type="Node2D" unique_id=666391068]
 script = ExtResource("1_ojehl")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1774796257]
-modulate = Color(0.381961, 0.381961, 0.381961, 1)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Background" type="Sprite2D" parent="." unique_id=868778146]
+position = Vector2(-375.00003, -35.99994)
+scale = Vector2(2.4999995, 2.5)
+texture = ExtResource("2_j3ryr")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1002401935]
+position = Vector2(-375, -35)
+zoom = Vector2(3, 3)
 
 [node name="Gameover Sprite" type="AnimatedSprite2D" parent="." unique_id=1107937934]
-position = Vector2(970, 502.00003)
-scale = Vector2(7, 7)
+position = Vector2(-404, -112)
+scale = Vector2(1.9812497, 2.2916682)
 sprite_frames = SubResource("SpriteFrames_vkybu")
 animation = &"gameover"
 frame_progress = 0.33488795
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=803845005]
-offset_left = 254.0
-offset_top = 123.0
-offset_right = 1715.0
-offset_bottom = 357.0
+offset_left = -437.0
+offset_top = 484.0
+offset_right = 841.0
+offset_bottom = 674.0
+scale = Vector2(0.5, 0.5)
 theme_override_fonts/normal_font = ExtResource("3_ek8ke")
 theme_override_font_sizes/normal_font_size = 200
 text = "Player 1 has won"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Prison" type="Sprite2D" parent="." unique_id=1065675299]
+position = Vector2(-394, -62)
+scale = Vector2(4.234374, 5.046874)
+texture = ExtResource("4_eoghk")
+
+[node name="Player" parent="." unique_id=2123069804 instance=ExtResource("5_14u15")]
+position = Vector2(-298, 22)
+
+[node name="Player2" parent="." unique_id=1969986146 instance=ExtResource("5_14u15")]
+position = Vector2(-622, 5)
+collision_layer = 2
+collision_mask = 3
+player_id = 1
+left_action = &"p2_left"
+right_action = &"p2_right"
+jump_action = &"p2_jump"
+down_action = &"p2_down"
+heavy_attack_action = &"p2_heavy"
+light_attack_action = &"p2_light"
+spell_action = &"p2_spell"
+dodge_action = &"p2_dodge"
+
+[node name="Plateform1" type="StaticBody2D" parent="." unique_id=887521509]
+position = Vector2(505, 623)
+scale = Vector2(3, 3)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plateform1" unique_id=1238379336]
+position = Vector2(-287.66666, -145.66667)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_14u15")
+one_way_collision = true
+
+[node name="Plateform2" type="StaticBody2D" parent="." unique_id=970352855]
+position = Vector2(505, 623)
+scale = Vector2(3, 3)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plateform2" unique_id=160129449]
+position = Vector2(-299.66666, -259.66666)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_14u15")
+one_way_collision = true
+
+[node name="Plateform3" type="StaticBody2D" parent="." unique_id=420801300]
+position = Vector2(505, 623)
+scale = Vector2(3, 3)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plateform3" unique_id=2122934853]
+position = Vector2(-401.33334, -202)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_j3ryr")
+one_way_collision = true
+
+[node name="Plateform4" type="StaticBody2D" parent="." unique_id=853903263]
+position = Vector2(505, 623)
+scale = Vector2(3, 3)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plateform4" unique_id=257279337]
+position = Vector2(-202.3333, -206)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_j3ryr")
+one_way_collision = true
