@@ -20,6 +20,10 @@ func process_input(_event: InputEvent) -> State:
 		return dodge_state
 	elif Input.is_action_just_pressed(player.heavy_attack_action) or Input.is_action_just_pressed(player.light_attack_action):
 		return attack_state
+	if Input.is_action_pressed(player.down_action):
+		player.set_collision_mask_value(3,false)
+	else:
+		player.set_collision_mask_value(3,true)
 	return null
 
 func process_physics(delta: float) -> State:

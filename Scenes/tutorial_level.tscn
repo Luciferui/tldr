@@ -41,7 +41,7 @@ size = Vector2(120.5, 26.5)
 size = Vector2(23, 26.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2v8g7"]
-size = Vector2(86, 382)
+size = Vector2(86, 442)
 
 [node name="Level" type="Node2D" unique_id=552634920 node_paths=PackedStringArray("player1", "sandbag", "tutorialManager")]
 script = ExtResource("1_u3rwy")
@@ -57,7 +57,7 @@ texture = ExtResource("2_0ksah")
 zoom = Vector2(3, 3)
 
 [node name="Plateform0_5" type="StaticBody2D" parent="." unique_id=1605015684]
-collision_layer = 15
+collision_layer = 4
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Plateform0_5" unique_id=2052033808]
@@ -127,7 +127,7 @@ collision_layer = 15
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=290896773]
-position = Vector2(-360, 0)
+position = Vector2(-360, -30)
 shape = SubResource("RectangleShape2D_2v8g7")
 
 [node name="RightWall" type="StaticBody2D" parent="." unique_id=912091570]
@@ -135,7 +135,7 @@ collision_layer = 15
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=507741712]
-position = Vector2(360, -2)
+position = Vector2(360, -31)
 shape = SubResource("RectangleShape2D_2v8g7")
 
 [node name="MainMenuButton" type="Button" parent="." unique_id=631509944]
@@ -151,10 +151,12 @@ text = "Return to Menu"
 [node name="Player" parent="." unique_id=2123069804 node_paths=PackedStringArray("opponent") instance=ExtResource("11_0l1o8")]
 position = Vector2(-50, 95)
 collision_layer = 2
+collision_mask = 5
 opponent = NodePath("../Sandbag")
 
 [node name="Sandbag" parent="." unique_id=731463083 instance=ExtResource("12_3h0wn")]
 collision_layer = 8
+collision_mask = 5
 
 [node name="TutorialManager" type="Control" parent="." unique_id=57685612 node_paths=PackedStringArray("player", "sandbag")]
 layout_mode = 3

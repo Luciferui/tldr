@@ -117,3 +117,4 @@ func hide_announcement() -> void:
 	announcement_tween.tween_property(announcements, "scale", Vector2(0.9, 0.9), 0.2)
 
 	announcement_tween.chain().tween_callback(func(): announcements.visible = false)
+	

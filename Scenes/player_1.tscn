@@ -656,12 +656,13 @@ script = ExtResource("16_bxgnc")
 starting_state = NodePath("Idle")
 pain_state = NodePath("Pain")
 
-[node name="Idle" type="Node2D" parent="StateMachine" unique_id=849906485 node_paths=PackedStringArray("walk_state", "jump_state", "attack_state", "dodge_state")]
+[node name="Idle" type="Node2D" parent="StateMachine" unique_id=849906485 node_paths=PackedStringArray("walk_state", "jump_state", "attack_state", "dodge_state", "fall_state")]
 script = ExtResource("17_2ri8u")
 walk_state = NodePath("../Walk")
 jump_state = NodePath("../Jump")
 attack_state = NodePath("../Attack")
 dodge_state = NodePath("../Dodge")
+fall_state = NodePath("../Fall")
 
 [node name="Walk" type="Node2D" parent="StateMachine" unique_id=1181021020 node_paths=PackedStringArray("idle_state", "jump_state", "fall_state", "attack_state", "dodge_state")]
 script = ExtResource("18_2230n")

@@ -58,7 +58,7 @@ func process_input(event : InputEvent) -> void:
 					activate = 0
 			3:
 				phases[currentPhase].counter.set_text(str(ddr.total_input))
-				print(player.get_hold())
+				#print(player.get_hold())
 				if event.is_action_pressed("p1_spell") and ddr.total_input>3:
 					activate = 0
 					holded = true
@@ -75,7 +75,7 @@ func process_input(event : InputEvent) -> void:
 			next_text.set_deferred("visible",true)
 
 func tutorial_next()->void:
-	if currentPhase<phases.size()-1:
+	if currentPhase<phases.size()-2:
 		next_text.set_deferred("visible",false)
 		phases[currentPhase].set_deferred("visible",false)
 		phases[currentPhase+1].set_deferred("visible",true)

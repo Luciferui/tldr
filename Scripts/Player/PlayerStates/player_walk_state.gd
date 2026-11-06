@@ -21,6 +21,9 @@ func process_input(_event: InputEvent) -> State:
 		return attack_state
 	if Input.is_action_just_pressed(player.dodge_action) and player.get_can_dodge():
 		return dodge_state
+	if Input.is_action_pressed(player.down_action) and player.is_on_floor():
+		drop_through_platform()
+		return fall_state
 	return null
 
 func process_physics(delta: float) -> State:
@@ -35,3 +38,7 @@ func process_physics(delta: float) -> State:
 	if not player.is_on_floor():
 		return fall_state
 	return null
+	
+func drop_through_platform() -> void:
+	player.set_collision_mask_value(3, false)
+	player.velocity.y = maxf(player.velocity.y, 100.0)
