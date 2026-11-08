@@ -31,6 +31,7 @@
 [ext_resource type="Script" uid="uid://4uubbudk0uet" path="res://Scenes/input_cursor.gd" id="33_s1db0"]
 [ext_resource type="Texture2D" uid="uid://b38avbn3x1dtu" path="res://Assets/Sprites/death_horloge/aiguille.png" id="34_s1db0"]
 [ext_resource type="Script" uid="uid://pyvofwuo17c5" path="res://Scripts/Player/PlayerStates/player_pain_state.gd" id="35_oexav"]
+[ext_resource type="AudioStream" uid="uid://cf0xutkqnn7v3" path="res://Assets/Sound/be_hit_kick.wav" id="36_5fqwb"]
 [ext_resource type="Script" uid="uid://duerir5sl8d6s" path="res://Scripts/Spells/spell_launcher.gd" id="38_5xydj"]
 [ext_resource type="Script" uid="uid://d0ub2tmk2jb87" path="res://Scripts/Player/PlayerStates/player_dodge_state.gd" id="38_ewrxp"]
 [ext_resource type="Script" uid="uid://dgdeyrlm0eoen" path="res://Scripts/DDR/player_ddr.gd" id="38_h8d83"]
@@ -878,3 +879,5 @@ scale = Vector2(5, 5)
 texture = SubResource("AtlasTexture_ssidi")
 
 [node name="HurtSound" type="AudioStreamPlayer" parent="." unique_id=1262975088]
+stream = ExtResource("36_5fqwb")
+volume_db = -3.662

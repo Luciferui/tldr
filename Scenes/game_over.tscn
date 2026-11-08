@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://pkdgamwakmab" path="res://Assets/Sprites/GAME OVER.png" id="2_8fo1c"]
 [ext_resource type="Texture2D" uid="uid://5g0k8gvdf3n0" path="res://Assets/Level assets/Background.png" id="2_j3ryr"]
 [ext_resource type="FontFile" uid="uid://chyl1b4eiejtw" path="res://Assets/Fonts/Ithaca-LVB75.ttf" id="3_ek8ke"]
+[ext_resource type="Texture2D" uid="uid://dpln6tt7v8y0l" path="res://Assets/Level assets/Plateform0.png" id="3_rjluv"]
 [ext_resource type="Texture2D" uid="uid://wtdcqyh87xt8" path="res://Assets/Level assets/prison.png" id="4_eoghk"]
 [ext_resource type="PackedScene" uid="uid://4s000tfvfba4" path="res://Scenes/player_1.tscn" id="5_14u15"]
 
@@ -32,6 +33,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14u15"]
 size = Vector2(213.33331, 25.000006)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2v8g7"]
+size = Vector2(0.30666637, 1.4991665)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjtdd"]
 size = Vector2(39.000015, 4)
 
@@ -48,10 +52,14 @@ size = Vector2(5.7084045, 34.666664)
 script = ExtResource("1_ojehl")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=868778146]
-visible = false
 position = Vector2(0, -36)
 scale = Vector2(2.4999995, 2.5)
 texture = ExtResource("2_j3ryr")
+
+[node name="Ground" type="Sprite2D" parent="." unique_id=1609515065]
+position = Vector2(63.99997, -248)
+scale = Vector2(5.9999995, 6.1666665)
+texture = ExtResource("3_rjluv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1002401935]
 zoom = Vector2(3, 3)
@@ -75,6 +83,7 @@ offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
+theme_override_constants/outline_size = 15
 theme_override_fonts/normal_font = ExtResource("3_ek8ke")
 theme_override_font_sizes/normal_font_size = 200
 text = "Player 1 has won"
@@ -112,6 +121,16 @@ collision_mask = 3
 position = Vector2(-174, -170.66667)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_14u15")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Plateform1" unique_id=322807061]
+position = Vector2(-290.33334, -232.04167)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_2v8g7")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Plateform1" unique_id=529112428]
+position = Vector2(-52.666668, -233.00002)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_2v8g7")
 
 [node name="Plateform2" type="StaticBody2D" parent="." unique_id=970352855]
 position = Vector2(505, 623)
