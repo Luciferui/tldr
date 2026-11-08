@@ -155,6 +155,7 @@ collision_mask = 5
 opponent = NodePath("../Sandbag")
 
 [node name="Sandbag" parent="." unique_id=731463083 instance=ExtResource("12_3h0wn")]
+position = Vector2(0, 18)
 collision_layer = 8
 collision_mask = 5
 
