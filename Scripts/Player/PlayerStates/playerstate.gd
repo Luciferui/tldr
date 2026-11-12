@@ -1,10 +1,7 @@
+## Classe de base abstraite factorisant la logique commune à tous les états du joueur
+## (direction de déplacement, orientation du sprite, conservation du sens lors des transitions, gravité).
 class_name PlayerState
 extends State
-## Implemente state (abstraite) 
-## Classe de factorisation des states pour 
-## les classes spécifiques de playerstates
-
-## Les animations sont gérées par le sprite et SpriteFrames uniquement
 
 var player: Player
 var sprite_flip: bool = false
@@ -12,25 +9,26 @@ var sprite_flip: bool = false
 @export var move_left_action: String = "left"
 @export var move_right_action: String = "right"
 
+# Récupère la référence vers le nœud Player parent
 func _ready() -> void:
 	player = owner as Player
-	# Owner : premier parent étant une scène (ici le node Player)
 
+# Conserve l'orientation horizontale du sprite lors de la transition vers le nouvel état
 func exit(new_state: State = null) -> void:
 	if new_state is PlayerState:
 		(new_state as PlayerState).sprite_flip = sprite_flip
-		# mémoire du sprite flip en sortie
 
+# Applique la gravité par défaut lorsque le joueur est dans les airs
 func process_physics(delta: float) -> State:
 	if not player.is_on_floor():
 		player.velocity += player.get_gravity() * delta
 	return null
 
+## Retourne la direction horizontale pressée (-1 pour la gauche, 1 pour la droite, 0 si neutre)
 func get_movement_direction() -> float:
-	##Renvoie la direction pressée de mouvement [br]
-	## -1 if left + 1 if right
 	return Input.get_axis(player.left_action, player.right_action)
 
+## Met à jour l'orientation du sprite selon la touche directionnelle pressée
 func determine_sprite_flip() -> void:
 	if Input.is_action_pressed(player.left_action):
 		sprite_flip = not player.sprite_faces_left

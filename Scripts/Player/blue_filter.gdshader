@@ -1,3 +1,4 @@
+// Shader de remplacement de couleur (utilisé pour distinguer le Joueur 2 et pour les effets visuels de sauvetage/DDR).
 shader_type canvas_item;
 
 uniform vec4 target_color : source_color = vec4(1.0, 0.0, 0.0, 1.0);

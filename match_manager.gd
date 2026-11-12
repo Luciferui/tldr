@@ -1,3 +1,4 @@
+# Gestionnaire d'arbitrage de fin de partie : détecte l'échec du sauvetage d'un joueur et gèle le match.
 extends Node
 
 @export var player1: Player
@@ -6,11 +7,13 @@ extends Node
 var match_finished: bool = false
 var winner_number: int = 0
 
+# Écoute les signaux d'échec de sauvetage (RescueController) de chaque joueur.
 func _ready() -> void:
 	for player in [player1, player2]:
 		var controller: Node = player.get_node("RescueController")
 		controller.connect("rescue_failed", _on_rescue_failed)
 
+# Déclenché lorsqu'un joueur ne réussit pas sa séquence de survie à temps.
 func _on_rescue_failed(loser: Player) -> void:
 	if match_finished:
 		return
@@ -18,6 +21,7 @@ func _on_rescue_failed(loser: Player) -> void:
 	match_finished = true
 	winner_number = 2 if loser == player1 else 1
 
+	# Arrêt des actions et des états de combat pour les deux joueurs
 	for player in [player1, player2]:
 		player.match_over = true
 		player.velocity = Vector2.ZERO

@@ -1,11 +1,10 @@
+# Panneau d'affichage des contrôles et touches de jeu (CanvasLayer superposé).
 extends CanvasLayer
 
-
-# Called when the node enters the scene tree for the first time.
+# Initialisation du panneau des contrôles
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Traitement par frame
 func _process(_delta: float) -> void:
 	pass

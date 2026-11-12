@@ -1,3 +1,4 @@
+## Ressource de données définissant un sort (nom, coût en combo, dégâts, icône, son, animation).
 class_name SpellData
 extends Resource
 
@@ -12,12 +13,10 @@ extends Resource
 @export var cooldown: float = 2.0
 @export var animation_name: StringName
 
-
-# Called when the node enters the scene tree for the first time.
+# Initialisation de la ressource
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Traitement par frame
 func _process(_delta: float) -> void:
 	pass

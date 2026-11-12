@@ -1,15 +1,16 @@
+# Gestionnaire audio global (Jukebox / Singleton) : contrôle la musique d'ambiance,
+# les transitions de morceaux, le volume et le renforcement dynamique des basses (bass boost).
 extends Node
 
-# Référence vers le nœud audio qui persiste entre les scènes
+# Référence vers le lecteur audio persistant entre les changements de scène
 var music_player: AudioStreamPlayer
 var chosen_song: String = "Volcanic Bomb"
 var bus_index: int
 var eq_effect: AudioEffectEQ
 
+# Configure le lecteur audio sur le bus 'Music' et récupère l'effet d'égalisation (EQ)
 func _ready() -> void:
-	# Instanciation et ajout de l'AudioStreamPlayer
 	music_player = AudioStreamPlayer.new()
-	# Canal 'Music' dans le Mixeur Audio (optionnel mais recommandé)
 	music_player.bus = "Music" 
 	
 	bus_index = AudioServer.get_bus_index("Music")
@@ -17,40 +18,38 @@ func _ready() -> void:
 	
 	add_child(music_player)
 
-# Fonction principale pour jouer une musique
+# Démarre la lecture du morceau sélectionné (évite de relancer si déjà en cours de lecture)
 func play_music(force_restart: bool = false) -> void:
 	var stream: AudioStream = load("res://Assets/Music/"+chosen_song+".mp3")
 	if stream == null:
 		stop_music()
 		return
 	
-	# Si la même musique joue déjà, on ne la relance pas depuis le début
 	if music_player.stream == stream and music_player.playing and not force_restart:
 		return
 	
 	music_player.stream = stream
 	music_player.play()
 
-# Arrêter la musique
+# Arrête la lecture de la musique
 func stop_music() -> void:
 	music_player.stop()
 
-func set_bass_boost(value: float = 0.): #le signal donne la ddhealth dont on ne s'occupe pas
+# Ajuste le niveau d'amplification des basses fréquences (32 Hz et 100 Hz) selon la tension du combat
+func set_bass_boost(value: float = 0.):
 	if not eq_effect:
-		return# Sur un AudioEffectEQ6 :
-	# Bande 0 = ~32 Hz, Bande 1 = ~100 Hz (les vraies basses)
-	# Le gain s'exprime en décibels (dB), généralement entre -60 dB et +24 dB.
+		return
 	
-	var min_db = -2.0    # Niveau normal
-	var max_db = 18.0   # Boost maximal (+18 dB)
+	var min_db = -2.0    # Niveau standard sans boost
+	var max_db = 18.0   # Amplification maximale (+18 dB)
 	
 	var boost_db_32 = lerp(min_db, max_db, value)
 	var boost_db_100 = lerp(min_db, max_db/1.3, value)
 	
-	# Augmente le gain des basses sous 32Hz et 100Hz
-	eq_effect.set_band_gain_db(0, boost_db_32) # 32 Hz
-	eq_effect.set_band_gain_db(1, boost_db_100) # 100 Hz
+	# Application des gains en décibels sur les bandes de basses
+	eq_effect.set_band_gain_db(0, boost_db_32) # Bande 32 Hz
+	eq_effect.set_band_gain_db(1, boost_db_100) # Bande 100 Hz
 
-# Régler le volume (entre 0.0 et 1.0)
+# Règle le volume audio (échelle linéaire de 0.0 à 1.0 convertie en dB)
 func set_volume(volume_linear: float) -> void:
 	music_player.volume_db = linear_to_db(clamp(volume_linear, 0.0, 1.0))

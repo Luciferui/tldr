@@ -1,3 +1,5 @@
+## État de course / marche au sol du joueur : applique la vitesse de déplacement au sol (move_speed),
+## permet le saut, l'attaque, l'esquive et la traversée descendante de plateforme.
 class_name PlayerWalkState
 extends PlayerState
 
@@ -9,11 +11,13 @@ extends PlayerState
 @export var attack_state: State
 @export var dodge_state : State
 
+# Lance l'animation de marche, réinitialise l'esquive et conserve l'orientation du sprite
 func enter() -> void:
 	player.set_can_dodge(true)
 	player.sprite.play(animation_name)
 	player.sprite.flip_h = sprite_flip
 
+# Intercepte les commandes d'action prioritaires durant la course
 func process_input(_event: InputEvent) -> State:
 	if Input.is_action_just_pressed(player.jump_action) and player.is_on_floor():
 		return jump_state
@@ -26,6 +30,7 @@ func process_input(_event: InputEvent) -> State:
 		return fall_state
 	return null
 
+# Applique la vitesse de marche et repasse en idle si l'entrée est neutre ou en chute si plus au sol
 func process_physics(delta: float) -> State:
 	super.process_physics(delta)
 	determine_sprite_flip()
@@ -38,7 +43,8 @@ func process_physics(delta: float) -> State:
 	if not player.is_on_floor():
 		return fall_state
 	return null
-	
+
+## Désactive le calque de plateforme semi-solide et applique une impulsion vers le bas
 func drop_through_platform() -> void:
 	player.set_collision_mask_value(3, false)
 	player.velocity.y = maxf(player.velocity.y, 100.0)

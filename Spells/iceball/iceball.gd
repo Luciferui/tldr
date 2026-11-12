@@ -1,3 +1,4 @@
+## Sort Boule de glace : projectile plus lent avec phase d'avertissement puis trajectoire horizontale.
 class_name Iceball
 extends Node2D
 
@@ -19,6 +20,7 @@ var direction: int = 1
 @onready var hitbox: Hitbox = $Hitbox
 @onready var spell_audio: AudioStreamPlayer = $SpellAudio
 
+# Initialise l'animation d'avertissement et le son du sort
 func _ready() -> void:
 	$Hitbox/IceballShape.set_deferred("disabled", true)
 	sprite.play("warning")
@@ -26,8 +28,7 @@ func _ready() -> void:
 	spell_audio.stream = spell.spell_sound
 	spell_audio.play()
 
-
-# À appeler APRÈS add_child() : le Hitbox doit déjà être dans l'arbre, sous le joueur.
+# Configure le projectile avec les informations du lanceur (à appeler après add_child)
 func setup(p_caster: Player, p_faces_left: bool, spawn_position: Vector2) -> void:
 	caster = p_caster
 	sprite_faces_left = p_faces_left
@@ -35,8 +36,9 @@ func setup(p_caster: Player, p_faces_left: bool, spawn_position: Vector2) -> voi
 	initial_pos = spawn_position
 	global_position = initial_pos
 	sprite.flip_h = sprite_faces_left
-	hitbox.owner = caster    # la hurtbox du lanceur ignore maintenant cette attaque
+	hitbox.owner = caster    # Permet à la hurtbox du lanceur d'ignorer sa propre attaque
 
+# Gère la transition entre la phase d'avertissement et le vol du projectile
 func process_physics() -> void:
 	if is_warning:
 		frame_counter += 1
@@ -50,17 +52,18 @@ func process_physics() -> void:
 
 		return
 
-	# Comportement normal de la boule de feu.
+	# Déplacement horizontal du projectile actif jusqu'à expiration
 	global_position.x += speed * (-1 if sprite_faces_left else 1)
 	frame_counter += 1
 
 	if frame_counter >= lifetime_frames:
 		queue_free()
 
+# Ignore les collisions avec le lanceur
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.owner == caster:
 		return
-	# queue_free() # la boule disparaît au premier impact
 
+# Retourne l'orientation du sprite
 func get_sprite_faces_left() -> bool:
 	return sprite_faces_left

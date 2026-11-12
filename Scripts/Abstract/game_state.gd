@@ -1,11 +1,10 @@
+# Nœud de base abstrait pour la gestion d'un état global de jeu.
 extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
+# Appelé lors de l'entrée dans l'arbre de scène.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Appelé à chaque frame de rendu.
 func _process(delta: float) -> void:
 	pass

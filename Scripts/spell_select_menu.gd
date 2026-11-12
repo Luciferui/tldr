@@ -1,21 +1,23 @@
 
+# Menu de sélection des sorts : permet à chaque joueur d'équiper 3 sorts dans ses emplacements,
+# de consulter les fiches détaillées (dégâts, coût en combo) et de lancer le combat ou l'entraînement.
 extends Control
 
-@export var p1_key_hint: Texture2D   # image de la touche G
-@export var p2_key_hint: Texture2D   # image de la touche 1 (pavé num)
+@export var p1_key_hint: Texture2D   # Texture d'indice pour la touche de validation du Joueur 1
+@export var p2_key_hint: Texture2D   # Texture d'indice pour la touche de validation du Joueur 2
 
 const HINT_SIZE := Vector2(48, 48)  
 const HINT_MARGIN := 28.0          
 
-# Sorts disponibles
+# Boutons de sorts disponibles
 @onready var p1_spell_buttons: Array = [$"Cadre J1/J1 VBoxContainer/Spell1", $"Cadre J1/J1 VBoxContainer/Spell2", $"Cadre J1/J1 VBoxContainer/Spell3", $"Cadre J1/J1 VBoxContainer/Spell4", $"Cadre J1/J1 VBoxContainer/Spell5"]
 @onready var p2_spell_buttons: Array = [$"Cadre J2/J2 VBoxContainer/Spell1", $"Cadre J2/J2 VBoxContainer/Spell2", $"Cadre J2/J2 VBoxContainer/Spell3", $"Cadre J2/J2 VBoxContainer/Spell4", $"Cadre J2/J2 VBoxContainer/Spell5"]
 
-# Slots (3 par joueur)
+# Emplacements de sorts équipés (3 par joueur)
 @onready var p1_slot_buttons: Array = [$"Cadre J1/J1 VBoxContainerSlots/Slot1", $"Cadre J1/J1 VBoxContainerSlots/Slot2", $"Cadre J1/J1 VBoxContainerSlots/Slot3"]
 @onready var p2_slot_buttons: Array = [$"Cadre J2/J2 VBoxContainerSlots/Slot1", $"Cadre J2/J2 VBoxContainerSlots/Slot2", $"Cadre J2/J2 VBoxContainerSlots/Slot3"]
 
-# Conteneurs
+# Conteneurs d'interface
 @onready var p1_spelllist_container: Control = $"Cadre J1/J1 VBoxContainer"
 @onready var p2_spelllist_container: Control = $"Cadre J2/J2 VBoxContainer"
 @onready var p1_slotlist_container: Control = $"Cadre J1/J1 VBoxContainerSlots"
@@ -59,7 +61,7 @@ var p2_editing_slot := -1
 var p1_slots := [-1, -1, -1]
 var p2_slots := [-1, -1, -1]
 
-
+# Initialise l'interface, les textes des boutons, les indicateurs de touches et les sélections
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	Jukebox.play_music()
@@ -88,7 +90,6 @@ func _ready() -> void:
 	p1_spelllist_container.visible = false
 	p2_spelllist_container.visible = false
 	
-	
 	for b in p1_spell_buttons + p1_slot_buttons + [start_button, start_training_button, main_menu_button]:
 		_add_key_hint(b, p1_key_hint)
 	for b in p2_spell_buttons + p2_slot_buttons:
@@ -98,18 +99,21 @@ func _ready() -> void:
 	_refresh_slot_labels(2)
 	_refresh_highlights()
 
+# Écoute la touche Échap pour afficher ou masquer l'aide des contrôles
 func _process(_delta: float):
 	if Input.is_action_just_pressed("Esc"):
 		flip_inputs_menu()
 
+# Bascule la visibilité de l'aide des touches
 func flip_inputs_menu():
 	$Controls.visible = !$Controls.visible
 
+# Intercepte les entrées des deux joueurs
 func _unhandled_input(event: InputEvent) -> void:
 	_handle_player_input(1, event)
 	_handle_player_input(2, event)
 
-
+# Traite la navigation directionnelle et la confirmation d'un joueur
 func _handle_player_input(player: int, event: InputEvent) -> void:
 	var up_action := "p%d_jump" % player
 	var down_action := "p%d_down" % player
@@ -128,7 +132,7 @@ func _handle_player_input(player: int, event: InputEvent) -> void:
 	elif event.is_action_pressed(kick_action):
 		_confirm(player)
 
-
+# Gère le déplacement horizontal entre le bouton Démarrer et Entraînement
 func _move_horizontal(dir: int) -> void:
 	if p1_mode == Mode.START and dir == 1 and not start_training_button.disabled:
 		p1_mode = Mode.TRAINING
@@ -137,7 +141,7 @@ func _move_horizontal(dir: int) -> void:
 
 	_refresh_highlights()
 
-
+# Gère la navigation verticale dans les listes selon le mode actif
 func _move(player: int, dir: int) -> void:
 	var mode: int = p1_mode if player == 1 else p2_mode
 
@@ -179,7 +183,7 @@ func _move(player: int, dir: int) -> void:
 
 	_refresh_highlights()
 
-
+# Confirme la sélection selon le mode courant (choisir un slot, valider un sort, lancer le jeu)
 func _confirm(player: int) -> void:
 	var mode: int = p1_mode if player == 1 else p2_mode
 
@@ -200,7 +204,7 @@ func _confirm(player: int) -> void:
 
 	_refresh_highlights()
 
-
+# Ouvre la liste des sorts disponibles pour remplir l'emplacement sélectionné
 func _enter_picking(player: int) -> void:
 	if player == 1:
 		p1_editing_slot = p1_slot_index
@@ -225,7 +229,7 @@ func _enter_picking(player: int) -> void:
 	_refresh_spell_list_visibility(player)
 	_refresh_highlights()
 
-
+# Assigne le sort choisi à l'emplacement en cours d'édition
 func _assign_spell(player: int) -> void:
 	var available := _get_available_indices(player)
 	if available.is_empty():
@@ -250,7 +254,7 @@ func _assign_spell(player: int) -> void:
 	_check_ready_to_start()
 	_refresh_highlights()
 
-
+# Retourne les indices des sorts non encore attribués à d'autres emplacements
 func _get_available_indices(player: int) -> Array:
 	var slots: Array = p1_slots if player == 1 else p2_slots
 	var editing_slot: int = p1_editing_slot if player == 1 else p2_editing_slot
@@ -263,7 +267,7 @@ func _get_available_indices(player: int) -> Array:
 
 	return result
 
-
+# Actualise la visibilité des boutons de sorts selon leur disponibilité
 func _refresh_spell_list_visibility(player: int) -> void:
 	var buttons: Array = p1_spell_buttons if player == 1 else p2_spell_buttons
 	var available := _get_available_indices(player)
@@ -271,7 +275,7 @@ func _refresh_spell_list_visibility(player: int) -> void:
 	for i in buttons.size():
 		buttons[i].visible = i in available
 
-
+# Met à jour le texte affiché sur chaque bouton d'emplacement
 func _refresh_slot_labels(player: int) -> void:
 	var slots: Array = p1_slots if player == 1 else p2_slots
 	var slot_buttons: Array = p1_slot_buttons if player == 1 else p2_slot_buttons
@@ -283,7 +287,7 @@ func _refresh_slot_labels(player: int) -> void:
 		else:
 			slot_buttons[i].text = spell_data[slots[i]].display_name
 
-
+# Réinitialise et applique la mise en surbrillance de l'élément sélectionné
 func _refresh_highlights() -> void:
 	for b in p1_spell_buttons + p2_spell_buttons + p1_slot_buttons + p2_slot_buttons + [start_button, start_training_button, main_menu_button]:
 		_set_key_hint(b, false)
@@ -299,7 +303,7 @@ func _refresh_highlights() -> void:
 	_highlight_player(1)
 	_highlight_player(2)
 
-
+# Met en surbrillance l'élément actif selon le mode du joueur
 func _highlight_player(player: int) -> void:
 	var mode: int = p1_mode if player == 1 else p2_mode
 
@@ -327,7 +331,7 @@ func _highlight_player(player: int) -> void:
 		Mode.MENU:
 			_set_highlight(main_menu_button, true)
 
-
+# Applique la bordure et la couleur de surbrillance sur un bouton
 func _set_highlight(button: Button, on: bool) -> void:
 	if on:
 		_set_key_hint(button, true)
@@ -339,7 +343,7 @@ func _set_highlight(button: Button, on: bool) -> void:
 		button.remove_theme_stylebox_override("normal")
 		button.remove_theme_color_override("font_color")
 
-
+# Vérifie si tous les emplacements des deux joueurs sont remplis pour activer les boutons de démarrage
 func _check_ready_to_start() -> void:
 	var p1_done: bool = not (-1 in p1_slots)
 	var p2_done: bool = not (-1 in p2_slots)
@@ -348,7 +352,7 @@ func _check_ready_to_start() -> void:
 	start_button.disabled = not can_start
 	start_training_button.disabled = not can_start
 
-
+# Affiche le panneau descriptif d'un sort (nom, description, coût et dégâts)
 func _show_spell_info(player: int, spell_index: int) -> void:
 	var panel: PanelContainer = p1_spell_info_panel if player == 1 else p2_spell_info_panel
 	var texture: TextureRect = p1_spell_info_texture if player == 1 else p2_spell_info_texture
@@ -367,6 +371,7 @@ func _show_spell_info(player: int, spell_index: int) -> void:
 		spell.damage
 	]
 
+# Applique une teinte grisée aux emplacements vides
 func _apply_empty_slot_colors() -> void:
 	for i in p1_slot_buttons.size():
 		if p1_slots[i] == -1:
@@ -375,6 +380,7 @@ func _apply_empty_slot_colors() -> void:
 		if p2_slots[i] == -1:
 			p2_slot_buttons[i].add_theme_color_override("font_color", Color("8a94b8"))
 
+# Ajoute une icône d'indice de touche à droite d'un bouton
 func _add_key_hint(button: Button, texture: Texture2D) -> void:
 	var hint := TextureRect.new()
 	hint.name = "KeyHint"
@@ -384,7 +390,6 @@ func _add_key_hint(button: Button, texture: Texture2D) -> void:
 	hint.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	hint.visible = false
 	button.add_child(hint)
-	# Collée au bord droit du bouton, centrée verticalement
 	hint.anchor_left = 1.0
 	hint.anchor_right = 1.0
 	hint.anchor_top = 0.5
@@ -394,16 +399,17 @@ func _add_key_hint(button: Button, texture: Texture2D) -> void:
 	hint.offset_top = -HINT_SIZE.y / 2.0
 	hint.offset_bottom = HINT_SIZE.y / 2.0
 
-
+# Affiche ou masque l'indicateur de touche sur un bouton
 func _set_key_hint(button: Button, on: bool) -> void:
 	var hint := button.get_node_or_null("KeyHint") as TextureRect
 	if hint:
 		hint.visible = on
 
+# Retourne à la scène du menu principal
 func _on_main_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
-
+# Transmet les sorts sélectionnés à DataManager et charge la scène de combat
 func _on_start_button_pressed() -> void:
 	var p1_chosen: Array[SpellData] = []
 	var p2_chosen: Array[SpellData] = []
@@ -416,11 +422,11 @@ func _on_start_button_pressed() -> void:
 	DataManager.distribute_spells(p1_chosen, p2_chosen)
 	get_tree().change_scene_to_file("res://Scenes/level.tscn")
 
-
+# Ouvre le menu de sélection de la musique
 func _on_music_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/music_menu.tscn")
 
-
+# Transmet les sorts sélectionnés à DataManager et charge la scène d'entraînement
 func _on_start_training_pressed() -> void:
 	var p1_chosen: Array[SpellData] = []
 	var p2_chosen: Array[SpellData] = []

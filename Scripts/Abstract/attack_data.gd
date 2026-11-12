@@ -1,3 +1,4 @@
+## Ressource de données définissant les paramètres d'une attaque (dégâts, hitstun, knockback, animation, timings).
 class_name AttackData
 extends Resource
 
@@ -8,12 +9,12 @@ extends Resource
 @export var damage: int = 10
 @export var hitstun: int = 10
 @export var attack_timing: Array[int] = [0]
+## Knockback vectoriel absolu (indépendant de l'orientation)
 @export var absolute_knockback: Vector2 = Vector2(0,0)
-##knockback vectoriel absolu
+## Knockback vectoriel relatif gauche/droite selon l'orientation de l'attaquant
 @export var orientation_knockback: Vector2 = Vector2(0,0)
-##knockback vectoriel relatif gauche/droite
+## Facteur de knockback sur l'axe entre l'attaquant et la cible
 @export var relative_knockback_factor: float = 0
-##facteur de knockback sur l'axe entre les hitbox
 @export var hit_sound: AudioStream
 
 @export var is_moving: bool = false

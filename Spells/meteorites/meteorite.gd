@@ -1,7 +1,7 @@
+## Une météorite individuelle : chute verticale infligeant des dégâts,
+## déclenche une animation et un son d'explosion à l'impact avec le sol.
 class_name Meteorite
 extends Node2D
-## Une météorite : tombe tout droit, fait des dégâts pendant la chute,
-## puis joue son explosion et disparaît quand elle touche le sol.
 
 const FALL_ANIM := &"fall"            
 const EXPLOSION_ANIM := &"explosion"
@@ -9,8 +9,8 @@ const EXPLOSION_ANIM := &"explosion"
 var attack: AttackData = preload("res://Spells/meteorites/meteorite.tres")
 var spell: SpellData = preload("res://Spells/spell5.tres")
 
-@export var fall_speed: float = 8.0   # pixels par frame physique (≈ 480 px/s à 60 Hz)
-@export var kill_y: float = 400.0     # sécurité : si aucun sol n'est touché, on supprime la météorite
+@export var fall_speed: float = 8.0   # Vitesse de chute en pixels par frame
+@export var kill_y: float = 400.0     # Limite de hauteur au-delà de laquelle la météorite est supprimée
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var hitbox: Hitbox = $Hitbox
@@ -18,20 +18,20 @@ var spell: SpellData = preload("res://Spells/spell5.tres")
 @onready var dropping: AudioStreamPlayer = $Dropping
 var landed: bool = false
 
-
+# Initialise la détection du sol, le son de chute et active les dégâts
 func _ready() -> void:
 	ground_detector.body_entered.connect(_on_ground_body_entered)
-	hitbox.activateAttack(attack)  # la météorite fait des dégâts pendant toute sa chute
+	hitbox.activateAttack(attack)  # Dégâts actifs durant toute la chute
 	dropping.play()
 	if _has_frames(FALL_ANIM):
 		sprite.play(FALL_ANIM)
 
-
+# Positionne la météorite et lui assigne le joueur lanceur
 func setup(spawn_position: Vector2, p_caster: Player) -> void:
 	global_position = spawn_position
 	hitbox.owner = p_caster
 
-
+# Fait descendre la météorite frame par frame jusqu'au sol ou à la limite de suppression
 func process_physics() -> void:
 	if landed:
 		return
@@ -39,28 +39,30 @@ func process_physics() -> void:
 	if global_position.y > kill_y:
 		queue_free()
 
-
+# Détecte le contact avec le sol (StaticBody2D)
 func _on_ground_body_entered(body: Node2D) -> void:
-	# Le sol et les plateformes sont des StaticBody2D ; les joueurs (CharacterBody2D) sont ignorés
 	if body is StaticBody2D:
 		_land()
 
+# Joue le son d'impact et d'explosion du sort
 func _explosion_audio_start (spell_to_play: SpellData) -> void:
 	dropping.stream = spell_to_play.spell_sound
 	dropping.play()
-	
+
+# Gère l'atterrissage : désactive la hitbox et démarre l'explosion
 func _land() -> void:
 	if landed:
 		return
 	landed = true
 	_explosion_audio_start(spell)
-	hitbox.deactivateAttack()  # pas de dégâts pendant l'explosion
+	hitbox.deactivateAttack()  # Désactivation des dégâts pendant l'explosion
 	if _has_frames(EXPLOSION_ANIM):
 		sprite.play(EXPLOSION_ANIM)
 		sprite.animation_finished.connect(_on_explosion_animation_finished,CONNECT_ONE_SHOT)
 	else:
 		queue_free()
 
+# Supprime la météorite après lecture complète de l'explosion et de l'audio
 func _on_explosion_animation_finished() -> void:
 	sprite.hide()
 
@@ -68,7 +70,8 @@ func _on_explosion_animation_finished() -> void:
 		await dropping.finished
 
 	queue_free()
-	
+
+# Vérifie si l'animation demandée est disponible dans les SpriteFrames
 func _has_frames(anim: StringName) -> bool:
 	return sprite.sprite_frames != null \
 		and sprite.sprite_frames.has_animation(anim) \

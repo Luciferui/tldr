@@ -1,3 +1,4 @@
+# Script du niveau d'entraînement : met en scène un mannequin (Sandbag) pour tester les attaques et sorts.
 extends Node
 
 @export var player1: Player
@@ -8,29 +9,32 @@ var winner_number: int = 0
 
 var bus_index: int
 
-# Called when the node enters the scene tree for the first time.
+# Lance la musique, initialise les effets audio et connecte les signaux de sauvetage et de dégâts
 func _ready() -> void:
 	Jukebox.play_music()
 	Jukebox.set_bass_boost(0.0)
 	
-	# Signal pour passer au game over
 	for player in [player1, player2]:
 		var controller: Node = player.get_node("RescueController")
 		controller.connect("rescue_failed", _on_rescue_failed)
 		player.connect("ddhealth_changed", update_bass_boost)
 		player.get_node("Hurtbox").collision_mask = 8
 		
+# Écoute la touche Échap pour afficher/masquer le menu des contrôles
 func _process(delta: float):
 	if Input.is_action_just_pressed("Esc"):
 		flip_inputs_menu()
 
+# Bascule la visibilité de l'aide des touches
 func flip_inputs_menu():
 	$Controls.visible = !$Controls.visible
 
+# Ajuste le renforcement des basses selon les dégâts subis
 func update_bass_boost():
 	var value: float = float((player1.ddhealth+player2.ddhealth))/2 /70
 	Jukebox.set_bass_boost(value)
 
+# Déclenché lors de l'échec d'un sauvetage pour terminer le match
 func _on_rescue_failed(loser: Player) -> void:
 	if match_finished:
 		return
@@ -50,11 +54,13 @@ func _on_rescue_failed(loser: Player) -> void:
 
 	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
+# Retourne au menu de sélection des sorts
 func _on_main_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/spell_select_menu.tscn")
 
 func rescue_background() ->void:
 	pass
 
+# Ouvre l'écran des contrôles
 func _on_controls_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/controls.tscn")

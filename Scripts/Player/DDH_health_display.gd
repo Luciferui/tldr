@@ -1,7 +1,7 @@
+# Affichage de la jauge et du compteur de DDHealth ainsi que de l'avatar du joueur dans l'interface.
 extends Node
 
-
-# Called when the node enters the scene tree for the first time.
+# Positionne l'affichage et applique le shader de coloration bleue pour le joueur 2
 func _ready() -> void:
 	var player = owner
 	if player.player_id == 0:
@@ -14,11 +14,11 @@ func _ready() -> void:
 		$Face.flip_h = true
 		$Face.position = Vector2(305, -150)
 		
-		# Ajoute le filtre bleue sur la tête
+		# Application du shader bleu sur le portrait du joueur 2
 		var mat = ShaderMaterial.new()
 		mat.shader = preload("res://Scripts/Player/blue_filter.gdshader")
-		mat.set_shader_parameter("target_color", Color(1.0, 0.0, 0.0)) # Rouge à remplacer
-		mat.set_shader_parameter("replace_color", Color(0.0, 0.4, 1.0)) # Nouveau bleu
+		mat.set_shader_parameter("target_color", Color(1.0, 0.0, 0.0)) # Couleur rouge à remplacer
+		mat.set_shader_parameter("replace_color", Color(0.0, 0.4, 1.0)) # Nouvelle teinte bleue
 		mat.set_shader_parameter("tolerance", 0.5)
 		$Face.material = mat
 		
@@ -27,5 +27,6 @@ func _ready() -> void:
 	
 	$RichTextLabel.text = "0"
 
+# Met à jour la valeur numérique affichée du compteur de dégâts
 func update_ddhealth(health: int):
 	$RichTextLabel.text = str(health)

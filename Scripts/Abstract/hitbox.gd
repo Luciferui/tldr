@@ -1,3 +1,5 @@
+## Zone d'attaque (Hitbox) associée à un attaquant (joueur, sort, etc.).
+## Gère l'activation et la désactivation différée des formes de collision selon l'attaque en cours.
 class_name Hitbox
 extends Area2D
 
@@ -8,14 +10,14 @@ var attacker : Node2D
 @export var dissociated_from_player : bool = false
 
 func _ready() -> void:
-	attacker = owner #l'objet qui attaque sera toujours la première scène au-dessus
+	attacker = owner # L'objet attaquant correspond au propriétaire de la scène
 	collision_layer = 2
 	for child in get_children():
 		if child is CollisionShape2D:
 			collision_shape_dict[child.name] = child
 
+## Active l'attaque spécifiée et active la forme de collision correspondante
 func activateAttack(attack: AttackData) -> void:
-	##active l'attaque attack:AttackData et la CollisionArea de nom attack.hitbox_name
 	if current_attack!=null:
 		deactivateAttack()
 	if attack == null:
@@ -30,8 +32,8 @@ func activateAttack(attack: AttackData) -> void:
 	current_attack = attack
 	shape.set_deferred("disabled", false)
 
+## Définit l'attaque courante pour une activation ultérieure
 func setCurrentAttack(attack: AttackData) ->void:
-	##selectionne l'attaque actuelle pour activation plus tard
 	if current_attack!=null :
 		push_warning(
 			"Attack '%s' set while other attack still current"
@@ -39,8 +41,8 @@ func setCurrentAttack(attack: AttackData) ->void:
 		)
 	current_attack = attack
 
+## Alterne l'activation de la forme de collision (utilisé selon le rythme de l'attaque)
 func flipActivationAttack(attack : AttackData) ->void:
-	##flip l'état d'activation d'une attaque (travaille avec player_attack_state.attack_timing)
 	var shape = collision_shape_dict.get(current_attack.hitbox_name)
 	if shape == null:
 		push_warning(
@@ -53,6 +55,7 @@ func flipActivationAttack(attack : AttackData) ->void:
 	else:
 		shape.set_deferred("disabled",true)
 	
+## Désactive la hitbox et libère l'attaque en cours
 func deactivateAttack() -> void:
 	if current_attack == null:
 		return
@@ -61,9 +64,11 @@ func deactivateAttack() -> void:
 		shape.set_deferred("disabled", true)
 	current_attack = null
 
+## Retourne la position globale ou locale de l'attaquant
 func getOwnerPosition() ->Vector2:
 	return attacker.position
 
+## Retourne l'orientation de l'attaquant (-1 pour gauche, 1 pour droite)
 func getOwnerOrientation() ->int:
 	if attacker.get_sprite_faces_left() :
 		return -1

@@ -1,3 +1,5 @@
+## État d'attaque du joueur : gère les attaques terrestres et aériennes (coups légers et lourds),
+## l'activation cadencée de la Hitbox et les impulsions de mouvement associées.
 class_name PlayerAttackState
 extends PlayerState
 
@@ -5,13 +7,12 @@ extends PlayerState
 @export var walk_state: PlayerState
 @export var pain_state: PlayerState
 @export var hitbox: Hitbox
-@export var totalFrameCount : int ##durée en nb frames de l'attaque
+@export var totalFrameCount : int ## Durée totale de l'attaque en nombre de frames
 var spellLauncher : Node2D
 @export var air_attack_move_speed: float = 75.0
 
-var frameCount : int ##nb frames depuis le début de l'attaque
+var frameCount : int ## Nombre de frames écoulées depuis le début du coup
 var attack_finished: bool = false
-# arrêt du personnage jusqu'a la fin de l'animation
 var animation_name: String
 var attack_timing : Array[int] = [0]
 
@@ -23,16 +24,16 @@ var air_light_attack : AttackData
 
 var gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+# Précharge les ressources d'attaque (coups au sol et en l'air)
 func _ready() -> void:
-	##load les attaques
 	super._ready()
 	kick_attack = load("res://Attacks/kick.tres")
 	punch_attack = load("res://Attacks/punch.tres")
 	air_heavy_attack = load("res://Attacks/air_heavy.tres")
 	air_light_attack = load("res://Attacks/air_light.tres")
 
+# Détermine l'attaque à exécuter, oriente le sprite/hitbox et applique la vitesse initiale du coup
 func enter() -> void:
-		
 	selectAttack()
 	
 	frameCount = 0
@@ -47,10 +48,10 @@ func enter() -> void:
 	if hitbox:
 		if sprite_flip:
 			hitbox.scale.x = -1.0
-			#flip l'axe x de la hitbox pour faire l'attaque dans l'autre sens
 		else:
 			hitbox.scale.x = 1.0
-		
+
+# Sélectionne la ressource d'attaque adaptée selon la touche (légère/lourde) et la position (sol/air)
 func selectAttack() -> void :
 	if Input.is_action_just_pressed(player.heavy_attack_action):
 		if player.is_on_floor():
@@ -67,8 +68,8 @@ func selectAttack() -> void :
 	totalFrameCount = currentAttack.total_frame_count
 	attack_timing = currentAttack.attack_timing
 	hitbox.setCurrentAttack(currentAttack)
-	
 
+# Gère la décélération du coup, l'activation/désactivation de la Hitbox aux timings prévus et la sortie
 func process_physics(delta: float) -> State:
 	super.process_physics(delta)
 	if currentAttack.is_moving:
@@ -80,7 +81,6 @@ func process_physics(delta: float) -> State:
 		player.velocity.x = 0
 	if attack_finished:
 		hitbox.deactivateAttack()
-		#attaque finie de manière standard
 		if get_movement_direction() != 0:
 			return walk_state
 		return idle_state
@@ -93,6 +93,7 @@ func process_physics(delta: float) -> State:
 	
 	return null
 
+# Désactive impérativement la Hitbox lors de la transition vers un autre état
 func exit(new_state: State = null) -> void:
 	if hitbox:
 		hitbox.deactivateAttack()

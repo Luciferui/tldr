@@ -1,10 +1,11 @@
+# Écran de fin de partie (Game Over) : affiche le vainqueur, positionne les personnages et permet le retour aux menus.
 extends Node
 
 @onready var sprite: AnimatedSprite2D = $"Gameover Sprite"
 @onready var player1:= $Player
 @onready var player2:= $Player2
 
-# Called when the node enters the scene tree for the first time.
+# Lance l'animation de fin, configure les positions selon le vainqueur et programme la transition automatique
 func _ready() -> void:
 	sprite.play(&"gameover")
 	if DataManager.player_won%2 == 1:
@@ -36,24 +37,22 @@ func _ready() -> void:
 		player2.set_collision_mask_value(2, false)
 		player2.set_collision_layer_value(2, false)
 		
-	# Supprimer tous les assets inutiles du player
+	# Suppression des éléments d'interface de combat devenus inutiles
 	$"Player/DDHealthDisplayer".visible = false
 	$"Player/Ddr".queue_free()
 	$"Player2/DDHealthDisplayer".visible = false
 	$"Player2/Ddr".queue_free()
 	
-	
-	
-	
+	# Transition automatique vers le menu des sorts après 10 secondes
 	await get_tree().create_timer(10.0).timeout
 	get_tree().change_scene_to_file("res://Scenes/spell_select_menu.tscn")
-	
-		
 
+# Permet de passer l'écran et de revenir au menu de sélection des sorts via la touche d'attaque lourde
 func _back_to_menus() -> void:
 	await get_tree().create_timer(5.0).timeout
 	if Input.is_action_just_pressed("p1_heavy"):
 		get_tree().change_scene_to_file("res://Scenes/spell_select_menu.tscn")
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+# Écoute les entrées à chaque frame pour un retour anticipé aux menus
 func _process(_delta: float) -> void:
 	_back_to_menus()
